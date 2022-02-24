@@ -2,24 +2,38 @@
 
 namespace App\Entity;
 
+use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * Utilisateur
- *
- * @ORM\Table(name="utilisateur", indexes={@ORM\Index(name="fk__id_adresse", columns={"id_adresse"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-class Utilisateur
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id_user", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
-    private $idUser;
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=180, unique=true)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
+
+    /**
+     * @var string The hashed password
+     * @ORM\Column(type="string")
+     */
+    private $password;
 
     /**
      * @var string
@@ -43,13 +57,6 @@ class Utilisateur
     private $estHomme;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="mdp", type="string", length=50, nullable=false)
-     */
-    private $mdp;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_naissance", type="date", nullable=false)
@@ -63,6 +70,7 @@ class Utilisateur
      */
     private $dateInscription;
 
+
     /**
      * @var \Adresse
      *
@@ -73,10 +81,76 @@ class Utilisateur
      */
     private $idAdresse;
 
-
-    public function getIdUser(): ?int
+    public function getId(): ?int
     {
-        return $this->idUser;
+        return $this->id;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUserIdentifier(): string
+    {
+        return (string)$this->email;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @see PasswordAuthenticatedUserInterface
+     */
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 
     public function getPrenom(): ?string
@@ -111,18 +185,6 @@ class Utilisateur
     public function setEstHomme(bool $estHomme): self
     {
         $this->estHomme = $estHomme;
-
-        return $this;
-    }
-
-    public function getMdp(): ?string
-    {
-        return $this->mdp;
-    }
-
-    public function setMdp(string $mdp): self
-    {
-        $this->mdp = $mdp;
 
         return $this;
     }
@@ -162,6 +224,4 @@ class Utilisateur
 
         return $this;
     }
-
-
 }

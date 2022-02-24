@@ -95,57 +95,9 @@
                                             ></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="*" method="get" target="_blank">
-                                                <div class="mb-3">
-                                                    <label class="form-label openS"
-                                                    >Nom d'utilisateur</label
-                                                    >
-                                                    <input
-                                                            type="email"
-                                                            class="form-control"
-                                                            id="username"
-                                                            name="username"
-                                                            placeholder="Nom d'utilisateur"
-                                                    />
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label openS"
-                                                    >Mot de passe</label
-                                                    >
-                                                    <input
-                                                            type="password"
-                                                            class="form-control"
-                                                            id="password"
-                                                            name="password"
-                                                            placeholder="Mot de passe"
-                                                    />
-                                                </div>
-                                                <div class="mb-3 form-check">
-                                                    <input
-                                                            type="checkbox"
-                                                            class="form-check-input"
-                                                            id="rememberMe"
-                                                    />
-                                                    <label
-                                                            class="form-check-label openS"
-                                                            for="rememberMe"
-                                                    >Se souvenir de moi</label
-                                                    >
-                                                </div>
-                                                <div class="modal-footer d-block">
-                                                    <p class="float-start openS">
-                                                        Pas encore de compte ?<a href="Compte.html">
-                                                            S'enregistrer</a
-                                                        >
-                                                    </p>
-                                                    <button
-                                                            type="submit"
-                                                            class="btn btn-primary float-end"
-                                                    >
-                                                        Se connecter
-                                                    </button>
-                                                </div>
-                                            </form>
+
+                                            {{ render(controller('App\\Controller\\SecurityController::login')) }}
+
                                         </div>
                                     </div>
                                 </div>
