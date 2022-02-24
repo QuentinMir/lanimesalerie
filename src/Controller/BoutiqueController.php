@@ -96,7 +96,7 @@ class BoutiqueController extends AbstractController
         /************************ Si on soumet le formulaire de recherche de la navbar ************************/
         if ($formSearchBar->isSubmitted() && $formSearchBar->isValid()) {
 
-            $filters = ['ordre' => null, 'searchBar' => array_values($formSearchBar->getData())[0], 'marque' => null, 'prixMin' => null, 'prixMax' => null];
+            $filters = ['ordre' => null, 'searchBar' => $formSearchBar->get('rechercheNav')->getData(), 'marque' => null, 'prixMin' => null, 'prixMax' => null];
 
             $nbProduits = $this->initSearch($pr, $filters, $pageCourante, $nbResultats)[0];
             $nbPage = $this->initSearch($pr, $filters, $pageCourante, $nbResultats)[1];
