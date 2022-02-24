@@ -1,4 +1,19 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_row(form.nom) }}
+
+{% if souscategorie.idSousCategorie is not null %}
+    <div>
+        <p>Image actuelle</p>
+        <img src="{{ asset('uploads/imagessouscat/'~ souscategorie.imageLink) }}">
+    </div>
+
+    <p>Choisissez un fichier seulement si vous souhaitez changer l'image</p>
+    {{ form_row(form.imageLink, {'required': false}) }}
+{% else %}
+
+    {{ form_row(form.imageLink, {'required': true}) }}
+
+{% endif %}
+
+<button class="btn mt-2">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}

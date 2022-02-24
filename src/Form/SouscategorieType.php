@@ -18,10 +18,11 @@ class SouscategorieType extends AbstractType
             ->add('imageLink', FileType::class, [
                 'label' => 'Ajouter une image',
                 'mapped' => false,
-                'required' => true,
-                'contraints' => [
+                'required' => false,
+                'constraints' => [
                     new File([
                         'maxSize' => '1024k',
+                        'maxSizeMessage' => 'Le fichier est trop lourd',
                         'mimeTypes' => [
                             'image/png',
                             'image/jpeg'

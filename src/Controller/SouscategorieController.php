@@ -27,13 +27,32 @@ class SouscategorieController extends AbstractController
     }
 
     #[Route('/new', name: 'souscategorie_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $souscategorie = new Souscategorie();
         $form = $this->createForm(SouscategorieType::class, $souscategorie);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $image = $form->get('imageLink')->getData();
+
+            if ($image) { // Génération d'un nouveau nom sécurisé et unique
+                $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $image->guessExtension();
+
+
+                $image->move(
+                    $this->getParameter('images_souscategories'),
+                    $newFilename
+                );
+
+                // Dans ma BDD, j'ajoute le nom unique du fichier pour le retrouver
+                $souscategorie->setImageLink($newFilename);
+            }
+
+
             $entityManager->persist($souscategorie);
             $entityManager->flush();
 
@@ -55,12 +74,29 @@ class SouscategorieController extends AbstractController
     }
 
     #[Route('/{idSousCategorie}/edit', name: 'souscategorie_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Souscategorie $souscategorie, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Souscategorie $souscategorie, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(SouscategorieType::class, $souscategorie);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $image = $form->get('imageLink')->getData();
+            if ($image) { // Génération d'un nouveau nom sécurisé et unique
+                $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $image->guessExtension();
+
+
+                $image->move(
+                    $this->getParameter('images_souscategories'),
+                    $newFilename
+                );
+
+                // Dans ma BDD, j'ajoute le nom unique du fichier pour le retrouver
+                $souscategorie->setImageLink($newFilename);
+            }
+
             $entityManager->flush();
 
             return $this->redirectToRoute('souscategorie_index', [], Response::HTTP_SEE_OTHER);
