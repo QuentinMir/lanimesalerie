@@ -1,0 +1,13 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Edit Souscategorie{% endblock %}
+
+{% block body %}
+    <h1>Edit Souscategorie</h1>
+
+    {{ include('souscategorie/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('souscategorie_index') }}">back to list</a>
+
+    {{ include('souscategorie/_delete_form.html.twig') }}
+{% endblock %}

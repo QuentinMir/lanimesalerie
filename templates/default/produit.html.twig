@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="container">
+        <h1>page produit</h1>
+
+        <a href="{{ path('default') }}" class="btn btn-outline-primary">Retour</a>
+        <div class="row">
+
+            <div class="card" style="width: 18rem;">
+                <img src="{{ produit.images | first }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"> nom : {{ produit.nom }} </h5>
+                    <p class="card-text"> description : {{ produit.description | u.truncate(100, '...') }}</p>
+                    <p class="card-text">categorie : {{ produit.idCategorie.nom }}</p>
+                    <p class="card-text">Sous catégorie : {{ produit.idSousCategorie.nom }}</p>
+                    <p class="card-text"> sub sous catégorie : {{ produit.idSubSousCategorie.nom }}</p>
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+{% endblock %}

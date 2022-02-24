@@ -1,0 +1,1312 @@
+<header>
+    <!-- header top -->
+    <div class="bg-head-top py-3">
+        <div class="container">
+            <!-- row tosvg-exportp -->
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-6 d-flex">
+                    <!-- Sous- row -->
+                    <div class="row align-items-end">
+                        <div class="col-lg-5 col-sm-12">
+                            <!-- logo -->
+                            <a href="{{ path('default') }}">
+                                <img
+                                        src="images/logo-svg.svg"
+                                        class="img-fluid mb-lg-1 mb-3"
+                                        height="39"
+                                        width="210"
+                                        title="logo"
+                                />
+                            </a>
+                        </div>
+
+                        <!-- barre de recherche -->
+                        <div class="col-lg-7 col-sm-12 d-flex align-items-center mb-1">
+                            {# <input
+                                    class="search-h search-w"
+                                    type="search"
+                                    size="30"
+                                    id="site-search"
+                                    placeholder="Chercher sur le site"
+                                    aria-label="Search through site content"
+                            />
+
+                            <button class="ms-2 bouton-nav d-flex search-h">
+                                <i class="fas fa-search"></i>
+                            </button> #}
+
+                            {{ render(controller('App\\Controller\\NavSearchController::formNavBar')) }}
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-6 mt-2">
+                    <!-- Sous- row -->
+                    <div class="row align-items-center">
+                        <div class="col-lg-4 col-4">
+                            <!-- Button trigger modal -->
+                            <button
+                                    type="button"
+                                    class="btn text-white montserrat fs-14 lh-sm compte compte-small d-flex"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal"
+                            >
+                                <!-- icon compte -->
+
+                                <svg
+                                        class="me-lg-2 mb-1 text-center"
+                                        width="20"
+                                        height="20"
+                                        viewbox="0 0 28 27"
+                                >
+                                    <g id="Account" transform="translate(-2 -3)">
+                                        <path
+                                                id="Tracé_44"
+                                                data-name="Tracé 44"
+                                                d="M21.947,16.332a8.017,8.017,0,1,0-1.714,1.444A11.978,11.978,0,0,1,27.959,28H4.042A12.006,12.006,0,0,1,8.12,19.949a1,1,0,1,0-1.314-1.508A14,14,0,0,0,2,29a1,1,0,0,0,1,1H29a1,1,0,0,0,1-1A13.975,13.975,0,0,0,21.947,16.332ZM10,11a6,6,0,1,1,6,6A6.006,6.006,0,0,1,10,11Z"
+                                                fill="#fcfbf6"
+                                        />
+                                    </g>
+                                </svg>
+
+                                <em class="d-none d-sm-block d-lg-block"> Mon compte </em>
+                            </button>
+
+                            <!-- Modal -->
+                            <div
+                                    class="modal fade"
+                                    id="exampleModal"
+                                    tabindex="-1"
+                                    aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true"
+                            >
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">
+                                                Se connecter
+                                            </h5>
+                                            <button
+                                                    type="button"
+                                                    class="btn-close"
+                                                    data-bs-dismiss="modal"
+                                                    aria-label="Close"
+                                            ></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="*" method="get" target="_blank">
+                                                <div class="mb-3">
+                                                    <label class="form-label openS"
+                                                    >Nom d'utilisateur</label
+                                                    >
+                                                    <input
+                                                            type="email"
+                                                            class="form-control"
+                                                            id="username"
+                                                            name="username"
+                                                            placeholder="Nom d'utilisateur"
+                                                    />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label openS"
+                                                    >Mot de passe</label
+                                                    >
+                                                    <input
+                                                            type="password"
+                                                            class="form-control"
+                                                            id="password"
+                                                            name="password"
+                                                            placeholder="Mot de passe"
+                                                    />
+                                                </div>
+                                                <div class="mb-3 form-check">
+                                                    <input
+                                                            type="checkbox"
+                                                            class="form-check-input"
+                                                            id="rememberMe"
+                                                    />
+                                                    <label
+                                                            class="form-check-label openS"
+                                                            for="rememberMe"
+                                                    >Se souvenir de moi</label
+                                                    >
+                                                </div>
+                                                <div class="modal-footer d-block">
+                                                    <p class="float-start openS">
+                                                        Pas encore de compte ?<a href="Compte.html">
+                                                            S'enregistrer</a
+                                                        >
+                                                    </p>
+                                                    <button
+                                                            type="submit"
+                                                            class="btn btn-primary float-end"
+                                                    >
+                                                        Se connecter
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-4">
+                            <a
+                                    href=""
+                                    class="d-flex-navtop align-items-center justify-content-center"
+                            >
+                                <!-- icon boite -->
+                                <svg
+                                        class="me-2"
+                                        width="22"
+                                        height="22"
+                                        viewbox="0 0 32.923 31.525"
+                                >
+                                    <g
+                                            id="boite_carton_1"
+                                            data-name="boite carton 1"
+                                            transform="translate(0 -5.224)"
+                                    >
+                                        <g
+                                                id="Groupe_350"
+                                                data-name="Groupe 350"
+                                                transform="translate(0 5.224)"
+                                        >
+                                            <path
+                                                    id="Tracé_37"
+                                                    data-name="Tracé 37"
+                                                    d="M107.9,20.756a.785.785,0,0,0,.56-.237l2.722-2.794a.78.78,0,0,0-1.119-1.089l-2.724,2.794a.782.782,0,0,0,.561,1.325Z"
+                                                    transform="translate(-92.776 -14.903)"
+                                                    fill="#fcfbf6"
+                                            />
+                                            <path
+                                                    id="Tracé_38"
+                                                    data-name="Tracé 38"
+                                                    d="M83.2,10.686h.012a.782.782,0,0,0,.769-.791L83.935,6a.8.8,0,0,0-.792-.771.78.78,0,0,0-.769.79l.049,3.9A.781.781,0,0,0,83.2,10.686Z"
+                                                    transform="translate(-71.347 -5.224)"
+                                                    fill="#fcfbf6"
+                                            />
+                                            <path
+                                                    id="Tracé_39"
+                                                    data-name="Tracé 39"
+                                                    d="M41.837,25.868a.771.771,0,0,0,.544.223.78.78,0,0,0,.545-1.339L40.134,22.03a.779.779,0,1,0-1.088,1.116Z"
+                                                    transform="translate(-33.614 -19.586)"
+                                                    fill="#fcfbf6"
+                                            />
+                                            <path
+                                                    id="Tracé_40"
+                                                    data-name="Tracé 40"
+                                                    d="M32.592,65.777c-.014-.007-.027,0-.039-.005a.762.762,0,0,0-.5-.366L12.061,61.5a.724.724,0,0,0-.418.035L.833,65.518c-.11.04-.159.141-.237.218-.108.028-.226.009-.312.08a.773.773,0,0,0-.284.6V80.8a.779.779,0,0,0,.632.766l20.312,3.9a.7.7,0,0,0,.146.016c.015,0,.026-.012.037-.012s.031.012.045.012a.844.844,0,0,0,.265-.045l10.969-3.9a.779.779,0,0,0,.517-.735V66.418A.8.8,0,0,0,32.592,65.777Zm-20.618-2.7,17.577,3.434-2.621.931c-.049-.021-.071-.075-.124-.084L9.517,63.981ZM21.08,69.52,3.589,66.163,6.7,65.019l17.455,3.409Zm-.773,14.232-18.751-3.6V67.36l18.751,3.6Zm11.055-3.5L21.954,83.6V70.867l9.408-3.346Z"
+                                                    transform="translate(0 -53.955)"
+                                                    fill="#fcfbf6"
+                                            />
+                                        </g>
+                                    </g>
+                                </svg>
+                                <p class="my-0 d-none d-sm-block d-lg-block">
+                                    Mes commandes
+                                </p>
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-4">
+                            <a
+                                    href="{{ path('panier_display') }}"
+                                    class="d-flex-navtop align-items-center justify-content-end"
+                            >
+                                <div class="link-header-panier">
+
+                                    <!-- icon panier -->
+                                    <svg
+                                            class="me-2"
+                                            width="20"
+                                            height="20"
+                                            viewbox="0 0 28.119 28.119"
+                                    >
+                                        <path
+                                                id="Panier"
+                                                data-name="panier"
+                                                d="M9.436,24.5a2.812,2.812,0,1,0,2.812,2.812A2.808,2.808,0,0,0,9.436,24.5ZM1,2V4.812H3.812L8.873,15.483l-1.9,3.445a2.718,2.718,0,0,0-.351,1.35,2.82,2.82,0,0,0,2.812,2.812H26.307V20.277H10.026a.348.348,0,0,1-.351-.351l.042-.169,1.265-2.292H21.457a2.8,2.8,0,0,0,2.46-1.448L28.95,6.893a1.374,1.374,0,0,0,.169-.675,1.41,1.41,0,0,0-1.406-1.406H6.919L5.6,2H1ZM23.5,24.5a2.812,2.812,0,1,0,2.812,2.812A2.808,2.808,0,0,0,23.5,24.5Z"
+                                                transform="translate(-1 -2)"
+                                                fill="#fcfbf6"
+                                        />
+
+                                    </svg>
+                                    {% if app.request.session.get('panier') | length > 0 %}
+                                        <p class="text-panier">{{ app.request.session.get('panier') | length }}</p>
+                                    {% endif %}
+                                </div>
+                                <p class="my-0 d-none d-sm-block d-lg-block">Mon panier</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- nav bar -->
+    <div class="bg-white shadow">
+        <nav class="py-0 navbar navbar-expand-lg navbar-light">
+            <div class="container justify-content-end">
+                <button
+                        class="navbar-toggler custom-toggler my-1"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                >
+                    <span>navigation</span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div
+                        class="collapse align-items-end navbar-collapse"
+                        id="navbarSupportedContent"
+                >
+                    <!-- w-100 justify-content-between pour étirer -->
+                    <ul class="navbar-nav w-100 mb-2 mb-lg-0">
+                        <!-- Offre spéciale-->
+                        <li class="nav-item me-auto">
+                            <a
+                                    class="nav-link py-1 d-flex no-ps"
+                                    aria-current="page"
+                                    href="boutique.html"
+                            >
+                                <!-- icon offre spéciale -->
+                                <svg
+                                        class="d-flex align-self-center"
+                                        width="22"
+                                        height="22"
+                                        viewbox="0 0 28.974 27.774"
+                                >
+                                    <path
+                                            id="Tracé_45"
+                                            data-name="Tracé 45"
+                                            d="M198.728,266.949a4.373,4.373,0,0,1-1-.967,4.255,4.255,0,0,1,.242-1.451c.29-1.085.62-2.314-.1-3.3s-2-1.063-3.131-1.12a4.265,4.265,0,0,1-1.434-.21,4.367,4.367,0,0,1-.628-1.282c-.4-1.063-.863-2.267-2.048-2.652-1.149-.373-2.207.314-3.14.92a4.243,4.243,0,0,1-1.338.69,4.242,4.242,0,0,1-1.338-.69c-.933-.606-1.991-1.293-3.14-.92-1.185.385-1.644,1.589-2.049,2.652a4.368,4.368,0,0,1-.628,1.282,4.264,4.264,0,0,1-1.434.21c-1.128.058-2.406.123-3.131,1.12s-.391,2.219-.1,3.3a4.257,4.257,0,0,1,.242,1.451,4.376,4.376,0,0,1-1,.967c-.848.682-1.9,1.532-1.9,2.795s1.056,2.113,1.9,2.8a4.378,4.378,0,0,1,1,.967,4.257,4.257,0,0,1-.242,1.451c-.29,1.085-.62,2.314.1,3.3s2,1.063,3.131,1.12a4.268,4.268,0,0,1,1.434.21,4.37,4.37,0,0,1,.628,1.282c.4,1.063.863,2.267,2.049,2.652a2.146,2.146,0,0,0,.667.106,4.828,4.828,0,0,0,2.472-1.026,4.243,4.243,0,0,1,1.338-.69,4.241,4.241,0,0,1,1.337.69c.933.606,1.991,1.293,3.14.92,1.185-.385,1.644-1.589,2.048-2.652a4.365,4.365,0,0,1,.629-1.282,4.264,4.264,0,0,1,1.434-.21c1.128-.058,2.406-.124,3.131-1.12s.391-2.219.1-3.3a4.255,4.255,0,0,1-.242-1.451,4.375,4.375,0,0,1,1-.967c.848-.683,1.9-1.532,1.9-2.8S199.577,267.631,198.728,266.949ZM179.6,265.8a2.065,2.065,0,1,1,2.065,2.065A2.065,2.065,0,0,1,179.6,265.8Zm2.306,9.7-1.751-1.8,10.657-10.358,1.751,1.8Zm8.608.859a2.065,2.065,0,1,1,2.065-2.065,2.065,2.065,0,0,1-2.065,2.065Z"
+                                            transform="translate(-171.659 -255.857)"
+                                            fill="#be323d"
+                                    />
+                                </svg>
+
+                                <div class="text-dd">
+                                    <p class="my-0 ms-2">Offres spéciales</p>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- dropdown chien-->
+
+                        <li class="border-start border-2 my-1"></li>
+                        <li class="nav-item dropdown m-nav-item align-self-center">
+                            <a
+                                    class="nav-link py-1 d-flex justify-content-end"
+                                    href="#"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                            >
+                                <!-- icone et texte -->
+                                <!-- iench icone -->
+                                <img
+                                        class="d-flex align-self-center"
+                                        src="images/dog-seating.svg"
+                                        width="23"
+                                        alt="chien assis"
+                                />
+                                <div class="text-dd">
+                                    <p class="my-0 ms-2">Chien</p>
+                                </div>
+                                <!-- ########################### -->
+                            </a>
+
+                            <!-- début du bloc dropdown collapse -->
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="sous-categories.html"
+                                    >Tout pour le chien</a
+                                    >
+                                </li>
+                                <li>
+                                    <hr class="hr-border dropdown-divider"/>
+                                </li>
+
+                                <!-- item nav 1 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="boutique.html"
+                                    >
+                                        <div>Nourriture</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Croquettes</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Nourriture humide</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Friandises</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <!-- item nav 2 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="boutique.html"
+                                    >
+                                        <div>Couchage</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Paniers</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Tapis</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Corbeilles</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Niches</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <!-- item nav 3 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="boutique.html"
+                                    >
+                                        <div>Promenade</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Laisses</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Colliers</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Harnais</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Muselières</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <!-- item nav 4 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="boutique.html"
+                                    >
+                                        <div>Jouets</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Balles</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Peluches</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Jouets à mordiller</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Cordes</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <!-- item nav 5 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="boutique.html"
+                                    >
+                                        <div>Soins</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Toilettage</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Collerettes & Bandages</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Brosses</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Hygiène dentaire</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Puces & tiques</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <!-- item nav 6 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="boutique.html"
+                                    >
+                                        <div>Gamelles</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Gamelles</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Distributeur de croquettes</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="boutique.html"
+                                            >Fontaine à eau</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <hr class="hr-border dropdown-divider"/>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-red" href="boutique.html"
+                                    >Meilleures ventes</a
+                                    >
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item text-red" href="boutique.html"
+                                    >Offres spéciales</a
+                                    >
+                                </li>
+
+                                <!-- ######################### -->
+                            </ul>
+                        </li>
+                        <!-- ######################### -->
+
+                        <!-- dropdown chat-->
+                        <li class="border-start border-2 my-1"></li>
+                        <li class="nav-item dropdown m-nav-item align-self-center">
+                            <a
+                                    class="nav-link py-1 d-flex justify-content-end"
+                                    href="#"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                            >
+                                <!-- Contenu -->
+                                <div class="d-flex align-self-center">
+                                    <img
+                                            src="images/sitting-cat.svg"
+                                            width="25"
+                                            alt="chien assis"
+                                    />
+                                </div>
+                                <div class="text-dd">
+                                    <p class="my-0 ms-2">Chat</p>
+                                </div>
+                                <!-- ########################### -->
+                            </a>
+                            <!-- début du bloc dropdown collapse -->
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="#">Tout pour le chat</a>
+                                </li>
+                                <li>
+                                    <hr class="hr-border dropdown-divider"/>
+                                </li>
+
+                                <!-- item nav 1 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Nourriture</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Croquettes</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#"
+                                            >Nourriture humide</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Friandises</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <!-- item nav 2 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Couchage</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Lits</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Coussins</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Couverture</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <!-- item nav 3 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Soin & hygiène</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Litières</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Bacs à litière</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Toilettage</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Hygiène dentaire</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#"
+                                            >Collerette & bandage</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Puces et tiques</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <!-- item nav 4 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Gamelles</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Gamelles</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#"
+                                            >Distributeur croquette</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Fontaine à eau</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <!-- item nav 5 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Transport</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Laisses</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Caisses</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Colliers</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <!-- item nav 6 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Jouets</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Souris & balles</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Tunnels</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Cannes à pêche </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#"
+                                            >Jouets électroniques</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <li>
+                                    <hr class="hr-border dropdown-divider"/>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-red" href="#"
+                                    >Meilleures ventes</a
+                                    >
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item text-red" href="#"
+                                    >Offres spéciales</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- ######################### -->
+
+                        <!-- dropdown rongeur-->
+                        <li class="border-start border-2 my-1"></li>
+                        <li class="nav-item dropdown m-nav-item align-self-center">
+                            <a
+                                    class="nav-link py-1 d-flex justify-content-end"
+                                    href="#"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                            >
+                                <div class="d-flex align-self-center">
+                                    <img
+                                            src="images/rat-silhouette.svg"
+                                            width="25"
+                                            alt="rongeur"
+                                    />
+                                </div>
+                                <div class="text-dd">
+                                    <p class="my-0 ms-2">Rongeur</p>
+                                </div>
+                            </a>
+                            <!-- début du bloc dropdown collapse -->
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                    >Tout pour les rongeurs
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="hr-border dropdown-divider"/>
+                                </li>
+
+                                <!-- item nav 1 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Nourriture</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Croquettes</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#"
+                                            >Nourriture humide</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Friandises</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <!-- item nav 2 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Couchage</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Paniers</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Tapis</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Corbeilles</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Niches</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <!-- item nav 4 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Jouets</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Balles</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Peluches</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#"
+                                            >Jouets à mordiller</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Cordes</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <!-- item nav 5 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Soins</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Toilettage</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#"
+                                            >Collerettes & Bandages</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Brosses</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Hygiène dentaire</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Puces & tiques</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <li>
+                                    <hr class="hr-border dropdown-divider"/>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-red" href="#"
+                                    >Meilleures ventes</a
+                                    >
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item text-red" href="#"
+                                    >Offres spéciales</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- ######################### -->
+
+                        <!-- dropdown oiseau-->
+                        <li class="border-start border-2 my-1"></li>
+                        <li class="nav-item dropdown m-nav-item align-self-center">
+                            <a
+                                    class="nav-link py-1 d-flex justify-content-end"
+                                    href="#"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                            >
+                                <div class="d-flex">
+                                    <img src="images/pigeon.svg" width="24" alt="Oiseaux"/>
+                                </div>
+                                <div class="text-dd">
+                                    <p class="my-0 ms-2">Oiseau</p>
+                                </div>
+                            </a>
+                            <!-- début du bloc dropdown collapse -->
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                    >Tout pour les oiseaux</a
+                                    >
+                                </li>
+                                <li>
+                                    <hr class="hr-border dropdown-divider"/>
+                                </li>
+
+                                <!-- item nav 1 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Nourriture</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Nourriture</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Friandises</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <li>
+                                    <a class="dropdown-item" href="#">Cages</a>
+                                </li>
+                                <!-- item nav 3 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Volière</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Volières</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Litière & sable</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <!-- item nav 4 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Jouets</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Jouets</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Perchoirs</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <li>
+                                    <a class="dropdown-item" href="#">Soins</a>
+                                </li>
+                                <li>
+                                    <hr class="hr-border dropdown-divider"/>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-red" href="#"
+                                    >Meilleures ventes</a
+                                    >
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item text-red" href="#"
+                                    >Offres spéciales</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- ######################### -->
+
+                        <!-- dropdown aquatique-->
+                        <li class="border-start border-2 my-1"></li>
+                        <li class="nav-item dropdown m-nav-item align-self-center">
+                            <a
+                                    class="nav-link py-1 d-flex justify-content-end"
+                                    href="#"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                            >
+                                <div class="d-flex align-self-center">
+                                    <img src="images/fish.svg" width="20" alt="Poisson"/>
+                                </div>
+                                <div class="text-dd">
+                                    <p class="my-0 ms-2">Aquatique</p>
+                                </div>
+                            </a>
+                            <!-- début du bloc dropdown collapse -->
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                    >Tout pour le monde aquatique</a
+                                    >
+                                </li>
+                                <li>
+                                    <hr class="hr-border dropdown-divider"/>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="#">Nourriture</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Aquarium</a>
+                                </li>
+                                <!-- item nav 3 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Technologie d'aquariums</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Eclairage</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Filtres</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Ventilation</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Pompes</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Chauffage</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <!-- item nav 4 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Accessoires d'aquarium</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Outils</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Décoration</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <!-- item nav 5 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Entretien</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#"
+                                            >Lutte contre les algues</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Nettoyage</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#"
+                                            >Traitement de l'eau</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Testeur d'eau</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <li>
+                                    <hr class="hr-border dropdown-divider"/>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-red" href="#"
+                                    >Meilleures ventes</a
+                                    >
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item text-red" href="#"
+                                    >Offres spéciales</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- ######################### -->
+
+                        <!-- dropdown terrarium-->
+                        <li class="border-start border-2 my-1"></li>
+                        <li class="nav-item dropdown m-nav-item align-self-center">
+                            <a
+                                    class="nav-link py-1 d-flex justify-content-end"
+                                    href="#"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                            >
+                                <div class="d-flex">
+                                    <img src="images/gecko.svg" width="24" alt="reptile"/>
+                                </div>
+                                <div class="text-dd">
+                                    <p class="my-0 ms-2">Terrarium</p>
+                                </div>
+                            </a>
+                            <!-- début du bloc dropdown collapse -->
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="#"
+                                    >Tout pour les reptiles</a
+                                    >
+                                </li>
+                                <li>
+                                    <hr class="hr-border dropdown-divider"/>
+                                </li>
+
+                                <!-- item nav 1 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Nourriture</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#"
+                                            >Nourriture humide</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Friandises</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <!-- item nav 2 -->
+                                <li>
+                                    <a
+                                            class="dropdown-item d-flex align-items-center justify-content-between"
+                                            href="#"
+                                    >
+                                        <div>Terrariums</div>
+                                        <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-submenu">
+                                        <li>
+                                            <a class="dropdown-item" href="#">Terrariums</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Eclairage</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Pompes</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Chauffage</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ######################### -->
+                                <li>
+                                    <hr class="hr-border dropdown-divider"/>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-red" href="#"
+                                    >Meilleures ventes</a
+                                    >
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item text-red" href="#"
+                                    >Offres spéciales</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- ######################### -->
+
+                        <!-- item -->
+                        <li class="border-start border-2 my-1"></li>
+                        <li class="nav-item ms-auto align-self-center">
+                            <a
+                                    class="nav-link py-1 d-flex active no-pe"
+                                    aria-current="page"
+                                    href="Animalerie-3.0.html"
+                            >
+                                <div class="d-flex align-self-center">
+                                    <img src="images/planets.svg" width="22" alt="planète"/>
+                                </div>
+                                <div class="text-dd">
+                                    <p class="my-0 ms-2">L'animalerie 3.0</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- réassurance -->
+    <div class="bg-degrad-lightblue shadow">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg">
+                    <div></div>
+                </div>
+                <div class="col-lg-3 col-4">
+                    <div
+                            class="d-flex justify-content-start align-items-center h-100"
+                    >
+                        <img
+                                class="icon-nav-top me-2 svg"
+                                src="svg-export/local_shipping_black_24dp.svg"
+                                width="20"
+                                height="20"
+                                alt="Camion de livraison"
+                        />
+                        <p class="my-0 text-center text-navbot">Livraison en 24h</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-4">
+                    <div
+                            class="d-flex justify-content-center align-items-center h-100"
+                    >
+                        <img
+                                class="icon-nav-bot me-2 mb-1 svg"
+                                src="svg-export/secure-payment.svg"
+                                width="13"
+                                height="16"
+                                alt="Paiement sécurisé"
+                        />
+                        <p class="my-0 text-center text-navbot">Paiement sécurisé</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-4">
+                    <div class="d-flex justify-content-end align-items-center h-100">
+                        <img
+                                class="icon-nav-bot me-2 mb-1 svg"
+                                src="svg-export/refund.svg"
+                                alt="remboursement"
+                                width="14"
+                                height="16"
+                        />
+                        <p class="my-0 text-center text-navbot">
+                            Remboursement sous 30 j
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

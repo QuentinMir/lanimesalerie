@@ -1,0 +1,906 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="2087" viewBox="0 0 1920 2087">
+  <defs>
+    <filter id="Bg_" x="468" y="1417" width="422" height="394.007" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-color="#152232" flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Bg" x="462" y="351" width="1171" height="525" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur-2"/>
+      <feFlood flood-color="#152232" flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <rect x="497" width="1004" height="368" fill="none"/>
+    </clipPath>
+    <filter id="Line" x="585.825" y="543.669" width="1113.761" height="146.104" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-3"/>
+      <feFlood flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Line-2" x="-503.182" y="611.174" width="1121.607" height="136.455" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-4"/>
+      <feFlood flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="BG-2" x="1278.5" y="485.5" width="200" height="153" filterUnits="userSpaceOnUse">
+      <feOffset dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="7.5" result="blur-5"/>
+      <feFlood flood-color="#44444f" flood-opacity="0.102"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Bg-3" x="468" y="884" width="1171" height="525" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur-6"/>
+      <feFlood flood-color="#152232" flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur-6"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Line-3" x="585.825" y="1075.669" width="1113.761" height="146.104" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-7"/>
+      <feFlood flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur-7"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Line-4" x="-503.182" y="1143.174" width="1121.607" height="136.455" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-8"/>
+      <feFlood flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur-8"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="BG-4" x="1085.5" y="1086.5" width="188" height="153" filterUnits="userSpaceOnUse">
+      <feOffset dy="-5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="7.5" result="blur-9"/>
+      <feFlood flood-color="#44444f" flood-opacity="0.102"/>
+      <feComposite operator="in" in2="blur-9"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Bgg" x="468" y="1811" width="212" height="186" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur-10"/>
+      <feFlood flood-color="#152232" flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur-10"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Bgg-2" x="1399" y="181" width="232" height="162" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur-11"/>
+      <feFlood flood-color="#152232" flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur-11"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Bgg-3" x="695" y="181" width="232" height="162" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur-12"/>
+      <feFlood flood-color="#152232" flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur-12"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Bgg-4" x="930" y="181" width="232" height="162" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur-13"/>
+      <feFlood flood-color="#152232" flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur-13"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Bgg-5" x="1164" y="181" width="232" height="162" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur-14"/>
+      <feFlood flood-color="#152232" flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur-14"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Bgg-6" x="460" y="181" width="232" height="162" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur-15"/>
+      <feFlood flood-color="#152232" flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur-15"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle" x="-6" y="-5" width="1932" height="80" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur-16"/>
+      <feFlood flood-color="#152232" flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur-16"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_1541" x="899" y="1417" width="740" height="580" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur-17"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-17"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path-3">
+      <rect y="7" width="756" height="336" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-4">
+      <rect width="756" height="421" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-Dashboard">
+      <rect width="1920" height="2087"/>
+    </clipPath>
+  </defs>
+  <g id="Dashboard" clip-path="url(#clip-Dashboard)">
+    <rect width="1920" height="2087" fill="#f2f2f2"/>
+    <g id="Sales_Breakdown_by_Product" data-name="Sales Breakdown by Product" transform="translate(13433 781)">
+      <g transform="matrix(1, 0, 0, 1, -13433, -781)" filter="url(#Bg_)">
+        <rect id="Bg_2" data-name="Bg " width="410" height="382.007" rx="6" transform="translate(474 1422)" fill="#fff"/>
+      </g>
+      <rect id="Line-5" data-name="Line" width="350" height="1" transform="translate(-12929 992.007)" fill="#e6e9f4"/>
+      <g id="Breakdown_by_Products" data-name="Breakdown by Products" transform="translate(0 -0.993)">
+        <g id="Item_" data-name="Item " transform="translate(382 -223)">
+          <text id="_0-18_years" data-name="0-18 years" transform="translate(-13279 1185)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">Nouveaux clients</tspan></text>
+          <rect id="Rectangle-2" data-name="Rectangle" width="12" height="12" rx="2" transform="translate(-13311 1174)" fill="#21d59b"/>
+          <text id="_50_" data-name="50%" transform="translate(-13011 1170)" fill="#131523" font-size="14" font-family="OpenSans-Bold, Open Sans" font-weight="700"><tspan x="21.405" y="15">25%</tspan></text>
+        </g>
+        <g id="Item_2" data-name="Item " transform="translate(382 -258)">
+          <text id="_0-18_years-2" data-name="0-18 years" transform="translate(-13279 1185)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">Clients existants</tspan></text>
+          <rect id="Rectangle-3" data-name="Rectangle" width="12" height="12" rx="2" transform="translate(-13311 1174)" fill="#0058ff"/>
+          <text id="_50_2" data-name="50%" transform="translate(-13011 1170)" fill="#131523" font-size="14" font-family="OpenSans-Bold, Open Sans" font-weight="700"><tspan x="21.405" y="15">75%</tspan></text>
+        </g>
+      </g>
+      <g id="Item_3" data-name="Item " transform="translate(-77 -221.5)">
+        <g id="Diagram" transform="translate(-12754 946.5)">
+          <path id="Circle" d="M76.723,0A76.723,76.723,0,1,1,10.281,38.362,76.72,76.72,0,0,1,76.723,0V10.23a66.494,66.494,0,1,0,57.585,33.247A66.493,66.493,0,0,0,76.723,10.23Z" transform="translate(0)" fill="rgba(69,90,100,0)"/>
+          <path id="Segment" d="M0,0A76.76,76.76,0,0,1,41.763,12.361L36.2,20.945A66.517,66.517,0,0,0,0,10.23Z" transform="translate(77.576 2.557)" fill="#0058ff"/>
+          <path id="Segment-2" data-name="Segment" d="M5.567,0A76.722,76.722,0,0,1,40.425,68.343a76.741,76.741,0,0,1-12.762,38.549l-8.516-5.669a66.492,66.492,0,0,0,4.245-66.357A66.457,66.457,0,0,0,0,8.584Z" transform="translate(113.772 14.918)" fill="#21d59b"/>
+          <path id="Segment-3" data-name="Segment" d="M140.582,110.592A76.726,76.726,0,1,1,41.319,0l4.723,9.07a66.493,66.493,0,1,0,86.024,95.853Z" transform="translate(0.853 11.219)" fill="#0058ff"/>
+          <path id="Segment-4" data-name="Segment" d="M0,8.661A76.748,76.748,0,0,1,35.4,0V10.23a66.515,66.515,0,0,0-30.681,7.5Z" transform="translate(42.172 2.557)" fill="#0058ff"/>
+        </g>
+      </g>
+      <text id="New_Customers" data-name="New Customers" transform="translate(-12929 690)" fill="#131523" font-size="18" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.006em"><tspan x="0" y="0">Récurrence commande client</tspan></text>
+    </g>
+    <g id="Total_Sales" data-name="Total Sales" transform="translate(468 356)">
+      <g transform="matrix(1, 0, 0, 1, -468, -356)" filter="url(#Bg)">
+        <rect id="Bg-5" data-name="Bg" width="1159" height="513" rx="6" transform="translate(468 356)" fill="#fff"/>
+      </g>
+      <g id="Chart" transform="translate(48 115)">
+        <g id="Value" transform="translate(0 2)">
+          <g id="_0" data-name="0" transform="translate(23 316)">
+            <text id="_0-2" data-name="0" transform="translate(9 15)" fill="#7e84a3" font-size="14" font-family="Poppins-Regular, Poppins" letter-spacing="0.007em"><tspan x="-8.792" y="0">0</tspan></text>
+          </g>
+          <g id="_200" data-name="200" transform="translate(6 248)">
+            <text id="_200-2" data-name="200" transform="translate(26 15)" fill="#7e84a3" font-size="14" font-family="Poppins-Regular, Poppins" letter-spacing="0.007em"><tspan x="-25.834" y="0">200</tspan></text>
+          </g>
+          <g id="_400" data-name="400" transform="translate(5 186)">
+            <text id="_400-2" data-name="400" transform="translate(27 15)" fill="#7e84a3" font-size="14" font-family="Poppins-Regular, Poppins" letter-spacing="0.007em"><tspan x="-26.59" y="0">400</tspan></text>
+          </g>
+          <g id="_600" data-name="600" transform="translate(5 124)">
+            <text id="_600-2" data-name="600" transform="translate(27 15)" fill="#7e84a3" font-size="14" font-family="Poppins-Regular, Poppins" letter-spacing="0.007em"><tspan x="-26.674" y="0">600</tspan></text>
+          </g>
+          <g id="_800" data-name="800" transform="translate(5 62)">
+            <text id="_800-2" data-name="800" transform="translate(27 15)" fill="#7e84a3" font-size="14" font-family="Poppins-Regular, Poppins" letter-spacing="0.007em"><tspan x="-26.618" y="0">800</tspan></text>
+          </g>
+          <g id="_1k" data-name="1k">
+            <text id="_1k-2" data-name="1k" transform="translate(31 15)" fill="#7e84a3" font-size="14" font-family="Poppins-Regular, Poppins" letter-spacing="0.007em"><tspan x="-31.156" y="0">1000</tspan></text>
+          </g>
+        </g>
+        <g id="Scroll_Group" data-name="Scroll Group" transform="translate(-434)" clip-path="url(#clip-path)" style="isolation: isolate">
+          <g id="Month" transform="translate(495.5)">
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(1078.5)">
+              <text id="Jan" transform="translate(13 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-11.48" y="0">Dec</tspan></text>
+              <path id="Shape" d="M.011,336V0H.989V336Z" transform="translate(13.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-2" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(981.5)">
+              <text id="Jan-2" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-12.083" y="0">Nov</tspan></text>
+              <path id="Shape-2" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-3" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(885.5)">
+              <text id="Jan-3" data-name="Jan" transform="translate(11 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-10.451" y="0">Oct</tspan></text>
+              <path id="Shape-3" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(11.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-4" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(787.5)">
+              <text id="Jan-4" data-name="Jan" transform="translate(12 363)" fill="#131523" font-size="13" font-family="OpenSans-Bold, Open Sans" font-weight="700"><tspan x="-11.534" y="0">Sep</tspan></text>
+              <path id="Shape-4" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#0058ff"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-5" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(687.5)">
+              <text id="Jan-5" data-name="Jan" transform="translate(13 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-11.664" y="0">Aug</tspan></text>
+              <path id="Shape-5" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(13.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-6" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(597.5)">
+              <text id="Jan-6" data-name="Jan" transform="translate(9 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-7.37" y="0">Jul</tspan></text>
+              <path id="Shape-6" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(9.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-7" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(501.5)">
+              <text id="Jan-7" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-9.715" y="0">Jun</tspan></text>
+              <path id="Shape-7" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-8" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(400.5)">
+              <text id="Jan-8" data-name="Jan" transform="translate(14 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-12.759" y="0">May</tspan></text>
+              <path id="Shape-8" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(14.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-9" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(304.5)">
+              <text id="Jan-9" data-name="Jan" transform="translate(11 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-10.75" y="0">Apr</tspan></text>
+              <path id="Shape-9" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(11.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-10" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(205.5)">
+              <text id="Jan-10" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-12.137" y="0">Mar</tspan></text>
+              <path id="Shape-10" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-11" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(108.5)">
+              <text id="Jan-11" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-10.258" y="0">Fev</tspan></text>
+              <path id="Shape-11" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-12" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(14.5)">
+              <text id="Jan-12" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-9.341" y="0">Jan</tspan></text>
+              <path id="Shape-12" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+          </g>
+          <g id="Month-2" data-name="Month" transform="translate(-591.5)">
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-13" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(991.5)">
+              <text id="Jan-13" data-name="Jan" transform="translate(13 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-12.571" y="0">Dec</tspan></text>
+              <path id="Shape-13" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(13.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-14" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(892.5)">
+              <text id="Jan-14" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-12.376" y="0">Nov</tspan></text>
+              <path id="Shape-14" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-15" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(795.5)">
+              <text id="Jan-15" data-name="Jan" transform="translate(11 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-11.421" y="0">Oct</tspan></text>
+              <path id="Shape-15" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(11.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-16" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(696.5)">
+              <text id="Jan-16" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-12.24" y="0">Sep</tspan></text>
+              <path id="Shape-16" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-17" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(595.5)">
+              <text id="Jan-17" data-name="Jan" transform="translate(13 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-12.935" y="0">Aug</tspan></text>
+              <path id="Shape-17" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(13.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-18" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(502.5)">
+              <text id="Jan-18" data-name="Jan" transform="translate(9 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-9.204" y="0">Jul</tspan></text>
+              <path id="Shape-18" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(9.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-19" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(403.5)">
+              <text id="Jan-19" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-11.765" y="0">Jun</tspan></text>
+              <path id="Shape-19" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-20" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(300.5)">
+              <text id="Jan-20" data-name="Jan" transform="translate(14 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-13.65" y="0">May</tspan></text>
+              <path id="Shape-20" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(14.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-21" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(203.5)">
+              <text id="Jan-21" data-name="Jan" transform="translate(11 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-11.199" y="0">Apr</tspan></text>
+              <path id="Shape-21" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(11.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-22" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(104.5)">
+              <text id="Jan-22" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-12.415" y="0">Mar</tspan></text>
+              <path id="Shape-22" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-23" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(5.5)">
+              <text id="Jan-23" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-11.7" y="0">Feb</tspan></text>
+              <path id="Shape-23" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+          </g>
+          <g transform="matrix(1, 0, 0, 1, -82, -471)" filter="url(#Line)">
+            <path id="Line-6" data-name="Line" d="M-2.179,30.927c9.031,2.469,17.792-2.608,33.252.9C43.245,34.581,53.834,43.44,69.418,46.117,99,51.2,109.775,15.577,123.492,27.712S157.57-7.236,182.1-7.236,237.3.589,246.552-13.509c8.865-13.5,41.185-3.524,68.794-7.1,30.475-3.947,35.71,29.416,72.072,25.371C406.8,2.605,428.61-25.067,428.61-25.067s10.574-30.619,49.532-25.592c29.114-13.759,35.75-17.073,67.254-15.355s51.881-4.489,85.142,0,67.047,31.252,98.312,53.249S775.255,19.589,814.5,15.1s55.79-26.07,74.416-27.865S937.41-4.5,953.375.442s9.882,10.045,43.808,10.045,23.973,13.636,42.6,12.289,33.171-1.841,39.157-7.677" transform="translate(604.23 617.16)" fill="none" stroke="#0058ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <g transform="matrix(1, 0, 0, 1, -82, -471)" filter="url(#Line-2)">
+            <path id="Line-7" data-name="Line" d="M1088.9,30.959c-25.2-9.617-29.531-2.639-44.99.864-12.172,2.758-22.761,11.617-38.345,14.294-29.578,5.081-53.718,10.3-67.435,22.437s-33.884,35.91-58.419,35.91-37.023-21.4-46.279-35.5c-8.865-13.5-26.362-28.565-53.972-32.141-30.475-3.947-55.534-28.016-91.9-32.061-19.38-2.156-34.906,2.04-52.229,8.561s-13.932,9.337-52.89,14.364c-32.15,4.149-40.559,18.43-72.062,20.149S464.313-4.223,431.052.266s-39.906-7.117-71.171,14.879-60.151,4.444-99.4-.045-49.47,9.437-68.1,7.642S156.99,54.9,141.025,59.835s-20.492-13-54.418-13-30.3-17.8-48.923-19.149S5.987,28.613,0,22.777" transform="translate(-486.77 617.16)" fill="none" stroke="#0058ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <path id="Line-8" data-name="Line" d="M0,118.947c5.322,3.586,45.9,8.8,69.182-3.912s43.9-5.868,67.852-3.26,31.93-28.036,58.539-31.948,59.869-24.811,99.782-29.7,37.252,24.159,89.8,28.4,67.187-25.428,91.134-33.9S510.884-2.482,550.8.126s59.869,28.74,93.13,32S683.84,57.007,715.1,72.981s59.869,17.93,99.117,14.67,49.891-36.221,68.517-37.525,35.256,14.414,51.221,18,20.622,19.525,54.547,19.525,29.935,6.194,48.561,5.216,31.93-10.106,37.917-14.344" transform="translate(522.232 95.874)" fill="none" stroke="#21d59b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <path id="Line-9" data-name="Line" d="M1090.522,118.737c-25.545-12.716-61.436,9.013-84.719-3.7s-43.9-5.868-67.852-3.26-31.93-28.036-58.539-31.948-59.869-24.811-99.782-29.7-37.252,24.159-89.8,28.4-67.187-25.428-91.134-33.9S564.1-2.482,524.188.126s-59.869,28.74-93.13,32-39.913,24.881-71.178,40.855-59.869,17.93-99.117,14.67S210.873,51.43,192.247,50.126s-35.256,14.414-51.221,18S120.4,87.651,86.478,87.651s-29.935,6.194-48.561,5.216S5.987,82.761,0,78.523" transform="translate(-568.768 95.874)" fill="none" stroke="#21d59b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <g id="Tooltip_Pointer_down" data-name="Tooltip / Pointer down" transform="translate(1217 29)">
+            <g id="TooltipBG" transform="translate(2 79.024)">
+              <g transform="matrix(1, 0, 0, 1, -1301, -579.02)" filter="url(#BG-2)">
+                <path id="BG-6" data-name="BG" d="M69.552,102.056H5.082C2.275,102.056,0,98.792,0,94.766V7.29C0,3.264,2.275,0,5.082,0H149.917C152.724,0,155,3.264,155,7.29V94.766c0,4.026-2.276,7.29-5.083,7.29H85.449L77.5,108Z" transform="translate(1301 503)" fill="#fff"/>
+              </g>
+            </g>
+            <g id="Data" transform="translate(12 81)">
+              <text id="Online_Sales" data-name="Online Sales" transform="translate(98 11)" fill="#00003f" font-size="12" font-family="OpenSans-Bold, Open Sans" font-weight="700"><tspan x="0" y="0">93,9</tspan></text>
+              <text id="_750" data-name="$750" transform="translate(12 11)" fill="#131523" font-size="12" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">% conversion</tspan></text>
+            </g>
+            <g id="Data-2" data-name="Data" transform="translate(12 58)">
+              <text id="Online_Sales-2" data-name="Online Sales" transform="translate(44 11)" fill="#7e84a3" font-size="12" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">création paniers</tspan></text>
+              <text id="_750-2" data-name="$750" transform="translate(12 11)" fill="#131523" font-size="12" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">576</tspan></text>
+              <rect id="Sales" width="8" height="8" rx="4" transform="translate(0 3)" fill="#21d59b"/>
+            </g>
+            <g id="Data-3" data-name="Data" transform="translate(12 35)">
+              <text id="Online_Sales-3" data-name="Online Sales" transform="translate(44 11)" fill="#7e84a3" font-size="12" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">Visites</tspan></text>
+              <text id="_750-3" data-name="$750" transform="translate(12 11)" fill="#131523" font-size="12" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">613</tspan></text>
+              <rect id="Sales-2" data-name="Sales" width="8" height="8" rx="4" transform="translate(0 3)" fill="#0062ff"/>
+            </g>
+            <text id="Titlee" transform="translate(12 23)" fill="#131523" font-size="12" font-family="OpenSans-SemiBold, Open Sans" font-weight="600"><tspan x="0" y="0">Septembre, 2021</tspan></text>
+          </g>
+        </g>
+      </g>
+      <g id="legend" transform="translate(13388.57 75)">
+        <g id="Offline" transform="translate(-12720)">
+          <rect id="Shape-24" data-name="Shape" width="10" height="10" rx="5" transform="translate(0.43 5)" fill="#0058ff"/>
+          <text id="Marketing_Sales" data-name="Marketing Sales" transform="translate(18.43 15)" fill="#5a607f" font-size="14" font-family="Poppins-Regular, Poppins" letter-spacing="0.007em"><tspan x="0" y="0">Visites</tspan></text>
+        </g>
+        <g id="Online" transform="translate(-12896)">
+          <rect id="Shape-25" data-name="Shape" width="10" height="10" rx="5" transform="translate(0.43 5)" fill="#21d59b"/>
+          <text id="Marketing_Sales-2" data-name="Marketing Sales" transform="translate(18.43 15)" fill="#5a607f" font-size="14" font-family="Poppins-Regular, Poppins" letter-spacing="0.007em"><tspan x="0" y="0">Création paniers</tspan></text>
+        </g>
+      </g>
+      <g id="dropdown" transform="translate(1000 30)">
+        <g id="icon" transform="translate(105)" opacity="0.9">
+          <rect id="BG-7" data-name="BG" width="24" height="24" fill="none"/>
+        </g>
+        <text id="Last_12_Months" data-name="Last 12 Months" transform="translate(101 18)" fill="#5a607f" font-size="14" font-family="Poppins-Regular, Poppins"><tspan x="-139.874" y="0">Jan, 2021 - Dec, 2021</tspan></text>
+      </g>
+      <text id="Title" transform="translate(27 47)" fill="#131523" font-size="16" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.006em"><tspan x="0" y="0">Taux de conversion de panier</tspan></text>
+    </g>
+    <g id="Total_Sales-2" data-name="Total Sales" transform="translate(474 889)">
+      <g transform="matrix(1, 0, 0, 1, -474, -889)" filter="url(#Bg-3)">
+        <rect id="Bg-8" data-name="Bg" width="1159" height="513" rx="6" transform="translate(474 889)" fill="#fff"/>
+      </g>
+      <g id="Chart-2" data-name="Chart" transform="translate(42 114)">
+        <g id="Value-2" data-name="Value" transform="translate(0 2)">
+          <g id="_0-3" data-name="0" transform="translate(23 316)">
+            <text id="_0-4" data-name="0" transform="translate(9 15)" fill="#7e84a3" font-size="14" font-family="Poppins-Regular, Poppins" letter-spacing="0.007em"><tspan x="-8.792" y="0">0</tspan></text>
+          </g>
+          <g id="_200-3" data-name="200" transform="translate(6 248)">
+            <text id="_200-4" data-name="200" transform="translate(26 15)" fill="#7e84a3" font-size="14" font-family="Poppins-Regular, Poppins" letter-spacing="0.007em"><tspan x="-25.834" y="0">200</tspan></text>
+          </g>
+          <g id="_400-3" data-name="400" transform="translate(5 186)">
+            <text id="_400-4" data-name="400" transform="translate(27 15)" fill="#7e84a3" font-size="14" font-family="Poppins-Regular, Poppins" letter-spacing="0.007em"><tspan x="-26.59" y="0">400</tspan></text>
+          </g>
+          <g id="_600-3" data-name="600" transform="translate(5 124)">
+            <text id="_600-4" data-name="600" transform="translate(27 15)" fill="#7e84a3" font-size="14" font-family="Poppins-Regular, Poppins" letter-spacing="0.007em"><tspan x="-26.674" y="0">600</tspan></text>
+          </g>
+          <g id="_800-3" data-name="800" transform="translate(5 62)">
+            <text id="_800-4" data-name="800" transform="translate(27 15)" fill="#7e84a3" font-size="14" font-family="Poppins-Regular, Poppins" letter-spacing="0.007em"><tspan x="-26.618" y="0">800</tspan></text>
+          </g>
+          <g id="_1k-3" data-name="1k">
+            <text id="_1k-4" data-name="1k" transform="translate(31 15)" fill="#7e84a3" font-size="14" font-family="Poppins-Regular, Poppins" letter-spacing="0.007em"><tspan x="-31.156" y="0">1000</tspan></text>
+          </g>
+        </g>
+        <g id="Scroll_Group-2" data-name="Scroll Group" transform="translate(-434)" clip-path="url(#clip-path)" style="isolation: isolate">
+          <g id="Month-3" data-name="Month" transform="translate(495.5)">
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-24" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(1074.5)">
+              <text id="Jan-24" data-name="Jan" transform="translate(13 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-11.48" y="0">Dec</tspan></text>
+              <path id="Shape-26" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(13.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-25" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(977.5)">
+              <text id="Jan-25" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-12.083" y="0">Nov</tspan></text>
+              <path id="Shape-27" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-26" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(881.5)">
+              <text id="Jan-26" data-name="Jan" transform="translate(11 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-10.451" y="0">Oct</tspan></text>
+              <path id="Shape-28" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(11.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-27" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(784.5)">
+              <text id="Jan-27" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-11.197" y="0">Sep</tspan></text>
+              <path id="Shape-29" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-28" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(685.5)">
+              <text id="Jan-28" data-name="Jan" transform="translate(13 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-12.029" y="0">Aou</tspan></text>
+              <path id="Shape-30" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(13.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-29" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(592.5)">
+              <text id="Jan-29" data-name="Jan" transform="translate(9 363)" fill="#00003f" font-size="13" font-family="OpenSans-Bold, Open Sans" font-weight="700"><tspan x="-10.391" y="0">Juil</tspan></text>
+              <path id="Shape-31" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(9.5)" fill="#1465ff"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-30" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(496.5)">
+              <text id="Jan-30" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-7.37" y="0">Jui</tspan></text>
+              <path id="Shape-32" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-31" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(400.5)">
+              <text id="Jan-31" data-name="Jan" transform="translate(14 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-11.127" y="0">Mai</tspan></text>
+              <path id="Shape-33" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(14.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-32" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(307.5)">
+              <text id="Jan-32" data-name="Jan" transform="translate(11 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-10.023" y="0">Avr</tspan></text>
+              <path id="Shape-34" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(11.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-33" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(209.5)">
+              <text id="Jan-33" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-12.137" y="0">Mar</tspan></text>
+              <path id="Shape-35" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-34" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(112.5)">
+              <text id="Jan-34" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-10.258" y="0">Fev</tspan></text>
+              <path id="Shape-36" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-35" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(18.5)">
+              <text id="Jan-35" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="OpenSans-Regular, Open Sans"><tspan x="-9.341" y="0">Jan</tspan></text>
+              <path id="Shape-37" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+          </g>
+          <g id="Month-4" data-name="Month" transform="translate(-591.5)">
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-36" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(991.5)">
+              <text id="Jan-36" data-name="Jan" transform="translate(13 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-12.571" y="0">Dec</tspan></text>
+              <path id="Shape-38" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(13.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-37" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(892.5)">
+              <text id="Jan-37" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-12.376" y="0">Nov</tspan></text>
+              <path id="Shape-39" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-38" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(795.5)">
+              <text id="Jan-38" data-name="Jan" transform="translate(11 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-11.421" y="0">Oct</tspan></text>
+              <path id="Shape-40" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(11.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-39" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(696.5)">
+              <text id="Jan-39" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-12.24" y="0">Sep</tspan></text>
+              <path id="Shape-41" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-40" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(595.5)">
+              <text id="Jan-40" data-name="Jan" transform="translate(13 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-12.935" y="0">Aug</tspan></text>
+              <path id="Shape-42" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(13.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-41" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(502.5)">
+              <text id="Jan-41" data-name="Jan" transform="translate(9 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-9.204" y="0">Jul</tspan></text>
+              <path id="Shape-43" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(9.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-42" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(403.5)">
+              <text id="Jan-42" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-11.765" y="0">Jun</tspan></text>
+              <path id="Shape-44" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-43" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(300.5)">
+              <text id="Jan-43" data-name="Jan" transform="translate(14 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-13.65" y="0">May</tspan></text>
+              <path id="Shape-45" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(14.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-44" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(203.5)">
+              <text id="Jan-44" data-name="Jan" transform="translate(11 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-11.199" y="0">Apr</tspan></text>
+              <path id="Shape-46" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(11.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-45" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(104.5)">
+              <text id="Jan-45" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-12.415" y="0">Mar</tspan></text>
+              <path id="Shape-47" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+            <g id="Widgets__Elements_Chart_Graph_-_Line_Bar-46" data-name="Widgets / _Elements / Chart / Graph - Line Bar" transform="translate(5.5)">
+              <text id="Jan-46" data-name="Jan" transform="translate(12 363)" fill="#7e84a3" font-size="13" font-family="Poppins-Regular, Poppins"><tspan x="-11.7" y="0">Feb</tspan></text>
+              <path id="Shape-48" data-name="Shape" d="M.011,336V0H.989V336Z" transform="translate(12.5)" fill="#e6e9f4"/>
+            </g>
+          </g>
+          <g transform="matrix(1, 0, 0, 1, -82, -1003)" filter="url(#Line-3)">
+            <path id="Line-10" data-name="Line" d="M-2.179,30.927c9.031,2.469,17.792-2.608,33.252.9C43.245,34.581,53.834,43.44,69.418,46.117,99,51.2,109.775,15.577,123.492,27.712S157.57-7.236,182.1-7.236,237.3.589,246.552-13.509c8.865-13.5,41.185-3.524,68.794-7.1,30.475-3.947,35.71,29.416,72.072,25.371C406.8,2.605,428.61-25.067,428.61-25.067s10.574-30.619,49.532-25.592c29.114-13.759,35.75-17.073,67.254-15.355s51.881-4.489,85.142,0,67.047,31.252,98.312,53.249S775.255,19.589,814.5,15.1s55.79-26.07,74.416-27.865S937.41-4.5,953.375.442s9.882,10.045,43.808,10.045,23.973,13.636,42.6,12.289,33.171-1.841,39.157-7.677" transform="translate(604.23 1149.16)" fill="none" stroke="#0058ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <g transform="matrix(1, 0, 0, 1, -82, -1003)" filter="url(#Line-4)">
+            <path id="Line-11" data-name="Line" d="M1088.9,30.959c-25.2-9.617-29.531-2.639-44.99.864-12.172,2.758-22.761,11.617-38.345,14.294-29.578,5.081-53.718,10.3-67.435,22.437s-33.884,35.91-58.419,35.91-37.023-21.4-46.279-35.5c-8.865-13.5-26.362-28.565-53.972-32.141-30.475-3.947-55.534-28.016-91.9-32.061-19.38-2.156-34.906,2.04-52.229,8.561s-13.932,9.337-52.89,14.364c-32.15,4.149-40.559,18.43-72.062,20.149S464.313-4.223,431.052.266s-39.906-7.117-71.171,14.879-60.151,4.444-99.4-.045-49.47,9.437-68.1,7.642S156.99,54.9,141.025,59.835s-20.492-13-54.418-13-30.3-17.8-48.923-19.149S5.987,28.613,0,22.777" transform="translate(-486.77 1149.16)" fill="none" stroke="#0058ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <path id="Line-12" data-name="Line" d="M0,118.947c5.322,3.586,45.9,8.8,69.182-3.912s43.9-5.868,67.852-3.26,31.93-28.036,58.539-31.948,59.869-24.811,99.782-29.7,37.252,24.159,89.8,28.4,67.187-25.428,91.134-33.9S510.884-2.482,550.8.126s59.869,28.74,93.13,32S683.84,57.007,715.1,72.981s59.869,17.93,99.117,14.67,49.891-36.221,68.517-37.525,35.256,14.414,51.221,18,20.622,19.525,54.547,19.525,29.935,6.194,48.561,5.216,31.93-10.106,37.917-14.344" transform="translate(522.232 95.874)" fill="none" stroke="#21d59b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <path id="Line-13" data-name="Line" d="M1090.522,118.737c-25.545-12.716-61.436,9.013-84.719-3.7s-43.9-5.868-67.852-3.26-31.93-28.036-58.539-31.948-59.869-24.811-99.782-29.7-37.252,24.159-89.8,28.4-67.187-25.428-91.134-33.9S564.1-2.482,524.188.126s-59.869,28.74-93.13,32-39.913,24.881-71.178,40.855-59.869,17.93-99.117,14.67S210.873,51.43,192.247,50.126s-35.256,14.414-51.221,18S120.4,87.651,86.478,87.651s-29.935,6.194-48.561,5.216S5.987,82.761,0,78.523" transform="translate(-568.768 95.874)" fill="none" stroke="#21d59b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <g id="Tooltip_Pointer_down-2" data-name="Tooltip / Pointer down" transform="translate(1025 114)">
+            <g id="TooltipBG-2" data-name="TooltipBG" transform="translate(1 78.968)">
+              <g transform="matrix(1, 0, 0, 1, -1108, -1195.97)" filter="url(#BG-4)">
+                <path id="BG-9" data-name="BG" d="M4.689,108C2.1,108,0,104.737,0,100.71V13.234c0-4.027,2.1-7.29,4.689-7.29H138.311c2.59,0,4.689,3.263,4.689,7.29V100.71c0,4.027-2.1,7.29-4.689,7.29ZM64.167,5.944,71.5,0l7.333,5.944Z" transform="translate(1108 1114)" fill="#fff"/>
+              </g>
+            </g>
+            <g id="Data-4" data-name="Data" transform="translate(12 81)">
+              <text id="Online_Sales-4" data-name="Online Sales" transform="translate(98 11)" fill="#00003f" font-size="12" font-family="OpenSans-Bold, Open Sans" font-weight="700"><tspan x="0" y="0">84,2</tspan></text>
+              <text id="_750-4" data-name="$750" transform="translate(12 11)" fill="#131523" font-size="12" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">% conversion</tspan></text>
+            </g>
+            <g id="Data-5" data-name="Data" transform="translate(12 58)">
+              <text id="Online_Sales-5" data-name="Online Sales" transform="translate(44 11)" fill="#7e84a3" font-size="12" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">commandes</tspan></text>
+              <text id="_750-5" data-name="$750" transform="translate(12 11)" fill="#131523" font-size="12" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">669</tspan></text>
+              <rect id="Sales-3" data-name="Sales" width="8" height="8" rx="4" transform="translate(0 3)" fill="#21d59b"/>
+            </g>
+            <g id="Data-6" data-name="Data" transform="translate(12 35)">
+              <text id="Online_Sales-6" data-name="Online Sales" transform="translate(44 11)" fill="#7e84a3" font-size="12" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">paniers</tspan></text>
+              <text id="_750-6" data-name="$750" transform="translate(12 11)" fill="#131523" font-size="12" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">794</tspan></text>
+              <rect id="Sales-4" data-name="Sales" width="8" height="8" rx="4" transform="translate(0 3)" fill="#0062ff"/>
+            </g>
+            <text id="Titlee-2" data-name="Titlee" transform="translate(12 23)" fill="#131523" font-size="12" font-family="OpenSans-SemiBold, Open Sans" font-weight="600"><tspan x="0" y="0">Juillet, 2021</tspan></text>
+          </g>
+        </g>
+      </g>
+      <g id="legend-2" data-name="legend" transform="translate(13380.533 74)">
+        <g id="Offline-2" data-name="Offline" transform="translate(-12682)">
+          <rect id="Shape-49" data-name="Shape" width="10" height="10" rx="5" transform="translate(0.467 5)" fill="#0058ff"/>
+          <text id="Marketing_Sales-3" data-name="Marketing Sales" transform="translate(18.467 15)" fill="#5a607f" font-size="14" font-family="Poppins-Regular, Poppins" letter-spacing="0.007em"><tspan x="0" y="0">Paniers</tspan></text>
+        </g>
+        <g id="Online-2" data-name="Online" transform="translate(-12896)">
+          <rect id="Shape-50" data-name="Shape" width="10" height="10" rx="5" transform="translate(0.467 5)" fill="#21d59b"/>
+          <text id="Marketing_Sales-4" data-name="Marketing Sales" transform="translate(18.467 15)" fill="#5a607f" font-size="14" font-family="Poppins-Regular, Poppins" letter-spacing="0.007em"><tspan x="0" y="0">Création commandes</tspan></text>
+        </g>
+      </g>
+      <g id="dropdown-2" data-name="dropdown" transform="translate(994 29)">
+        <g id="icon-2" data-name="icon" transform="translate(105)" opacity="0.9">
+          <rect id="BG-10" data-name="BG" width="24" height="24" fill="none"/>
+        </g>
+        <text id="Last_12_Months-2" data-name="Last 12 Months" transform="translate(101 18)" fill="#5a607f" font-size="14" font-family="Poppins-Regular, Poppins"><tspan x="-139.874" y="0">Jan, 2021 - Dec, 2021</tspan></text>
+      </g>
+      <text id="Title-2" data-name="Title" transform="translate(22 46)" fill="#131523" font-size="16" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.006em"><tspan x="0" y="0">Taux de conversion de commandes</tspan></text>
+    </g>
+    <g id="Groupe_667" data-name="Groupe 667" transform="translate(-724 1630)">
+      <g transform="matrix(1, 0, 0, 1, 724, -1630)" filter="url(#Bgg)">
+        <rect id="Bgg-7" data-name="Bgg" width="200" height="174" rx="6" transform="translate(474 1816)" fill="#fff"/>
+      </g>
+      <text id="_27632" data-name="$27632" transform="translate(1218 291)" fill="#131523" font-size="28" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.004em"><tspan x="0" y="0">149</tspan></text>
+      <text id="Sales-5" data-name="Sales" transform="translate(1218 223)" fill="#7e84a3" font-size="16" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.006em"><tspan x="0" y="0">Nouveaux clients</tspan></text>
+      <g id="Widgets__Elements_Price" data-name="Widgets / _Elements / % Price" transform="translate(1213.556 317)">
+        <text id="Compared_to_21340" data-name="Compared to ($21340" transform="translate(62 16)" fill="#7e84a3" font-size="14" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">que l&apos;an dernier</tspan></text>
+        <g id="_price" data-name="% price">
+          <g id="ic-arrow-narrow-up" transform="translate(40 3.126)">
+            <path id="Tracé_397" data-name="Tracé 397" d="M0,0H16V16H0Z" fill="none"/>
+            <line id="Ligne_23" data-name="Ligne 23" y2="10.126" transform="translate(8.063 2.874)" fill="none" stroke="#3dd598" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <line id="Ligne_24" data-name="Ligne 24" x1="3" y1="3" transform="translate(8.078 2.902)" fill="none" stroke="#3dd598" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <line id="Ligne_25" data-name="Ligne 25" y1="3" x2="3" transform="translate(5.049 2.902)" fill="none" stroke="#3dd598" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <text id="_2.5_" data-name="+2.5%" transform="translate(0 17)" fill="#3dd598" font-size="16" font-family="Poppins-SemiBold, Poppins" font-weight="600" letter-spacing="0.006em"><tspan x="0" y="0">2.3%</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="Groupe_669" data-name="Groupe 669" transform="translate(1405 186)">
+      <g transform="matrix(1, 0, 0, 1, -1405, -186)" filter="url(#Bgg-2)">
+        <rect id="Bgg-8" data-name="Bgg" width="220" height="150" rx="6" transform="translate(1405 186)" fill="#fff"/>
+      </g>
+      <text id="_27632-2" data-name="$27632" transform="translate(20 92)" fill="#131523" font-size="28" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.004em"><tspan x="0" y="0">98</tspan></text>
+      <text id="Sales-6" data-name="Sales" transform="translate(20 37)" fill="#7e84a3" font-size="16" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.006em"><tspan x="0" y="0">Paniers abandonnés</tspan></text>
+      <g id="Widgets__Elements_Price-2" data-name="Widgets / _Elements / % Price" transform="translate(25.405 107)">
+        <text id="Compared_to_21340-2" data-name="Compared to ($21340" transform="translate(70 16)" fill="#7e84a3" font-size="14" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">que l&apos;an dernier</tspan></text>
+        <g id="_price-2" data-name="% price">
+          <g id="ic-arrow-narrow-up-2" data-name="ic-arrow-narrow-up" transform="translate(48 3.126)">
+            <path id="Tracé_397-2" data-name="Tracé 397" d="M0,0H16V16H0Z" fill="none"/>
+            <line id="Ligne_23-2" data-name="Ligne 23" y2="10.126" transform="translate(8.063 2.874)" fill="none" stroke="#f0142f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <line id="Ligne_24-2" data-name="Ligne 24" x1="3" y1="3" transform="translate(8.078 2.902)" fill="none" stroke="#f0142f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <line id="Ligne_25-2" data-name="Ligne 25" y1="3" x2="3" transform="translate(5.049 2.902)" fill="none" stroke="#f0142f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <text id="_2.5_2" data-name="+2.5%" transform="translate(0 17)" fill="#f0142f" font-size="16" font-family="Poppins-SemiBold, Poppins" font-weight="600" letter-spacing="0.006em"><tspan x="0" y="0">10.5%</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="Groupe_663" data-name="Groupe 663" transform="translate(-236)">
+      <g transform="matrix(1, 0, 0, 1, 236, 0)" filter="url(#Bgg-3)">
+        <rect id="Bgg-9" data-name="Bgg" width="220" height="150" rx="6" transform="translate(701 186)" fill="#fff"/>
+      </g>
+      <text id="_27632-3" data-name="$27632" transform="translate(957 278)" fill="#131523" font-size="28" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.004em"><tspan x="0" y="0">4675</tspan></text>
+      <text id="Sales-7" data-name="Sales" transform="translate(957 223)" fill="#7e84a3" font-size="16" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.006em"><tspan x="0" y="0">Nombre de paniers</tspan></text>
+      <g id="Widgets__Elements_Price-3" data-name="Widgets / _Elements / % Price" transform="translate(961.167 293)">
+        <text id="Compared_to_21340-3" data-name="Compared to ($21340" transform="translate(59 16)" fill="#7e84a3" font-size="14" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">que l&apos;an dernier</tspan></text>
+        <g id="_price-3" data-name="% price">
+          <g id="ic-arrow-narrow-up-3" data-name="ic-arrow-narrow-up" transform="translate(37 3.126)">
+            <path id="Tracé_397-3" data-name="Tracé 397" d="M0,16H16V0H0Z" fill="none"/>
+            <line id="Ligne_23-3" data-name="Ligne 23" y1="10.126" transform="translate(8.063 3)" fill="none" stroke="#f0142f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <line id="Ligne_24-3" data-name="Ligne 24" x1="3" y2="3" transform="translate(8.078 10.098)" fill="none" stroke="#f0142f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <line id="Ligne_25-3" data-name="Ligne 25" x2="3" y2="3" transform="translate(5.049 10.098)" fill="none" stroke="#f0142f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <text id="_2.5_3" data-name="+2.5%" transform="translate(0 17)" fill="#f0142f" font-size="16" font-family="Poppins-SemiBold, Poppins" font-weight="600" letter-spacing="0.006em"><tspan x="0" y="0">1.2%</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="Groupe_670" data-name="Groupe 670" transform="translate(-1)">
+      <g transform="matrix(1, 0, 0, 1, 1, 0)" filter="url(#Bgg-4)">
+        <rect id="Bgg-10" data-name="Bgg" width="220" height="150" rx="6" transform="translate(936 186)" fill="#fff"/>
+      </g>
+      <text id="_27632-4" data-name="$27632" transform="translate(957 278)" fill="#131523" font-size="28" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.004em"><tspan x="0" y="0">4675</tspan></text>
+      <text id="Sales-8" data-name="Sales" transform="translate(946 223)" fill="#7e84a3" font-size="16" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.006em"><tspan x="0" y="0">Nombre de commandes</tspan></text>
+      <g id="Widgets__Elements_Price-4" data-name="Widgets / _Elements / % Price" transform="translate(961.167 293)">
+        <text id="Compared_to_21340-4" data-name="Compared to ($21340" transform="translate(59 16)" fill="#7e84a3" font-size="14" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">que l&apos;an dernier</tspan></text>
+        <g id="_price-4" data-name="% price">
+          <g id="ic-arrow-narrow-up-4" data-name="ic-arrow-narrow-up" transform="translate(37 3.126)">
+            <path id="Tracé_397-4" data-name="Tracé 397" d="M0,16H16V0H0Z" fill="none"/>
+            <line id="Ligne_23-4" data-name="Ligne 23" y1="10.126" transform="translate(8.063 3)" fill="none" stroke="#f0142f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <line id="Ligne_24-4" data-name="Ligne 24" x1="3" y2="3" transform="translate(8.078 10.098)" fill="none" stroke="#f0142f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <line id="Ligne_25-4" data-name="Ligne 25" x2="3" y2="3" transform="translate(5.049 10.098)" fill="none" stroke="#f0142f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <text id="_2.5_4" data-name="+2.5%" transform="translate(0 17)" fill="#f0142f" font-size="16" font-family="Poppins-SemiBold, Poppins" font-weight="600" letter-spacing="0.006em"><tspan x="0" y="0">1.2%</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="Groupe_664" data-name="Groupe 664" transform="translate(456)">
+      <g transform="matrix(1, 0, 0, 1, -456, 0)" filter="url(#Bgg-5)">
+        <rect id="Bgg-11" data-name="Bgg" width="220" height="150" rx="6" transform="translate(1170 186)" fill="#fff"/>
+      </g>
+      <text id="_27632-5" data-name="$27632" transform="translate(734 278)" fill="#131523" font-size="28" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.004em"><tspan x="0" y="0">36.20€</tspan></text>
+      <text id="Sales-9" data-name="Sales" transform="translate(734 223)" fill="#7e84a3" font-size="16" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.006em"><tspan x="0" y="0">Panier Moyen</tspan></text>
+      <g id="Widgets__Elements_Price-5" data-name="Widgets / _Elements / % Price" transform="translate(738.167 293)" style="isolation: isolate">
+        <text id="Compared_to_21340-5" data-name="Compared to ($21340" transform="translate(59 16)" fill="#7e84a3" font-size="14" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">que l&apos;an dernier</tspan></text>
+        <g id="_price-5" data-name="% price">
+          <g id="ic-arrow-narrow-up-5" data-name="ic-arrow-narrow-up" transform="translate(37 3.126)">
+            <path id="Tracé_397-5" data-name="Tracé 397" d="M0,16H16V0H0Z" fill="none"/>
+            <line id="Ligne_23-5" data-name="Ligne 23" y1="10.126" transform="translate(8.063 3)" fill="none" stroke="#f0142f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <line id="Ligne_24-5" data-name="Ligne 24" x1="3" y2="3" transform="translate(8.078 10.098)" fill="none" stroke="#f0142f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <line id="Ligne_25-5" data-name="Ligne 25" x2="3" y2="3" transform="translate(5.049 10.098)" fill="none" stroke="#f0142f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <text id="_2.5_5" data-name="+2.5%" transform="translate(0 17)" fill="#f0142f" font-size="16" font-family="Poppins-SemiBold, Poppins" font-weight="600" letter-spacing="0.006em"><tspan x="0" y="0">1.3%</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="Groupe_666" data-name="Groupe 666" transform="translate(-38)">
+      <g transform="matrix(1, 0, 0, 1, 38, 0)" filter="url(#Bgg-6)">
+        <rect id="Bgg-12" data-name="Bgg" width="220" height="150" rx="6" transform="translate(466 186)" fill="#fff"/>
+      </g>
+      <text id="_27632-6" data-name="$27632" transform="translate(524 278)" fill="#131523" font-size="28" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.004em"><tspan x="0" y="0">369540.29€</tspan></text>
+      <text id="Sales-10" data-name="Sales" transform="translate(524 223)" fill="#7e84a3" font-size="16" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.006em"><tspan x="0" y="0">Total des ventes</tspan></text>
+      <g id="Widgets__Elements_Price-6" data-name="Widgets / _Elements / % Price" transform="translate(528.651 293)" style="isolation: isolate">
+        <text id="Compared_to_21340-6" data-name="Compared to ($21340" transform="translate(64 16)" fill="#7e84a3" font-size="14" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="0">que l&apos;an dernier</tspan></text>
+        <g id="_price-6" data-name="% price">
+          <g id="ic-arrow-narrow-up-6" data-name="ic-arrow-narrow-up" transform="translate(42 3.126)">
+            <path id="Tracé_397-6" data-name="Tracé 397" d="M0,16H16V0H0Z" fill="none"/>
+            <line id="Ligne_23-6" data-name="Ligne 23" y1="10.126" transform="translate(8.063 3)" fill="none" stroke="#f0142f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <line id="Ligne_24-6" data-name="Ligne 24" x1="3" y2="3" transform="translate(8.078 10.098)" fill="none" stroke="#f0142f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <line id="Ligne_25-6" data-name="Ligne 25" x2="3" y2="3" transform="translate(5.049 10.098)" fill="none" stroke="#f0142f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+          <g id="Groupe_665" data-name="Groupe 665">
+            <text id="_2.5_6" data-name="+2.5%" transform="translate(0 17)" fill="#f0142f" font-size="16" font-family="Poppins-SemiBold, Poppins" font-weight="600" letter-spacing="0.006em"><tspan x="0" y="0">0.3%</tspan></text>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="Sort_Filter" data-name="Sort/Filter" transform="translate(66 110)">
+      <g id="Date">
+        <g id="Buttons_Btn_text_icon" data-name="Buttons / Btn text icon" transform="translate(1361)">
+          <g id="Type" fill="#fff" stroke="#d7dbec" stroke-miterlimit="10" stroke-width="1">
+            <rect width="197.975" height="36" rx="4" stroke="none"/>
+            <rect x="0.5" y="0.5" width="196.975" height="35" rx="3.5" fill="none"/>
+          </g>
+          <g id="Groupe_393" data-name="Groupe 393" transform="translate(-656 6)">
+            <text id="Text" transform="translate(700 17)" fill="#5a607f" font-size="14" font-family="Poppins-Regular, Poppins" letter-spacing="0.007em"><tspan x="0" y="0">Jan, 2021 - Dec, 2021</tspan></text>
+            <g id="ic-calendar" transform="translate(668)">
+              <path id="Tracé_445" data-name="Tracé 445" d="M0,0H24V24H0Z" fill="none"/>
+              <rect id="Rectangle_608" data-name="Rectangle 608" width="16" height="16" rx="2" transform="translate(4 5)" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              <line id="Ligne_31" data-name="Ligne 31" y2="4" transform="translate(16 3)" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              <line id="Ligne_32" data-name="Ligne 32" y2="4" transform="translate(8 3)" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              <line id="Ligne_33" data-name="Ligne 33" x2="16" transform="translate(4 11)" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              <rect id="Rectangle_609" data-name="Rectangle 609" width="2" height="2" transform="translate(8 15)" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g id="Tab_Group" data-name="Tab Group" transform="translate(17)">
+        <g id="BG-11" data-name="BG" transform="translate(1136)" fill="#d7dbec" stroke="#d7dbec" stroke-width="1">
+          <rect width="188" height="36" rx="4" stroke="none"/>
+          <rect x="0.5" y="0.5" width="187" height="35" rx="3.5" fill="none"/>
+        </g>
+        <g id="Tabs" transform="translate(5 1)">
+          <g id="Tab_Group__Elements_Regular_Tab_2_states_" data-name="Tab Group / _Elements / Regular Tab (2 states)" transform="translate(1268)">
+            <rect id="BG-12" data-name="BG" width="51" height="34" rx="4" transform="translate(-0.025)" fill="#5e96c2"/>
+            <text id="Name" transform="translate(11 22)" fill="#fff" font-size="13" font-family="Muli-Bold, Muli" font-weight="700"><tspan x="0" y="0">Mois</tspan></text>
+          </g>
+          <g id="Tab_Group__Elements_Regular_Tab_2_states_2" data-name="Tab Group / _Elements / Regular Tab (2 states)" transform="translate(1186)">
+            <rect id="BG-13" data-name="BG" width="81" height="34" rx="4" transform="translate(-0.025)" fill="#fff"/>
+            <text id="Name-2" data-name="Name" transform="translate(11 22)" fill="#131523" font-size="13" font-family="Muli-SemiBold, Muli" font-weight="600"><tspan x="0" y="0">Semaines</tspan></text>
+          </g>
+          <g id="Tab_Group__Elements_Regular_Tab_2_states_3" data-name="Tab Group / _Elements / Regular Tab (2 states)" transform="translate(1132)">
+            <rect id="BG-14" data-name="BG" width="53" height="34" rx="4" transform="translate(-0.025)" fill="#fff"/>
+            <text id="Name-3" data-name="Name" transform="translate(11 22)" fill="#131523" font-size="13" font-family="Muli-SemiBold, Muli" font-weight="600"><tspan x="0" y="0">Jours</tspan></text>
+          </g>
+        </g>
+      </g>
+    </g>
+    <text id="Overview" transform="translate(662 138)" fill="#171725" font-size="24" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.004em"><tspan x="-92.654" y="0">Vue d&apos;ensemble</tspan></text>
+    <rect id="Shape-51" data-name="Shape" width="175" height="1964" transform="translate(277 75)" fill="#fff"/>
+    <rect id="Frame" width="175" height="52" transform="translate(277 511)" fill="#fff" opacity="0"/>
+    <text id="Name-4" data-name="Name" transform="translate(341 542)" fill="#171725" font-size="14" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.007em"><tspan x="0" y="0">Réglages</tspan></text>
+    <g id="ic_setting" transform="translate(297 525)">
+      <path id="Tracé_386" data-name="Tracé 386" d="M0,0H24V24H0Z" fill="none"/>
+      <path id="Tracé_387" data-name="Tracé 387" d="M10.325,4.317a1.724,1.724,0,0,1,3.35,0,1.724,1.724,0,0,0,2.573,1.066,1.725,1.725,0,0,1,2.37,2.37,1.724,1.724,0,0,0,1.065,2.572,1.724,1.724,0,0,1,0,3.35,1.724,1.724,0,0,0-1.066,2.573,1.725,1.725,0,0,1-2.37,2.37,1.724,1.724,0,0,0-2.572,1.065,1.724,1.724,0,0,1-3.35,0,1.724,1.724,0,0,0-2.573-1.066,1.725,1.725,0,0,1-2.37-2.37,1.724,1.724,0,0,0-1.065-2.572,1.724,1.724,0,0,1,0-3.35A1.724,1.724,0,0,0,5.383,7.752a1.725,1.725,0,0,1,2.37-2.37,1.723,1.723,0,0,0,2.572-1.065Z" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <circle id="Ellipse_2" data-name="Ellipse 2" cx="3" cy="3" r="3" transform="translate(9 9)" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <rect id="Frame-2" data-name="Frame" width="175" height="52" transform="translate(277 459)" fill="#fff" opacity="0"/>
+    <text id="Name-5" data-name="Name" transform="translate(341 490)" fill="#171725" font-size="14" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.007em"><tspan x="0" y="0">Paiement</tspan></text>
+    <rect id="Frame-3" data-name="Frame" width="175" height="52" transform="translate(277 407)" fill="#fff" opacity="0"/>
+    <text id="Name-6" data-name="Name" transform="translate(341 438)" fill="#171725" font-size="14" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.007em"><tspan x="0" y="0">Livraison</tspan></text>
+    <rect id="Frame-4" data-name="Frame" width="175" height="52" transform="translate(277 355)" fill="#fff" opacity="0"/>
+    <text id="Name-7" data-name="Name" transform="translate(341 386)" fill="#171725" font-size="14" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.007em"><tspan x="0" y="0">Service client</tspan></text>
+    <g id="ic_message" transform="translate(297 369)">
+      <path id="Tracé_381" data-name="Tracé 381" d="M0,0H24V24H0Z" fill="none"/>
+      <path id="Tracé_382" data-name="Tracé 382" d="M3,20l1.3-3.9A7.417,7.417,0,0,1,6.4,5.726a9.856,9.856,0,0,1,11.846.48,7.362,7.362,0,0,1,1.029,10.5A9.733,9.733,0,0,1,7.7,19L3,20" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <line id="Ligne_15" data-name="Ligne 15" transform="translate(12 12)" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <line id="Ligne_16" data-name="Ligne 16" transform="translate(8 12)" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <line id="Ligne_17" data-name="Ligne 17" transform="translate(16 12)" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <rect id="Frame-5" data-name="Frame" width="175" height="52" transform="translate(277 303)" fill="#fff" opacity="0"/>
+    <text id="Name-8" data-name="Name" transform="translate(341 334)" fill="#171725" font-size="14" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.007em"><tspan x="0" y="0">Clients</tspan></text>
+    <g id="ic_users" transform="translate(297 317)">
+      <path id="Tracé_393" data-name="Tracé 393" d="M0,0H24V24H0Z" fill="none"/>
+      <circle id="Ellipse_3" data-name="Ellipse 3" cx="4" cy="4" r="4" transform="translate(5 3)" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Tracé_394" data-name="Tracé 394" d="M3,21V19a4,4,0,0,1,4-4h4a4,4,0,0,1,4,4v2" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Tracé_395" data-name="Tracé 395" d="M16,3.13a4,4,0,0,1,0,7.75" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Tracé_396" data-name="Tracé 396" d="M21,21V19a4,4,0,0,0-3-3.85" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <rect id="Frame-6" data-name="Frame" width="175" height="52" transform="translate(277 251)" fill="#fff" opacity="0"/>
+    <text id="Name-9" data-name="Name" transform="translate(341 282)" fill="#171725" font-size="14" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.007em"><tspan x="0" y="0">Catalogue</tspan></text>
+    <g id="ic_invoice" transform="translate(297 265)">
+      <path id="Tracé_378" data-name="Tracé 378" d="M0,0H24V24H0Z" fill="none"/>
+      <path id="Tracé_379" data-name="Tracé 379" d="M14,3V7a1,1,0,0,0,1,1h4" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Tracé_380" data-name="Tracé 380" d="M17,21H7a2,2,0,0,1-2-2V5A2,2,0,0,1,7,3h7l5,5V19A2,2,0,0,1,17,21Z" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <line id="Ligne_12" data-name="Ligne 12" x2="1" transform="translate(9 7)" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <line id="Ligne_13" data-name="Ligne 13" x2="6" transform="translate(9 13)" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <line id="Ligne_14" data-name="Ligne 14" x2="2" transform="translate(13 17)" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <rect id="Frame-7" data-name="Frame" width="175" height="52" transform="translate(277 199)" fill="#fff" opacity="0"/>
+    <text id="Name-10" data-name="Name" transform="translate(341 230)" fill="#171725" font-size="14" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.007em"><tspan x="0" y="0">Commandes</tspan></text>
+    <rect id="Frame-8" data-name="Frame" width="175" height="52" transform="translate(277 147)" fill="#fff" opacity="0"/>
+    <text id="Name-11" data-name="Name" transform="translate(341 178)" fill="#171725" font-size="14" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.007em"><tspan x="0" y="0">Analyse</tspan></text>
+    <g id="ic_dashboard" transform="translate(297 161)">
+      <g id="home">
+        <path id="Tracé_372" data-name="Tracé 372" d="M0,0H24V24H0Z" fill="none"/>
+      </g>
+      <path id="Shape-52" data-name="Shape" d="M13,20H1a1,1,0,0,1-1-1V6.5a2,2,0,0,1,2-2H6V2A2,2,0,0,1,8,0h4a2,2,0,0,1,2,2V9h4a2,2,0,0,1,2,2v8a1,1,0,0,1-1,1Zm5-2V11H14v7ZM8,18h4V11q0-.03,0-.059V2H8ZM2,18H6V6.5H2Z" transform="translate(2 2)" fill="#7e84a3"/>
+    </g>
+    <g id="Home-2" data-name="Home" transform="translate(277 95)">
+      <path id="Frame-9" data-name="Frame" d="M0,0H171a4,4,0,0,1,4,4V48a4,4,0,0,1-4,4H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" fill="#be323d" opacity="0.05"/>
+      <text id="Name-12" data-name="Name" transform="translate(64 31)" fill="#be323d" font-size="14" font-family="Montserrat-SemiBold, Montserrat" font-weight="600" letter-spacing="0.007em"><tspan x="0" y="0">Accueil</tspan></text>
+      <rect id="Line-14" data-name="Line" width="4" height="52" rx="2" fill="#be323d"/>
+      <g id="Icons_Navigation_icon_12_states_" data-name="Icons / Navigation icon (12 states)" transform="translate(20 14)">
+        <g id="ic_home">
+          <path id="Tracé_372-2" data-name="Tracé 372" d="M0,0H24V24H0Z" fill="none"/>
+          <path id="Tracé_373" data-name="Tracé 373" d="M5,12H3l9-9,9,9H19" fill="none" stroke="#92929d" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <path id="Tracé_374" data-name="Tracé 374" d="M5,12v7a2,2,0,0,0,2,2H17a2,2,0,0,0,2-2V12" fill="none" stroke="#92929d" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <path id="Tracé_375" data-name="Tracé 375" d="M9,21V15a2,2,0,0,1,2-2h2a2,2,0,0,1,2,2v6" fill="none" stroke="#92929d" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle)">
+      <rect id="Rectangle-4" data-name="Rectangle" width="1920" height="68" fill="#fff"/>
+    </g>
+    <g id="Icons_chevron-down" data-name="Icons / chevron-down" transform="translate(1602 26)">
+      <path id="Tracé_399" data-name="Tracé 399" d="M0,0H24V24H0Z" fill="none"/>
+      <path id="Tracé_400" data-name="Tracé 400" d="M6,9l6,6,6-6" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <text id="Monica_Simons" data-name="Monica Simons" transform="translate(1486 43.5)" fill="#131523" font-size="14" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">Sam Capard</tspan></text>
+    <g id="Top_Navigation_Search" data-name="Top Navigation / Search" transform="translate(569 27.789)">
+      <g id="_00_General_01_Icons_02_Common_01_Settings" data-name="00 General / 01 Icons / 02 Common / 01 Settings">
+        <rect id="BG-15" data-name="BG" width="24" height="24" fill="none"/>
+        <path id="color" d="M16,17a1,1,0,0,1-.613-.21l-.094-.084-3.245-3.243A7.432,7.432,0,0,1,7.5,15,7.5,7.5,0,1,1,15,7.5a7.431,7.431,0,0,1-1.536,4.549l3.243,3.245A1,1,0,0,1,16,17ZM7.5,2a5.5,5.5,0,1,0,3.546,9.7,1,1,0,0,1,.659-.66A5.5,5.5,0,0,0,7.5,2Z" transform="translate(3 3)" fill="#7e84a3"/>
+      </g>
+      <text id="Search..." transform="translate(32 18)" fill="#5a607f" font-size="14" font-family="Poppins-Regular, Poppins"><tspan x="0" y="0">rechercher...</tspan></text>
+    </g>
+    <g id="Notifications" transform="translate(1394.546 21.5)">
+      <g id="ic-bell" transform="translate(0 4.5)">
+        <path id="Tracé_401" data-name="Tracé 401" d="M0,0H24V24H0Z" fill="none"/>
+        <path id="Tracé_402" data-name="Tracé 402" d="M10,5a2,2,0,1,1,4,0,7,7,0,0,1,4,6v3a4,4,0,0,0,2,3H4a4,4,0,0,0,2-3V11a7,7,0,0,1,4-6" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path id="Tracé_403" data-name="Tracé 403" d="M9,17v1a3,3,0,0,0,6,0V17" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="counter_Circle" data-name="counter Circle" transform="translate(12)">
+        <rect id="BG-16" data-name="BG" width="16" height="16" rx="8" transform="translate(0 1)" fill="#f0142f"/>
+        <text id="Value-3" data-name="Value" transform="translate(4 13)" fill="#fff" font-size="12" font-family="Poppins-Regular, Poppins" letter-spacing="0.006em"><tspan x="0" y="0">2</tspan></text>
+      </g>
+    </g>
+    <circle id="Ellipse_14" data-name="Ellipse 14" cx="18" cy="18" r="18" transform="translate(1438 21)" fill="#aed9fa"/>
+    <g id="Groupe_671" data-name="Groupe 671" transform="translate(904.615 1422)">
+      <g transform="matrix(1, 0, 0, 1, -904.61, -1422)" filter="url(#Rectangle_1541)">
+        <rect id="Rectangle_1541-2" data-name="Rectangle 1541" width="728" height="568" rx="6" transform="translate(905 1422)" fill="#fff"/>
+      </g>
+      <g id="Groupe_défilant_8" data-name="Groupe défilant 8" transform="translate(-13.615 139)" clip-path="url(#clip-path-3)" style="isolation: isolate">
+        <g id="Row" clip-path="url(#clip-path-4)">
+          <g id="Row-2" data-name="Row">
+            <rect id="Background" width="1210" height="48" fill="none"/>
+            <text id="Mar_21_2019_3:30pm" data-name="Mar 21, 2019, 3:30pm" transform="translate(466 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">6792</tspan></text>
+            <text id="Mar_21_2019_3:30pm-2" data-name="Mar 21, 2019, 3:30pm" transform="translate(640 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">Nourriture</tspan></text>
+            <text id="Payment_from_10321" data-name="Payment from #10321" transform="translate(45 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.014em"><tspan x="0" y="0">Ultima Medium Maxi Croquettes au poulet - 7,5 kg</tspan></text>
+          </g>
+          <g id="Row-3" data-name="Row" transform="translate(0 48)">
+            <rect id="Background-2" data-name="Background" width="1210" height="48" fill="none"/>
+            <text id="Mar_21_2019_3:30pm-3" data-name="Mar 21, 2019, 3:30pm" transform="translate(466 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">6692</tspan></text>
+            <text id="Mar_21_2019_3:30pm-4" data-name="Mar 21, 2019, 3:30pm" transform="translate(640 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">Nourriture</tspan></text>
+            <text id="Payment_from_10321-2" data-name="Payment from #10321" transform="translate(45 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.014em"><tspan x="0" y="0">Ultima Medium Maxi Croquettes au poulet - 7,5 kg</tspan></text>
+          </g>
+          <g id="Row-4" data-name="Row" transform="translate(0 96)">
+            <rect id="Background-3" data-name="Background" width="1210" height="48" fill="none"/>
+            <text id="Mar_21_2019_3:30pm-5" data-name="Mar 21, 2019, 3:30pm" transform="translate(466 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">6592</tspan></text>
+            <text id="Mar_21_2019_3:30pm-6" data-name="Mar 21, 2019, 3:30pm" transform="translate(640 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">Nourriture</tspan></text>
+            <text id="Payment_from_10321-3" data-name="Payment from #10321" transform="translate(45 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.014em"><tspan x="0" y="0">Ultima Medium Maxi Croquettes au poulet - 7,5 kg</tspan></text>
+          </g>
+          <g id="Row-5" data-name="Row" transform="translate(0 144)">
+            <rect id="Background-4" data-name="Background" width="1210" height="48" fill="none"/>
+            <text id="Mar_21_2019_3:30pm-7" data-name="Mar 21, 2019, 3:30pm" transform="translate(466 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">6492</tspan></text>
+            <text id="Mar_21_2019_3:30pm-8" data-name="Mar 21, 2019, 3:30pm" transform="translate(640 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">Nourriture</tspan></text>
+            <text id="Payment_from_10321-4" data-name="Payment from #10321" transform="translate(45 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.014em"><tspan x="0" y="0">Ultima Medium Maxi Croquettes au poulet - 7,5 kg</tspan></text>
+          </g>
+          <g id="Row-6" data-name="Row" transform="translate(0 192)">
+            <rect id="Background-5" data-name="Background" width="1210" height="48" fill="none"/>
+            <text id="Mar_21_2019_3:30pm-9" data-name="Mar 21, 2019, 3:30pm" transform="translate(466 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">6392</tspan></text>
+            <text id="Mar_21_2019_3:30pm-10" data-name="Mar 21, 2019, 3:30pm" transform="translate(640 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">Nourriture</tspan></text>
+            <text id="Payment_from_10321-5" data-name="Payment from #10321" transform="translate(45 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.014em"><tspan x="0" y="0">Ultima Medium Maxi Croquettes au poulet - 7,5 kg</tspan></text>
+          </g>
+          <g id="Row-7" data-name="Row" transform="translate(0 240)">
+            <rect id="Background-6" data-name="Background" width="1210" height="48" fill="none"/>
+            <text id="Mar_21_2019_3:30pm-11" data-name="Mar 21, 2019, 3:30pm" transform="translate(466 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">6292</tspan></text>
+            <text id="Mar_21_2019_3:30pm-12" data-name="Mar 21, 2019, 3:30pm" transform="translate(640 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">Nourriture</tspan></text>
+            <text id="Payment_from_10321-6" data-name="Payment from #10321" transform="translate(45 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.014em"><tspan x="0" y="0">Ultima Medium Maxi Croquettes au poulet - 7,5 kg</tspan></text>
+          </g>
+          <g id="Row-8" data-name="Row" transform="translate(0 288)">
+            <rect id="Background-7" data-name="Background" width="1210" height="48" fill="none"/>
+            <text id="Mar_21_2019_3:30pm-13" data-name="Mar 21, 2019, 3:30pm" transform="translate(466 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">6292</tspan></text>
+            <text id="Mar_21_2019_3:30pm-14" data-name="Mar 21, 2019, 3:30pm" transform="translate(640 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">Nourriture</tspan></text>
+            <text id="Payment_from_10321-7" data-name="Payment from #10321" transform="translate(45 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.014em"><tspan x="0" y="0">Ultima Medium Maxi Croquettes au poulet - 7,5 kg</tspan></text>
+          </g>
+          <g id="Row-9" data-name="Row" transform="translate(0 336)">
+            <rect id="Background-8" data-name="Background" width="1210" height="48" fill="none"/>
+            <text id="Mar_21_2019_3:30pm-15" data-name="Mar 21, 2019, 3:30pm" transform="translate(466 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">6792</tspan></text>
+            <text id="Mar_21_2019_3:30pm-16" data-name="Mar 21, 2019, 3:30pm" transform="translate(640 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">Nourriture</tspan></text>
+            <text id="Payment_from_10321-8" data-name="Payment from #10321" transform="translate(45 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.014em"><tspan x="0" y="0">Ultima Medium Maxi Croquettes au poulet - 7,5 kg</tspan></text>
+          </g>
+          <g id="Row-10" data-name="Row" transform="translate(0 384)">
+            <rect id="Background-9" data-name="Background" width="1210" height="48" fill="none"/>
+            <text id="Mar_21_2019_3:30pm-17" data-name="Mar 21, 2019, 3:30pm" transform="translate(466 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">6792</tspan></text>
+            <text id="Mar_21_2019_3:30pm-18" data-name="Mar 21, 2019, 3:30pm" transform="translate(640 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.007em"><tspan x="0" y="0">Nourriture</tspan></text>
+            <text id="Payment_from_10321-9" data-name="Payment from #10321" transform="translate(45 29)" fill="#131523" font-size="14" font-family="OpenSans-Regular, Open Sans" letter-spacing="0.014em"><tspan x="0" y="0">Ultima Medium Maxi Croquettes au poulet - 7,5 kg</tspan></text>
+          </g>
+        </g>
+      </g>
+      <g id="Widgets_Table_Table_Header" data-name="Widgets / Table / Table Header" transform="translate(14 91)">
+        <rect id="Shape-53" data-name="Shape" width="695" height="48" transform="translate(0.385)" fill="#f5f6fa"/>
+        <text id="Payment_Number" data-name="Payment Number" transform="translate(60.385 29)" fill="#131523" font-size="12" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.073em"><tspan x="0" y="0">PRODUIT</tspan></text>
+        <text id="Date_time" data-name="Date &amp; time" transform="translate(401.385 29)" fill="#131523" font-size="12" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.073em"><tspan x="0" y="0">NOMBRE D&apos;UNITÉS</tspan></text>
+        <text id="Date_time-2" data-name="Date &amp; time" transform="translate(608.385 29)" fill="#131523" font-size="12" font-family="OpenSans-SemiBold, Open Sans" font-weight="600" letter-spacing="0.073em"><tspan x="0" y="0">CATÉGORIE</tspan></text>
+      </g>
+      <text id="Transaction_History" data-name="Transaction History" transform="translate(12.537 36)" fill="#171725" font-size="15" font-family="Poppins-SemiBold, Poppins" font-weight="600" letter-spacing="0.006em"><tspan x="0" y="0">Récapitulatif des ventes de produits</tspan></text>
+      <g id="Pagination" transform="translate(32 508)">
+        <g id="Pagination_Page_Number_2_states_" data-name="Pagination / Page Number (2 states)" transform="translate(36)">
+          <rect id="BG-17" data-name="BG" width="36" height="36" rx="4" transform="translate(0.385)" fill="#be323d"/>
+          <text id="Number" transform="translate(18.385 24)" fill="#fff" font-size="16" font-family="Poppins-Regular, Poppins"><tspan x="-2.56" y="0">1</tspan></text>
+        </g>
+        <g id="Pagination_Page_Number_2_states_2" data-name="Pagination / Page Number (2 states)" transform="translate(72)">
+          <rect id="BG-18" data-name="BG" width="36" height="36" rx="4" transform="translate(0.385)" fill="rgba(255,255,255,0)"/>
+          <text id="Number-2" data-name="Number" transform="translate(18.385 24)" fill="#7e84a3" font-size="16" font-family="Poppins-Regular, Poppins"><tspan x="-4.6" y="0">2</tspan></text>
+        </g>
+        <g id="Pagination_Page_Number_2_states_3" data-name="Pagination / Page Number (2 states)" transform="translate(108)">
+          <rect id="BG-19" data-name="BG" width="36" height="36" rx="4" transform="translate(0.385)" fill="rgba(255,255,255,0)"/>
+          <text id="Number-3" data-name="Number" transform="translate(18.385 24)" fill="#7e84a3" font-size="16" font-family="Poppins-Regular, Poppins"><tspan x="-4.712" y="0">3</tspan></text>
+        </g>
+        <g id="Pagination_Page_Number_2_states_4" data-name="Pagination / Page Number (2 states)" transform="translate(144)">
+          <rect id="BG-20" data-name="BG" width="36" height="36" rx="4" transform="translate(0.385)" fill="rgba(255,255,255,0)"/>
+          <text id="Number-4" data-name="Number" transform="translate(18.385 24)" fill="#7e84a3" font-size="16" font-family="Poppins-Regular, Poppins"><tspan x="-5.032" y="0">4</tspan></text>
+        </g>
+        <g id="Pagination_Page_Number_2_states_5" data-name="Pagination / Page Number (2 states)" transform="translate(216)">
+          <rect id="BG-21" data-name="BG" width="36" height="36" rx="4" transform="translate(0.385)" fill="rgba(255,255,255,0)"/>
+          <text id="Number-5" data-name="Number" transform="translate(18.385 24)" fill="#7e84a3" font-size="16" font-family="Poppins-Regular, Poppins"><tspan x="-5.12" y="0">11</tspan></text>
+        </g>
+        <g id="Pagination_Page_Number_2_states_6" data-name="Pagination / Page Number (2 states)" transform="translate(252)">
+          <rect id="BG-22" data-name="BG" width="36" height="36" rx="4" transform="translate(0.385)" fill="rgba(255,255,255,0)"/>
+          <text id="Number-6" data-name="Number" transform="translate(18.385 24)" fill="#7e84a3" font-size="16" font-family="Poppins-Regular, Poppins"><tspan x="-7.16" y="0">12</tspan></text>
+        </g>
+        <g id="Pagination_Page_Number_2_states_7" data-name="Pagination / Page Number (2 states)" transform="translate(180)">
+          <rect id="BG-23" data-name="BG" width="36" height="36" rx="4" transform="translate(0.385)" fill="rgba(255,255,255,0)"/>
+          <text id="Number-7" data-name="Number" transform="translate(18.385 24)" fill="#7e84a3" font-size="16" font-family="Poppins-Regular, Poppins"><tspan x="-4.648" y="0">…</tspan></text>
+        </g>
+        <g id="chevron-left">
+          <rect id="BG-24" data-name="BG" width="36" height="36" rx="4" transform="translate(0.385)" fill="rgba(255,255,255,0)"/>
+          <g id="chevron-left-2" data-name="chevron-left" transform="translate(5.601 6.5)">
+            <path id="Tracé_459" data-name="Tracé 459" d="M0,0H24V24H0Z" fill="none"/>
+            <path id="Tracé_460" data-name="Tracé 460" d="M15,6,9,12l6,6" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+        </g>
+        <g id="chevron-right" transform="translate(288)">
+          <rect id="BG-25" data-name="BG" width="36" height="36" rx="4" transform="translate(0.385)" fill="rgba(255,255,255,0)"/>
+          <g id="chevron-right-2" data-name="chevron-right" transform="translate(5.601 6.5)">
+            <path id="Tracé_461" data-name="Tracé 461" d="M0,0H24V24H0Z" fill="none"/>
+            <path id="Tracé_462" data-name="Tracé 462" d="M9,6l6,6L9,18" fill="none" stroke="#7e84a3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <image id="Logo_1.5" data-name="Logo 1.5" width="214.474" height="76" transform="translate(258.526 0.789)" xlink:href="data:image/png;base64,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AACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAIoh0AQAAAAAiiHQBAAAAACKIdAEAAAAAMpQVdX/B7WeqbtDdxaIAAAAAElFTkSuQmCC"/>
+    <path id="Tracé_49" data-name="Tracé 49" d="M20.686,8.144H17.578V4H3.072A2.078,2.078,0,0,0,1,6.072v11.4H3.072a3.108,3.108,0,1,0,6.217,0h6.217a3.108,3.108,0,1,0,6.217,0h2.072V12.289ZM20.168,9.7l2.031,2.59H17.578V9.7ZM6.181,18.506a1.036,1.036,0,1,1,1.036-1.036A1.039,1.039,0,0,1,6.181,18.506Zm2.3-3.108a3.071,3.071,0,0,0-4.6,0H3.072V6.072H15.505V15.4Zm10.133,3.108a1.036,1.036,0,1,1,1.036-1.036A1.039,1.039,0,0,1,18.614,18.506Z" transform="translate(296.603 420.211)" fill="#7e84a3"/>
+    <g id="boite_carton_1" data-name="boite carton 1" transform="translate(132.712 296.741)">
+      <g id="Groupe_383" data-name="Groupe 383" transform="translate(166 -80.514)">
+        <path id="Tracé_62" data-name="Tracé 62" d="M23.833,64.624c-.01-.005-.02,0-.029,0a.557.557,0,0,0-.369-.268L8.82,61.5a.529.529,0,0,0-.306.025l-7.9,2.911c-.081.029-.116.1-.173.159-.079.021-.165.007-.228.059a.565.565,0,0,0-.208.44V75.609a.57.57,0,0,0,.463.56L15.316,79.02a.51.51,0,0,0,.107.012c.011,0,.019-.009.027-.009s.022.009.033.009A.617.617,0,0,0,15.676,79L23.7,76.148a.57.57,0,0,0,.378-.537V65.093A.587.587,0,0,0,23.833,64.624ZM8.756,62.649,21.61,65.161l-1.917.681c-.036-.015-.052-.055-.091-.062L6.96,63.311Zm6.659,4.712L2.624,64.906,4.9,64.069l12.764,2.493ZM14.85,77.769,1.138,75.138V65.781L14.85,68.414Zm8.084-2.562-6.88,2.447V68.346l6.88-2.447Z" transform="translate(0 -61.486)" fill="#7e84a3" stroke="#7e84a3" stroke-width="0.5"/>
+      </g>
+    </g>
+    <g id="credit-card" transform="translate(299.499 394.333)">
+      <g id="Groupe_385" data-name="Groupe 385" transform="translate(0 85.333)">
+        <g id="Groupe_384" data-name="Groupe 384" transform="translate(0 0)">
+          <path id="Tracé_63" data-name="Tracé 63" d="M19.261,85.333H2.24A2.243,2.243,0,0,0,0,87.573v9.855a2.243,2.243,0,0,0,2.24,2.24H19.261a2.243,2.243,0,0,0,2.24-2.24V87.573A2.243,2.243,0,0,0,19.261,85.333Zm1.344,12.094a1.345,1.345,0,0,1-1.344,1.344H2.24A1.345,1.345,0,0,1,.9,97.427V87.573A1.345,1.345,0,0,1,2.24,86.229H19.261a1.345,1.345,0,0,1,1.344,1.344v9.855Z" transform="translate(0 -85.333)" fill="#7e84a3" stroke="#7e84a3" stroke-width="0.5"/>
+        </g>
+      </g>
+      <g id="Groupe_387" data-name="Groupe 387" transform="translate(0 88.021)">
+        <g id="Groupe_386" data-name="Groupe 386" transform="translate(0 0)">
+          <path id="Tracé_64" data-name="Tracé 64" d="M21.053,149.333H.448a.448.448,0,0,0-.448.448v2.688a.448.448,0,0,0,.448.448H21.053a.448.448,0,0,0,.448-.448v-2.688A.448.448,0,0,0,21.053,149.333Zm-.448,2.688H.9v-1.792H20.605v1.792Z" transform="translate(0 -149.333)" fill="#7e84a3" stroke="#7e84a3" stroke-width="0.5"/>
+        </g>
+      </g>
+      <g id="Groupe_389" data-name="Groupe 389" transform="translate(2.688 94.292)">
+        <g id="Groupe_388" data-name="Groupe 388" transform="translate(0 0)">
+          <path id="Tracé_65" data-name="Tracé 65" d="M69.823,298.667H64.448a.448.448,0,1,0,0,.9h5.375a.448.448,0,1,0,0-.9Z" transform="translate(-64 -298.667)" fill="#7e84a3" stroke="#7e84a3" stroke-width="0.5"/>
+        </g>
+      </g>
+      <g id="Groupe_391" data-name="Groupe 391" transform="translate(2.688 96.083)">
+        <g id="Groupe_390" data-name="Groupe 390" transform="translate(0 0)">
+          <path id="Tracé_66" data-name="Tracé 66" d="M69.823,341.333H64.448a.448.448,0,1,0,0,.9h5.375a.448.448,0,1,0,0-.9Z" transform="translate(-64 -341.333)" fill="#7e84a3" stroke="#7e84a3" stroke-width="0.5"/>
+        </g>
+      </g>
+      <g id="Groupe_393-2" data-name="Groupe 393" transform="translate(15.23 93.396)">
+        <g id="Groupe_392" data-name="Groupe 392" transform="translate(0 0)">
+          <path id="Tracé_67" data-name="Tracé 67" d="M364.907,277.333h-.9a1.345,1.345,0,0,0-1.344,1.344v.9a1.345,1.345,0,0,0,1.344,1.344h.9a1.345,1.345,0,0,0,1.344-1.344v-.9A1.345,1.345,0,0,0,364.907,277.333Zm.448,2.24a.448.448,0,0,1-.448.448h-.9a.448.448,0,0,1-.448-.448v-.9a.448.448,0,0,1,.448-.448h.9a.448.448,0,0,1,.448.448Z" transform="translate(-362.667 -277.333)" fill="#7e84a3" stroke="#7e84a3" stroke-width="0.5"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

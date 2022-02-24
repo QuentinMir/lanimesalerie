@@ -1,0 +1,11 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}New Subsouscategorie{% endblock %}
+
+{% block body %}
+    <h1>Create new Subsouscategorie</h1>
+
+    {{ include('subsouscategorie/_form.html.twig') }}
+
+    <a href="{{ path('subsouscategorie_index') }}">back to list</a>
+{% endblock %}

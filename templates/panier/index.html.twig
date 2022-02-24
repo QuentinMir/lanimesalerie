@@ -1,0 +1,135 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PanierController!{% endblock %}
+
+{% block body %}
+    <main class="bg-body-deg">
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-lg-8 my-4">
+                    <div class="bg-white px-5 py-4 mb-3 shadow-box rounded">
+                        <div class="row">
+
+                            <div class="col-12">
+                                <div class="d-flex align-items-center mb-3">
+                                    <h2>Panier</h2>
+                                    <p class="my-0 ms-3">{{ panier | length }} article(s)</p>
+                                </div>
+                            </div>
+
+                            {% if panier | length > 0 %}
+                                {% for produitPanier in panier %}
+                                    <div class="col-3 my-3">
+                                        <figure>
+                                            <img
+                                                    src="images/img-produit-sm.jpg"
+                                                    class="img-fluid border p-2 shadow-box"
+                                                    alt="produit quali"
+                                            />
+                                        </figure>
+                                    </div>
+
+                                    <div class="col-8 my-3">
+                                        <div>
+                                            <h5>marque : {{ produitPanier.produit.idMarque.idMarque }}</h5>
+                                            <div class="d-flex justify-content-start">
+                                                <p>{{ produitPanier.produit.nom }} </p>
+                                                <p class="mx-3">-</p>
+                                                <p>{{ produitPanier.produit.prixHt }} €</p>
+                                            </div>
+                                            <div
+                                                    class="d-flex justify-content-between align-items-center"
+                                            >
+                                                <div class="d-flex align-items-center">
+                                                    <a href="{{ path('panier_remove_product', {'id': produitPanier.produit.id}) }}"
+                                                       class="my-0 text-dark">
+                                                        <i class="far fa-trash-alt me-2"></i> supprimer</a>
+                                                    <a href="{{ path('panier_product_quantity', {'operator' : 'moins' , 'id': produitPanier.produit.id}) }}"
+                                                       class="mx-3 text-dark fs-4">-</a>
+                                                    <a href="{{ path('panier_product_quantity', {'operator' : 'plus' , 'id': produitPanier.produit.id}) }}"
+                                                       class="text-dark fs-4">+</a>
+                                                </div>
+                                                <h5 class="text-red me-2">{{ produitPanier.produit.prixHt *  produitPanier.quantite }}
+                                                    €</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-1 my-3">
+                                        <p class="my-0 fw-bold">
+                                            x {{ produitPanier.quantite }}
+                                            {# <form action="">
+                                        <select name="quantité" class="px-1 rounded me-3">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </form> #}
+                                        </p>
+                                    </div>
+
+                                {% endfor %}
+                            {% else %}
+                                <h3>Il n'y a pas de produit dans votre panier</h3>
+                                <a href="{{ path('default') }}" class="mt-3">Retourner à l'accueil</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 my-4">
+                    <div class="bg-white px-5 py-4 shadow-box rounded">
+                        <h2 class="mb-3 ms-3">Montant total</h2>
+
+                        <div class="border p-3 rounded">
+                            <input type="radio" id="magasin" name="transport" value="magasin"/>
+                            <label for="magasin">Retirer en magasin</label>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <input type="radio" id="Livraison" name="transport" value="livraison"/>
+                                    <label for="Livraison">Livraison</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                                class="
+                  d-flex
+                  align-items-center
+                  justify-content-between
+                  px-3
+                  mt-3
+                  mb-0
+                "
+                        >
+
+                            <p class="fw-bold mb-0">Montant total</p>
+                            <p class="fw-bold fs-5 mb-0">{{ prixTotal }} €</p>
+                        </div>
+                        <p class="ps-3 my-0 fw-light tva">TVA incluse</p>
+
+                        <h3 class="fs-4 text-center mt-4">
+                            <a href="paiement-compte.html" class="text-red">
+                                Aller au paiement</a
+                            >
+                        </h3>
+
+                        <h3 class="fs-4 text-center mt-3 mb-4">
+                            <a href="{{ path('default') }}" class="text-blue">
+                                Poursuivre les achats</a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- section réassurance -->
+        {% include 'parts/reassuranceClient.html.twig' %}
+    </main>
+{% endblock %}

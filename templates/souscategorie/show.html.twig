@@ -1,0 +1,26 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Souscategorie{% endblock %}
+
+{% block body %}
+    <h1>Souscategorie</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>IdSousCategorie</th>
+            <td>{{ souscategorie.idSousCategorie }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ souscategorie.nom }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('souscategorie_index') }}">back to list</a>
+
+    <a href="{{ path('souscategorie_edit', {'idSousCategorie': souscategorie.idSousCategorie}) }}">edit</a>
+
+    {{ include('souscategorie/_delete_form.html.twig') }}
+{% endblock %}

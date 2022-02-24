@@ -1,0 +1,68 @@
+{% extends 'base-contact.html.twig' %}
+
+{% block title %} {{ parent() }} - Contact {% endblock %}
+
+{% block body %}
+    <div class="container pt-5">
+        <h2 class="text-center mb-lg-5 ms-lg-5">CONTACTEZ NOUS</h2>
+        <div class="row">
+            <div class="col-12 mt-lg-5 mt-3">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 offset-lg-1 col-sm-6 col-8 offset-2 mx-0">
+                        <form action="" class="d-flex flex-column">
+                            <!-- email -->
+                            <input
+                                    type="email"
+                                    name="email"
+                                    class="ps-3 my-1 border border-1 border-dark rounded py-1"
+                                    placeholder="Email*"
+                            />
+                            <!-- message -->
+                            <textarea
+                                    name="message"
+                                    id=""
+                                    cols="30"
+                                    rows="10"
+                                    class="rounded my-3 py-2 px-3"
+                                    placeholder="Écrivez votre message ici"
+                            ></textarea>
+                            <!-- bouton -->
+                            <input
+                                    class="mybutton border-0 rounded py-2 px-4 my-2"
+                                    type="submit"
+                                    id="envoyer"
+                                    value="Envoyer"
+                            />
+                        </form>
+                    </div>
+                    <div class="col-lg-3 .d-sm-none .d-md-block"></div>
+                    <div
+                            class="
+                col-lg-3 col-sm-12
+                mt-3
+                text-end
+                mb-4
+                py-3
+                px-4
+                bg-blanc-sm
+                rounded
+              "
+                    >
+                        <p class="">
+                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                            diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                            aliquyam erat, sed diam voluptua. At vero
+                        </p>
+                        <a
+                                class="fw-bold fs-5 text-blue"
+                                href="mailto:contact@lanimesalerie.com"
+                        >contact@lanimesalerie.com</a
+                        >
+                        <h5 class="fw-bold mt-2">06 69 69 69 69</h5>
+                        <a href="{{ path('default') }}" class="text-blue"><u> retour vers le site</u></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

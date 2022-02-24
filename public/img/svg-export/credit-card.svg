@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="86.001" height="57.334" viewBox="0 0 86.001 57.334">
+  <g id="credit-card" transform="translate(0 -85.333)">
+    <g id="Groupe_385" data-name="Groupe 385" transform="translate(0 85.333)">
+      <g id="Groupe_384" data-name="Groupe 384" transform="translate(0 0)">
+        <path id="Tracé_63" data-name="Tracé 63" d="M77.042,85.333H8.958A8.971,8.971,0,0,0,0,94.292v39.417a8.971,8.971,0,0,0,8.958,8.958H77.042A8.971,8.971,0,0,0,86,133.709V94.292A8.971,8.971,0,0,0,77.042,85.333Zm5.375,48.375a5.382,5.382,0,0,1-5.375,5.375H8.958a5.382,5.382,0,0,1-5.375-5.375V94.292a5.382,5.382,0,0,1,5.375-5.375H77.042a5.382,5.382,0,0,1,5.375,5.375v39.417Z" transform="translate(0 -85.333)" fill="#404040"/>
+      </g>
+    </g>
+    <g id="Groupe_387" data-name="Groupe 387" transform="translate(0 96.083)">
+      <g id="Groupe_386" data-name="Groupe 386" transform="translate(0 0)">
+        <path id="Tracé_64" data-name="Tracé 64" d="M84.209,149.333H1.792A1.792,1.792,0,0,0,0,151.125v10.75a1.792,1.792,0,0,0,1.792,1.792H84.209A1.792,1.792,0,0,0,86,161.875v-10.75A1.793,1.793,0,0,0,84.209,149.333Zm-1.792,10.75H3.583v-7.167H82.417v7.167Z" transform="translate(0 -149.333)" fill="#404040"/>
+      </g>
+    </g>
+    <g id="Groupe_389" data-name="Groupe 389" transform="translate(10.75 121.167)">
+      <g id="Groupe_388" data-name="Groupe 388" transform="translate(0 0)">
+        <path id="Tracé_65" data-name="Tracé 65" d="M87.292,298.667h-21.5a1.792,1.792,0,1,0,0,3.583h21.5a1.792,1.792,0,1,0,0-3.583Z" transform="translate(-64 -298.667)" fill="#404040"/>
+      </g>
+    </g>
+    <g id="Groupe_391" data-name="Groupe 391" transform="translate(10.75 128.333)">
+      <g id="Groupe_390" data-name="Groupe 390" transform="translate(0 0)">
+        <path id="Tracé_66" data-name="Tracé 66" d="M87.292,341.333h-21.5a1.792,1.792,0,0,0,0,3.583h21.5a1.792,1.792,0,0,0,0-3.583Z" transform="translate(-64 -341.333)" fill="#404040"/>
+      </g>
+    </g>
+    <g id="Groupe_393" data-name="Groupe 393" transform="translate(60.917 117.583)">
+      <g id="Groupe_392" data-name="Groupe 392" transform="translate(0 0)">
+        <path id="Tracé_67" data-name="Tracé 67" d="M371.625,277.333h-3.583a5.382,5.382,0,0,0-5.375,5.375v3.583a5.382,5.382,0,0,0,5.375,5.375h3.583A5.382,5.382,0,0,0,377,286.291v-3.583A5.382,5.382,0,0,0,371.625,277.333Zm1.792,8.959a1.792,1.792,0,0,1-1.792,1.792h-3.583a1.792,1.792,0,0,1-1.792-1.792v-3.583a1.792,1.792,0,0,1,1.792-1.792h3.583a1.792,1.792,0,0,1,1.792,1.792Z" transform="translate(-362.667 -277.333)" fill="#404040"/>
+      </g>
+    </g>
+  </g>
+</svg>

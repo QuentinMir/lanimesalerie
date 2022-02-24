@@ -1,0 +1,50 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %} {{ parent() }} Produit index{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/admin/dataTable.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script rel=script" src="{{ asset('js/admin/dataTable.js') }}"></script>
+    <script rel=script" src="{{ asset('js/admin/initDataTable.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4">Produits</h1>
+
+    <table class="table">
+        <thead class="table-dark">
+        <tr>
+            <th>IdProduit</th>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>PrixHt</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.id }}</td>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.description | u.truncate(75, '...') }}</td>
+                <td>{{ produit.prixHt }}</td>
+                <td>
+                    <a href="{{ path('produit_show', {'id': produit.id}) }}">show</a>
+                    <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('produit_new') }}">Create new</a>
+{% endblock %}

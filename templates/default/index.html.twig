@@ -1,0 +1,157 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} Homepage{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h6>(default/index) Lier catégories entre elles : ManyToOne et OneToMany<br> lien entre catégorie et sous
+            catégorie <br> lien
+            entre sous catégorie et sub sous catégorie </h6>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ asset('img/Slider.jpg') }}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('img/Slider.jpg') }}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('img/Slider.jpg') }}" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="row">
+            <p>{{ produits | length }}</p>
+
+            {# {% for produit in produits %}
+                {% for produits in produit.idCategorie.produits %}
+
+                    {{ dump(produits) }}
+                {% endfor %}
+
+
+            {% endfor %} #}
+
+            {% for produit in produits %}
+                {# {% for image in produit.images %}
+
+                {{ dump(image) }}
+            {% endfor %} #}
+
+                <div class="card mx-3" style="width: 18rem;">
+                    <img src="{{ produit.images | first }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"> {{ produit.nom }} </h5>
+                        <p class="card-text">{{ produit.description | u.truncate(100, '...') }}</p>
+                        <a href="{{ path('singleProduct', {'id': produit.id}) }}" class="btn btn-primary">En
+                            savoir
+                            plus</a>
+
+
+                        <a href="{{ path('panier_add', {'id': produit.id}) }}"
+                           class="btn mybutton my-0 panier"
+                           data-bs-toggle="modal"
+                           data-bs-target="#modal{{ produit.id }}"
+                           data-id="{{ produit.id }}"
+
+
+                        >
+                            Ajouter au panier
+                        </a>
+
+                        <div
+                                class="modal fade"
+                                id="modal{{ produit.id }}"
+                                data-bs-backdrop="static"
+                                data-bs-keyboard="false"
+                                tabindex="-1"
+                                aria-labelledby="staticBackdropLabel{{ produit.id }}"
+                                aria-hidden="true"
+
+                        >
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5
+                                                class="modal-title text-red"
+                                                id="staticBackdropLabel{{ produit.id }}"
+                                        >
+                                            L'article a été ajouté à votre panier
+                                        </h5>
+
+                                    </div>
+                                    <!-- BODY FORM -->
+                                    <div class="modal-body d-flex flex-column">
+                                        <p class="mb-1">
+                                            {{ produit.nom }}
+                                        </p>
+                                        <div class="d-flex align-items-center">
+                                            <p class="mb-2">1 X {{ produit.prixHt }}€</p>
+                                            <p class="ms-4 mb-2 text-red fs-5 fw-bold">
+                                                {{ produit.prixHt }} €
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <div class="d-flex align-items-center my-2">
+                                                <img
+                                                        src="images/pick-up-store.svg"
+                                                        alt="retrait en magasin"
+                                                />
+                                                <h6 class="fw-light my-0 ms-2">
+                                                    Retirer en magasin - gratuit
+                                                </h6>
+                                            </div>
+                                            <div class="d-flex align-items-center my-2">
+                                                <img
+                                                        src="images/home.svg"
+                                                        alt="retrait en magasin"
+                                                />
+                                                <h6 class="fw-light my-0 ms-2">
+                                                    Livraison - Offerte
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer my-3">
+                                        <!-- renvoyer boutique -->
+                                        <a
+                                                href="{{ path('panier_add_stay', {'id': produit.id}) }}"
+                                                class="btn btn-secondary"
+
+                                        >
+                                            Poursuivre les achats
+                                        </a>
+                                        <!-- Envoyer panier -->
+                                        <a
+                                                href="{{ path('panier_add', {'id': produit.id}) }}"
+
+                                                type="button"
+                                                class="btn btn-primary"
+                                        >
+                                            Accéder au panier
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

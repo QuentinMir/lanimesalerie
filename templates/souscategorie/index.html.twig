@@ -1,0 +1,46 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Souscategorie index{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/admin/dataTable.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script rel=script" src="{{ asset('js/admin/dataTable.js') }}"></script>
+    <script rel=script" src="{{ asset('js/admin/initDataTable.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <h1>Sous categories</h1>
+
+    <table class="table">
+        <thead class="table-dark">
+        <tr>
+            <th>IdSousCategorie</th>
+            <th>Nom</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for souscategorie in souscategories %}
+            <tr>
+                <td>{{ souscategorie.idSousCategorie }}</td>
+                <td>{{ souscategorie.nom }}</td>
+                <td>
+                    <a href="{{ path('souscategorie_show', {'idSousCategorie': souscategorie.idSousCategorie}) }}">show</a>
+                    <a href="{{ path('souscategorie_edit', {'idSousCategorie': souscategorie.idSousCategorie}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('souscategorie_new') }}">Create new</a>
+{% endblock %}

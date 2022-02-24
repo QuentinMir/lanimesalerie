@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} - Mentions légales{% endblock %}
+
+{% block body %}
+
+    <main>
+        <!-- Fil d'ariane -->
+        <nav
+                class="container my-2"
+                style="--bs-breadcrumb-divider: '>'"
+                aria-label="breadcrumb"
+        >
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ path('default') }}">Accueil</a></li>
+                <li class="breadcrumb-item active">Mention légales</li>
+            </ol>
+        </nav>
+
+        <section class="container">
+            <h6 id="ancre-cvg">Mention légales</h6>
+            <h6>Ce site est exploité par:</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>viverra. Maecenas nisi 47809 Krefeld</p>
+            <p>France</p>
+            <p>Siège social : Nîmes</p>
+            <p>Gérants : Capard</p>
+            <p>
+                Enregistrée au registre des sociétés du Tribunal de Nîmes sous le
+                numéro HRB 5030
+            </p>
+            <p>Numéro de TVA intracommunautaire : DE 120591970</p>
+            <p class="mb-5">E-Mail: info@chaussure.fr</p>
+
+            <h6>Service clientèle viverra. Maecenas nisi :</h6>
+            <p>c/o arvato distribution GmbH</p>
+            <p>Lösnitz Mark 100</p>
+            <p>venenatis vitae lacus ultrices</p>
+            <p>E-mail : online-shopping@lanimesalerie.fr</p>
+            <p>Gérants : Capard</p>
+            <p>Numéro de téléphone pour la France : 06 69 69 69 69</p>
+            <p class="mb-5">Du lundi au samedi de 08 h 00 à 20 h 00</p>
+
+            <h6>Résolution des litiges en ligne:</h6>
+
+            <p class="mb-5">
+                Résolution des litiges en ligne en vertu de l’article 14 alinéa 1 du
+                Règlement (UE) N° 524/2013 du Parlement européen et du Conseil du 21
+                mai 2013 relatif au règlement en ligne des litiges de consommation :
+                La Commission européenne propose une plateforme de règlement des
+                litiges en ligne, qui peut être consultée en cliquant sur le lien
+                suivant : http://ec.europa.eu/consumers/odr/.
+            </p>
+
+            <h6>Clause de non-responsabilité:</h6>
+
+            <p class="mb-5">
+                Malgré un contrôle minutieux du contenu, nous n’assumons aucune
+                responsabilité quant au contenu des liens externes. Les exploitants
+                des pages liées sont seuls responsables du contenu de leurs pages.
+            </p>
+
+            <h6>Crédits photos:</h6>
+
+            <p class="mb-5">Thomas pesquet (PDF)</p>
+
+            <p>Pour la vente de produits biologiques testés et certifiés par:</p>
+            <p class="mb-5">Numéro de l’organisme de contrôle : DE-ÖKO-007</p>
+
+            <!-- Bouton up -->
+            <div class="fixed-bottom">
+                <div class="col-12 mb-5">
+                    <a href="#ancre-cvg">
+                        <div class="text-end me-5">
+                            <i
+                                    class="
+                    fs-5
+                    border border-2
+                    rounded
+                    border-dark
+                    p-2
+                    fas
+                    fa-chevron-up
+                  "
+                            ></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Les marques     -->
+        {% include 'parts/marques.html.twig' %}
+
+        <!-- section réassurance -->
+        {% include 'parts/reassuranceClient.html.twig' %}
+    </main>
+{% endblock %}
