@@ -348,14 +348,12 @@
                                     </div>
                                 </nav>
                             </div>
-                            {# {{ dump(filtres.marque) }} #}
+
                             {{ dump(filtres) }}
                             {{ dump(app.session.get('rechercheNav')) }}
                             {{ form_start(form, {'attr': {'class': 'moteurRecherche'}}) }}
 
-                            {% if app.session.get('rechercheNav') is not null and filtres is empty %}
-                                {{ form_row(form.searchBar, { 'value': app.session.get('rechercheNav') }) }}
-                            {% elseif filtres is not empty and filtres.searchBar is not null %}
+                            {% if filtres is not empty and filtres.searchBar is not null %}
                                 {{ form_row(form.searchBar, { 'value': filtres.searchBar }) }}
                             {% else %}
                                 {{ form_row(form.searchBar) }}

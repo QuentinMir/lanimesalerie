@@ -17,11 +17,11 @@ class Subsouscategorie
     /**
      * @var int
      *
-     * @ORM\Column(name="id_sub_sous_categorie", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idSubSousCategorie;
+    private $id;
 
     /**
      * @var string
@@ -31,10 +31,16 @@ class Subsouscategorie
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Produit", mappedBy="idSubSousCategorie")
+     * @ORM\OneToMany(targetEntity="App\Entity\Produit", mappedBy="idSubSousCategorie")S
      * @ORM\JoinColumn(nullable=false)
      */
     private $produits;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Souscategorie::class, inversedBy="subsouscategories")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $souscategorie;
 
     public function __construct()
     {
@@ -56,9 +62,9 @@ class Subsouscategorie
     }
 
 
-    public function getIdSubSousCategorie(): ?int
+    public function getId(): ?int
     {
-        return $this->idSubSousCategorie;
+        return $this->id;
     }
 
     public function __toString()
@@ -84,6 +90,18 @@ class Subsouscategorie
     public function getProduits(): Collection
     {
         return $this->produits;
+    }
+
+    public function getSouscategorie(): ?Souscategorie
+    {
+        return $this->souscategorie;
+    }
+
+    public function setSouscategorie(?Souscategorie $souscategorie): self
+    {
+        $this->souscategorie = $souscategorie;
+
+        return $this;
     }
 
 

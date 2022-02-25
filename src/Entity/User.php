@@ -3,12 +3,16 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(fields={"email"}, message="Cette adresse email est déjà utilisée")
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -70,21 +74,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $dateInscription;
 
-
     /**
-     * @var \Adresse
-     *
-     * @ORM\ManyToOne(targetEntity="Adresse")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_adresse", referencedColumnName="id_adresse")
-     * })
+     * @ORM\OneToMany(targetEntity=Adresse::class, mappedBy="user", orphanRemoval=true)
      */
-    private $idAdresse;
+    private $adresses;
 
-    public function getId(): ?int
+
+    public function __construct()
     {
-        return $this->id;
+        $this->adresses = new ArrayCollection();
     }
+
 
     public function getEmail(): ?string
     {
@@ -141,7 +141,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
 
 
     /**
@@ -213,15 +212,40 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getIdAdresse(): ?Adresse
+    /**
+     * @return Collection|Adresse[]
+     */
+    public function getAdresses(): Collection
     {
-        return $this->idAdresse;
+        return $this->adresses;
     }
 
-    public function setIdAdresse(?Adresse $idAdresse): self
+    public function addAdress(Adresse $adress): self
     {
-        $this->idAdresse = $idAdresse;
+        if (!$this->adresses->contains($adress)) {
+            $this->adresses[] = $adress;
+            $adress->setUser($this);
+        }
 
         return $this;
     }
+
+    public function removeAdress(Adresse $adress): self
+    {
+        if ($this->adresses->removeElement($adress)) {
+            // set the owning side to null (unless already changed)
+            if ($adress->getUser() === $this) {
+                $adress->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+
 }

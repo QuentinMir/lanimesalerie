@@ -45,7 +45,7 @@ class SubsouscategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/{idSubSousCategorie}', name: 'subsouscategorie_show', methods: ['GET'])]
+    #[Route('/{id}', name: 'subsouscategorie_show', methods: ['GET'])]
     public function show(Subsouscategorie $subsouscategorie): Response
     {
         return $this->render('subsouscategorie/show.html.twig', [
@@ -53,7 +53,7 @@ class SubsouscategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/{idSubSousCategorie}/edit', name: 'subsouscategorie_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'subsouscategorie_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Subsouscategorie $subsouscategorie, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(SubsouscategorieType::class, $subsouscategorie);
@@ -71,10 +71,10 @@ class SubsouscategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/{idSubSousCategorie}', name: 'subsouscategorie_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'subsouscategorie_delete', methods: ['POST'])]
     public function delete(Request $request, Subsouscategorie $subsouscategorie, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $subsouscategorie->getIdSubSousCategorie(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $subsouscategorie->getid(), $request->request->get('_token'))) {
             $entityManager->remove($subsouscategorie);
             $entityManager->flush();
         }

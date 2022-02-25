@@ -19,19 +19,21 @@
     <table class="table">
         <thead class="table-dark">
         <tr>
-            <th>IdSubSousCategorie</th>
+            <th>Id</th>
             <th>Nom</th>
+            <th>Sous catégorie parent</th>
             <th>actions</th>
         </tr>
         </thead>
         <tbody>
         {% for subsouscategorie in subsouscategories %}
             <tr>
-                <td>{{ subsouscategorie.idSubSousCategorie }}</td>
+                <td>{{ subsouscategorie.id }}</td>
                 <td>{{ subsouscategorie.nom }}</td>
+                <td>{{ subsouscategorie.souscategorie }}</td>
                 <td>
-                    <a href="{{ path('subsouscategorie_show', {'idSubSousCategorie': subsouscategorie.idSubSousCategorie}) }}">show</a>
-                    <a href="{{ path('subsouscategorie_edit', {'idSubSousCategorie': subsouscategorie.idSubSousCategorie}) }}">edit</a>
+                    <a href="{{ path('subsouscategorie_show', {'id': subsouscategorie.id}) }}">show</a>
+                    <a href="{{ path('subsouscategorie_edit', {'id': subsouscategorie.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}

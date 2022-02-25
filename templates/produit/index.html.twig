@@ -19,9 +19,11 @@
     <table class="table">
         <thead class="table-dark">
         <tr>
-            <th>IdProduit</th>
+            <th>Id</th>
             <th>Nom</th>
             <th>Description</th>
+            <th>Catégorie</th>
+            <th>Type</th>
             <th>PrixHt</th>
             <th>actions</th>
         </tr>
@@ -31,7 +33,9 @@
             <tr>
                 <td>{{ produit.id }}</td>
                 <td>{{ produit.nom }}</td>
-                <td>{{ produit.description | u.truncate(75, '...') }}</td>
+                <td>{{ produit.description | u.truncate(50, '...') }}</td>
+                <td>{{ produit.idCategorie }}</td>
+                <td>{{ produit.idSubSousCategorie }}</td>
                 <td>{{ produit.prixHt }}</td>
                 <td>
                     <a href="{{ path('produit_show', {'id': produit.id}) }}">show</a>

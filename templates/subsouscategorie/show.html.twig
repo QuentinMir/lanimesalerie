@@ -9,7 +9,7 @@
         <tbody>
         <tr>
             <th>IdSubSousCategorie</th>
-            <td>{{ subsouscategorie.idSubSousCategorie }}</td>
+            <td>{{ subsouscategorie.id }}</td>
         </tr>
         <tr>
             <th>Nom</th>
@@ -20,7 +20,7 @@
 
     <a href="{{ path('subsouscategorie_index') }}">back to list</a>
 
-    <a href="{{ path('subsouscategorie_edit', {'idSubSousCategorie': subsouscategorie.idSubSousCategorie}) }}">edit</a>
+    <a href="{{ path('subsouscategorie_edit', {'id': subsouscategorie.id}) }}">edit</a>
 
     {{ include('subsouscategorie/_delete_form.html.twig') }}
 {% endblock %}

@@ -21,23 +21,8 @@
                         </div>
 
                         <!-- barre de recherche -->
-                        <div class="col-lg-7 col-sm-12 d-flex align-items-center mb-1">
-                            {# <input
-                                    class="search-h search-w"
-                                    type="search"
-                                    size="30"
-                                    id="site-search"
-                                    placeholder="Chercher sur le site"
-                                    aria-label="Search through site content"
-                            />
+                        {{ render(controller('App\\Controller\\NavSearchController::formNavBar')) }}
 
-                            <button class="ms-2 bouton-nav d-flex search-h">
-                                <i class="fas fa-search"></i>
-                            </button> #}
-
-                            {{ render(controller('App\\Controller\\NavSearchController::formNavBar')) }}
-
-                        </div>
 
                     </div>
                 </div>
@@ -48,7 +33,7 @@
                             <!-- Button trigger modal -->
                             <button
                                     type="button"
-                                    class="btn text-white montserrat fs-14 lh-sm compte compte-small d-flex"
+                                    class="btn text-white montserrat fs-14 lh-sm compte compte-small d-flex align-items-center"
                                     data-bs-toggle="modal"
                                     data-bs-target="#exampleModal"
                             >
@@ -70,38 +55,101 @@
                                     </g>
                                 </svg>
 
-                                <em class="d-none d-sm-block d-lg-block"> Mon compte </em>
+                                {% if app.user and app.user.roles | first == "ROLE_ADMIN" %}
+                                    <em class="d-none d-sm-block d-lg-block"> Administrateur </em>
+                                {% elseif app.user %}
+                                    <em class="d-none d-sm-block d-lg-block"> {{ app.user.prenom }} {{ app.user.nom | first }} </em>
+                                {% else %}
+                                    <em class="d-none d-sm-block d-lg-block"> Mon compte </em>
+                                {% endif %}
                             </button>
 
                             <!-- Modal -->
-                            <div
-                                    class="modal fade"
-                                    id="exampleModal"
-                                    tabindex="-1"
-                                    aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true"
-                            >
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">
-                                                Se connecter
-                                            </h5>
-                                            <button
-                                                    type="button"
-                                                    class="btn-close"
-                                                    data-bs-dismiss="modal"
-                                                    aria-label="Close"
-                                            ></button>
-                                        </div>
-                                        <div class="modal-body">
 
-                                            {{ render(controller('App\\Controller\\SecurityController::login')) }}
 
+                            {% if app.user and app.user.roles | first == "ROLE_ADMIN" %}
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                     aria-labelledby="exampleModalLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">
+                                                    Bonjour {{ app.user.prenom }} {{ app.user.nom }} </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="d-flex flex-column text-center">
+                                                    <div>
+                                                        <a class="mybutton mt-2 mb-4"
+                                                           href="{{ path('admin') }}">Administration</a>
+                                                    </div>
+                                                    <div>
+                                                        <a class="btn btn-outline-primary" href="Mon-compte.php">Accéder
+                                                            à mon compte</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="{{ path('app_logout') }}" class="btn btn-outline-dark">Me
+                                                    déconnecter</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            {% elseif app.user %}
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                     aria-labelledby="exampleModalLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">
+                                                    Bonjour {{ app.user.prenom }} {{ app.user.nom }} </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <a href="Mon-compte.php">Accéder à mon compte</a>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="{{ path('app_logout') }}" class="btn btn-outline-dark">Me
+                                                    déconnecter</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div
+                                        class="modal fade"
+                                        id="exampleModal"
+                                        tabindex="-1"
+                                        aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true"
+                                >
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">
+                                                    Se connecter
+                                                </h5>
+                                                <button
+                                                        type="button"
+                                                        class="btn-close"
+                                                        data-bs-dismiss="modal"
+                                                        aria-label="Close"
+                                                ></button>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                {{ render(controller('App\\Controller\\SecurityController::login')) }}
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
                         </div>
 
                         <div class="col-lg-4 col-4">

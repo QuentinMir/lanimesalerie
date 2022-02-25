@@ -1,7 +1,7 @@
 {{ form_start(form) }}
     {{ form_row(form.nom) }}
 
-{% if souscategorie.idSousCategorie is not null %}
+{% if souscategorie.id is not null %}
     <div>
         <p>Image actuelle</p>
         <img src="{{ asset('uploads/imagessouscat/'~ souscategorie.imageLink) }}">

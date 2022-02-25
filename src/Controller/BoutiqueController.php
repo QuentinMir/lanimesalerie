@@ -26,7 +26,7 @@ class BoutiqueController extends AbstractController
         $formSearchBar = $this->createForm(HeaderSearchType::class);
         $formSearchBar->handleRequest($request);
 
-        $nbResultats = 2;
+        $nbResultats = 6;
 
         $filters = [];
         if ($session->has('filtres')) {

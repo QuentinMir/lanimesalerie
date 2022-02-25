@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Adresse;
 use App\Entity\Marque;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;

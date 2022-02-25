@@ -17,11 +17,11 @@ class Categorie
     /**
      * @var int
      *
-     * @ORM\Column(name="id_categorie", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idCategorie;
+    private $id;
 
     /**
      * @var string
@@ -36,10 +36,16 @@ class Categorie
      */
     private $produits;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Souscategorie::class, mappedBy="categorie", orphanRemoval=true)
+     */
+    private $souscategories;
+
 
     public function __construct()
     {
         $this->produits = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->souscategories = new ArrayCollection();
     }
 
     public function addProduit(Produit $produit)
@@ -57,9 +63,9 @@ class Categorie
     }
 
 
-    public function getIdCategorie(): ?int
+    public function getId(): ?int
     {
-        return $this->idCategorie;
+        return $this->id;
     }
 
     public function __toString()
@@ -85,6 +91,36 @@ class Categorie
     public function getProduits(): Collection
     {
         return $this->produits;
+    }
+
+    /**
+     * @return Collection|Souscategorie[]
+     */
+    public function getSouscategories(): Collection
+    {
+        return $this->souscategories;
+    }
+
+    public function addSouscategory(Souscategorie $souscategory): self
+    {
+        if (!$this->souscategories->contains($souscategory)) {
+            $this->souscategories[] = $souscategory;
+            $souscategory->setCategorie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSouscategory(Souscategorie $souscategory): self
+    {
+        if ($this->souscategories->removeElement($souscategory)) {
+            // set the owning side to null (unless already changed)
+            if ($souscategory->getCategorie() === $this) {
+                $souscategory->setCategorie(null);
+            }
+        }
+
+        return $this;
     }
 
 

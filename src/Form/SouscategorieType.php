@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Categorie;
 use App\Entity\Souscategorie;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,6 +17,10 @@ class SouscategorieType extends AbstractType
     {
         $builder
             ->add('nom')
+            ->add('categorie', EntityType::class, [
+                'class' => Categorie::class,
+                'choice_label' => 'nom',
+            ])
             ->add('imageLink', FileType::class, [
                 'label' => 'Ajouter une image',
                 'mapped' => false,
@@ -31,6 +37,7 @@ class SouscategorieType extends AbstractType
                     ])
                 ]
             ]);
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -56,6 +56,13 @@ class Adresse
      */
     private $complement;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="adresses")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+
     public function getIdAdresse(): ?int
     {
         return $this->idAdresse;
@@ -117,6 +124,18 @@ class Adresse
     public function setComplement(?string $complement): self
     {
         $this->complement = $complement;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

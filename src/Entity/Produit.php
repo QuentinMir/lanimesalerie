@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Produit
  *
- * @ORM\Table(name="produit", indexes={@ORM\Index(name="fk__id_souscategorie", columns={"id_sous_categorie"}), @ORM\Index(name="fk__id_marque", columns={"id_marque"}), @ORM\Index(name="fk__id_categorie", columns={"id_categorie"}), @ORM\Index(name="fk__id_subsouscategorie", columns={"id_sub_sous_categorie"})})
+ * @ORM\Table(name="produit")
  * @ORM\Entity
  */
 class Produit
@@ -49,7 +49,7 @@ class Produit
      *
      * @ORM\ManyToOne(targetEntity="Subsouscategorie", inversedBy="produits")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_sub_sous_categorie", referencedColumnName="id_sub_sous_categorie", nullable=true)
+     *   @ORM\JoinColumn(name="id_sub_sous_categorie", referencedColumnName="id", nullable=true)
      * })
      */
     private $idSubSousCategorie;
@@ -59,7 +59,7 @@ class Produit
      *
      * @ORM\ManyToOne(targetEntity="Categorie", inversedBy="produits")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_categorie", referencedColumnName="id_categorie", nullable=false)
+     *   @ORM\JoinColumn(name="id_categorie", referencedColumnName="id", nullable=false)
      * })
      */
     private $idCategorie;
@@ -69,7 +69,7 @@ class Produit
      *
      * @ORM\ManyToOne(targetEntity="Souscategorie", inversedBy="produits")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_sous_categorie", referencedColumnName="id_sous_categorie", nullable=false)
+     *   @ORM\JoinColumn(name="id_sous_categorie", referencedColumnName="id", nullable=false)
      * })
      */
     private $idSousCategorie;

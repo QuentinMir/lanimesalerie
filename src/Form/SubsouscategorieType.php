@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Souscategorie;
 use App\Entity\Subsouscategorie;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +15,12 @@ class SubsouscategorieType extends AbstractType
     {
         $builder
             ->add('nom')
-        ;
+            ->add('souscategorie', EntityType::class, [
+                'class' => Souscategorie::class,
+                'choice_label' => function (Souscategorie $souscategorie) {
+                    return $souscategorie->getNom() . ' - ' . $souscategorie->getCategorie();
+                },
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -22,4 +29,6 @@ class SubsouscategorieType extends AbstractType
             'data_class' => Subsouscategorie::class,
         ]);
     }
+
+
 }
