@@ -1,0 +1,62 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %} {{ parent() }} Utilisateurs index{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/admin/dataTable.css') }}">
+{% endblock %}
+
+
+
+{% block body %}
+    <h1 class="mb-4">Utilisateurs</h1>
+
+    <table class="table">
+        <thead class="table-dark">
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Genre</th>
+            <th>Date de naissance</th>
+            <th>Date d'inscription</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.nom }}</td>
+                <td>{{ user.prenom }}</td>
+                <td>{{ user.email }}</td>
+                {% if user.estHomme %}
+                    <td>Homme</td>
+                {% else %}
+                    <td>Femme</td>
+                {% endif %}
+                <td>{{ user.dateNaissance ? user.dateNaissance|date('d-m-Y') : '' }}</td>
+                <td>{{ user.dateInscription  ? user.dateInscription|date('d-m-Y') : '' }}</td>
+                <td>
+                    {# <a href="{{ path('produit_show', {'id': produit.id}) }}">show</a>
+                    <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a> #}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    {% block javascripts %}
+        {{ parent() }}
+        <script rel=script" src="{{ asset('js/admin/dataTable.js') }}"></script>
+        <script rel=script" src="{{ asset('js/admin/initDataTable.js') }}"></script>
+    {% endblock %}
+{% endblock %}

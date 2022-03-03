@@ -35,22 +35,7 @@ class SouscategorieController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $image = $form->get('imageLink')->getData();
-
-            if ($image) { // Génération d'un nouveau nom sécurisé et unique
-                $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename . '-' . uniqid() . '.' . $image->guessExtension();
-
-
-                $image->move(
-                    $this->getParameter('images_souscategories'),
-                    $newFilename
-                );
-
-                // Dans ma BDD, j'ajoute le nom unique du fichier pour le retrouver
-                $souscategorie->setImageLink($newFilename);
-            }
+            $this->uploadImage($form, $slugger, $souscategorie);
 
 
             $entityManager->persist($souscategorie);
@@ -81,21 +66,7 @@ class SouscategorieController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $image = $form->get('imageLink')->getData();
-            if ($image) { // Génération d'un nouveau nom sécurisé et unique
-                $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename . '-' . uniqid() . '.' . $image->guessExtension();
-
-
-                $image->move(
-                    $this->getParameter('images_souscategories'),
-                    $newFilename
-                );
-
-                // Dans ma BDD, j'ajoute le nom unique du fichier pour le retrouver
-                $souscategorie->setImageLink($newFilename);
-            }
+            $this->uploadImage($form, $slugger, $souscategorie);
 
             $entityManager->flush();
 
@@ -117,5 +88,30 @@ class SouscategorieController extends AbstractController
         }
 
         return $this->redirectToRoute('souscategorie_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormInterface $form
+     * @param SluggerInterface $slugger
+     * @param Souscategorie $souscategorie
+     * @return void
+     */
+    public function uploadImage(\Symfony\Component\Form\FormInterface $form, SluggerInterface $slugger, Souscategorie $souscategorie): void
+    {
+        $image = $form->get('imageLink')->getData();
+        if ($image) { // Génération d'un nouveau nom sécurisé et unique
+            $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+            $safeFilename = $slugger->slug($originalFilename);
+            $newFilename = $safeFilename . '-' . uniqid() . '.' . $image->guessExtension();
+
+
+            $image->move(
+                $this->getParameter('images_souscategories'),
+                $newFilename
+            );
+
+            // Dans ma BDD, j'ajoute le nom unique du fichier pour le retrouver
+            $souscategorie->setImageLink($newFilename);
+        }
     }
 }

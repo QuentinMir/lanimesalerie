@@ -1,4 +1,36 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+ {% if produit.id is null %}
+     {{ form_row(form.images) }}
+ {% endif %}
+<ul id="image-fields-list"
+    data-widget-tags="{{ '<li></li>'|e }}"
+    data-widget-counter="{{ form.images|length }}">
+
+    {% for imageField in form.images %}
+        <li>
+            {{ loop.index }}
+            {{ form_errors(imageField) }}
+            {{ form_widget(imageField) }}
+        </li>
+    {% endfor %}
+</ul>
+
+
+<div class="row">
+    {% if produit.id is not null %}
+        {% for image in images %}
+            <div class="col-lg-3 col-6">
+                <p>Image {{ loop.index }}</p>
+                <img class="rounded img-fluid" width="220" src="{{ asset('uploads/imagesproduit/'~ image.lien) }}">
+            </div>
+
+        {% endfor %}
+    {% endif %}
+</div>
+<button type="button"
+        class="add-another-collection-widget btn btn-outline-dark mt-4 mb-5"
+        data-list-selector="#image-fields-list">Ajouter une image
+</button>
+
 {{ form_end(form) }}

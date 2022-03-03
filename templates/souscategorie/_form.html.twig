@@ -1,10 +1,11 @@
 {{ form_start(form) }}
     {{ form_row(form.nom) }}
+    {{ form_row(form.categorie) }}
 
 {% if souscategorie.id is not null %}
     <div>
         <p>Image actuelle</p>
-        <img src="{{ asset('uploads/imagessouscat/'~ souscategorie.imageLink) }}">
+        <img class="rounded img-fluid" width="250" src="{{ asset('uploads/imagessouscat/'~ souscategorie.imageLink) }}">
     </div>
 
     <p>Choisissez un fichier seulement si vous souhaitez changer l'image</p>

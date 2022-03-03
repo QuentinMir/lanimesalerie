@@ -5,6 +5,8 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     images_souscategories: '%kernel.project_dir%/public/uploads/imagessouscat'
+    images_categories: '%kernel.project_dir%/public/uploads/imagescat'
+    images_produits: '%kernel.project_dir%/public/uploads/imagesproduit'
 
 services:
   # default configuration for services in *this* file

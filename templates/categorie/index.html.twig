@@ -1,6 +1,6 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}Categorie index{% endblock %}
+{% block title %}{{ parent() }} Categorie index{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -21,6 +21,8 @@
         <tr>
             <th>Id</th>
             <th>Nom</th>
+            <th>Icône</th>
+            <th>Bannière</th>
             <th>actions</th>
         </tr>
         </thead>
@@ -29,6 +31,12 @@
             <tr>
                 <td>{{ categorie.id }}</td>
                 <td>{{ categorie.nom }}</td>
+                <td><img src="{{ asset('uploads/imagescat/'~ categorie.iconImage) }}"
+                         alt="Icône {{ categorie.nom }}" width="200px">
+                </td>
+                <td><img src="{{ asset('uploads/imagescat/'~ categorie.bannerImage) }}"
+                         alt="Bannière {{ categorie.nom }}" width="200px" height="auto">
+                </td>
                 <td>
                     <a href="{{ path('categorie_show', {'id': categorie.id}) }}">show</a>
                     <a href="{{ path('categorie_edit', {'id': categorie.id}) }}">edit</a>

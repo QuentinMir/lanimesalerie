@@ -41,6 +41,16 @@ class Categorie
      */
     private $souscategories;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $iconImage;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $bannerImage;
+
 
     public function __construct()
     {
@@ -119,6 +129,30 @@ class Categorie
                 $souscategory->setCategorie(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIconImage(): ?string
+    {
+        return $this->iconImage;
+    }
+
+    public function setIconImage(?string $iconImage): self
+    {
+        $this->iconImage = $iconImage;
+
+        return $this;
+    }
+
+    public function getBannerImage(): ?string
+    {
+        return $this->bannerImage;
+    }
+
+    public function setBannerImage(?string $bannerImage): self
+    {
+        $this->bannerImage = $bannerImage;
 
         return $this;
     }

@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('/admin/categorie')]
 class CategorieController extends AbstractController
@@ -26,13 +27,19 @@ class CategorieController extends AbstractController
     }
 
     #[Route('/new', name: 'categorie_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $categorie = new Categorie();
         $form = $this->createForm(CategorieType::class, $categorie);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $this->uploadIcon($form, $slugger, $categorie);
+
+            $this->uploadBanner($form, $slugger, $categorie);
+
+
             $entityManager->persist($categorie);
             $entityManager->flush();
 
@@ -54,12 +61,17 @@ class CategorieController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'categorie_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Categorie $categorie, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Categorie $categorie, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(CategorieType::class, $categorie);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $this->uploadIcon($form, $slugger, $categorie);
+
+            $this->uploadBanner($form, $slugger, $categorie);
+
             $entityManager->flush();
 
             return $this->redirectToRoute('categorie_index', [], Response::HTTP_SEE_OTHER);
@@ -80,5 +92,53 @@ class CategorieController extends AbstractController
         }
 
         return $this->redirectToRoute('categorie_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormInterface $form
+     * @param SluggerInterface $slugger
+     * @param Categorie $categorie
+     * @return void
+     */
+    public function uploadIcon(\Symfony\Component\Form\FormInterface $form, SluggerInterface $slugger, Categorie $categorie): void
+    {
+        $icon = $form->get('iconImage')->getData();
+        if ($icon) { // Génération d'un nouveau nom sécurisé et unique
+            $originalFilenameIcon = pathinfo($icon->getClientOriginalName(), PATHINFO_FILENAME);
+            $safeFilenameIcon = $slugger->slug($originalFilenameIcon);
+            $newFilenameIcon = $safeFilenameIcon . '-' . uniqid() . '.' . $icon->guessExtension();
+
+
+            $icon->move(
+                $this->getParameter('images_categories'),
+                $newFilenameIcon
+            );
+
+            $categorie->setIconImage($newFilenameIcon);
+        }
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormInterface $form
+     * @param SluggerInterface $slugger
+     * @param Categorie $categorie
+     * @return void
+     */
+    public function uploadBanner(\Symfony\Component\Form\FormInterface $form, SluggerInterface $slugger, Categorie $categorie): void
+    {
+        $banner = $form->get('bannerImage')->getData();
+        if ($banner) { // Génération d'un nouveau nom sécurisé et unique
+            $originalFilenameBanner = pathinfo($banner->getClientOriginalName(), PATHINFO_FILENAME);
+            $safeFilenameBanner = $slugger->slug($originalFilenameBanner);
+            $newFilenameBanner = $safeFilenameBanner . '-' . uniqid() . '.' . $banner->guessExtension();
+
+
+            $banner->move(
+                $this->getParameter('images_categories'),
+                $newFilenameBanner
+            );
+
+            $categorie->setBannerImage($newFilenameBanner);
+        }
     }
 }

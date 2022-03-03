@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Produit
@@ -25,28 +26,28 @@ class Produit
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank
      * @ORM\Column(name="nom", type="string", length=50, nullable=false)
      */
     private $nom;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank
      * @ORM\Column(name="description", type="text", length=65535, nullable=false)
      */
     private $description;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank
      * @ORM\Column(name="prix_ht", type="decimal", precision=15, scale=2, nullable=false)
      */
     private $prixHt;
 
     /**
      * @var \Subsouscategorie
-     *
+     * @Assert\NotBlank
      * @ORM\ManyToOne(targetEntity="Subsouscategorie", inversedBy="produits")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_sub_sous_categorie", referencedColumnName="id", nullable=true)
@@ -56,7 +57,7 @@ class Produit
 
     /**
      * @var \Categorie
-     *
+     * @Assert\NotBlank
      * @ORM\ManyToOne(targetEntity="Categorie", inversedBy="produits")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_categorie", referencedColumnName="id", nullable=false)
@@ -66,7 +67,7 @@ class Produit
 
     /**
      * @var \Souscategorie
-     *
+     * @Assert\NotBlank
      * @ORM\ManyToOne(targetEntity="Souscategorie", inversedBy="produits")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_sous_categorie", referencedColumnName="id", nullable=false)
@@ -86,7 +87,7 @@ class Produit
 
     /**
      * @var \Doctrine\Common\Collections\Collection
-     *
+     * @Assert\NotBlank
      * @ORM\ManyToMany(targetEntity="Commande", inversedBy="idProduit")
      * @ORM\JoinTable(name="contenir",
      *   joinColumns={
@@ -100,9 +101,20 @@ class Produit
     private $idCommande;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="idProduit")
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="idProduit", orphanRemoval=true, cascade={"persist"})
      */
     private $images;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    private $estDispo;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Avis::class, mappedBy="produit", orphanRemoval=true)
+     */
+    private $avis;
 
 
     /**
@@ -112,6 +124,7 @@ class Produit
     {
         $this->idCommande = new \Doctrine\Common\Collections\ArrayCollection();
         $this->images = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->avis = new ArrayCollection();
     }
 
 
@@ -251,6 +264,48 @@ class Produit
     public function removeIdCommande(Commande $idCommande): self
     {
         $this->idCommande->removeElement($idCommande);
+
+        return $this;
+    }
+
+    public function getEstDispo(): ?bool
+    {
+        return $this->estDispo;
+    }
+
+    public function setEstDispo(?bool $estDispo): self
+    {
+        $this->estDispo = $estDispo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Avis[]
+     */
+    public function getAvis(): Collection
+    {
+        return $this->avis;
+    }
+
+    public function addAvi(Avis $avi): self
+    {
+        if (!$this->avis->contains($avi)) {
+            $this->avis[] = $avi;
+            $avi->setProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAvi(Avis $avi): self
+    {
+        if ($this->avis->removeElement($avi)) {
+            // set the owning side to null (unless already changed)
+            if ($avi->getProduit() === $this) {
+                $avi->setProduit(null);
+            }
+        }
 
         return $this;
     }

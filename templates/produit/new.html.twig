@@ -9,3 +9,7 @@
 
     <a href="{{ path('produit_index') }}">back to list</a>
 {% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script rel="script" src="{{ asset('js/admin/prototype.js') }}"></script>
+{% endblock %}

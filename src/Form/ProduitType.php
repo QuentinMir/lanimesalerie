@@ -6,6 +6,9 @@ use App\Entity\Produit;
 use App\Entity\Souscategorie;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -25,7 +28,21 @@ class ProduitType extends AbstractType
                 },
             ])
             ->add('idSubSousCategorie')
-            ->add('idMarque');
+            ->add('idMarque')
+            ->add('images', CollectionType::class, [
+                'entry_type' => ImageType::class,
+                'allow_add' => true,
+                'prototype' => true
+            ])
+            ->add('estDispo', ChoiceType::class, [
+                'choices' => [
+                    'Disponible' => 1,
+                    'Pas disponible' => 0
+                ],
+            ])
+            ->add('Enregistrer', SubmitType::class, [
+                'attr' => ['class' => 'btn mt-3']
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

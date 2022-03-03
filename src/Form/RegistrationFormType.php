@@ -18,6 +18,8 @@ use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Type;
 use Symfony\Component\Validator\Constraints\Unique;
 
 class RegistrationFormType extends AbstractType
@@ -27,7 +29,7 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('email', EmailType::class, [
                 'attr' => ['class' => 'ps-3 my-1 border border-1 border-dark rounded py-1'],
-                'constraints' => [new NotBlank(), new Email(), new UniqueEntity(['fields' => 'email'])],
+                'constraints' => [new NotBlank(), new Email()],
             ])
             ->add('plainPassword', RepeatedType::class, [
                 'mapped' => false,
@@ -65,8 +67,10 @@ class RegistrationFormType extends AbstractType
             ->add('dateNaissance', DateType::class, [
                 'widget' => 'single_text',
                 'html5' => true,
+                'required' => true,
                 'attr' => ['class' => 'js-datepicker'],
-                'constraints' => new NotBlank(),
+                'empty_data' => null,
+                'constraints' => [new NotBlank(), new NotNull()],
             ]);
     }
 
@@ -74,6 +78,7 @@ class RegistrationFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'constraints' => new UniqueEntity(['fields' => 'email'])
         ]);
     }
 }

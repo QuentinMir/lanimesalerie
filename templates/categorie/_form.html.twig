@@ -1,4 +1,27 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_row(form.nom) }}
+
+{% if categorie.id is not null %}
+    <div>
+        <p>Icône actuelle</p>
+        <img class="rounded img-fluid" width="250" src="{{ asset('uploads/imagescat/'~ categorie.iconImage) }}">
+    </div>
+
+    <p>Choisissez un fichier seulement si vous souhaitez changer l'image</p>
+    {{ form_row(form.iconImage, {'required': false}) }}
+
+    <div>
+        <p>Bannière actuelle</p>
+        <img class="rounded img-fluid" width="250" src="{{ asset('uploads/imagescat/'~ categorie.bannerImage) }}">
+    </div>
+
+    <p>Choisissez un fichier seulement si vous souhaitez changer l'image</p>
+    {{ form_row(form.bannerImage, {'required': false}) }}
+{% else %}
+
+    {{ form_row(form.iconImage, {'required': true}) }}
+    {{ form_row(form.bannerImage, {'required': true}) }}
+
+{% endif %}
+<button class="btn mt-2">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

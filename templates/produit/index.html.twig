@@ -25,11 +25,13 @@
             <th>Catégorie</th>
             <th>Type</th>
             <th>PrixHt</th>
+            <th>Disponible</th>
             <th>actions</th>
         </tr>
         </thead>
         <tbody>
         {% for produit in produits %}
+
             <tr>
                 <td>{{ produit.id }}</td>
                 <td>{{ produit.nom }}</td>
@@ -37,6 +39,11 @@
                 <td>{{ produit.idCategorie }}</td>
                 <td>{{ produit.idSubSousCategorie }}</td>
                 <td>{{ produit.prixHt }}</td>
+                {% if produit.estDispo %}
+                    <td>Oui</td>
+                {% else %}
+                    <td>Non</td>
+                {% endif %}
                 <td>
                     <a href="{{ path('produit_show', {'id': produit.id}) }}">show</a>
                     <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>

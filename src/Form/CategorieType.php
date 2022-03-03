@@ -4,8 +4,10 @@ namespace App\Form;
 
 use App\Entity\Categorie;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class CategorieType extends AbstractType
 {
@@ -13,7 +15,39 @@ class CategorieType extends AbstractType
     {
         $builder
             ->add('nom')
-        ;
+            ->add('iconImage', FileType::class, [
+                'label' => 'Ajouter une icône',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'maxSizeMessage' => 'Le fichier est trop lourd',
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpeg',
+                            'image/svg+xml'
+                        ],
+                        'mimeTypesMessage' => 'Veuillez ajouter un fichier de type png, jpg, jpeg ou svg'
+                    ])
+                ]
+            ])
+            ->add('bannerImage', FileType::class, [
+                'label' => 'Ajouter une image de bannière',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'maxSizeMessage' => 'Le fichier est trop lourd',
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpeg'
+                        ],
+                        'mimeTypesMessage' => 'Veuillez ajouter un fichier de type png ou jpeg ou jpg'
+                    ])
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

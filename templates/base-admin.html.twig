@@ -14,16 +14,7 @@
 
     {% endblock %}
 
-    {% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
-        <script rel=script" src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-        <script rel=script" src="{{ asset('js/jquery.js') }}"></script>
-        <script rel=script" src="{{ asset('js/admin/off-canvas.js') }}"></script>
-        <script rel=script" src="{{ asset('js/admin/hoverable-collapse.js') }}"></script>
-        <script rel=script" src="{{ asset('js/admin/template.js') }}?version=2"></script>
-        <!-- icons -->
-        <script src="https://kit.fontawesome.com/6b6014b051.js" crossorigin="anonymous"></script>
-    {% endblock %}
+
 </head>
 <body>
 <div class="container-scroller">
@@ -246,6 +237,22 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item {% if app.request.get('_route') == 'user_index' %}active{% endif %}">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#user" aria-expanded="false"
+                       aria-controls="user">
+                        <i class="fa-solid fa-user fs-5 me-2"></i>
+                        <span class="menu-title">Utilisateurs</span>
+                        <i class="fa-solid fa-chevron-right menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="user">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item {% if app.request.get('_route') == 'user_index' %}active{% endif %}">
+                                <a class="nav-link" href="{{ path('user_index') }}">Tous les
+                                    utilisateurs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
 
                 <li class="nav-item nav-category">pages</li>
                 <li class="nav-item">
@@ -296,7 +303,16 @@
     </div>
     <!-- page-body-wrapper ends -->
 </div>
-
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    <script rel=script" src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script rel=script" src="{{ asset('js/jquery.js') }}"></script>
+    <script rel=script" src="{{ asset('js/admin/off-canvas.js') }}"></script>
+    <script rel=script" src="{{ asset('js/admin/hoverable-collapse.js') }}"></script>
+    <script rel=script" src="{{ asset('js/admin/template.js') }}?version=2"></script>
+    <!-- icons -->
+    <script src="https://kit.fontawesome.com/6b6014b051.js" crossorigin="anonymous"></script>
+{% endblock %}
 </body>
 </html>
 
