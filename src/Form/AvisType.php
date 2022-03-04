@@ -16,7 +16,7 @@ class AvisType extends AbstractType
     {
         $builder
             ->add('contenu')
-            /*->add('note', ChoiceType::class, [
+            ->add('note', ChoiceType::class, [
                 'choices' => [
                     '1' => '1',
                     '2' => '2',
@@ -27,8 +27,8 @@ class AvisType extends AbstractType
                 'expanded' => true,
                 'multiple' => false,
                 'required' => true,
-            ])*/
-            ->add('note')
+            ])
+
         ;
     }
 

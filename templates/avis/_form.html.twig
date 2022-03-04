@@ -1,12 +1,10 @@
 <div class="col-4 mx-auto">
-{{ form_start(form) }}
-{#
-{{ form_errors(form.contenu) }}
-{{ form_widget(form.contenu) }}
-{{ form_errors(form.note) }}
-{{ form_widget(form.note) }} #}
-    {{ form_row(form.contenu) }}
+    {{ form_start(form) }}
+
     {{ form_row(form.note) }}
-<button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+    {{ form_row(form.contenu) }}
+    <div>
+        <button class="btn btn-primary">{{ button_label|default('Publier mon avis') }}</button>
+    </div>
+    {{ form_end(form) }}
 </div>

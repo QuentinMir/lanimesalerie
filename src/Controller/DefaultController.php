@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Avis;
 use App\Entity\Categorie;
+use App\Entity\Marque;
 use App\Entity\Produit;
 use App\Form\AvisType;
 use App\Form\HeaderSearchType;
@@ -43,11 +44,32 @@ class DefaultController extends AbstractController
     #[Route('/produit/{id}', name: 'singleProduct', requirements: ['id' => '\d+'])]
     public function getOneProduct(Produit $produit, EntityManagerInterface $em, Request $request, SecurityController $sc): Response
     {
+        // récupérer les images
         $images = $produit->getImages();
+
+        // récupérer les produits
+        $produitAvis = $produit->getAvis();
+
+        // récupérer la marque
+        $marques = $em->getRepository(Marque::class)->findAll();
+        foreach ($marques as $marque) {
+
+            if ($produit->getIdMarque() == $marque) {
+                $currentMarque = $marque;
+            }
+        }
+
+        $note = 0;
+        /*dd($produitAvis);*/
+
+        /* foreach ($produitAvis)*/
+
         $avis = new Avis();
         $form = $this->createForm(AvisType::class, $avis);
         $form->handleRequest($request);
+
         $user = $sc->getUser();
+
         if ($form->isSubmitted() && $form->isValid()
         ) {
 
@@ -61,7 +83,7 @@ class DefaultController extends AbstractController
 
 
             return $this->redirect($request->headers->get('referer'));
-            // return $this->redirect('default');
+
         }
 
 
@@ -69,6 +91,8 @@ class DefaultController extends AbstractController
             'produit' => $produit,
             'images' => $images,
             'form' => $form->createView(),
+            'produitAvis' => $produitAvis,
+            'marque' => $currentMarque,
         ]);
     }
 

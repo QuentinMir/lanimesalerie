@@ -7,23 +7,25 @@ function myFunction(imgs) {
     expandImg.parentElement.style.display = "block";
 }
 
-document.querySelectorAll("input[name=stars]").forEach((radio) =>
-    radio.addEventListener("change", function () {
-        console.log("Nouveau rating: " + this.value);
-    })
-);
 
-
-/*function addChecked() {
-    document.querySelectorAll("input[name=stars]").forEach((radio) => radio.removeAttribute('checked'));
-    this.setAttribute('checked', '');
-}
-
-document.querySelectorAll("input[name=stars]").forEach((radio) =>
-    radio.addEventListener("change", addChecked)
-);*/
-
-/*
+// Formulaire avis produit
 document.addEventListener("DOMContentLoaded", function () {
-document.querySelectorAll('.form-check')
-});*/
+    let choices = '';
+    let block = document.querySelector('#avis_note');
+    let star = "";
+
+    for (let i = 0; i < 5; i++) {
+        star += `<span class="icon">★</span>`
+
+        choices += ` 
+        <label>
+            <input type="radio" id="avis_note_${i}" name="avis[note]"
+                    value="${i + 1}">
+                   ${star}
+            </label>`
+    }
+
+    block.classList.add('rating', 'text-start');
+    block.innerHTML = choices
+
+});

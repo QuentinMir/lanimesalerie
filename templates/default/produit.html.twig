@@ -37,16 +37,17 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ path('default') }}">Accueil</a></li>
                 <li class="breadcrumb-item">
-                    <a href="sous-categories.html">Chien</a>
+                    <a href="sous-categories.html">{{ produit.idCategorie.nom }}</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="boutique.html">Nourriture</a>
+                    <a href="boutique.html">{{ produit.idSousCategorie.nom }}</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    Ultima Medium Maxi Croquettes au poulet - 7,5 kg
+                    {{ produit.idMarque.nom }} {{ produit.nom }}
                 </li>
             </ol>
         </nav>
+
 
         <!-- Produit -->
         <section>
@@ -103,7 +104,7 @@
                                 </div>
                                 <a href="#ancre-avis">
                                     <p class="avis-pdt my-0">
-                                        Lire les avis (<em class="nbAvis">X</em>)
+                                        Lire les avis ({{ produitAvis.snapshot | length }})
                                     </p>
                                 </a>
                             </div>
@@ -116,7 +117,7 @@
                                         <p class="my-0 me-2 dispo">Disponible</p>
                                         <i class="fas fa-check dispo"></i>
                                     {% else %}
-                                        <p class="my-0 me-2 text-danger">Disponible</p>
+                                        <p class="my-0 me-2 text-danger">Indisponible</p>
                                     {% endif %}
 
                                 </div>
@@ -689,7 +690,7 @@
                         >
                             <!--Injection étoiles ici -->
                         </div>
-                        <p class="avis-pdt pt-2">Sur <em class="nbAvis">X</em> avis</p>
+                        <p class="avis-pdt pt-2">Sur {{ produitAvis.snapshot | length }} avis</p>
                     </div>
                     <div class="col-lg-1 d-none d-lg-block"></div>
                     <!-- gauche mid barres -->
@@ -804,78 +805,28 @@
                                         </div>
                                         <!-- BODY FORM -->
                                         <div class="modal-body d-flex flex-column">
-                                            {# <form class="d-flex flex-column"> #}
-                                            {# <div class="rating text-start"> #}
-                                            {{ form_start(form, {'action': path('singleProduct', {'id': produit.id}), 'method': 'POST'}) }}
-                                            {{ form_errors(form.contenu) }}
-                                            {{ form_widget(form.contenu) }}
+
+                                            {{ form_start(form, {'action': path('singleProduct', {'id': produit.id}), 'method': 'POST', 'attr': {'class': 'd-flex flex-column'}}) }}
                                             {{ form_errors(form.note) }}
                                             {{ form_widget(form.note) }}
-                                            <button class="btn">{{ button_label|default('Save') }}</button>
+                                            {{ form_errors(form.contenu) }}
+                                            {{ form_widget(form.contenu, {'attr': {'class': 'px-2 py-2 rounded'}}) }}
+
+                                            <div class="modal-footer">
+                                                <button
+                                                        type="button"
+                                                        class="btn btn-secondary"
+                                                        data-bs-dismiss="modal"
+                                                >
+                                                    Annuler
+                                                </button>
+                                                <button class="btn btn-primary">{{ button_label|default('Publier mon avis') }}</button>
+                                            </div>
                                             {{ form_end(form) }}
-                                            {# <label>
-                                                        <input type="radio" name="stars" value="1" checked/>
-                                                        <span class="icon">★</span>
-                                                    </label>
-                                                    <label>
-                                                        <input type="radio" name="stars" value="2"/>
-                                                        <span class="icon">★</span>
-                                                        <span class="icon">★</span>
-                                                    </label>
-                                                    <label>
-                                                        <input type="radio" name="stars" value="3"/>
-                                                        <span class="icon">★</span>
-                                                        <span class="icon">★</span>
-                                                        <span class="icon">★</span>
-                                                    </label>
-                                                    <label>
-                                                        <input type="radio" name="stars" value="4"/>
-                                                        <span class="icon">★</span>
-                                                        <span class="icon">★</span>
-                                                        <span class="icon">★</span>
-                                                        <span class="icon">★</span>
-                                                    </label>
-                                                    <label>
-                                                        <input type="radio" name="stars" value="5"/>
-                                                        <span class="icon">★</span>
-                                                        <span class="icon">★</span>
-                                                        <span class="icon">★</span>
-                                                        <span class="icon">★</span>
-                                                        <span class="icon">★</span>
-                                                    </label>
-                                    </div> #}
-                                            <!-- avis -->
-                                            {# <textarea
-                                                        class="px-2 py-2 rounded"
-                                                        name="avis"
-                                                        id="avis"
-                                                        cols="30"
-                                                        rows="5"
-                                                        placeholder="Tapez votre avis ici"
-                                                ></textarea> #}
-
-                                            {#  </form> #}
 
 
                                         </div>
 
-                                        <div class="modal-footer">
-                                            <button
-                                                    type="button"
-                                                    class="btn btn-secondary"
-                                                    data-bs-dismiss="modal"
-                                            >
-                                                Annuler
-                                            </button>
-                                            <button
-                                                    id="publiAvis"
-                                                    type="button"
-                                                    class="btn btn-primary"
-                                                    data-bs-dismiss="modal"
-                                            >
-                                                Publier mon avis
-                                            </button>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -892,7 +843,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-6">
-                            <p class="my-0">1-6 sur <em class="nbAvis"> X</em> avis</p>
+                            <p class="my-0">1-6 sur {{ produitAvis.snapshot | length }} avis</p>
                         </div>
                         <div class="col-6 text-end">
                             <p class="my-0">
@@ -908,40 +859,56 @@
                 </div>
             </div>
             <div class="container">
-                <!-- les avis postés -->
                 <div class="row" id="blockAvis">
-                    <!-- un avis client posté -->
-                    <!-- <div class="col-lg-6 col-12 my-3">
-                      <div class="row align-items-center justify-content-between">
-                        <div class="col-5">
-                          <h6 class="my-0">Jean-Michel Labrador</h6>
+                    {# les avis postés #}
+                    {% if produitAvis.snapshot | length != 0 %}
+                        {% for avis in produitAvis %}
+                            <div class="col-lg-6 col-12 my-3">
+                                <div class="row align-items-center justify-content-between">
+                                    <div class="col-5">
+                                        <h6 class="my-0">  {{ avis.user.prenom }} {{ avis.user.nom }} </h6>
+                                    </div>
+                                    <div class="col-3">
+
+                                        {% if avis.note == 1 %}
+                                            <span class="icon fs-4 text-red my-0">★</span>
+                                        {% elseif avis.note == 2 %}
+                                            <span class="icon fs-4 text-red my-0">★★</span>
+                                        {% elseif avis.note == 3 %}
+                                            <span class="icon fs-4 text-red my-0">★★★</span>
+                                        {% elseif avis.note == 4 %}
+                                            <span class="icon fs-4 text-red my-0">★★★★</span>
+                                        {% elseif avis.note == 5 %}
+                                            <span class="icon fs-4 text-red my-0">★★★★★</span>
+                                        {% endif %}
+
+                                    </div>
+                                    <div class="col-3">
+                                        <p class="my-0">{{ avis.date ? avis.date|date('d-m-Y') : '' }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-none d-lg-block"></div>
+                            <div class="col-12">
+                                <p class="ms-auto me-0 w-75 my-1">
+                                    {{ avis.contenu }}
+                                </p>
+                                <hr/>
+                            </div>
+
+                            {% if (app.user and app.user.roles[0] == 'ROLE_ADMIN') %}
+                                <div>{{ include('comment/_delete_form.html.twig') }}
+                                </div>
+                            {% endif %}
+
+                        {% endfor %}
+                    {% else %}
+                        <div class="col-12 text-center">
+                            <h5>Aucun avis n'a été posté pour le moment...</h5>
                         </div>
-                        <div class="col-3">
-                          <span class="icon fs-4 text-red my-0">★★★★★</span>
-                        </div>
-                        <div class="col-3">
-                          <p class="my-0">- il y a 10 jours</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6 d-none d-lg-block"></div>
-                    <div class="col-12">
-                      <p class="ms-auto me-0 w-75 my-1">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                        diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                        aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-                        takimata sanctus est. Lorem ipsum dolor sit amet, consetetur
-                        sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                        labore et dolore magna aliquyam erat, sed diam voluptua. At vero
-                        eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-                        gubergren, no sea takimata sanctus est.
-                      </p>
-                      <hr />
-                    </div> -->
-                    <div class="col-12 text-center">
-                        <h5>Aucun avis n'a été posté pour le moment...</h5>
-                    </div>
+                    {% endif %}
+
+
                 </div>
             </div>
 

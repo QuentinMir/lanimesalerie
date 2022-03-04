@@ -42,6 +42,11 @@ class Marque
         $this->produits = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->nom;
+    }
+
     public function addProduit(Produit $produit)
     {
         if (!$this->produits->contains($produit)) {
@@ -67,10 +72,6 @@ class Marque
         return $this->nom;
     }
 
-    public function __toString()
-    {
-        return $this->nom;
-    }
 
     public function setNom(?string $nom): self
     {
