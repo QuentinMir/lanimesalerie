@@ -4,27 +4,10 @@
 
 {% block body %}
 
-    <div class="container">
-        <h1>page produit</h1>
-
-        <a href="{{ path('default') }}" class="btn btn-outline-primary">Retour</a>
-        <div class="row">
-
-            <div class="card" style="width: 18rem;">
-                <img src="{{ produit.images | first }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"> nom : {{ produit.nom }} </h5>
-                    <p class="card-text"> description : {{ produit.description | u.truncate(100, '...') }}</p>
-                    <p class="card-text">categorie : {{ produit.idCategorie.nom }}</p>
-                    <p class="card-text">Sous catégorie : {{ produit.idSousCategorie.nom }}</p>
-                    <p class="card-text"> sub sous catégorie : {{ produit.idSubSousCategorie.nom }}</p>
-
-                </div>
-            </div>
-
-
-        </div>
-    </div>
+    <h6 class="mt-5 text-center">Finir : <br> embellir le form tri avis <br> filtre quantité panier (si possible)
+        <br> sousmettre le form avis au clic en js <br> virer recommander à un ami <br> Essayer de faire le compteur
+        d'étoiles
+    </h6>
 
     <main>
         <!-- Fil d'ariane -->
@@ -96,15 +79,28 @@
                             </div>
                             <div class="col-7 mb-4 d-flex align-items-center">
                                 <div class="star-yell">
-                                    <i class="me-1 fas fa-star"></i>
-                                    <i class="me-1 fas fa-star"></i>
-                                    <i class="me-1 fas fa-star"></i>
-                                    <i class="me-1 fas fa-star"></i>
-                                    <i class="me-1 fas fa-star-half"></i>
+                                    {% if note %}
+                                        {% for i in 1..5 %}
+                                            {% if i <  note %}
+                                                <i class="me-1 fas fa-star"></i>
+                                            {% else %}
+                                                <i class="me-1 far fa-star"></i>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% else %}
+                                        {% for i in 1..5 %}
+                                            <i class="me-1 far fa-star"></i>
+                                        {% endfor %}
+                                    {% endif %}
                                 </div>
+                                {# <i class="me-1 fas fa-star"></i>
+                                    <i class="me-1 fas fa-star"></i>
+                                    <i class="me-1 fas fa-star"></i>
+                                    <i class="me-1 fas fa-star"></i> #}
+
                                 <a href="#ancre-avis">
                                     <p class="avis-pdt my-0">
-                                        Lire les avis ({{ produitAvis.snapshot | length }})
+                                        Lire les avis ( {{ produitAvis | length }} )
                                     </p>
                                 </a>
                             </div>
@@ -676,13 +672,19 @@
                     </div>
                     <!-- Gauche -->
                     <div class="col-lg-3 col-6 text-center border-end border-secondary">
+
+
                         <h6 class="my-0">note</h6>
                         <div
                                 class="d-flex align-items-center justify-content-center fw-bold"
                         >
-                            <p class="fs-2 text-titre my-0" id="note">4,8</p>
-                            <p class="fs-4 text-titre my-0">/</p>
-                            <p class="fs-4 text-titre my-0">5</p>
+                            {% if note == 0 %}
+                                <p class="fs-5 text-titre my-0" id="note">Pas encore noté</p>
+                            {% else %}
+                                <p class="fs-2 text-titre my-0" id="note">{{ note|round(1, 'ceil') }}</p>
+                                <p class="fs-4 text-titre my-0">/</p>
+                                <p class="fs-4 text-titre my-0">5</p>
+                            {% endif %}
                         </div>
                         <div
                                 id="starRating"
@@ -690,7 +692,7 @@
                         >
                             <!--Injection étoiles ici -->
                         </div>
-                        <p class="avis-pdt pt-2">Sur {{ produitAvis.snapshot | length }} avis</p>
+                        <p class="avis-pdt pt-2">Sur {{ produitAvis | length }} avis</p>
                     </div>
                     <div class="col-lg-1 d-none d-lg-block"></div>
                     <!-- gauche mid barres -->
@@ -843,25 +845,29 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-6">
-                            <p class="my-0">1-6 sur {{ produitAvis.snapshot | length }} avis</p>
+                            <p class="my-0">{{ produitAvis | length }} avis</p>
                         </div>
                         <div class="col-6 text-end">
-                            <p class="my-0">
+                            {# <p class="my-0">
                                 <label for="triage">Trier par :</label>
                                 <select id="triage" class="triage" name="triage">
                                     <option value="recent">Les plus récents</option>
                                     <option value="croissant">Notes croissantes</option>
                                     <option value="decroissant">Notes décroissantes</option>
                                 </select>
-                            </p>
+                            </p> #}
+                            {{ form_start(formTriAvis) }}
+                            {{ form_end(formTriAvis) }}
+
                         </div>
                     </div>
                 </div>
             </div>
             <div class="container">
+
                 <div class="row" id="blockAvis">
                     {# les avis postés #}
-                    {% if produitAvis.snapshot | length != 0 %}
+                    {% if produitAvis | length != 0 %}
                         {% for avis in produitAvis %}
                             <div class="col-lg-6 col-12 my-3">
                                 <div class="row align-items-center justify-content-between">
@@ -889,18 +895,18 @@
                                 </div>
                             </div>
                             <div class="col-lg-6 d-none d-lg-block"></div>
-                            <div class="col-12">
+                            <div class="col-10 mx-auto">
                                 <p class="ms-auto me-0 w-75 my-1">
                                     {{ avis.contenu }}
                                 </p>
-                                <hr/>
+
                             </div>
 
                             {% if (app.user and app.user.roles[0] == 'ROLE_ADMIN') %}
-                                <div>{{ include('comment/_delete_form.html.twig') }}
+                                <div class="col-2">{{ include('avis/_delete_form.html.twig') }}
                                 </div>
                             {% endif %}
-
+                            <hr/>
                         {% endfor %}
                     {% else %}
                         <div class="col-12 text-center">
@@ -939,9 +945,9 @@
                         <div
                                 class="col-12 d-flex align-items-center justify-content-center"
                         >
-                            <i class="fas fa-chevron-left"></i>
-                            <p class="my-0 mx-3">1-6 sur <em class="nbAvis">X</em> avis</p>
-                            <i class="fas fa-chevron-right"></i>
+
+                            <p class="my-0 mx-3">Fin des avis</p>
+
                         </div>
                     </div>
                 </div>

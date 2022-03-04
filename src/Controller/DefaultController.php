@@ -8,6 +8,9 @@ use App\Entity\Marque;
 use App\Entity\Produit;
 use App\Form\AvisType;
 use App\Form\HeaderSearchType;
+use App\Form\SearchType;
+use App\Form\TriAvisType;
+use App\Repository\AvisRepository;
 use App\Repository\ProduitRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -42,13 +45,13 @@ class DefaultController extends AbstractController
     }
 
     #[Route('/produit/{id}', name: 'singleProduct', requirements: ['id' => '\d+'])]
-    public function getOneProduct(Produit $produit, EntityManagerInterface $em, Request $request, SecurityController $sc): Response
+    public function getOneProduct(Produit $produit, EntityManagerInterface $em, Request $request, SecurityController $sc, AvisRepository $ar): Response
     {
+
+
         // récupérer les images
         $images = $produit->getImages();
 
-        // récupérer les produits
-        $produitAvis = $produit->getAvis();
 
         // récupérer la marque
         $marques = $em->getRepository(Marque::class)->findAll();
@@ -59,10 +62,6 @@ class DefaultController extends AbstractController
             }
         }
 
-        $note = 0;
-        /*dd($produitAvis);*/
-
-        /* foreach ($produitAvis)*/
 
         $avis = new Avis();
         $form = $this->createForm(AvisType::class, $avis);
@@ -86,6 +85,44 @@ class DefaultController extends AbstractController
 
         }
 
+        $filters = [];
+
+        $formTriAvis = $this->createForm(TriAvisType::class);
+        $formTriAvis->handleRequest($request);
+
+
+        // récupérer les avis
+        $produitAvis = $ar->search($filters, '', $produit, '');
+
+        // form de tri
+        if ($formTriAvis->isSubmitted() && $formTriAvis->isValid()) {
+            $filters = $formTriAvis->getData();
+
+
+            if (!is_null($formTriAvis->get('ordre'))) {
+
+                switch ($filters['ordre']) {
+                    case 1:
+                        $produitAvis = $ar->search($filters, 'ASC', $produit, 'note');
+                        break;
+                    case 2:
+                        $produitAvis = $ar->search($filters, 'DESC', $produit, 'note');
+                        break;
+                    case 3:
+                        $produitAvis = $ar->search($filters, 'DESC', $produit, 'date');
+                        break;
+                }
+            }
+
+        }
+
+        $note = 0;
+        foreach ($produitAvis as $noteProduit) {
+            $note += $noteProduit->getNote();
+        }
+        if (count($produitAvis) > 0) {
+            $note = $note / count($produitAvis);
+        }
 
         return $this->render('default/produit.html.twig', [
             'produit' => $produit,
@@ -93,6 +130,9 @@ class DefaultController extends AbstractController
             'form' => $form->createView(),
             'produitAvis' => $produitAvis,
             'marque' => $currentMarque,
+            'formTriAvis' => $formTriAvis->createView(),
+            'filters' => $filters,
+            'note' => $note
         ]);
     }
 

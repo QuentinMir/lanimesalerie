@@ -19,6 +19,31 @@ class AvisRepository extends ServiceEntityRepository
         parent::__construct($registry, Avis::class);
     }
 
+    public function search($filters, $ordre, $produit, $param)
+    {
+        $query = $this->createQueryBuilder('a')
+            ->where('a.produit = :produit')
+            // ->orderBy('a.date', 'DESC')
+            ->setParameter('produit', $produit);
+
+        if (!empty($filters)) {
+            if (!is_null($filters['ordre'])) {
+
+                $query = $this->createQueryBuilder('a')
+                    ->where('a.produit = :produit')
+                    ->orderBy('a.' . $param, $ordre)
+                    ->setParameter('produit', $produit);
+            }
+
+        }
+
+        return $query->getQuery()->getResult();
+
+
+    }
+
+
+
     // /**
     //  * @return Avis[] Returns an array of Avis objects
     //  */
