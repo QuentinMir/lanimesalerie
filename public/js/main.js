@@ -67,8 +67,8 @@ $("a.panier").click(function () {
     let id = $(this).data('id');
     let nom = $(this).data('nom');
     let prix = $(this).data('prix');
-    $('#addPanier').attr('href', 'http://localhost:8000/panier/' + id);
-    $('#addPanierStay').attr('href', 'http://localhost:8000/panier/add/' + id);
+    $('#addPanier').attr('href', 'http://localhost:8000/panier/' + id + '/1');
+    $('#addPanierStay').attr('href', 'http://localhost:8000/panier/add/' + id + '/1');
     $('#prixArticle').html(`${prix} €`);
     $('#nomArticle').html(`${nom}`);
 });

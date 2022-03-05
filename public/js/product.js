@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let choices = '';
     let block = document.querySelector('#avis_note');
     let star = "";
+    let triLabel = document.querySelector('p.my-0 label');
 
     for (let i = 0; i < 5; i++) {
         star += `<span class="icon">★</span>`
@@ -27,10 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     block.classList.add('rating', 'text-start');
     block.innerHTML = choices
+    document.querySelector('#tri_avis_ordre').classList.remove('form-select');
+    triLabel.classList.remove('form-label');
+    triLabel.classList.add('fw-bold');
 
 });
 
-/****************bar étoiles client****************/
+/**************** Barres étoiles avis ****************/
 
 function drawHBarChart(target, data, params) {
     let $target = $(target);
@@ -123,14 +127,14 @@ function drawHBarChart(target, data, params) {
     }
 }
 
-// ---------- Demo ----------
+// ---------- data ----------
 let blockAvis = document.querySelector('#avis');
 let star1 = parseInt(blockAvis.getAttribute('data-star1'));
 let star2 = parseInt(blockAvis.getAttribute('data-star2'));
 let star3 = parseInt(blockAvis.getAttribute('data-star3'));
 let star4 = parseInt(blockAvis.getAttribute('data-star4'));
 let star5 = parseInt(blockAvis.getAttribute('data-star5'));
-console.log(star1, star2, star3, star4, star5);
+
 let sample = [
     {id: 1001, name: '5 étoiles', count: star5},
     {id: 1002, name: '4 étoiles', count: star4},
@@ -142,6 +146,5 @@ let sample = [
 
 drawHBarChart('#chart1', sample);
 
-
-
+/**************** Fin Barres étoiles avis ****************/
 

@@ -58,7 +58,7 @@
                             plus</a>
 
 
-                        <a href="{{ path('panier_add', {'id': produit.id}) }}"
+                        <a href="{{ path('panier_add', {'id' : produit.id, 'qty' : quantity}) }}"
                            class="btn mybutton my-0 panier"
                            data-bs-toggle="modal"
                            data-bs-target="#modal{{ produit.id }}"
@@ -126,7 +126,7 @@
                                     <div class="modal-footer my-3">
                                         <!-- renvoyer boutique -->
                                         <a
-                                                href="{{ path('panier_add_stay', {'id': produit.id}) }}"
+                                                href="{{ path('panier_add_stay', {'id' : produit.id, 'qty' : quantity}) }}"
                                                 class="btn btn-secondary"
 
                                         >
@@ -134,7 +134,7 @@
                                         </a>
                                         <!-- Envoyer panier -->
                                         <a
-                                                href="{{ path('panier_add', {'id': produit.id}) }}"
+                                                href="{{ path('panier_add', {'id' : produit.id, 'qty' : quantity}) }}"
 
                                                 type="button"
                                                 class="btn btn-primary"
@@ -150,8 +150,6 @@
 
                 </div>
             {% endfor %}
-
-
 
 
         </div>

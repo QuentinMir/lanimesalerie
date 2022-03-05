@@ -234,7 +234,7 @@
 
                                     </svg>
                                     {% if app.request.session.get('panier') | length > 0 %}
-                                        <p class="text-panier">{{ app.request.session.get('panier') | length }}</p>
+                                        <p class="text-panier">{{ app.request.session.get('nbArticles') }}</p>
                                     {% endif %}
                                 </div>
                                 <p class="my-0 d-none d-sm-block d-lg-block">Mon panier</p>

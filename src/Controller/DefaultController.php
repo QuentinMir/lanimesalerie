@@ -37,10 +37,12 @@ class DefaultController extends AbstractController
 
         $produits = $this->produitRepository->findAll();
         $categories = $entityManager->getRepository(Categorie::class)->findAll();
+        $quantity = 1;
 
         return $this->render('default/index.html.twig', [
             'produits' => $produits,
-            'categories' => $categories
+            'categories' => $categories,
+            'quantity' => $quantity
         ]);
     }
 
@@ -151,6 +153,11 @@ class DefaultController extends AbstractController
             $note = $note / count($produitAvis);
         }
 
+        $quantity = 1;
+        if ($request->get('quantite') != null) {
+            $quantity = intval($request->get('quantite'));
+        }
+
 
         return $this->render('default/produit.html.twig', [
             'produit' => $produit,
@@ -166,6 +173,7 @@ class DefaultController extends AbstractController
             'star3' => $star3,
             'star4' => $star4,
             'star5' => $star5,
+            'quantity' => $quantity,
         ]);
     }
 

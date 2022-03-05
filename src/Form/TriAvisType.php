@@ -20,13 +20,10 @@ class TriAvisType extends AbstractType
                     'Les plus récents' => 3
                 ],
                 'multiple' => false,
-                'label' => 'trier par:',
+                'label' => 'Trier par:',
                 'required' => false,
                 'expanded' => false,
-                'attr' => ['class' => 'form-control']
-            ])
-            ->add('save', SubmitType::class, [
-                'attr' => ['class' => 'myButton mt-3']
+                'attr' => ['class' => 'triage', 'onchange' => 'this.form.submit()']
             ]);
     }
 

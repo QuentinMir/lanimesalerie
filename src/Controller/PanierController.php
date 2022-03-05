@@ -20,23 +20,28 @@ class PanierController extends AbstractController
             $panier = $request->getSession()->get('panier');
         }
         $prixTotal = 0;
+        $nbArticles = 0;
 
         foreach ($panier as $item) {
             $prixTotal += $item->getProduit()->getPrixHt() * $item->getQuantite();
+            $nbArticles += $item->getQuantite();
         }
+
+        $request->getSession()->set(('nbArticles'), $nbArticles);
 
         return $this->render('panier/index.html.twig', [
             'panier' => $panier,
             'prixTotal' => $prixTotal,
+            'nbArticles' => $nbArticles,
         ]);
     }
 
-    /***************FONCTION AJOUT DU PANIER***************/
-    private function ajoutPanier($produit, $request)
+    /*************** FONCTION AJOUT DU PANIER ***************/
+    private function ajoutPanier($produit, $request, $quantity)
     {
         $produitPanier = new ProduitPanier();
         $produitPanier->setProduit($produit);
-        $produitPanier->setQuantite(1);
+        $produitPanier->setQuantite($quantity);
 
         $session = $request->getSession();
 
@@ -50,7 +55,7 @@ class PanierController extends AbstractController
         foreach ($panier as $item) {
             if ($item->getProduit()->getId() == $produit->getId()) {
                 $exist = true;
-                $item->setQuantite($item->getQuantite() + 1);
+                $item->setQuantite($item->getQuantite() + $quantity);
             }
         }
 
@@ -67,19 +72,22 @@ class PanierController extends AbstractController
 
     /***************FIN FONCTION AJOUT DU PANIER***************/
 
-    #[Route('/add/{id}', name: 'add_stay', requirements: ['id' => '\d+'])]
-    public function addPanierStay(Produit $produit, Request $request): Response
+    #[Route('/add/{id}/{qty}', name: 'add_stay', requirements: ['id' => '\d+', 'qty' => '\d+'])]
+    public function addPanierStay(Produit $produit, Request $request, $qty): Response
     {
-        $this->ajoutPanier($produit, $request);
+
+
+        $this->ajoutPanier($produit, $request, $qty);
 
         return $this->redirect($request->headers->get('referer'));
 
     }
 
-    #[Route('/{id}', name: 'add', requirements: ['id' => '\d+'])]
-    public function addPanier(Produit $produit, Request $request): Response
+    #[Route('/{id}/{qty}', name: 'add', requirements: ['id' => '\d+', 'qty' => '\d+'])]
+    public function addPanier(Produit $produit, Request $request, $qty): Response
     {
-        $this->ajoutPanier($produit, $request);
+
+        $this->ajoutPanier($produit, $request, $qty);
 
         return $this->redirectToRoute('panier_display');
     }

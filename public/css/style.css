@@ -403,6 +403,7 @@ em {
     left: 20px;
     font-weight: bold;
     font-size: 0.6rem !important;
+    white-space: nowrap;
 }
 
 /* ############################# */
@@ -1102,7 +1103,6 @@ footer a {
 }
 
 /* ############################# */
-
 
 
 /* Pop up écrire un avis */

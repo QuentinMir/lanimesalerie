@@ -4,8 +4,8 @@
 
 {% block body %}
 
-    <h6 class="mt-5 text-center">Finir : <br> embellir le form tri avis <br> filtre quantité panier (si possible)
-        <br> sousmettre le form avis au clic en js
+    <h6 class="mt-5 text-center">Finir : <br>filtre quantité panier (si possible)
+
     </h6>
 
     <main>
@@ -80,7 +80,7 @@
                                 <div class="star-yell">
                                     {% if note %}
                                         {% for i in 1..5 %}
-                                            {% if i <  note %}
+                                            {% if i <=  note %}
                                                 <i class="me-1 fas fa-star"></i>
                                             {% else %}
                                                 <i class="me-1 far fa-star"></i>
@@ -92,10 +92,6 @@
                                         {% endfor %}
                                     {% endif %}
                                 </div>
-                                {# <i class="me-1 fas fa-star"></i>
-                                    <i class="me-1 fas fa-star"></i>
-                                    <i class="me-1 fas fa-star"></i>
-                                    <i class="me-1 fas fa-star"></i> #}
 
                                 <a href="#ancre-avis">
                                     <p class="avis-pdt my-0">
@@ -140,19 +136,25 @@
                     my-3
                   "
                             >
+                                {% if app.request.get('quantite') is not null and app.request.get('quantite') == 2 %} {% endif %}
+
                                 <p class="my-0">
-                                    <select name="quantité" class="px-1 py-1 me-3">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
+
+                                    {# form quantité produits #}
+                                <form method="post" class="px-1 py-1 me-3">
+                                    <select name="quantite" onchange='this.form.submit()'>
+                                        {% for i in 1..10 %}
+                                            {% if i == 1 %}
+                                                <option value="1">1</option>
+                                            {% else %}
+                                                <option {% if app.request.get('quantite') is not null and app.request.get('quantite') ==  i %}selected{% endif %}
+                                                        value="{{ i }}">{{ i }}</option>
+                                            {% endif %}
+
+                                        {% endfor %}
+
                                     </select>
+                                </form>
                                 </p>
 
                                 <!-- Button trigger modal -->
@@ -194,12 +196,13 @@
                                             <!-- BODY FORM -->
                                             <div class="modal-body d-flex flex-column">
                                                 <p class="mb-1">
-                                                    Ultima Medium Maxi Croquettes au poulet - 7,5 kg
+                                                    {{ produit.nom }}
                                                 </p>
                                                 <div class="d-flex align-items-center">
-                                                    <p class="mb-2">1 X 11,99€</p>
-                                                    <p class="ms-4 mb-2 text-red fs-5 fw-bold">
-                                                        11,99€
+                                                    <h6 class="my-0">{{ quantity }}
+                                                        X {{ (produit.prixHt * 1.2) | round(2, 'floor') }} €</h6>
+                                                    <p class="ms-4 my-0 text-red fs-5 fw-bold">
+                                                        {{ quantity* (produit.prixHt * 1.2) | round(2, 'floor') }} €
                                                     </p>
                                                 </div>
                                                 <div>
@@ -227,7 +230,7 @@
                                             <div class="modal-footer my-3">
                                                 <!-- renvoyer boutique -->
                                                 <a
-                                                        href="{{ path('panier_add_stay', {'id' : produit.id}) }}"
+                                                        href="{{ path('panier_add_stay', {'id' : produit.id, 'qty' : quantity}) }}"
                                                         class="btn btn-secondary"
                                                         data-bs-dismiss="modal"
                                                 >
@@ -235,7 +238,7 @@
                                                 </a>
                                                 <!-- Envoyer panier -->
                                                 <a
-                                                        href="{{ path('panier_add', {'id' : produit.id}) }}"
+                                                        href="{{ path('panier_add', {'id' : produit.id, 'qty' : quantity}) }}"
 
                                                         class="btn btn-primary"
                                                 >
@@ -689,7 +692,7 @@
                         <div class="star-yell border-bottom border-secondary mx-5 pb-2">
                             {% if note %}
                                 {% for i in 1..5 %}
-                                    {% if i <  note %}
+                                    {% if i <=  note %}
                                         <i class="me-1 fas fa-star"></i>
                                     {% else %}
                                         <i class="me-1 far fa-star"></i>
@@ -846,19 +849,17 @@
                         <div class="col-6">
                             <p class="my-0">{{ produitAvis | length }} avis</p>
                         </div>
-                        <div class="col-6 text-end">
-                            {# <p class="my-0">
-                                <label for="triage">Trier par :</label>
-                                <select id="triage" class="triage" name="triage">
-                                    <option value="recent">Les plus récents</option>
-                                    <option value="croissant">Notes croissantes</option>
-                                    <option value="decroissant">Notes décroissantes</option>
-                                </select>
-                            </p> #}
-                            {{ form_start(formTriAvis) }}
-                            {{ form_end(formTriAvis) }}
+                        {# <div class=""></div> #}
 
-                        </div>
+                        {{ form_start(formTriAvis, {'attr': {'class': 'col-6 text-end'}} ) }}
+                        <p class="my-0">
+                            {{ form_label(formTriAvis.ordre) }}
+                            {{ form_widget(formTriAvis.ordre) }}
+                        </p>
+                        {{ form_end(formTriAvis) }}
+                        {# <div class="d-flex"></div> #}
+
+
                     </div>
                 </div>
             </div>
