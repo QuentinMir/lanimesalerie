@@ -69,6 +69,7 @@ class DefaultController extends AbstractController
 
         $user = $sc->getUser();
 
+        /** traitement formulaire d'avis **/
         if ($form->isSubmitted() && $form->isValid()
         ) {
 
@@ -91,10 +92,10 @@ class DefaultController extends AbstractController
         $formTriAvis->handleRequest($request);
 
 
-        // récupérer les avis
+        /** récupérer les avis **/
         $produitAvis = $ar->search($filters, '', $produit, '');
 
-        // form de tri
+        /** formaulaire de tri **/
         if ($formTriAvis->isSubmitted() && $formTriAvis->isValid()) {
             $filters = $formTriAvis->getData();
 
@@ -116,13 +117,40 @@ class DefaultController extends AbstractController
 
         }
 
+        /** calcul de la note moyenne et récupération du count de notes individuelles **/
         $note = 0;
+        $star1 = 0;
+        $star2 = 0;
+        $star3 = 0;
+        $star4 = 0;
+        $star5 = 0;
         foreach ($produitAvis as $noteProduit) {
+            /** moyenne des notes**/
             $note += $noteProduit->getNote();
+
+            /** tri des notes et somme **/
+            switch ($noteProduit->getNote()) {
+                case 1:
+                    $star1++;
+                    break;
+                case 2:
+                    $star2++;
+                    break;
+                case 3:
+                    $star3++;
+                    break;
+                case 4:
+                    $star4++;
+                    break;
+                case 5:
+                    $star5++;
+                    break;
+            }
         }
         if (count($produitAvis) > 0) {
             $note = $note / count($produitAvis);
         }
+
 
         return $this->render('default/produit.html.twig', [
             'produit' => $produit,
@@ -132,7 +160,12 @@ class DefaultController extends AbstractController
             'marque' => $currentMarque,
             'formTriAvis' => $formTriAvis->createView(),
             'filters' => $filters,
-            'note' => $note
+            'note' => $note,
+            'star1' => $star1,
+            'star2' => $star2,
+            'star3' => $star3,
+            'star4' => $star4,
+            'star5' => $star5,
         ]);
     }
 

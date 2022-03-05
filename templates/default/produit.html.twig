@@ -5,8 +5,7 @@
 {% block body %}
 
     <h6 class="mt-5 text-center">Finir : <br> embellir le form tri avis <br> filtre quantité panier (si possible)
-        <br> sousmettre le form avis au clic en js <br> virer recommander à un ami <br> Essayer de faire le compteur
-        d'étoiles
+        <br> sousmettre le form avis au clic en js
     </h6>
 
     <main>
@@ -664,7 +663,8 @@
         </section>
 
         <!-- Avis clients -->
-        <section>
+        <section id="avis" data-star1="{{ star1 }}" , data-star2="{{ star2 }}" , data-star3="{{ star3 }}" ,
+                 data-star4="{{ star4 }}" , data-star5="{{ star5 }}">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -686,17 +686,27 @@
                                 <p class="fs-4 text-titre my-0">5</p>
                             {% endif %}
                         </div>
-                        <div
-                                id="starRating"
-                                class="border-bottom border-secondary mx-5 pb-2"
-                        >
-                            <!--Injection étoiles ici -->
+                        <div class="star-yell border-bottom border-secondary mx-5 pb-2">
+                            {% if note %}
+                                {% for i in 1..5 %}
+                                    {% if i <  note %}
+                                        <i class="me-1 fas fa-star"></i>
+                                    {% else %}
+                                        <i class="me-1 far fa-star"></i>
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                {% for i in 1..5 %}
+                                    <i class="me-1 far fa-star"></i>
+                                {% endfor %}
+                            {% endif %}
                         </div>
+
                         <p class="avis-pdt pt-2">Sur {{ produitAvis | length }} avis</p>
                     </div>
                     <div class="col-lg-1 d-none d-lg-block"></div>
-                    <!-- gauche mid barres -->
-                    <div class="col-lg-3 col-6">
+                    <!-- milieu barres -->
+                    {# <div class="col-lg-4 col-6">
                         <div
                                 class="d-flex mb-1 justify-content-between align-items-center"
                         >
@@ -751,23 +761,12 @@
                             </div>
                             <p id="star1" class="my-0">0</p>
                         </div>
+                    </div> #}
+                    <div class="col-lg-4 col-6 chart-star">
+                        <div id="chart1"></div>
                     </div>
-
-                    <!-- Droite mid reco -->
-                    <div class="col-lg-2 col-6 d-none d-lg-block text-center">
-                        <div>
-                            <img
-                                    src="images/bulle-dialogue.svg"
-                                    alt="recommander à un ami"
-                            />
-                            <p class="text-reco">
-                                14 clients sur 19 <br/><span class="text-secondary">
-                    recommandent ce produit à leurs amis</span
-                                >
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-1 d-none d-lg-block"></div>
+                    <!-- espace vide -->
+                    <div class="col-lg-2 d-none d-lg-block"></div>
 
                     <!-- droite écrire commentaire -->
                     <div class="col-lg-2 col-12 text-center my-3">
