@@ -151,13 +151,6 @@ li a.text-red:hover {
     background-image: linear-gradient(#ffffff, #aed9fa);
 }
 
-.bg-souscat {
-    background: url(images/dog-sous-categorie.jpg) center center no-repeat;
-    background-size: cover;
-    width: auto;
-    min-height: 244px;
-}
-
 .bg-compte {
     background: url(images/compte.jpg) center center no-repeat;
     background-size: cover;
@@ -816,7 +809,7 @@ footer a {
 /* ############################# */
 /* #############SOUS CAT############## */
 
-.bg-souscat h2 {
+h2.bg-souscat {
     color: #fff;
     font-weight: 400;
 }

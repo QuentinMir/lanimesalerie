@@ -29,200 +29,86 @@
         </div>
 
         <!-- produits -->
-
         <section>
             <div class="container">
                 <div class="row">
                     <!-- row 1 -->
                     <!-- left - accordion -->
                     <aside class="col-lg-3 d-none mt-4 d-lg-block">
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingOne">
-                                    <button
-                                            class="accordion-button collapsed"
-                                            type="button"
-                                            data-bs-toggle="collapse"
-                                            data-bs-target="#flush-collapseOne"
-                                            aria-expanded="false"
-                                            aria-controls="flush-collapseOne"
-                                    >
-                                        Nourriture
-                                    </button>
-                                </h2>
-                                <div
-                                        id="flush-collapseOne"
-                                        class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingOne"
-                                        data-bs-parent="#accordionFlushExample"
-                                >
-                                    <div class="accordion-body">
-                                        <ul>
-                                            <li><a href="" class="text-red">Croquettes</a></li>
-                                            <li>
-                                                <a href="" class="text-red">Nourriture humide</a>
-                                            </li>
-                                            <li><a href="" class="text-red">Friandises</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="accordion accordion-flush" id="accordion">
+                            {% if app.request.attributes.get('_route') in ["boutique", "boutiqueCat"] %}
+                                {% for categorie in categories %}
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="flush-heading{{ loop.index }}">
+                                            <button
+                                                    class="accordion-button collapsed"
+                                                    type="button"
+                                                    data-bs-toggle="collapse"
+                                                    data-bs-target="#flush-collapse{{ loop.index }}"
+                                                    aria-expanded="false"
+                                                    aria-controls="flush-collapse{{ loop.index }}"
+                                            >
+                                                {{ categorie.nom }}
+                                            </button>
+                                        </h2>
+                                        <div
+                                                id="flush-collapse{{ loop.index }}"
+                                                class="accordion-collapse collapse"
+                                                aria-labelledby="flush-heading{{ loop.index }}"
+                                                data-bs-parent="#accordion"
+                                        >
+                                            <div class="accordion-body">
+                                                <ul>
+                                                    {% for souscategorie in allSouscategories %}
+                                                    {% if souscategorie.categorie.id == categorie.id %}
+                                                    <li><a href="" class="text-red">{{ souscategorie.nom }}</a></li>
+                                                    <li>
+                                                        {% endif %}
+                                                        {% endfor %}
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingTwo">
-                                    <button
-                                            class="accordion-button collapsed"
-                                            type="button"
-                                            data-bs-toggle="collapse"
-                                            data-bs-target="#flush-collapseTwo"
-                                            aria-expanded="false"
-                                            aria-controls="flush-collapseTwo"
-                                    >
-                                        Couchage
-                                    </button>
-                                </h2>
-                                <div
-                                        id="flush-collapseTwo"
-                                        class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingTwo"
-                                        data-bs-parent="#accordionFlushExample"
-                                >
-                                    <div class="accordion-body">
-                                        <ul>
-                                            <li><a href="" class="text-red">Paniers</a></li>
-                                            <li><a href="" class="text-red">Tapis</a></li>
-                                            <li><a href="" class="text-red">Corbeilles</a></li>
-                                            <li><a href="" class="text-red">Niches</a></li>
-                                        </ul>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                {% endfor %}
+                            {% else %}
+                                {% for souscategorie in souscategories %}
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="flush-heading{{ loop.index }}">
+                                            <button
+                                                    class="accordion-button collapsed"
+                                                    type="button"
+                                                    data-bs-toggle="collapse"
+                                                    data-bs-target="#flush-collapse{{ loop.index }}"
+                                                    aria-expanded="false"
+                                                    aria-controls="flush-collapse{{ loop.index }}"
+                                            >
+                                                {{ souscategorie.nom }}
+                                            </button>
+                                        </h2>
+                                        <div
+                                                id="flush-collapse{{ loop.index }}"
+                                                class="accordion-collapse collapse"
+                                                aria-labelledby="flush-heading{{ loop.index }}"
+                                                data-bs-parent="#accordion"
+                                        >
+                                            <div class="accordion-body">
+                                                <ul>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingThree">
-                                    <button
-                                            class="accordion-button collapsed"
-                                            type="button"
-                                            data-bs-toggle="collapse"
-                                            data-bs-target="#flush-collapseThree"
-                                            aria-expanded="false"
-                                            aria-controls="flush-collapseThree"
-                                    >
-                                        promenade
-                                    </button>
-                                </h2>
-                                <div
-                                        id="flush-collapseThree"
-                                        class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingThree"
-                                        data-bs-parent="#accordionFlushExample"
-                                >
-                                    <div class="accordion-body">
-                                        <ul>
-                                            <li><a href="" class="text-red">Laisses</a></li>
-                                            <li><a href="" class="text-red">Colliers</a></li>
-                                            <li><a href="" class="text-red">Harnais</a></li>
-                                            <li><a href="" class="text-red">Muselière</a></li>
-                                        </ul>
+                                                    {% for subsouscategorie in subsouscategories %}
+                                                    {% if subsouscategorie.souscategorie.id == souscategorie.id %}
+                                                    <li><a href="" class="text-red">{{ subsouscategorie.nom }}</a></li>
+                                                    <li>
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                {% endfor %}
+                            {% endif %}
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingFour">
-                                    <button
-                                            class="accordion-button collapsed"
-                                            type="button"
-                                            data-bs-toggle="collapse"
-                                            data-bs-target="#flush-collapseFour"
-                                            aria-expanded="false"
-                                            aria-controls="flush-collapseFour"
-                                    >
-                                        Jouets
-                                    </button>
-                                </h2>
-                                <div
-                                        id="flush-collapseFour"
-                                        class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingFour"
-                                        data-bs-parent="#accordionFlushExample"
-                                >
-                                    <div class="accordion-body">
-                                        <ul>
-                                            <li><a href="" class="text-red">Balles</a></li>
-                                            <li><a href="" class="text-red">Peluches</a></li>
-                                            <li>
-                                                <a href="" class="text-red">Jouets à mordiller</a>
-                                            </li>
-                                            <li><a href="" class="text-red">Cordes</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingFive">
-                                    <button
-                                            class="accordion-button collapsed"
-                                            type="button"
-                                            data-bs-toggle="collapse"
-                                            data-bs-target="#flush-collapseFive"
-                                            aria-expanded="false"
-                                            aria-controls="flush-collapseFive"
-                                    >
-                                        Soins
-                                    </button>
-                                </h2>
-                                <div
-                                        id="flush-collapseFive"
-                                        class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingFive"
-                                        data-bs-parent="#accordionFlushExample"
-                                >
-                                    <div class="accordion-body">
-                                        <ul>
-                                            <li><a href="" class="text-red">Croquettes</a></li>
-                                            <li>
-                                                <a href="" class="text-red">Nourriture humide</a>
-                                            </li>
-                                            <li><a href="" class="text-red">Friandises</a></li>
-                                            <li><a href="" class="text-red">Friandises</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingSix">
-                                    <button
-                                            class="accordion-button collapsed"
-                                            type="button"
-                                            data-bs-toggle="collapse"
-                                            data-bs-target="#flush-collapseSix"
-                                            aria-expanded="false"
-                                            aria-controls="flush-collapseSix"
-                                    >
-                                        Gamelles
-                                    </button>
-                                </h2>
-                                <div
-                                        id="flush-collapseSix"
-                                        class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingSix"
-                                        data-bs-parent="#accordionFlushExample"
-                                >
-                                    <div class="accordion-body">
-                                        <ul>
-                                            <li><a href="" class="text-red">Croquettes</a></li>
-                                            <li>
-                                                <a href="" class="text-red">Nourriture humide</a>
-                                            </li>
-                                            <li><a href="" class="text-red">Friandises</a></li>
-                                            <li><a href="" class="text-red">Friandises</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </aside>
                     <!-- right -->
@@ -582,7 +468,15 @@
                                         <li class="page-item mx-2 {% if pageCourante == 1 %}disabled{% endif %}">
 
                                             <a class="page-link"
-                                               href="{{ path('boutique',  {'pageCourante' : pageCourante-1}) }}"
+                                                    {% if app.request.attributes.get('_route') == "boutique" %}
+                                                        href="{{ path('boutique',  {'pageCourante' : pageCourante-1}) }}"
+                                                    {% elseif app.request.attributes.get('_route') == "boutiqueCat" %}
+                                                        href="{{ path('boutiqueCat',  {'categorie' : categorie.id , 'pageCourante' : pageCourante-1}) }}"
+                                                    {% elseif app.request.attributes.get('_route') == "boutiqueSouscat" %}
+                                                        href="{{ path('boutiqueSouscat',  {'categorie' : categorie.id , 'souscategorie' : souscategorie.id,  'pageCourante' : pageCourante-1}) }}"
+                                                    {% elseif app.request.attributes.get('_route') == "boutiqueSubsouscat" %}
+                                                        href="{{ path('boutiqueSubsouscat',  {'categorie' : categorie.id , 'souscategorie' : souscategorie.id,  'subsouscategorie' : subsouscategorie.id,  'pageCourante' : pageCourante-1}) }}"
+                                                    {% endif %}
                                                aria-label="Previous">
                                                 <span aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
                                             </a>
@@ -591,14 +485,31 @@
                                             <li class="page-item {% if page == pageCourante %}active {% endif %}  mx-2"
                                                 aria-current="page">
                                                 <a class="page-link"
-                                                   href="{{ path('boutique', {'pageCourante' : page}) }}">{{ page }}</a>
+                                                        {% if app.request.attributes.get('_route') == "boutique" %}
+                                                   href="{{ path('boutique', {'pageCourante' : page}) }}">{{ page }}
+                                                    {% elseif app.request.attributes.get('_route') == "boutiqueCat" %}
+                                                        href="{{ path('boutiqueCat', {'categorie' : categorie.id , 'pageCourante' : page}) }}">{{ page }}
+                                                    {% elseif app.request.attributes.get('_route') == "boutiqueSouscat" %}
+                                                        href="{{ path('boutiqueSouscat', {'categorie' : categorie.id , 'souscategorie' : souscategorie.id, 'pageCourante' : page}) }}">{{ page }}
+                                                    {% elseif app.request.attributes.get('_route') == "boutiqueSubsouscat" %}
+                                                        href="{{ path('boutiqueSubsouscat', {'categorie' : categorie.id , 'souscategorie' : souscategorie.id,  'subsouscategorie' : subsouscategorie.id,  'pageCourante' : page}) }}">{{ page }}
+                                                    {% endif %}
+                                                </a>
                                             </li>
                                         {% endfor %}
 
 
                                         <li class="page-item  mx-2 {% if pageCourante == nbPage %}disabled{% endif %}">
                                             <a class="page-link"
-                                               href="{{ path('boutique', {'pageCourante' : pageCourante+1}) }}"
+                                                    {% if app.request.attributes.get('_route') == "boutique" %}
+                                                        href="{{ path('boutique',  {'pageCourante' : pageCourante+1}) }}"
+                                                    {% elseif app.request.attributes.get('_route') == "boutiqueCat" %}
+                                                        href="{{ path('boutiqueCat',  {'categorie' : categorie.id , 'pageCourante' : pageCourante+1}) }}"
+                                                    {% elseif app.request.attributes.get('_route') == "boutiqueSouscat" %}
+                                                        href="{{ path('boutiqueSouscat',  {'categorie' : categorie.id , 'souscategorie' : souscategorie.id, 'pageCourante' : pageCourante+1}) }}"
+                                                    {% elseif app.request.attributes.get('_route') == "boutiqueSubsouscat" %}
+                                                        href="{{ path('boutiqueSubsouscat',  {'categorie' : categorie.id , 'souscategorie' : souscategorie.id,   'subsouscategorie' : subsouscategorie.id,  'pageCourante' : pageCourante+1}) }}"
+                                                    {% endif %}
                                                aria-label="Next">
                                                 <span aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
                                             </a>

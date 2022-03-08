@@ -72,3 +72,32 @@ $("a.panier").click(function () {
     $('#prixArticle').html(`${prix} €`);
     $('#nomArticle').html(`${nom}`);
 });
+
+/************** Navbar suppression ul vides et du chevron dans le parent **************/
+uls = document.querySelectorAll('ul.dropdown-menu.dropdown-submenu');
+/************** Navbar suppression ul vides categorie navbar **************/
+navUls = document.querySelectorAll('ul.navUl');
+document.addEventListener("DOMContentLoaded", function () {
+
+    uls.forEach((ul) => {
+        if (ul.childNodes.length === 1) {
+            ul.parentNode.querySelector('.opac-icon').classList.add('d-none');
+            ul.classList.add('d-none');
+        }
+    })
+
+    /************** FIN Navbar suppression ul vides **************/
+
+    navUls.forEach((ul) => {
+        // console.log(ul.innerHTML);
+        if (ul.childNodes.length === 7) {
+            // ul.parentNode.querySelector('.opac-icon').classList.add('d-none');
+            ul.classList.add('d-none');
+        }
+    })
+    /************** FIN Navbar suppression ul vides **************/
+
+
+})
+
+

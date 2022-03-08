@@ -1,0 +1,93 @@
+<ul class="navbar-nav w-100 mb-2 mb-lg-0">
+    {% for categorie in categories %}
+        {% if loop.index !=1 %}
+            <li class="border-start border-2 my-1"></li>
+        {% endif %}
+        <li class="nav-item dropdown m-nav-item align-self-center">
+            <a
+                    class="nav-link py-1 d-flex justify-content-end"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+            >
+                <!-- icone et texte -->
+                <img
+                        class="d-flex align-self-center"
+                        src="{{ asset('uploads/imagescat/'~ categorie.iconImage) }}"
+                        width="23"
+                        alt="{{ categorie.nom }}"
+                />
+                <div class="text-dd">
+                    <p class="my-0 ms-2">{{ categorie.nom }}</p>
+                </div>
+                <!-- ########################### -->
+            </a>
+
+            <!-- début du bloc dropdown collapse -->
+            <ul class="dropdown-menu navUl">
+                <li>
+                    <a class="dropdown-item" href="{{ path('categorie', {'categorie' : categorie.id}) }}"
+                    >Tous les produits</a>
+                </li>
+                <li>
+                    <hr class="hr-border dropdown-divider"/>
+                </li>
+                {% for sousCategorie in sousCategories %}
+                    {% if categorie.id == sousCategorie.categorie.id %}
+                        <li>
+                            <a
+                                    class="dropdown-item d-flex align-items-center justify-content-between"
+                                    href="{{ path('boutiqueSouscat', {'categorie': categorie.id, 'souscategorie': sousCategorie.id, 'pageCourante' : 1}) }}"
+                            >
+                                <div>{{ sousCategorie.nom }}</div>
+                                <i class="ms-2 opac-icon fas fa-chevron-right"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-submenu">
+                                {% for subSousCategorie in subSousCategories %}
+                                    {% if sousCategorie.id == subSousCategorie.souscategorie.id %}
+                                        <li>
+                                            <a class="dropdown-item"
+                                               href="{{ path('boutiqueSubsouscat', {'categorie': categorie.id, 'souscategorie': sousCategorie.id, 'subsouscategorie' : subSousCategorie.id, 'pageCourante' : 1}) }}"
+                                            >{{ subSousCategorie.nom }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </ul>
+                        </li>
+
+                    {% endif %}
+                {% endfor %}
+                <li>
+                    <hr class="hr-border dropdown-divider"/>
+                </li>
+                <li>
+                    <a class="dropdown-item text-red" href="boutique.html"
+                    >Meilleures ventes</a
+                    >
+                </li>
+
+                <li>
+                    <a class="dropdown-item text-red" href="boutique.html"
+                    >Offres spéciales</a>
+                </li>
+            </ul>
+        </li>
+    {% endfor %}
+    <li class="border-start border-2 my-1"></li>
+    <li class="nav-item ms-auto align-self-center">
+        <a
+                class="nav-link py-1 d-flex active no-pe"
+                aria-current="page"
+                href="#"
+        >
+            <div class="d-flex align-self-center">
+                <img src="{{ asset('uploads/imagescat/planets-6223defe462e1.svg') }}" width="22" alt="planète"/>
+            </div>
+            <div class="text-dd">
+                <p class="my-0 ms-2">L'animalerie 3.0</p>
+            </div>
+        </a>
+    </li>
+</ul>

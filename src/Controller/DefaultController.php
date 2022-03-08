@@ -6,6 +6,8 @@ use App\Entity\Avis;
 use App\Entity\Categorie;
 use App\Entity\Marque;
 use App\Entity\Produit;
+use App\Entity\Souscategorie;
+use App\Entity\Subsouscategorie;
 use App\Form\AvisType;
 use App\Form\HeaderSearchType;
 use App\Form\SearchType;
@@ -174,6 +176,45 @@ class DefaultController extends AbstractController
             'star4' => $star4,
             'star5' => $star5,
             'quantity' => $quantity,
+        ]);
+    }
+
+    #[Route('/categorie/{categorie}', name: 'categorie')]
+    public function displayCategorie(EntityManagerInterface $em, Categorie $categorie): Response
+    {
+
+        $souscategories = [];
+        $subsouscategories = [];
+
+        $allSubsouscategories = $em->getRepository(Subsouscategorie::class)->findAll();
+        $allSouscategories = $em->getRepository(Souscategorie::class)->findAll();
+
+        /** Récupération des sous catégories puis des sub sous catégories **/
+        foreach ($allSouscategories as $souscategorie) {
+            if ($souscategorie->getCategorie()->getId() == $categorie->getId()) {
+                $souscategories[] = $souscategorie;
+
+                /** Récupération des sub sous catégories **/
+                foreach ($allSubsouscategories as $subsouscategorie) {
+                    if ($subsouscategorie->getSouscategorie()->getId() == $souscategorie->getId()) {
+                        $subsouscategories[] = $subsouscategorie;
+                    }
+                }
+
+            }
+        }
+
+
+
+        /** Récupération des produits **/
+        $produits = $categorie->getProduits();
+
+
+        return $this->render('default/categorie.html.twig', [
+            'categorie' => $categorie,
+            'souscategories' => $souscategories,
+            'subsouscategories' => $subsouscategories,
+            'produits' => $produits,
         ]);
     }
 

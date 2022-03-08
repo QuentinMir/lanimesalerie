@@ -4,10 +4,6 @@
 
 {% block body %}
 
-    <h6 class="mt-5 text-center">Finir : <br>filtre quantité panier (si possible)
-
-    </h6>
-
     <main>
         <!-- Fil d'ariane -->
         <nav
@@ -232,7 +228,6 @@
                                                 <a
                                                         href="{{ path('panier_add_stay', {'id' : produit.id, 'qty' : quantity}) }}"
                                                         class="btn btn-secondary"
-                                                        data-bs-dismiss="modal"
                                                 >
                                                     Poursuivre les achats
                                                 </a>

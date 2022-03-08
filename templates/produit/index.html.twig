@@ -45,8 +45,9 @@
                     <td>Non</td>
                 {% endif %}
                 <td>
-                    <a href="{{ path('produit_show', {'id': produit.id}) }}">show</a>
-                    <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>
+                    <a class="btn btn-outline-dark" href="{{ path('produit_show', {'id': produit.id}) }}">Voir</a>
+                    <a class="btn btn-outline-primary"
+                       href="{{ path('produit_edit', {'id': produit.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -57,5 +58,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('produit_new') }}">Create new</a>
+    <a class="btn btn-outline-success" href="{{ path('produit_new') }}">Créer</a>
 {% endblock %}

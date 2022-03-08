@@ -21,7 +21,9 @@
 
 </head>
 <body>
-{% include('parts/header.html.twig') %}
+{{ render(controller('App\\Controller\\NavBarController::index')) }}
+
+{# {% include('parts/header.html.twig') %} #}
 {% block body %}{% endblock %}
 {% include('parts/footer.html.twig') %}
 {% if app.request.cookies.get('accepted') != 1 %}

@@ -36,8 +36,8 @@
                          alt="{{ souscategorie.nom }}" width="200px">
                 </td>
                 <td>
-                    <a href="{{ path('souscategorie_show', {'id': souscategorie.id}) }}">show</a>
-                    <a href="{{ path('souscategorie_edit', {'id': souscategorie.id}) }}">edit</a>
+                    <a class="btn btn-outline-dark"  href="{{ path('souscategorie_show', {'id': souscategorie.id}) }}">Voir</a>
+                    <a class="btn btn-outline-primary" href="{{ path('souscategorie_edit', {'id': souscategorie.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -48,5 +48,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('souscategorie_new') }}">Create new</a>
+    <a class="btn btn-outline-success" href="{{ path('souscategorie_new') }}">Créer</a>
 {% endblock %}

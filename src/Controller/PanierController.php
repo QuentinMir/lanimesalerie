@@ -39,6 +39,7 @@ class PanierController extends AbstractController
     /*************** FONCTION AJOUT DU PANIER ***************/
     private function ajoutPanier($produit, $request, $quantity)
     {
+
         $produitPanier = new ProduitPanier();
         $produitPanier->setProduit($produit);
         $produitPanier->setQuantite($quantity);
@@ -48,23 +49,36 @@ class PanierController extends AbstractController
         $panier = [];
         if ($session->has('panier')) {
             $panier = $session->get('panier');
+
+
         }
 
         $exist = false;
 
+
+        /** Ajustement de la quantité lors d'ajout d'un produit déjà existant **/
         foreach ($panier as $item) {
             if ($item->getProduit()->getId() == $produit->getId()) {
                 $exist = true;
                 $item->setQuantite($item->getQuantite() + $quantity);
             }
+
         }
+
 
         if (!$exist) {
 
             $panier[] = $produitPanier;
         }
 
+        $nbArticles = 0;
+        /** Compte du nombre d'articles totaux dans les paniers **/
+        foreach ($panier as $item) {
+            $nbArticles += $item->getQuantite();
+        }
 
+        /** Enregistrement du nombre de paniers en session **/
+        $session->set(('nbArticles'), $nbArticles);
         $session->set('panier', $panier);
 
 
@@ -78,7 +92,6 @@ class PanierController extends AbstractController
 
 
         $this->ajoutPanier($produit, $request, $qty);
-
         return $this->redirect($request->headers->get('referer'));
 
     }

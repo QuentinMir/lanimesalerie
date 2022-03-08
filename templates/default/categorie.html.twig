@@ -1,0 +1,264 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} - Protection des données{% endblock %}
+
+{% block body %}
+
+    <main>
+        <nav
+                class="container my-2"
+                style="--bs-breadcrumb-divider: '>'"
+                aria-label="breadcrumb"
+        >
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ path('default') }}">Accueil</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ categorie.nom }}</li>
+            </ol>
+        </nav>
+
+        <!-- header page -->
+        <div class="d-flex"
+             style="background: url({{ asset('uploads/imagescat/'~ categorie.bannerImage) }}) center center no-repeat;
+                     background-size: cover;
+                     width: auto;
+                     min-height: 244px;">
+            <h2 class="container align-self-center bg-souscat">Produits pour {{ categorie.nom }}</h2>
+        </div>
+
+        <!-- Les sous catégories -->
+        <section class="mt-5">
+            <div class="container">
+                <div class="row">
+                    {% for souscategorie in souscategories %}
+                        <div class="col-lg-4 col-sm-6 mt-4 mb-1">
+                            <div class="souscat">
+                                <a href="boutique.html">
+                                    <h3 class="h3-souscat text-center pt-2">{{ souscategorie.nom }}</h3>
+                                    <img
+                                            class="img-fluid w-100"
+                                            src="{{ asset('uploads/imagessouscat/'~ souscategorie.imageLink) }}"
+                                            width="357"
+                                            height="238"
+                                            alt="{{ souscategorie.nom }}"
+                                    /></a>
+                                <ul class="li-souscat">
+                                    {% for subsouscategorie in subsouscategories %}
+                                        {% if subsouscategorie.souscategorie.id == souscategorie.id %}
+                                            <li><a href="boutique.html"> {{ subsouscategorie.nom }}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Slider produits -->
+        <section class="pb-3">
+            <h2 class="container pt-4 text-center">Meilleures ventes</h2>
+            <div class="swiper container">
+                <div class="position-relative mySwiper py-4">
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-wrapper">
+
+
+                        <!-- Les cards -->
+                        {% for  produit in produits %}
+                            <div class="swiper-slide d-flex justify-content-center">
+                                <div class="card">
+
+                                    <a href="{{ path('singleProduct', {'id': produit.id}) }}">
+                                        <figure>
+                                            <img
+                                                    src="{{ produit.images | first }}"
+                                                    class="img-produit"
+                                                    alt="{{ produit.nom }}"
+                                                    title="{{ produit.nom }}"
+                                                    width="150"
+                                                    height="180"
+                                            />
+                                        </figure>
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ produit.idMarque.nom }}</h5>
+                                            <p>{{ produit.nom }}</p>
+                                            <h5 class="card-price">{{ produit.prixHt }} €</h5>
+                                        </div>
+                                    </a>
+
+                                    <a href="#"
+                                       class="mybutton-card mx-auto mb-3 panier"
+                                       data-bs-toggle="modal"
+                                       data-bs-target="#modal"
+                                       data-id="{{ produit.id }}"
+                                       data-nom="{{ produit.nom }}"
+                                       data-prix="{{ produit.prixHt }}"
+
+
+                                    >
+                                        Ajouter au panier
+                                    </a>
+
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {# Slider produits #}
+        <section class="pb-5">
+            <h2 class="container pt-4 text-center">Offres spéciales</h2>
+            <div class="swiper container">
+                <div class="position-relative mySwiper py-4">
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-wrapper">
+
+
+                        <!-- Les cards -->
+                        {% for  produit in produits %}
+                            <div class="swiper-slide d-flex justify-content-center">
+                                <div class="card">
+
+                                    <a href="{{ path('singleProduct', {'id': produit.id}) }}">
+                                        <figure>
+                                            <img
+                                                    src="{{ produit.images | first }}"
+                                                    class="img-produit"
+                                                    alt="{{ produit.nom }}"
+                                                    title="{{ produit.nom }}"
+                                                    width="150"
+                                                    height="180"
+                                            />
+                                        </figure>
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ produit.idMarque.nom }}</h5>
+                                            <p>{{ produit.nom }}</p>
+                                            <h5 class="card-price">{{ produit.prixHt }} €</h5>
+                                        </div>
+                                    </a>
+
+                                    <a href="#"
+                                       class="mybutton-card mx-auto mb-3 panier"
+                                       data-bs-toggle="modal"
+                                       data-bs-target="#modal"
+                                       data-id="{{ produit.id }}"
+                                       data-nom="{{ produit.nom }}"
+                                       data-prix="{{ produit.prixHt }}"
+
+
+                                    >
+                                        Ajouter au panier
+                                    </a>
+
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {# modal panier #}
+        <div
+                class="modal fade"
+                id="modal"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+                tabindex="-1"
+                aria-labelledby="staticBackdropLabel"
+                aria-hidden="true"
+
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5
+                                class="modal-title text-red"
+                                id="staticBackdropLabel"
+                        >
+                            L'article a été ajouté à votre panier
+                        </h5>
+                        <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                        ></button>
+                    </div>
+                    <!-- BODY FORM -->
+                    <div class="modal-body d-flex flex-column">
+                        <p class="mb-1 fs-5"
+                           id="nomArticle"
+                        >
+
+                        </p>
+                        <div class="d-flex align-items-center">
+
+                            <p class="ms-4 mb-2 text-red fs-5 fw-bold" id="prixArticle">
+                            </p>
+                        </div>
+                        <div>
+                            <div class="d-flex align-items-center my-2">
+                                <img
+                                        src="images/pick-up-store.svg"
+                                        alt="retrait en magasin"
+                                />
+                                <h6 class="fw-light my-0 ms-2">
+                                    Retirer en magasin - gratuit
+                                </h6>
+                            </div>
+                            <div class="d-flex align-items-center my-2">
+                                <img
+                                        src="images/home.svg"
+                                        alt="retrait en magasin"
+                                />
+                                <h6 class="fw-light my-0 ms-2">
+                                    Livraison - Offerte
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer my-3">
+                        <!-- rester page -->
+                        <a
+                                href="#"
+                                class="btn btn-secondary"
+                                id="addPanierStay"
+
+                        >
+                            Poursuivre les achats
+                        </a>
+                        <!-- Envoyer panier -->
+                        <a
+                                href="#"
+                                type="button"
+                                class="btn btn-primary"
+                                id="addPanier"
+                        >
+                            Accéder au panier
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Les marques     -->
+        {% include 'parts/marques.html.twig' %}
+
+        <!-- section réassurance -->
+        {% include 'parts/reassuranceClient.html.twig' %}
+    </main>
+{% endblock %}
