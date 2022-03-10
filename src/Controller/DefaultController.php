@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Adresse;
 use App\Entity\Avis;
 use App\Entity\Categorie;
 use App\Entity\Marque;
@@ -15,6 +16,7 @@ use App\Form\TriAvisType;
 use App\Repository\AvisRepository;
 use App\Repository\ProduitRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -205,7 +207,6 @@ class DefaultController extends AbstractController
         }
 
 
-
         /** Récupération des produits **/
         $produits = $categorie->getProduits();
 
@@ -223,6 +224,28 @@ class DefaultController extends AbstractController
     {
 
         return $this->render('contact/contact.html.twig');
+    }
+
+    #[IsGranted('ROLE_USER')]
+    #[Route('/compte', name: 'compte')]
+    public function displayCompte(SecurityController $sc, EntityManagerInterface $em): Response
+    {
+        $user = $sc->getUser();
+
+        $adresses = $em->getRepository(Adresse::class)->findAll();
+        $adresse = new Adresse();
+
+        foreach ($adresses as $singleAdresse) {
+
+            if ($singleAdresse->getUser()->getId() == $user->getId()) {
+                $adresse = $singleAdresse;
+            }
+        }
+
+        return $this->render('default/compte.html.twig', [
+            'user' => $user,
+            'adresse' => $adresse
+        ]);
     }
 
     #[Route('/mentions_legales', name: 'mentionsLG')]

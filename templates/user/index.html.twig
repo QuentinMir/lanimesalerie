@@ -1,13 +1,17 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %} {{ parent() }} Utilisateurs index{% endblock %}
+{% block title %} {{ parent() }} Utilisateurs{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/admin/dataTable.css') }}">
 {% endblock %}
 
-
+    {% block javascripts %}
+        {{ parent() }}
+        <script rel=script" src="{{ asset('js/admin/dataTable.js') }}"></script>
+        <script rel=script" src="{{ asset('js/admin/initDataTable.js') }}"></script>
+    {% endblock %}
 
 {% block body %}
     <h1 class="mb-4">Utilisateurs</h1>
@@ -54,9 +58,5 @@
     </table>
 
 
-    {% block javascripts %}
-        {{ parent() }}
-        <script rel=script" src="{{ asset('js/admin/dataTable.js') }}"></script>
-        <script rel=script" src="{{ asset('js/admin/initDataTable.js') }}"></script>
-    {% endblock %}
+
 {% endblock %}

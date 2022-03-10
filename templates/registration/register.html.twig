@@ -1,30 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}{{ parent()}} | Compte {% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
-
-    {# {{ form_start(registrationForm) }}
-    {{ form_row(registrationForm.email) }}
-    {{ form_row(registrationForm.plainPassword) }}
-    {{ form_row(registrationForm.prenom) }}
-    {{ form_row(registrationForm.nom) }}
-    {{ form_row(registrationForm.estHomme) }}
-    {{ form_row(registrationForm.dateNaissance) }}
-
-     {{ form_row(adresseForm.nbRue) }}
-    {{ form_row(adresseForm.nomRue) }}
-    {{ form_row(adresseForm.codePostal) }}
-    {{ form_row(adresseForm.villeNom) }}
-    {{ form_row(adresseForm.complement) }}
+    <div class="container my-4">
+        <h1 class="text-center">
+            {% if app.request.attributes.get('_route') == "app_register" %}
+                S'enregistrer
+            {% else %}
+                Modifier son compte
+            {% endif %}
+        </h1>
 
 
-    <button type="submit" class="btn btn-outline-success">Register</button>
-    {{ form_end(registrationForm) }} #}
-
-    <div class="container">
         <div class="col-lg-6 col-10 mx-auto">
+            {% if app.request.attributes.get('_route') == "user_edit" %}
+                <a class="btn btn-outline-dark my-4" href="{{ path('compte') }}">Retour</a>
+            {% endif %}
             {{ form_start(adresseForm) }}
             {{ form_row(adresseForm.user.email) }}
             {{ form_row(adresseForm.user.plainPassword) }}
@@ -40,7 +32,7 @@
             {{ form_row(adresseForm.complement) }}
 
 
-            <button type="submit" class="btn btn-outline-success">Register</button>
+            <button type="submit" class="btn btn-outline-success">Enregistrer</button>
             {{ form_end(adresseForm) }}
         </div>
     </div>

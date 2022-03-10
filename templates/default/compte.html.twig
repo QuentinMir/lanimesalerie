@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} - Conditions générales de vente{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Mon compte</h1>
+        <a class="btn btn-outline-dark" href="{{ path('user_edit', {'adresse': adresse.idAdresse}) }}">Modifier</a>
+        <form method="post" action="{{ path('user_delete', {'id': user.id}) }}"
+              onsubmit="return confirm('Confirmer la suppression du compte ?');">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+            <button class="btn btn-outline-danger">Supprimer</button>
+        </form>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Numéro de rue</th>
+                <th scope="col">Nom de rue</th>
+                <th scope="col">Code postal</th>
+                <th scope="col">Ville</th>
+                <th scope="col">Complément d'adresse</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>{{ adresse.nbRue }}</th>
+                <th>{{ adresse.nomRue }}</th>
+                <th>{{ adresse.codePostal }}</th>
+                <th>{{ adresse.villeNom }}</th>
+                <th>{{ adresse.complement }}</th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

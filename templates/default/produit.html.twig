@@ -704,62 +704,6 @@
                     </div>
                     <div class="col-lg-1 d-none d-lg-block"></div>
                     <!-- milieu barres -->
-                    {# <div class="col-lg-4 col-6">
-                        <div
-                                class="d-flex mb-1 justify-content-between align-items-center"
-                        >
-                            <p class="my-0">5 étoiles</p>
-                            <div class="d-flex w-65">
-                                <div class="bar-red w-90 ms-2"></div>
-                                <div class="bar-grey w-10 me-2"></div>
-                            </div>
-                            <p id="star5" class="my-0">15</p>
-                        </div>
-
-                        <div
-                                class="d-flex mb-1 justify-content-between align-items-center"
-                        >
-                            <p class="my-0">4 étoiles</p>
-                            <div class="d-flex w-65">
-                                <div class="bar-red w-90 ms-2"></div>
-                                <div class="bar-grey w-10 me-2"></div>
-                            </div>
-                            <p id="star4" class="my-0">1</p>
-                        </div>
-
-                        <div
-                                class="d-flex mb-1 justify-content-between align-items-center"
-                        >
-                            <p class="my-0">3 étoiles</p>
-                            <div class="d-flex w-65">
-                                <div class="bar-red w-0 ms-2"></div>
-                                <div class="bar-grey w-100 me-2"></div>
-                            </div>
-                            <p id="star3" class="my-0">0</p>
-                        </div>
-
-                        <div
-                                class="d-flex mb-1 justify-content-between align-items-center"
-                        >
-                            <p class="my-0">2 étoiles</p>
-                            <div class="d-flex w-65">
-                                <div class="bar-red w-0 ms-2"></div>
-                                <div class="bar-grey w-100 me-2"></div>
-                            </div>
-                            <p id="star2" class="my-0">0</p>
-                        </div>
-
-                        <div
-                                class="d-flex mb-1 justify-content-between align-items-center"
-                        >
-                            <p class="my-0">1 étoiles</p>
-                            <div class="d-flex w-65">
-                                <div class="bar-red w-0 ms-2"></div>
-                                <div class="bar-grey w-100 me-2"></div>
-                            </div>
-                            <p id="star1" class="my-0">0</p>
-                        </div>
-                    </div> #}
                     <div class="col-lg-4 col-6 chart-star">
                         <div id="chart1"></div>
                     </div>
@@ -867,7 +811,11 @@
                             <div class="col-lg-6 col-12 my-3">
                                 <div class="row align-items-center justify-content-between">
                                     <div class="col-5">
-                                        <h6 class="my-0">  {{ avis.user.prenom }} {{ avis.user.nom }} </h6>
+                                        {% if avis.user is not  null %}
+                                            <h6 class="my-0">  {{ avis.user.prenom }} {{ avis.user.nom }} </h6>
+                                        {% else %}
+                                            <h6 class="my-0"> Inconnu </h6>
+                                        {% endif %}
                                     </div>
                                     <div class="col-3">
 

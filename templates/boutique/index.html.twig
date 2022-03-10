@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BoutiqueController!{% endblock %}
+{% block title %}{{ parent() }} | Boutique {% endblock %}
 
 {% block body %}
 
@@ -12,20 +12,51 @@
                 aria-label="breadcrumb"
         >
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
-                <li class="breadcrumb-item">
-                    <a href="sous-categories.html">Chien</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">Nourriture</li>
+                <li class="breadcrumb-item"><a href="{{ path('default') }}">Accueil</a></li>
+                {% if app.request.attributes.get('_route') == "boutique" %}
+                    <li class="breadcrumb-item">
+                        <a class="active">boutique</a>
+                    </li>
+                {% endif %}
+                {% if app.request.attributes.get('_route') != "boutique" %}
+                    <li class="breadcrumb-item">
+                    <a {% if app.request.attributes.get('_route') == "boutiqueCat" %}class="active"{% endif %}
+                       href="{{ path('boutiqueCat',  {'categorie' : categorie.id ,  'pageCourante' : 1}) }}">{{ categorie.nom }}</a>
+                    </li>{% endif %}
+                {% if app.request.attributes.get('_route') in ["boutiqueSouscat", "boutiqueSubsouscat"] %}
+                    <li class="breadcrumb-item">
+                        <a {% if app.request.attributes.get('_route') == "boutiqueSouscat" %}class="active"{% endif %}
+                           href="{{ path('boutiqueSouscat',  {'categorie' : categorie.id , 'souscategorie' : souscategorie.id,  'pageCourante' : 1}) }}">{{ souscategorie.nom }}</a>
+                    </li>
+                {% endif %}
+                {% if app.request.attributes.get('_route') == "boutiqueSubsouscat" %}
+                    <li class="breadcrumb-item">
+                        <a {% if app.request.attributes.get('_route') == "boutiqueSubsouscat" %}class="active"{% endif %}
+                           href="{{ path('boutiqueSubsouscat',  {'categorie' : categorie.id , 'souscategorie' : souscategorie.id,  'subsouscategorie' : subsouscategorie.id,  'pageCourante' : 1}) }}">{{ subsouscategorie.nom }}</a>
+                    </li>
+                {% endif %}
+
             </ol>
         </nav>
 
+
         <!-- header page -->
         <div id="ancre-boutique" class="bg-souscat d-flex">
-            <h2 class="container align-self-center">
-                Nourriture pour <br/>
-                chien
-            </h2>
+            {% if app.request.attributes.get('_route') == "boutique" %}
+                <h2 class="container align-self-center">
+                    Boutique
+                </h2>
+            {% elseif app.request.attributes.get('_route') == "boutiqueCat" %}
+                <h2 class="container align-self-center">
+                    Tout pour <br/>
+                    {{ categorie.nom }}
+                </h2>
+            {% else %}
+                <h2 class="container align-self-center">
+                    {{ souscategorie.nom }} pour <br/>
+                    {{ categorie.nom }}
+                </h2>
+            {% endif %}
         </div>
 
         <!-- produits -->
@@ -61,7 +92,9 @@
                                                 <ul>
                                                     {% for souscategorie in allSouscategories %}
                                                     {% if souscategorie.categorie.id == categorie.id %}
-                                                    <li><a href="" class="text-red">{{ souscategorie.nom }}</a></li>
+                                                    <li>
+                                                        <a href="{{ path('boutiqueSouscat',  {'categorie' : categorie.id , 'souscategorie' : souscategorie.id,  'pageCourante' : 1}) }}"
+                                                           class="text-red">{{ souscategorie.nom }}</a></li>
                                                     <li>
                                                         {% endif %}
                                                         {% endfor %}
@@ -111,7 +144,7 @@
 
                         </div>
                     </aside>
-                    <!-- right -->
+                    {# right #}
                     <div class="col-lg-9 my-4 col-12">
                         <div class="row">
                             <!-- row 1 -->
@@ -304,7 +337,7 @@
                             </div>
 
 
-                            <!-- produits -->
+                            {# produits #}
                             {% if produits|length == 0 %}
                                 <div class="alert alert-danger text-center mt-4" role="alert">Aucun produit ne
                                     correspond à

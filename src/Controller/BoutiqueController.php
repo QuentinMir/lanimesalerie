@@ -309,7 +309,6 @@ class BoutiqueController extends AbstractController
         }
         /*********************** fin if soumission du formulaire de filtre ***********************/
 
-
         $souscategories = [];
         $subsouscategories = [];
 
@@ -317,20 +316,19 @@ class BoutiqueController extends AbstractController
         $allSouscategories = $em->getRepository(Souscategorie::class)->findAll();
 
         /** Récupération des sous catégories puis des sub sous catégories **/
-        foreach ($allSouscategories as $souscategorie) {
-            if ($souscategorie->getCategorie()->getId() == $categorie->getId()) {
-                $souscategories[] = $souscategorie;
+        foreach ($allSouscategories as $singleSouscategorie) {
+            if ($singleSouscategorie->getCategorie()->getId() == $categorie->getId()) {
+                $souscategories[] = $singleSouscategorie;
 
                 /** Récupération des sub sous catégories **/
-                foreach ($allSubsouscategories as $subsouscategorie) {
-                    if ($subsouscategorie->getSouscategorie()->getId() == $souscategorie->getId()) {
-                        $subsouscategories[] = $subsouscategorie;
+                foreach ($allSubsouscategories as $singleSubsouscategorie) {
+                    if ($singleSubsouscategorie->getSouscategorie()->getId() == $singleSouscategorie->getId()) {
+                        $subsouscategories[] = $singleSubsouscategorie;
                     }
                 }
 
             }
         }
-
 
         return $this->render('boutique/index.html.twig', [
             'produits' => $produits,
@@ -433,14 +431,14 @@ class BoutiqueController extends AbstractController
         $allSouscategories = $em->getRepository(Souscategorie::class)->findAll();
 
         /** Récupération des sous catégories puis des sub sous catégories **/
-        foreach ($allSouscategories as $souscategorie) {
-            if ($souscategorie->getCategorie()->getId() == $categorie->getId()) {
-                $souscategories[] = $souscategorie;
+        foreach ($allSouscategories as $singleSouscategorie) {
+            if ($singleSouscategorie->getCategorie()->getId() == $categorie->getId()) {
+                $souscategories[] = $singleSouscategorie;
 
                 /** Récupération des sub sous catégories **/
-                foreach ($allSubsouscategories as $subsouscategorie) {
-                    if ($subsouscategorie->getSouscategorie()->getId() == $souscategorie->getId()) {
-                        $subsouscategories[] = $subsouscategorie;
+                foreach ($allSubsouscategories as $singleSubsouscategorie) {
+                    if ($singleSubsouscategorie->getSouscategorie()->getId() == $singleSouscategorie->getId()) {
+                        $subsouscategories[] = $singleSubsouscategorie;
                     }
                 }
 
