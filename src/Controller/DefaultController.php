@@ -5,8 +5,10 @@ namespace App\Controller;
 use App\Entity\Adresse;
 use App\Entity\Avis;
 use App\Entity\Categorie;
+use App\Entity\Commande;
 use App\Entity\Marque;
 use App\Entity\Produit;
+use App\Entity\ProduitPanier;
 use App\Entity\Souscategorie;
 use App\Entity\Subsouscategorie;
 use App\Form\AvisType;
@@ -274,5 +276,29 @@ class DefaultController extends AbstractController
     {
 
         return $this->render('default/conditionsResiliation.html.twig');
+    }
+
+    #[IsGranted('ROLE_USER')]
+    #[Route('/commande', name: 'commande')]
+    public function commandeIndex(EntityManagerInterface $em, SecurityController $sc): Response
+    {
+        $user = $sc->getUser();
+        $commandes = $em->getRepository(Commande::class)->findBy(['user' => $user]);
+        //    $allPaniers = $em->getRepository(ProduitPanier::class)->findAll();
+
+        // récupération des panniers en lien avec les commandes de ce user
+        /*$paniers = [];
+        foreach ($commandes as $commande) {
+            foreach ($allPaniers as $singlePanier) {
+                if ($commande == $singlePanier->getCommande()) {
+                    $paniers[] = $singlePanier;
+                }
+            }
+        }*/
+
+        return $this->render('default/commande.html.twig', [
+            'commandes' => $commandes,
+            // 'paniers' => $paniers,
+        ]);
     }
 }

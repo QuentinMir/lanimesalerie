@@ -47,11 +47,11 @@ class Commande
     private $date;
 
 
-
     public function __construct()
     {
         $this->paniers = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {

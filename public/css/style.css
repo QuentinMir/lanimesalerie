@@ -951,9 +951,14 @@ h2.bg-souscat {
     padding: 8px 0px;
 }
 
-.accordion-button:not(.collapsed) {
+.accordion-commande.accordion-button:not(.collapsed) {
     color: #ffffff;
     background-color: #be323d;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #ffffff;
+    background-color: #00003f !important;
 }
 
 /* couleur chevron accordéon */

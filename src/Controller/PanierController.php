@@ -293,32 +293,6 @@ class PanierController extends AbstractController
         ]);
     }
 
-    /* #[IsGranted('ROLE_USER')]
-     #[Route('/synthese', name: 'synthese')]
-     public function panierSynthese(EntityManagerInterface $em, Request $request): Response
-     {
-         $panier = [];
-         if (!is_null($request->getSession()->get('panier'))) {
-             $panier = $request->getSession()->get('panier');
-         }
-         $prixTotal = 0;
-         $nbArticles = 0;
-
-         foreach ($panier as $item) {
-             $prixTotal += $item->getProduit()->getPrixHt() * $item->getQuantite();
-             $nbArticles += $item->getQuantite();
-         }
-
-         $request->getSession()->set(('nbArticles'), $nbArticles);
-
-         return $this->render('panier/compte.html.twig', [
-             'user' => $user,
-             'adresse' => $adresse,
-             'panier' => $panier,
-             'prixTotal' => $prixTotal,
-             'nbArticles' => $nbArticles,
-         ]);
-     }*/
 
 
 }
