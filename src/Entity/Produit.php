@@ -85,20 +85,6 @@ class Produit
      */
     private $idMarque;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     * @Assert\NotBlank
-     * @ORM\ManyToMany(targetEntity="Commande", inversedBy="idProduit")
-     * @ORM\JoinTable(name="contenir",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_produit", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_commande", referencedColumnName="id_commande")
-     *   }
-     * )
-     */
-    private $idCommande;
 
     /**
      *
@@ -244,29 +230,6 @@ class Produit
         return $this;
     }
 
-    /**
-     * @return Collection|Commande[]
-     */
-    public function getIdCommande(): Collection
-    {
-        return $this->idCommande;
-    }
-
-    public function addIdCommande(Commande $idCommande): self
-    {
-        if (!$this->idCommande->contains($idCommande)) {
-            $this->idCommande[] = $idCommande;
-        }
-
-        return $this;
-    }
-
-    public function removeIdCommande(Commande $idCommande): self
-    {
-        $this->idCommande->removeElement($idCommande);
-
-        return $this;
-    }
 
     public function getEstDispo(): ?bool
     {

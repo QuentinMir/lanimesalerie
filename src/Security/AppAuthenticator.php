@@ -19,7 +19,22 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
-    public const LOGIN_ROUTE = 'app_login';
+    private string $loginRoute = '';
+
+    public function defineLoginRoute(Request $request): string
+    {
+
+        if ($request->getRequestUri() == '/panier/connexion') {
+            $loginRoute = 'panier_connexion';
+        } else {
+            $loginRoute = 'app_login';
+        }
+
+        return $loginRoute;
+    }
+
+
+    /*public const LOGIN_ROUTE = 'app_login';*/
 
     private UrlGeneratorInterface $urlGenerator;
 
@@ -49,13 +64,16 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
+        $referer = $request->headers->get('referer');
 
-        return new RedirectResponse($this->urlGenerator->generate('default'));
+        return new RedirectResponse($referer);
+
+        // return new RedirectResponse($this->urlGenerator->generate('default'));
 
     }
 
     protected function getLoginUrl(Request $request): string
     {
-        return $this->urlGenerator->generate(self::LOGIN_ROUTE);
+        return $this->urlGenerator->generate(self::defineLoginRoute($request));
     }
 }

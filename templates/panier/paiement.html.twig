@@ -1,0 +1,131 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre compte{% endblock %}
+
+{% block body %}
+    <main class="shadow-light">
+        <!-- file d'ariane du paiement -->
+        <div class="line-paie"></div>
+        <div class="container d-flex justify-content-evenly my-4">
+            <a href="{{ path('panier_compte') }}">
+                <div class="text-center">
+                    <p class="fil-paie rounded-circle my-0">1</p>
+                    <p class="my-0">Mes données</p>
+                </div>
+            </a>
+
+            <a href="">
+                <div class="text-center">
+                    <p class="fil-paie-active rounded-circle my-0">2</p>
+                    <p class="my-0">
+                        Mode de <br/>
+                        paiement
+                    </p>
+                </div>
+            </a>
+            <div class="text-center">
+                <p class="fil-paie rounded-circle my-0">3</p>
+                <p class="my-0">Synthèse</p>
+            </div>
+        </div>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12">
+                    <form class="row" action="{{ path('panier_paiement') }}" method="post">
+                        <div class="col-lg-8 col-12">
+                            <div
+                                    class="mb-4 bg-white shadow-sm rounded px-lg-5 px-4 pt-4 pb-5">
+                                <h3 class="text-center mb-4">Mode de paiement</h3>
+
+                                <div class="w-100 border border-1 rounded border-secondary py-1 px-4 mb-2">
+                                    <input type="radio" id="paypal" name="paiement" value="paypal" checked/>
+                                    <label class="me-3 ms-1 fw-bold" for="paypal"> Paypal </label>
+                                    <img src="images/paypal2.svg" width="60" alt="Paypal"/>
+                                </div>
+
+                                <div
+                                        class=" w-100 border border-1 rounded border-secondary py-1 px-4 mb-2">
+                                    <input type="radio" id="mc" name="paiement" value="mastercard"/>
+                                    <label class="me-3 ms-1 fw-bold text" for="mastercard">Mastercard</label>
+                                    <img src="images/mastercard.svg" width="40" alt="mastercard"/>
+                                </div>
+
+                                <div class="w-100 border border-1 rounded border-secondary py-1 px-4 mb-2">
+                                    <input type="radio" id="visa" name="paiement" value="visa"/>
+                                    <label class="me-3 ms-1 fw-bold" for="visa">Visa</label>
+                                    <img src="images/visa.svg" width="40" alt="mastercard"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 my-4">
+                            <div class="bg-white px-5 py-4 shadow-box rounded">
+                                <h2 class="mb-3 ms-3">Montant total</h2>
+                                <div class="d-flex align-items-center justify-content-between px-3 mt-3 mb-0">
+                                    <p class="fw-bold mb-0">Montant total</p>
+                                    <p class="fw-bold fs-5 mb-0">{{ (prixTotal*1.2) | round(2, 'floor') }} €</p>
+                                </div>
+                                <p class="ps-3 my-0 fw-light tva">TVA incluse</p>
+
+
+                                <div class="text-center mt-4">
+                                    <input type="hidden" name="paiementOK" value="true">
+                                    <button type="submit" class="fs-4 text-red paiement">Payer
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="col-lg-8 col-12 mx-auto">
+                    <h5 class="text-center mt-3 mb-4">Mon panier</h5>
+                    <div class="row">
+                        {% if panier | length > 0 %}
+                            {% for produitPanier in panier %}
+                                <div class="col-12">
+                                    <div class="row bg-white mb-4 px-3 py-3 shadow-box rounded">
+                                        <div class="col-3 my-3">
+                                            <figure>
+                                                <img
+                                                        src="images/img-produit-sm.jpg"
+                                                        class="img-fluid border p-2 shadow-box"
+                                                        alt="produit quali"
+                                                />
+                                            </figure>
+                                        </div>
+
+                                        <div class="col-lg-6 col-5 my-3">
+                                            <div>
+                                                <h5>marque : {{ produitPanier.produit.idMarque.idMarque }}</h5>
+                                                <div class="d-flex justify-content-start">
+                                                    <p>{{ produitPanier.produit.nom }} </p>
+                                                    <p class="mx-3">-</p>
+                                                    <p>{{ produitPanier.produit.prixHt }} €</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-4 my-3 d-flex flex-column">
+                                            <p class="my-0 fw-bold">
+                                                Quantité : {{ produitPanier.quantite }}
+
+                                            </p>
+                                            <h5 class="text-red me-lg-2 mt-3">{{ produitPanier.produit.prixHt *  produitPanier.quantite }}
+                                                €</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <h3>Il n'y a pas de produit dans votre panier</h3>
+                            <a href="{{ path('default') }}" class="mt-3">Retourner à l'accueil</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

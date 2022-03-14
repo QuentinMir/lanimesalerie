@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre compte{% endblock %}
+
+{% block body %}
+
+    <main class="shadow-class">
+        <div class="line-paie"></div>
+        <div class="container d-flex justify-content-evenly my-4">
+            <a href="">
+                <div class="text-center">
+                    <p class="fil-paie-active rounded-circle my-0">1</p>
+                    <p class="my-0">Mes données</p>
+                </div>
+            </a>
+
+            <div class="text-center">
+                <p class="fil-paie rounded-circle my-0">2</p>
+                <p class="my-0">
+                    Mode de <br/>
+                    paiement
+                </p>
+            </div>
+            <div class="text-center">
+                <p class="fil-paie rounded-circle my-0">3</p>
+                <p class="my-0">Synthèse</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>Mes données</h1>
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="d-flex mb-4">
+                        <a class="btn btn-outline-dark mx-2"
+                           href="{{ path('user_edit', {'adresse': adresse.idAdresse}) }}">Modifier</a>
+
+                    </div>
+                    <div class="d-flex align-items-start justify-content-around my-5">
+                        <div>
+                            <h2>Informations privées</h2>
+                            <div class="d-flex">
+                                <h6>Nom : </h6>
+                                <p class="ms-2">{{ user.nom }}</p>
+                            </div>
+                            <div class="d-flex">
+                                <h6>Prénom : </h6>
+                                <p class="ms-2">{{ user.prenom }}</p>
+                            </div>
+                            <div class="d-flex">
+                                <h6>Email : </h6>
+                                <p class="ms-2">{{ user.email }}</p>
+                            </div>
+                            <div class="d-flex">
+                                <h6>Sexe : </h6>
+                                {% if user.estHomme %}
+                                    <p class="ms-2">Homme</p>
+                                {% else %}
+                                    <p class="ms-2">Femme</p>
+                                {% endif %}
+                            </div>
+                            <div class="d-flex">
+                                <h6>Date de naissance : </h6>
+                                <p class="ms-2">{{ user.dateNaissance |date('d-m-Y') }}</p>
+                            </div>
+                            <div class="d-flex">
+                                <h6>Date d'inscription : </h6>
+                                <p class="ms-2">{{ user.dateInscription |date('d-m-Y') }}</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h2>Adresse</h2>
+                            <div class="d-flex">
+                                <h6>Numéro de rue : </h6>
+                                <p class="ms-2">{{ adresse.nbRue }}</p>
+                            </div>
+                            <div class="d-flex">
+                                <h6>Nom de rue : </h6>
+                                <p class="ms-2">{{ adresse.nomRue }}</p>
+                            </div>
+                            <div class="d-flex">
+                                <h6>Code postal : </h6>
+                                <p class="ms-2">{{ adresse.codePostal }}</p>
+                            </div>
+                            <div class="d-flex">
+                                <h6>Ville : </h6>
+                                <p class="ms-2">{{ adresse.villeNom }}</p>
+                            </div>
+                            <div class="d-flex">
+                                <h6>Complément d'adresse : </h6>
+                                <p class="ms-2">{{ adresse.complement }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 my-4">
+                    <div class="bg-white px-5 py-4 shadow-box rounded">
+                        <h2 class="mb-3 ms-3">Montant total</h2>
+
+
+                        <div
+                                class="
+                  d-flex
+                  align-items-center
+                  justify-content-between
+                  px-3
+                  mt-3
+                  mb-0
+                "
+                        >
+
+                            <p class="fw-bold mb-0">Montant total</p>
+                            <p class="fw-bold fs-5 mb-0">{{ (prixTotal*1.2)  |round(2, 'floor') }} €</p>
+                        </div>
+                        <p class="ps-3 my-0 fw-light tva">TVA incluse</p>
+
+                        <h3 class="fs-4 text-center mt-3 mb-4">
+                            <a href="{{ path('panier_paiement') }}" class="text-red">
+                                Poursuivre</a>
+                        </h3>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+{% endblock %}
+

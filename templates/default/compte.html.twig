@@ -5,31 +5,70 @@
 {% block body %}
     <div class="container">
         <h1>Mon compte</h1>
-        <a class="btn btn-outline-dark" href="{{ path('user_edit', {'adresse': adresse.idAdresse}) }}">Modifier</a>
-        <form method="post" action="{{ path('user_delete', {'id': user.id}) }}"
-              onsubmit="return confirm('Confirmer la suppression du compte ?');">
-            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
-            <button class="btn btn-outline-danger">Supprimer</button>
-        </form>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Numéro de rue</th>
-                <th scope="col">Nom de rue</th>
-                <th scope="col">Code postal</th>
-                <th scope="col">Ville</th>
-                <th scope="col">Complément d'adresse</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th>{{ adresse.nbRue }}</th>
-                <th>{{ adresse.nomRue }}</th>
-                <th>{{ adresse.codePostal }}</th>
-                <th>{{ adresse.villeNom }}</th>
-                <th>{{ adresse.complement }}</th>
-            </tr>
-            </tbody>
-        </table>
+        <div class="d-flex mb-4">
+            <a class="btn btn-outline-dark mx-2"
+               href="{{ path('user_edit', {'adresse': adresse.idAdresse}) }}">Modifier</a>
+            <form class="mx-2" method="post" action="{{ path('user_delete', {'id': user.id}) }}"
+                  onsubmit="return confirm('Confirmer la suppression du compte ?');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+                <button class="btn btn-outline-danger">Supprimer</button>
+            </form>
+        </div>
+        <div class="d-flex align-items-start justify-content-around my-5">
+            <div>
+                <h2>Informations privées</h2>
+                <div class="d-flex">
+                    <h6>Nom : </h6>
+                    <p class="ms-2">{{ user.nom }}</p>
+                </div>
+                <div class="d-flex">
+                    <h6>Prénom : </h6>
+                    <p class="ms-2">{{ user.prenom }}</p>
+                </div>
+                <div class="d-flex">
+                    <h6>Email : </h6>
+                    <p class="ms-2">{{ user.email }}</p>
+                </div>
+                <div class="d-flex">
+                    <h6>Sexe : </h6>
+                    {% if user.estHomme %}
+                        <p class="ms-2">Homme</p>
+                    {% else %}
+                        <p class="ms-2">Femme</p>
+                    {% endif %}
+                </div>
+                <div class="d-flex">
+                    <h6>Date de naissance : </h6>
+                    <p class="ms-2">{{ user.dateNaissance |date('d-m-Y') }}</p>
+                </div>
+                <div class="d-flex">
+                    <h6>Date d'inscription : </h6>
+                    <p class="ms-2">{{ user.dateInscription |date('d-m-Y') }}</p>
+                </div>
+            </div>
+            <div>
+                <h2>Adresse</h2>
+                <div class="d-flex">
+                    <h6>Numéro de rue : </h6>
+                    <p class="ms-2">{{ adresse.nbRue }}</p>
+                </div>
+                <div class="d-flex">
+                    <h6>Nom de rue : </h6>
+                    <p class="ms-2">{{ adresse.nomRue }}</p>
+                </div>
+                <div class="d-flex">
+                    <h6>Code postal : </h6>
+                    <p class="ms-2">{{ adresse.codePostal }}</p>
+                </div>
+                <div class="d-flex">
+                    <h6>Ville : </h6>
+                    <p class="ms-2">{{ adresse.villeNom }}</p>
+                </div>
+                <div class="d-flex">
+                    <h6>Complément d'adresse : </h6>
+                    <p class="ms-2">{{ adresse.complement }}</p>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

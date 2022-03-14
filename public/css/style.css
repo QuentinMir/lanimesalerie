@@ -1193,6 +1193,24 @@ h3 a.text-red:hover {
     width: 94px !important;
 }
 
+.paiement {
+    color: #be323d;
+    background-color: transparent;
+    border: none;
+    font-weight: 600;
+}
+
+.paiement:hover {
+    color: #e54a56 !important;
+}
+
+.panier-articles {
+    border: solid 1px black !important;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 16px;
+}
+
 /* ############################# */
 /* ############################# */
 /* ############################# */

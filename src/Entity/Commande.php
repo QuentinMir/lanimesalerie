@@ -2,174 +2,137 @@
 
 namespace App\Entity;
 
+use App\Repository\CommandeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Commande
- *
- * @ORM\Table(name="commande", indexes={@ORM\Index(name="fk__id_poyen_paiement", columns={"id_moyen_paiement"}), @ORM\Index(name="fk__id_etat", columns={"Id_etat"}), @ORM\Index(name="fk__id_user", columns={"id_user"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=CommandeRepository::class)
  */
 class Commande
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id_commande", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
-    private $idCommande;
+    private $id;
 
     /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="date_commande", type="date", nullable=true)
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commandes")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $dateCommande;
+    private $user;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="numero", type="string", length=20, nullable=true)
+     * @ORM\OneToMany(targetEntity=ProduitPanier::class, mappedBy="commande")
      */
-    private $numero;
+    private $paniers;
 
     /**
-     * @var \Etat
-     *
-     * @ORM\ManyToOne(targetEntity="Etat")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="Id_etat", referencedColumnName="id_etat")
-     * })
+     * @ORM\Column(type="string", length=255)
      */
-    private $idEtat;
+    private $etat;
 
     /**
-     * @var \Utilisateur
-     *
-     * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
-     * })
+     * @ORM\Column(type="string", length=255)
      */
-    private $idUser;
+    private $paiement;
+
 
     /**
-     * @var \Moyenpaiement
-     *
-     * @ORM\ManyToOne(targetEntity="Moyenpaiement")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_moyen_paiement", referencedColumnName="id_moyen_paiement")
-     * })
+     * @ORM\Column(type="date")
      */
-    private $idMoyenPaiement;
+    private $date;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Produit", mappedBy="idCommande")
-     */
-    private $idProduit;
 
-    /**
-     * Constructor
-     */
+
     public function __construct()
     {
-        $this->idProduit = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->paniers = new ArrayCollection();
     }
 
-    public function getIdCommande(): ?int
+    public function getId(): ?int
     {
-        return $this->idCommande;
+        return $this->id;
     }
 
-    public function getDateCommande(): ?\DateTimeInterface
+    public function getUser(): ?User
     {
-        return $this->dateCommande;
+        return $this->user;
     }
 
-    public function setDateCommande(?\DateTimeInterface $dateCommande): self
+    public function setUser(?User $user): self
     {
-        $this->dateCommande = $dateCommande;
-
-        return $this;
-    }
-
-    public function getNumero(): ?string
-    {
-        return $this->numero;
-    }
-
-    public function setNumero(?string $numero): self
-    {
-        $this->numero = $numero;
-
-        return $this;
-    }
-
-    public function getIdEtat(): ?Etat
-    {
-        return $this->idEtat;
-    }
-
-    public function setIdEtat(?Etat $idEtat): self
-    {
-        $this->idEtat = $idEtat;
-
-        return $this;
-    }
-
-    public function getIdUser(): ?Utilisateur
-    {
-        return $this->idUser;
-    }
-
-    public function setIdUser(?Utilisateur $idUser): self
-    {
-        $this->idUser = $idUser;
-
-        return $this;
-    }
-
-    public function getIdMoyenPaiement(): ?Moyenpaiement
-    {
-        return $this->idMoyenPaiement;
-    }
-
-    public function setIdMoyenPaiement(?Moyenpaiement $idMoyenPaiement): self
-    {
-        $this->idMoyenPaiement = $idMoyenPaiement;
+        $this->user = $user;
 
         return $this;
     }
 
     /**
-     * @return Collection|Produit[]
+     * @return Collection|ProduitPanier[]
      */
-    public function getIdProduit(): Collection
+    public function getPaniers(): Collection
     {
-        return $this->idProduit;
+        return $this->paniers;
     }
 
-    public function addIdProduit(Produit $idProduit): self
+    public function addPanier(ProduitPanier $panier): self
     {
-        if (!$this->idProduit->contains($idProduit)) {
-            $this->idProduit[] = $idProduit;
-            $idProduit->addIdCommande($this);
+        if (!$this->paniers->contains($panier)) {
+            $this->paniers[] = $panier;
+            $panier->setCommande($this);
         }
 
         return $this;
     }
 
-    public function removeIdProduit(Produit $idProduit): self
+    public function removePanier(ProduitPanier $panier): self
     {
-        if ($this->idProduit->removeElement($idProduit)) {
-            $idProduit->removeIdCommande($this);
+        if ($this->paniers->removeElement($panier)) {
+            // set the owning side to null (unless already changed)
+            if ($panier->getCommande() === $this) {
+                $panier->setCommande(null);
+            }
         }
+
+        return $this;
+    }
+
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(string $etat): self
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getPaiement(): ?string
+    {
+        return $this->paiement;
+    }
+
+    public function setPaiement(string $paiement): self
+    {
+        $this->paiement = $paiement;
+
+        return $this;
+    }
+
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

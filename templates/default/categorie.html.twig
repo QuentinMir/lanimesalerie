@@ -32,7 +32,7 @@
                     {% for souscategorie in souscategories %}
                         <div class="col-lg-4 col-sm-6 mt-4 mb-1">
                             <div class="souscat">
-                                <a href="boutique.html">
+                                <a href="{{ path('boutiqueSouscat',  {'categorie' : categorie.id , 'souscategorie' : souscategorie.id,  'pageCourante' : 1}) }}">
                                     <h3 class="h3-souscat text-center pt-2">{{ souscategorie.nom }}</h3>
                                     <img
                                             class="img-fluid w-100"
@@ -44,7 +44,9 @@
                                 <ul class="li-souscat">
                                     {% for subsouscategorie in subsouscategories %}
                                         {% if subsouscategorie.souscategorie.id == souscategorie.id %}
-                                            <li><a href="boutique.html"> {{ subsouscategorie.nom }}</a></li>
+                                            <li>
+                                                <a href={{ path('boutiqueSubsouscat',  {'categorie' : categorie.id , 'souscategorie' : souscategorie.id,  'subsouscategorie' : subsouscategorie.id,  'pageCourante' : 1}) }}> {{ subsouscategorie.nom }}</a>
+                                            </li>
                                         {% endif %}
                                     {% endfor %}
                                 </ul>

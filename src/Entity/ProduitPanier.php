@@ -28,6 +28,12 @@ class ProduitPanier
      */
     private $quantite;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Commande::class, inversedBy="paniers")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $commande;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,6 +60,18 @@ class ProduitPanier
     public function setQuantite(int $quantite): self
     {
         $this->quantite = $quantite;
+
+        return $this;
+    }
+
+    public function getCommande(): ?Commande
+    {
+        return $this->commande;
+    }
+
+    public function setCommande(?Commande $commande): self
+    {
+        $this->commande = $commande;
 
         return $this;
     }

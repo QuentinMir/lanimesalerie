@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre compte{% endblock %}
+
+{% block body %}
+    <main class="shadow-light">
+        <div class="bg-synthese">
+            <!-- file d'ariane du paiement -->
+            <div class="line-paie"></div>
+            <div class="container d-flex justify-content-evenly my-4">
+                <a href="">
+                    <div class="text-center">
+                        <p class="fil-paie rounded-circle my-0">1</p>
+                        <p class="my-0">Mes données</p>
+                    </div>
+                </a>
+
+                <a href="">
+                    <div class="text-center">
+                        <p class="fil-paie rounded-circle my-0">2</p>
+                        <p class="my-0">
+                            Mode de <br/>
+                            paiement
+                        </p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="text-center">
+                        <p class="fil-paie-active rounded-circle my-0">3</p>
+                        <p class="my-0">Synthèse</p>
+                    </div>
+                </a>
+            </div>
+
+            <h2 class="text-center synth1 text-white">
+                Merci de nous faire confiance !
+            </h2>
+
+            <h3 class="container text-end synth2 text-white">À bientôt,</h3>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 my-4">
+                    <div class="bg-white px-5 py-4 mb-3 shadow-box rounded">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-between">
+                                <div class="d-flex align-items-center mb-3">
+                                    <h2>Votre commande</h2>
+                                    <p class="my-0 ms-3">{{ nbArticles }} article(s)</p>
+                                </div>
+                                <h5 class="text-center d-none d-lg-block">
+                                    <u><a href="{{ path('default') }}" class="text-blue"
+                                        >Retour sur <br/>
+                                            le site</a
+                                        ></u>
+                                </h5>
+                            </div>
+
+                            {% for produitPanier in panier %}
+                                <div class="col-3 my-3">
+                                    <figure>
+                                        <img
+                                                src="images/img-produit-sm.jpg"
+                                                class="img-fluid border p-2 shadow-box"
+                                                alt="produit quali"
+                                        />
+                                    </figure>
+                                </div>
+
+                                <div class="col-lg-6 col-5 my-3">
+                                    <div>
+                                        <h5>marque : {{ produitPanier.produit.idMarque.idMarque }}</h5>
+                                        <div class="d-flex justify-content-start">
+                                            <p>{{ produitPanier.produit.nom }} </p>
+                                            <p class="mx-3">-</p>
+                                            <p>{{ produitPanier.produit.prixHt }} €</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-4 my-3 d-flex flex-column">
+                                    <p class="my-0 fw-bold">
+                                        Quantité : {{ produitPanier.quantite }}
+
+                                    </p>
+                                    <h5 class="text-red me-lg-2 mt-3">{{ produitPanier.produit.prixHt *  produitPanier.quantite }}
+                                        €</h5>
+                                </div>
+
+                            {% endfor %}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

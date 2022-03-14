@@ -1,0 +1,801 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} - FAQ{% endblock %}
+
+{% block body %}
+
+    <main class="shadow-light">
+        <div class="container pt-5">
+            <h2 class="text-center mb-lg-5 mb-1 ms-lg-5">FOIRE AUX QUESTIONS</h2>
+            <div class="row mb-4">
+                <div class="col-12 mt-5 mt-3">
+                    <div class="row">
+
+                        <div class="col-lg-3 col-6 text-center mb-4">
+                            <a href="{{ path('faq_livraison') }}">
+                                <div class="faq-box{% if app.request.attributes.get('_route') == "faq_livraison" %}-active{% endif %} pt-5 pb-4">
+                                    <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="88.943"
+                                            height="62.333"
+                                            viewbox="0 0 88.943 62.333"
+                                            class="mb-4"
+                                    >
+                                        <g id="delivery-truck" transform="translate(0 -67.004)">
+                                            <g
+                                                    id="Groupe_394"
+                                                    data-name="Groupe 394"
+                                                    transform="translate(0 67.004)"
+                                            >
+                                                <path
+                                                        id="Tracé_75"
+                                                        data-name="Tracé 75"
+                                                        d="M85.924,94.785l-6.057-2.621L74.725,82.155a8.1,8.1,0,0,0-7.288-4.428H58.58v-2.5A8.17,8.17,0,0,0,50.439,67H8.1A8.149,8.149,0,0,0,0,75.225V113.55a4.992,4.992,0,0,0,4.925,5.064H6.057c0,.2-.02.278-.02.4a10.286,10.286,0,1,0,20.572.079v-.1a3.089,3.089,0,0,0-.02-.4H60.8v.4a10.286,10.286,0,1,0,20.572.079v-.5h2.562a5.009,5.009,0,0,0,5-5V99.392A4.98,4.98,0,0,0,85.924,94.785Zm-69.581,30.6a6.315,6.315,0,1,1,6.315-6.315A6.305,6.305,0,0,1,16.344,125.385Zm38.265-10.7H25.657a10.273,10.273,0,0,0-18.626,0H5a1.028,1.028,0,0,1-1.033-1.092V103.363H54.609Zm0-39.437V99.392H3.972V75.245A4.179,4.179,0,0,1,8.1,71H50.439a4.208,4.208,0,0,1,4.17,4.23Zm3.971,6.474h8.856a4.191,4.191,0,0,1,3.773,2.244l3.971,7.685H58.58Zm12.53,43.667a6.315,6.315,0,1,1,6.315-6.315A6.305,6.305,0,0,1,71.11,125.385Zm13.88-11.8a1.028,1.028,0,0,1-1.033,1.092H80.424a10.278,10.278,0,0,0-18.626,0H58.58V95.619h19.46l6.315,2.78a1.168,1.168,0,0,1,.635,1.072Z"
+                                                        transform="translate(0 -67.004)"
+                                                />
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <h6>Livraison</h6>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-3 col-6 text-center mb-4">
+                            <a href="{{ path('faq_retour') }}">
+                                <div class="faq-box{% if app.request.attributes.get('_route') == "faq_retour" %}-active{% endif %} pt-5 pb-4">
+                                    <svg
+                                            id="returning_box"
+                                            data-name="returning box"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="72.857"
+                                            height="72.857"
+                                            viewbox="0 0 72.857 72.857"
+                                            class="mb-4"
+                                    >
+                                        <path
+                                                id="Tracé_70"
+                                                data-name="Tracé 70"
+                                                d="M50.089,48.5H4.025A4.031,4.031,0,0,1,0,44.475V7.518A1.518,1.518,0,0,1,1.518,6H59.2a1.518,1.518,0,0,1,1.518,1.518V19.661a1.518,1.518,0,1,1-3.036,0V9.036H3.036V44.475a.99.99,0,0,0,.99.99H50.089a1.518,1.518,0,1,1,0,3.036Z"
+                                                transform="translate(0 12.214)"
+                                        />
+                                        <path
+                                                id="Tracé_71"
+                                                data-name="Tracé 71"
+                                                d="M59.2,21.25a1.513,1.513,0,0,1-1.33-.786L48.7,3.822a1.51,1.51,0,0,0-1.33-.786H13.345a1.51,1.51,0,0,0-1.33.786L2.847,20.464A1.518,1.518,0,0,1,.188,19L9.356,2.359A4.545,4.545,0,0,1,13.345,0H47.372a4.549,4.549,0,0,1,3.989,2.356L60.526,19A1.521,1.521,0,0,1,59.2,21.25Z"
+                                                transform="translate(0 0)"
+                                        />
+                                        <path
+                                                id="Tracé_72"
+                                                data-name="Tracé 72"
+                                                d="M11.018,21.25A1.518,1.518,0,0,1,9.5,19.732V1.518a1.518,1.518,0,1,1,3.036,0V19.732A1.518,1.518,0,0,1,11.018,21.25Z"
+                                                transform="translate(19.339)"
+                                        />
+                                        <path
+                                                id="Tracé_73"
+                                                data-name="Tracé 73"
+                                                d="M40.8,42.322A1.518,1.518,0,0,1,39.286,40.8V34.732a16.716,16.716,0,0,0-16.7-16.7H16.518a1.518,1.518,0,1,1,0-3.036h6.071A19.755,19.755,0,0,1,42.322,34.732V40.8A1.518,1.518,0,0,1,40.8,42.322Z"
+                                                transform="translate(30.536 30.536)"
+                                        />
+                                        <path
+                                                id="Tracé_74"
+                                                data-name="Tracé 74"
+                                                d="M27.143,33.249a1.509,1.509,0,0,1-.987-.367L15.531,23.774a1.511,1.511,0,0,1,0-2.3l10.625-9.107a1.517,1.517,0,1,1,1.973,2.3l-9.277,7.954,9.28,7.957a1.515,1.515,0,0,1-.99,2.668Z"
+                                                transform="translate(30.536 24.43)"
+                                        />
+                                    </svg>
+                                    <h6>Retour</h6>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-3 col-6 text-center mb-4">
+                            <a href="{{ path('faq_paiement') }}">
+                                <div class="faq-box{% if app.request.attributes.get('_route') == "faq_paiement" %}-active{% endif %} pt-5 pb-4">
+                                    <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="86.001"
+                                            height="57.334"
+                                            viewbox="0 0 86.001 57.334"
+                                            class="mb-4"
+                                    >
+                                        <g id="credit-card" transform="translate(0 -85.333)">
+                                            <g
+                                                    id="Groupe_385"
+                                                    data-name="Groupe 385"
+                                                    transform="translate(0 85.333)"
+                                            >
+                                                <g
+                                                        id="Groupe_384"
+                                                        data-name="Groupe 384"
+                                                        transform="translate(0 0)"
+                                                >
+                                                    <path
+                                                            id="Tracé_63"
+                                                            data-name="Tracé 63"
+                                                            d="M77.042,85.333H8.958A8.971,8.971,0,0,0,0,94.292v39.417a8.971,8.971,0,0,0,8.958,8.958H77.042A8.971,8.971,0,0,0,86,133.709V94.292A8.971,8.971,0,0,0,77.042,85.333Zm5.375,48.375a5.382,5.382,0,0,1-5.375,5.375H8.958a5.382,5.382,0,0,1-5.375-5.375V94.292a5.382,5.382,0,0,1,5.375-5.375H77.042a5.382,5.382,0,0,1,5.375,5.375v39.417Z"
+                                                            transform="translate(0 -85.333)"
+                                                    />
+                                                </g>
+                                            </g>
+                                            <g
+                                                    id="Groupe_387"
+                                                    data-name="Groupe 387"
+                                                    transform="translate(0 96.083)"
+                                            >
+                                                <g
+                                                        id="Groupe_386"
+                                                        data-name="Groupe 386"
+                                                        transform="translate(0 0)"
+                                                >
+                                                    <path
+                                                            id="Tracé_64"
+                                                            data-name="Tracé 64"
+                                                            d="M84.209,149.333H1.792A1.792,1.792,0,0,0,0,151.125v10.75a1.792,1.792,0,0,0,1.792,1.792H84.209A1.792,1.792,0,0,0,86,161.875v-10.75A1.793,1.793,0,0,0,84.209,149.333Zm-1.792,10.75H3.583v-7.167H82.417v7.167Z"
+                                                            transform="translate(0 -149.333)"
+                                                    />
+                                                </g>
+                                            </g>
+                                            <g
+                                                    id="Groupe_389"
+                                                    data-name="Groupe 389"
+                                                    transform="translate(10.75 121.167)"
+                                            >
+                                                <g
+                                                        id="Groupe_388"
+                                                        data-name="Groupe 388"
+                                                        transform="translate(0 0)"
+                                                >
+                                                    <path
+                                                            id="Tracé_65"
+                                                            data-name="Tracé 65"
+                                                            d="M87.292,298.667h-21.5a1.792,1.792,0,1,0,0,3.583h21.5a1.792,1.792,0,1,0,0-3.583Z"
+                                                            transform="translate(-64 -298.667)"
+                                                    />
+                                                </g>
+                                            </g>
+                                            <g
+                                                    id="Groupe_391"
+                                                    data-name="Groupe 391"
+                                                    transform="translate(10.75 128.333)"
+                                            >
+                                                <g
+                                                        id="Groupe_390"
+                                                        data-name="Groupe 390"
+                                                        transform="translate(0 0)"
+                                                >
+                                                    <path
+                                                            id="Tracé_66"
+                                                            data-name="Tracé 66"
+                                                            d="M87.292,341.333h-21.5a1.792,1.792,0,0,0,0,3.583h21.5a1.792,1.792,0,0,0,0-3.583Z"
+                                                            transform="translate(-64 -341.333)"
+                                                    />
+                                                </g>
+                                            </g>
+                                            <g
+                                                    id="Groupe_393"
+                                                    data-name="Groupe 393"
+                                                    transform="translate(60.917 117.583)"
+                                            >
+                                                <g
+                                                        id="Groupe_392"
+                                                        data-name="Groupe 392"
+                                                        transform="translate(0 0)"
+                                                >
+                                                    <path
+                                                            id="Tracé_67"
+                                                            data-name="Tracé 67"
+                                                            d="M371.625,277.333h-3.583a5.382,5.382,0,0,0-5.375,5.375v3.583a5.382,5.382,0,0,0,5.375,5.375h3.583A5.382,5.382,0,0,0,377,286.291v-3.583A5.382,5.382,0,0,0,371.625,277.333Zm1.792,8.959a1.792,1.792,0,0,1-1.792,1.792h-3.583a1.792,1.792,0,0,1-1.792-1.792v-3.583a1.792,1.792,0,0,1,1.792-1.792h3.583a1.792,1.792,0,0,1,1.792,1.792Z"
+                                                            transform="translate(-362.667 -277.333)"
+                                                    />
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+
+                                    <h6>Paiement</h6>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-3 col-6 text-center mb-4">
+                            <a href="{{ path('faq_commande') }}">
+                                <div class="faq-box{% if app.request.attributes.get('_route') == "faq_commande" %}-active{% endif %} pt-5 pb-4">
+                                    <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="86.001"
+                                            height="62.675"
+                                            viewbox="0 0 86.001 62.675"
+                                            class="mb-4"
+                                    >
+                                        <g
+                                                id="boite-carton_1"
+                                                data-name="boite-carton 1"
+                                                transform="translate(-166 80.514)"
+                                        >
+                                            <g
+                                                    id="Groupe_383"
+                                                    data-name="Groupe 383"
+                                                    transform="translate(166 -80.514)"
+                                            >
+                                                <path
+                                                        id="Tracé_62"
+                                                        data-name="Tracé 62"
+                                                        d="M85.135,72.695c-.035-.019-.07,0-.1-.013a1.989,1.989,0,0,0-1.319-.956l-52.208-10.2a1.89,1.89,0,0,0-1.093.09L2.176,72.017c-.288.1-.416.369-.618.568-.283.073-.589.024-.815.21A2.019,2.019,0,0,0,0,74.366v37.567a2.034,2.034,0,0,0,1.652,2L54.71,124.119a1.82,1.82,0,0,0,.381.042c.039,0,.069-.033.1-.033.045,0,.08.033.118.033a2.2,2.2,0,0,0,.691-.118L84.65,113.858A2.035,2.035,0,0,0,86,111.939V74.369A2.1,2.1,0,0,0,85.135,72.695ZM31.278,65.641l45.915,8.97-6.846,2.431c-.129-.055-.185-.195-.325-.22L24.861,68ZM55.065,82.472,9.374,73.7l8.121-2.99,45.594,8.9Zm-2.019,37.176-48.981-9.4V76.828l48.981,9.4ZM81.923,110.5l-24.576,8.741V85.991l24.576-8.74Z"
+                                                        transform="translate(0 -61.486)"
+                                                />
+                                            </g>
+                                        </g>
+                                    </svg>
+
+                                    <h6>Commande</h6>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            {# bloc accordéon #}
+            <div class="bg-blanc mb-4">
+                <div class="accordion" id="faq">
+                    {% if app.request.attributes.get('_route') == "faq_livraison" %}
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Questions en rapport avec la livraison #1
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                             data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lacinia dolor non est
+                                euismod venenatis. Quisque efficitur est a vestibulum luctus. Phasellus sit amet mauris
+                                posuere, facilisis ex sit amet, tincidunt ligula. Quisque ac neque finibus, tempus sem
+                                eu, pretium tellus. Etiam aliquam vulputate est at aliquet.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Questions en rapport avec la livraison #2
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                             data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                Quisque auctor ullamcorper mollis. Nulla facilisi. Morbi sagittis efficitur maximus.
+                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                                egestas. Curabitur iaculis urna at nulla pharetra, at ultricies risus sagittis.
+                                Phasellus sollicitudin interdum nisi in commodo.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Questions en rapport avec la livraison #3
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                             data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                                at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                                venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                                tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Questions en rapport avec la livraison #4
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                             data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                                at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                                venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                                tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Questions en rapport avec la livraison #5
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                             data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                                at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                                venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                                tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                Questions en rapport avec la livraison #6
+                            </button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                             data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                                at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                                venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                                tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSeven">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                Questions en rapport avec la livraison #7
+                            </button>
+                        </h2>
+                        <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                             data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                                at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                                venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                                tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingEight">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                Questions en rapport avec la livraison #8
+                            </button>
+                        </h2>
+                        <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                             data-bs-parent="#faq">
+                            <div class="accordion-body">
+                                Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                                at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                                venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                                tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% elseif  app.request.attributes.get('_route') == "faq_retour" %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Questions en rapport avec le retour #1
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                         data-bs-parent="#faq">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lacinia dolor non est
+                            euismod venenatis. Quisque efficitur est a vestibulum luctus. Phasellus sit amet mauris
+                            posuere, facilisis ex sit amet, tincidunt ligula. Quisque ac neque finibus, tempus sem
+                            eu, pretium tellus. Etiam aliquam vulputate est at aliquet.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Questions en rapport avec le retour #2
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                         data-bs-parent="#faq">
+                        <div class="accordion-body">
+                            Quisque auctor ullamcorper mollis. Nulla facilisi. Morbi sagittis efficitur maximus.
+                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                            egestas. Curabitur iaculis urna at nulla pharetra, at ultricies risus sagittis.
+                            Phasellus sollicitudin interdum nisi in commodo.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Questions en rapport avec le retour #3
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                         data-bs-parent="#faq">
+                        <div class="accordion-body">
+                            Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                            at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                            venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                            tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Questions en rapport avec le retour #4
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                         data-bs-parent="#faq">
+                        <div class="accordion-body">
+                            Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                            at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                            venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                            tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Questions en rapport avec le retour #5
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                         data-bs-parent="#faq">
+                        <div class="accordion-body">
+                            Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                            at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                            venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                            tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            Questions en rapport avec le retour #6
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                         data-bs-parent="#faq">
+                        <div class="accordion-body">
+                            Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                            at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                            venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                            tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSeven">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            Questions en rapport avec le retour #7
+                        </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                         data-bs-parent="#faq">
+                        <div class="accordion-body">
+                            Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                            at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                            venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                            tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingEight">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                            Questions en rapport avec le retour #8
+                        </button>
+                    </h2>
+                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                         data-bs-parent="#faq">
+                        <div class="accordion-body">
+                            Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                            at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                            venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                            tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% elseif  app.request.attributes.get('_route') == "faq_paiement" %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Questions en rapport avec le paiement #1
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lacinia dolor non est
+                        euismod venenatis. Quisque efficitur est a vestibulum luctus. Phasellus sit amet mauris
+                        posuere, facilisis ex sit amet, tincidunt ligula. Quisque ac neque finibus, tempus sem
+                        eu, pretium tellus. Etiam aliquam vulputate est at aliquet.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Questions en rapport avec le paiement #2
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Quisque auctor ullamcorper mollis. Nulla facilisi. Morbi sagittis efficitur maximus.
+                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                        egestas. Curabitur iaculis urna at nulla pharetra, at ultricies risus sagittis.
+                        Phasellus sollicitudin interdum nisi in commodo.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Questions en rapport avec le paiement #3
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                        at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                        venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                        tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Questions en rapport avec le paiement #4
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                        at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                        venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                        tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        Questions en rapport avec le paiement #5
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                        at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                        venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                        tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        Questions en rapport avec le paiement #6
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                        at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                        venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                        tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSeven">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        Questions en rapport avec le paiement #7
+                    </button>
+                </h2>
+                <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                        at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                        venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                        tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingEight">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                        Questions en rapport avec le paiement #8
+                    </button>
+                </h2>
+                <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                        at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                        venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                        tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Questions en rapport avec la commande #1
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lacinia dolor non est
+                        euismod venenatis. Quisque efficitur est a vestibulum luctus. Phasellus sit amet mauris
+                        posuere, facilisis ex sit amet, tincidunt ligula. Quisque ac neque finibus, tempus sem
+                        eu, pretium tellus. Etiam aliquam vulputate est at aliquet.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Questions en rapport avec la commande #2
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Quisque auctor ullamcorper mollis. Nulla facilisi. Morbi sagittis efficitur maximus.
+                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                        egestas. Curabitur iaculis urna at nulla pharetra, at ultricies risus sagittis.
+                        Phasellus sollicitudin interdum nisi in commodo.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Questions en rapport avec la commande #3
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                        at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                        venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                        tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Questions en rapport avec la commande #4
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                        at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                        venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                        tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        Questions en rapport avec la commande #5
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                        at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                        venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                        tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        Questions en rapport avec la commande #6
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                        at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                        venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                        tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSeven">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        Questions en rapport avec la commande #7
+                    </button>
+                </h2>
+                <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                        at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                        venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                        tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingEight">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                        Questions en rapport avec la commande #8
+                    </button>
+                </h2>
+                <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                     data-bs-parent="#faq">
+                    <div class="accordion-body">
+                        Pellentesque porta scelerisque leo, id rutrum erat. Nullam porttitor dignissim turpis,
+                        at molestie turpis facilisis quis. Duis efficitur eros id velit vehicula pretium. Morbi
+                        venenatis auctor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. In
+                        tempor erat eu justo semper, vel volutpat metus dictum. Nullam eget dictum nisl.
+                    </div>
+                </div>
+            </div>
+            </div>
+        {% endif %}
+
+        </div>
+        </div>
+    </main>
+
+{% endblock %}

@@ -89,13 +89,12 @@ class RegistrationController extends AbstractController
 
     #[IsGranted('ROLE_USER')]
     #[Route('/{id}/delete', name: 'user_delete', methods: ['POST'])]
-    public function deleteUser(Request $request, User $user, EntityManagerInterface $entityManager, SecurityController $sc, TokenStorageInterface $tokenStorage): Response
+    public function deleteUser(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
 
 
         if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
 
-            // $session = $request->getSession();
             $session = new Session();
             $session->invalidate();
 

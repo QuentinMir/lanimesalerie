@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre compte{% endblock %}
+
+{% block body %}
+    <main class="overflow-hidden">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="border bg-light shadow-box py-4 mt-5">
+                        <div class="col-lg-6 offset-lg-3">
+                            <h2 class="mb-4 text-center">Nouveau ? Inscrivez vous</h2>
+                            <h4 class="mb-3 text-center">
+                                Bénéficiez de nombreux avantages
+                            </h4>
+                            <p>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                                diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                                aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                                justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                                sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                                ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                                nonumy eirmod tempor invidunt ut labore et dolore magna
+                                aliquyam erat, sed diam voluptua
+                            </p>
+                            <div class="text-center">
+                                <a href="{{ path('app_register') }}" class="mybutton py-1">S'inscrire</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border bg-light shadow-box py-4 mt-5 mb-4">
+                        <form method="post"
+                                {# action="{{ path('app_login') }}" #}
+                              class="col-lg-6 offset-lg-3">
+                            <h2 class="mb-4 text-center">Déjà inscrit ? Connectez vous</h2>
+                            {% if error %}
+                                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            {% endif %}
+                            <!-- email -->
+                            <input
+                                    value="{{ last_username }}" name="email" id="inputEmail"
+                                    type="email"
+                                    required
+                                    size="35"
+                                    class="
+                    ps-3
+                    my-1
+                    ms-5
+                    border border-1 border-dark
+                    rounded
+                    py-1
+                  "
+                                    placeholder="Email*"
+                            /><br/>
+                            <!-- mdp -->
+                            <input
+                                    id="inputPassword"
+                                    autocomplete="current-password"
+                                    required
+                                    type="password"
+                                    name="password"
+                                    size="35"
+                                    class="
+                    ps-3
+                    my-1
+                    ms-5
+                    border border-1 border-dark
+                    rounded
+                    py-1
+                  "
+                                    placeholder="Mot de passe*"
+                            />
+                            <input type="hidden" name="_csrf_token"
+                                   value="{{ csrf_token('authenticate') }}"
+                            >
+                            <br/>
+                            <div class="mdp-align2">
+                                <button class="mybutton py-1 border-0" type="submit">
+                                    Se connecter
+                                </button>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

@@ -13,7 +13,7 @@
                             <div class="col-12">
                                 <div class="d-flex align-items-center mb-3">
                                     <h2>Panier</h2>
-                                    <p class="my-0 ms-3">{{ nbArticles }} article(s)</p>
+                                            <p class="my-0 ms-3">{{ nbArticles }} article(s)</p>
                                 </div>
                             </div>
 
@@ -29,7 +29,7 @@
                                         </figure>
                                     </div>
 
-                                    <div class="col-6 my-3">
+                                    <div class="col-lg-6 col-5 my-3">
                                         <div>
                                             <h5>marque : {{ produitPanier.produit.idMarque.idMarque }}</h5>
                                             <div class="d-flex justify-content-start">
@@ -37,9 +37,7 @@
                                                 <p class="mx-3">-</p>
                                                 <p>{{ produitPanier.produit.prixHt }} €</p>
                                             </div>
-                                            <div
-                                                    class="d-flex justify-content-between align-items-center"
-                                            >
+                                            <div class="d-flex justify-content-between align-items-center">
                                                 <div class="d-flex align-items-center">
                                                     <a href="{{ path('panier_remove_product', {'id': produitPanier.produit.id}) }}"
                                                        class="my-0 text-dark">
@@ -49,17 +47,18 @@
                                                     <a href="{{ path('panier_product_quantity', {'operator' : 'plus' , 'id': produitPanier.produit.id}) }}"
                                                        class="text-dark fs-4">+</a>
                                                 </div>
-                                                <h5 class="text-red me-2">{{ produitPanier.produit.prixHt *  produitPanier.quantite }}
-                                                    €</h5>
+
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-3 my-3">
+                                    <div class="col-lg-3 col-4 my-3 d-flex flex-column">
                                         <p class="my-0 fw-bold">
                                             Quantité : {{ produitPanier.quantite }}
 
                                         </p>
+                                        <h5 class="text-red me-lg-2 mt-3">{{ produitPanier.produit.prixHt *  produitPanier.quantite }}
+                                            €</h5>
                                     </div>
 
                                 {% endfor %}
@@ -97,15 +96,17 @@
                         >
 
                             <p class="fw-bold mb-0">Montant total</p>
-                            <p class="fw-bold fs-5 mb-0">{{ prixTotal }} €</p>
+                            <p class="fw-bold fs-5 mb-0">{{ (prixTotal*1.2) | round(2, 'floor') }} €</p>
                         </div>
                         <p class="ps-3 my-0 fw-light tva">TVA incluse</p>
 
-                        <h3 class="fs-4 text-center mt-4">
-                            <a href="paiement-compte.html" class="text-red">
-                                Aller au paiement</a
-                            >
-                        </h3>
+                        <form class="text-center mt-4" action="{{ path('panier_display') }}" method="post">
+
+                            <input type="hidden" name="panierOK" value="true">
+                            <button class="fs-4 text-red paiement">Aller au paiement
+                            </button>
+
+                        </form>
 
                         <h3 class="fs-4 text-center mt-3 mb-4">
                             <a href="{{ path('default') }}" class="text-blue">
