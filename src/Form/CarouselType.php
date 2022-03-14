@@ -2,26 +2,19 @@
 
 namespace App\Form;
 
-use App\Entity\Categorie;
-use App\Entity\Souscategorie;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Carousel;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
 
-class SouscategorieType extends AbstractType
+class CarouselType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('categorie', EntityType::class, [
-                'class' => Categorie::class,
-                'choice_label' => 'nom',
-            ])
-            ->add('imageLink', FileType::class, [
+            ->add('image', FileType::class, [
                 'label' => 'Ajouter une image',
                 'mapped' => false,
                 'required' => false,
@@ -37,14 +30,16 @@ class SouscategorieType extends AbstractType
                     ])
                 ]
             ])
-        ;
-
+            ->add('text')
+            ->add('bouton')
+            ->add('navigation')
+            ->add('lien');
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Souscategorie::class,
+            'data_class' => Carousel::class,
         ]);
     }
 }

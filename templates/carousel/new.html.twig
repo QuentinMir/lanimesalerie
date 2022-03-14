@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Carousel{% endblock %}
+
+{% block body %}
+    <div class="container py-3">
+        <h1 class="text-center my-4">Ajouter au carousel</h1>
+
+        <div class="col-lg-4 col-10 mx-auto">
+            {{ include('carousel/_form.html.twig') }}
+        </div>
+        <a class="btn btn-outline-dark" href="{{ path('carousel_index') }}">Retour à la liste</a>
+    </div>
+{% endblock %}

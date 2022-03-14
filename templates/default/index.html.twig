@@ -3,161 +3,487 @@
 {% block title %} {{ parent() }} Homepage{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h4>todo :
-            <br>Appliquer les bons bg sur les pages
-            <br>Mettre les images
-            <br>mettre les inline css bg dans les bandeaux
-            <br>Page 3.0
-            <br> Merci monsieur</h4>
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{ asset('img/Slider.jpg') }}" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('img/Slider.jpg') }}" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('img/Slider.jpg') }}" class="d-block w-100" alt="...">
-                </div>
+
+    <h4>todo :
+        <br>Faire entité carousel
+        <br>Faire la homepage
+        <br>Faire les produits de la même catégorie pour page single produit
+        <br>Appliquer les bons bg sur les pages
+        <br>Mettre les images
+        <br>mettre les inline css bg dans les bandeaux
+        <br>Page 3.0
+        <br> Merci monsieur</h4>
+
+    <main>
+        <!-- Carousel hero box -->
+        <div id="carouselHomepage" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                {% for carousel in carouselItems %}
+                    <button
+                            type="button"
+                            data-bs-target="#carouselHomepage"
+                            data-bs-slide-to="{{ loop.index0 }}"
+                            {% if loop.index0 == 0 %}
+                                class="active"
+                                aria-current="true"
+                            {% endif %}
+                            aria-label="Slide {{ loop.index0 +1 }}"
+                    >
+                        {{ carousel.navigation }}
+                    </button>
+                {% endfor %}
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="prev">
+            <div class="carousel-inner">
+                {% for carousel in carouselItems %}
+                    <div class="carousel-item {% if loop.index0 == 0 %}
+                            active
+                        {% endif %}">
+                        <img
+                                src="{{ asset('uploads/imagescarousel/'~carousel.image) }}"
+                                class="d-block w-100 img-fluid"
+                                width="1360"
+                                height="584"
+                                title="{{ carousel.navigation }}"
+                                alt="{{ carousel.navigation }}"
+                        />
+                        <div class="carousel-content">
+                            <h3>
+                                {{ carousel.text }}
+                            </h3>
+                            {% if carousel.bouton is not null %}
+                                <a href="{{ carousel.lien }}" class="mybutton">{{ carousel.bouton }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+
+            <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselHomepage"
+                    data-bs-slide="prev"
+            >
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="next">
+            <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselHomepage"
+                    data-bs-slide="next"
+            >
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <div class="row">
 
-            {# <p>{{ produits | length }}</p> #}
-            {# {{ dump(app.user.roles | first) }} #}
-            {# {% for produit in produits %}
-                {% for produits in produit.idCategorie.produits %}
+        <!-- Slider produits -->
+        <section class="bg-lighter-blue mt-mv pb-5">
+            <h2 class="container pt-4 text-center">Meilleures ventes</h2>
+            <div class="swiper container">
+                <div class="position-relative mySwiper py-4">
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-wrapper">
 
-                    {{ dump(produits) }}
-                {% endfor %}
+                        <!-- Les cards -->
+                        <div class="swiper-slide d-flex justify-content-center">
+                            <div class="card">
+                                <a href="product.html">
+                                    <figure>
+                                        <img
+                                                src="images/img-produit.jpg"
+                                                class="img-produit"
+                                                alt="nom produit"
+                                                title="nom produit"
+                                                width="150"
+                                                height="180"
+                                        />
+                                    </figure>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ultima</h5>
+                                        <p>Ultima Medium Maxi Croquettes au poulet 7,5 kg</p>
+                                        <h5 class="card-price">11,99€</h5>
+                                    </div>
+                                </a>
+
+                                <button class="mybutton-card mx-auto mb-3">
+                                    Ajouter au panier
+                                </button>
+                            </div>
+                        </div>
 
 
-            {% endfor %} #}
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            {% for produit in produits %}
-                {# {% for image in produit.images %}
+        <!-- catégories -->
+        <section class="py-5 bg-degrad-lightblue-mirror shadow-light">
+            <div class="container">
+                <h2 class="text-center text-white pb-4">Notre expertise</h2>
+                <div class="row mt-3">
+                    <!-- align 12 colonnes -->
+                    <!-- row 1 -->
 
-                {{ dump(image) }}
-            {% endfor %} #}
-
-                <div class="card mx-3" style="width: 18rem;">
-                    <img src="{{ produit.images | first }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"> {{ produit.nom }} </h5>
-                        <p class="card-text">{{ produit.description | u.truncate(100, '...') }}</p>
-                        <a href="{{ path('singleProduct', {'id': produit.id}) }}" class="btn btn-primary">En
-                            savoir
-                            plus</a>
-
-
-                        <a href="{{ path('panier_add', {'id' : produit.id, 'qty' : quantity}) }}"
-                           class="btn mybutton my-0 panier"
-                           data-bs-toggle="modal"
-                           data-bs-target="#modal{{ produit.id }}"
-                           data-id="{{ produit.id }}"
-
-
-                        >
-                            Ajouter au panier
+                    <div class="col-lg-4 col-sm-6 text-center mb-4">
+                        <!-- ajouter le border radius -->
+                        <a href="sous-categories.html">
+                            <div class="cat-chien cat-hover">
+                                <h3 class="categorie-h3">Chiens</h3>
+                            </div>
                         </a>
+                    </div>
 
+                    <div class="col-lg-4 col-sm-6 text-center mb-4">
+                        <!-- ajouter le border radius -->
+                        <a href="sous-categories.html">
+                            <div class="cat-chat cat-hover">
+                                <h3 class="categorie-h3">Chats</h3>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-6 text-center mb-4">
+                        <!-- ajouter le border radius -->
+                        <a href="sous-categories.html">
+                            <div class="cat-rongeur cat-hover">
+                                <h3 class="categorie-h3">Rongeurs</h3>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- row 2 -->
+                    <div class="col-lg-4 col-sm-6 text-center mb-4">
+                        <!-- ajouter le border radius -->
+                        <a href="sous-categories.html">
+                            <div class="cat-oiseaux cat-hover">
+                                <h3 class="categorie-h3">Oiseaux</h3>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-6 text-center mb-4">
+                        <!-- ajouter le border radius -->
+                        <a href="sous-categories.html">
+                            <div class="cat-aqua cat-hover">
+                                <h3 class="categorie-h3">Aquatique</h3>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-6 text-center mb-4">
+                        <!-- ajouter le border radius -->
+                        <a href="sous-categories.html">
+                            <div class="cat-terra cat-hover">
+                                <h3 class="categorie-h3">Terrarium</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QSN -->
+        <section class="bg-qsn shadow-light pt-4">
+            <div class="container">
+                <div class="row">
+                    <!-- left -->
+                    <div class="col-lg-6 col-sm-12">
+                        <h2 class="text-center py-4">Qui sommes nous ?</h2>
+                        <p class="mb-0">
+                            Voyez ce jeu exquis wallon, de graphie en kit mais bref. Portez
+                            ce vieux whisky au juge blond qui fume sur son île intérieure, à
+                            côté de l"alcôve ovoïde, où les bûches se consument dans l"âtre.
+                            Ce qui lui permet de penser à la cænogenèse de l"être dont il
+                            est question dans la cause ambiguë entendue à Moÿ, dans un
+                            capharnaüm qui, pense-t-il, diminue çà et là la qualité de son
+                            œuvre. Prouvez, beau juge, que le fameux sandwich au yak tue.
+                            L"île exiguë, Où l"obèse jury mûr Fête l"haï volapük, Âne ex
+                            æquo au whist, Ôtez ce vœu déçu. Vieux pelage que je modifie :
+                            breitschwanz ou yak ? Dès Noël où un zéphyr haï me vêt de
+                            glaçons würmiens, je dîne d’exquis rôtis de bœuf au kir à l’aÿ
+                            d’âge mûr & cætera ! Fougueux, j"enivre la squaw au pack de beau
+                            zythum. Ketch, yawl, jonque
+                        </p>
+                    </div>
+                    <!-- col image -->
+                    <div class="col-lg-6">
+                        <img
+                                src="images/Cool-dog.png"
+                                alt="chien cool"
+                                class="qsn-chien"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Avis client -->
+        <section class="my-5 bg-avis">
+            <div class="container">
+                <h2 class="text-center mb-5">
+                    Ce sont nos clients qui en parlent le mieux
+                </h2>
+
+                <div class="row">
+                    <!-- align 12 colonnes -->
+                    <div class="col-lg-4 col-sm-12 text-center mb-3">
+                        <img
+                                src="images/face-2-resize.jpg"
+                                width="120"
+                                height="120"
+                                alt="avis"
+                                class="rounded-circle img-avis border-dark border border-2"
+                        />
                         <div
-                                class="modal fade"
-                                id="modal{{ produit.id }}"
-                                data-bs-backdrop="static"
-                                data-bs-keyboard="false"
-                                tabindex="-1"
-                                aria-labelledby="staticBackdropLabel{{ produit.id }}"
-                                aria-hidden="true"
-
+                                class="border rounded border-2 border-dark pt-5 pb-4 bg-white"
                         >
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5
-                                                class="modal-title text-red"
-                                                id="staticBackdropLabel{{ produit.id }}"
-                                        >
-                                            L'article a été ajouté à votre panier
-                                        </h5>
+                            <h5 class="pt-4">Lorenza Blake</h5>
+                            <p>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                                diam nonumy eirmod tempor invidunt ut
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 text-center mb-3">
+                        <img
+                                src="images/face-1-resize.jpg"
+                                width="120"
+                                height="120"
+                                alt="avis"
+                                class="rounded-circle img-avis border-dark border border-2"
+                        />
+                        <div
+                                class="border rounded border-2 border-dark pt-5 pb-4 bg-white"
+                        >
+                            <h5 class="pt-4">Francis Kuck</h5>
+                            <p>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                                diam nonumy eirmod tempor invidunt ut
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 text-center mb-3">
+                        <img
+                                src="images/face-3-resize.jpg"
+                                width="120"
+                                height="120"
+                                alt="avis"
+                                class="rounded-circle img-avis border-dark border border-2"
+                        />
+                        <div
+                                class="border rounded border-2 border-dark pt-5 pb-4 bg-white"
+                        >
+                            <h5 class="pt-4">Bénédicte Concombre</h5>
+                            <p>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                                diam nonumy eirmod tempor invidunt ut
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- section FAQ -->
+        <section class="my-5">
+            <div class="container">
+                <div class="row">
+                    <!-- left -->
+                    <div class="col-lg-5 col-sm-12 text-center">
+                        <a href="FAQ.html">
+                            <div
+                                    class="d-flex flex-column justify-content-between mb-4 bg-faq"
+                            >
+                                <h2 class="py-4">Vous avez une question ?</h2>
+                                <h4 class="text-red py-4">Faites un tour sur la FAQ</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- col vide -->
+                    <div class="col-lg-1"></div>
+                    <!-- right -->
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="row">
+                            <!-- 4 box FAQ -->
+                            <div class="col-lg-6 col-6 text-center mb-4">
+                                <a href="">
+                                    <div class="faq-box">
+                                        <img
+                                                src="images/delivery-truck.svg"
+                                                alt="Camion de livraison"
+                                                class="pt-5 pb-4"
+                                        />
+                                        <h6>Livraison</h6>
                                     </div>
-                                    <!-- BODY FORM -->
-                                    <div class="modal-body d-flex flex-column">
-                                        <p class="mb-1">
-                                            {{ produit.nom }}
+                                </a>
+                            </div>
+                            <div class="col-lg-6 col-6 text-center mb-4">
+                                <a href="">
+                                    <div class="faq-box">
+                                        <img
+                                                src="images/returning-box.svg"
+                                                alt="Retour produit"
+                                                class="pt-5 pb-4 svg"
+                                        />
+                                        <h6>Retour</h6>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-6 col-6 text-center mb-4">
+                                <a href="">
+                                    <div class="faq-box">
+                                        <img
+                                                src="images/credit-card.svg"
+                                                alt="Paiement"
+                                                class="pt-5 pb-4 svg"
+                                        />
+                                        <h6>Paiement</h6>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-6 col-6 text-center">
+                                <a href="">
+                                    <div class="faq-box">
+                                        <img
+                                                src="images/boite-carton-1.svg"
+                                                alt="carton commande"
+                                                class="pt-5 pb-4 svg"
+                                        />
+                                        <h6>Commande</h6>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Les marques     -->
+        {% include 'parts/marques.html.twig' %}
+
+        <!-- section réassurance -->
+        {% include 'parts/reassuranceClient.html.twig' %}
+
+    </main>
+    {{ dump(produits) }}
+   {# <div class="row">
+
+
+        {% for produit in produits %}
+
+
+            <div class="card mx-3" style="width: 18rem;">
+                <img src="{{ produit.images | first }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"> {{ produit.nom }} </h5>
+                    <p class="card-text">{{ produit.description | u.truncate(100, '...') }}</p>
+                    <a href="{{ path('singleProduct', {'id': produit.id}) }}" class="btn btn-primary">En
+                        savoir
+                        plus</a>
+
+
+                    <a href="{{ path('panier_add', {'id' : produit.id, 'qty' : quantity}) }}"
+                       class="btn mybutton my-0 panier"
+                       data-bs-toggle="modal"
+                       data-bs-target="#modal{{ produit.id }}"
+                       data-id="{{ produit.id }}"
+
+
+                    >
+                        Ajouter au panier
+                    </a>
+
+                    <div
+                            class="modal fade"
+                            id="modal{{ produit.id }}"
+                            data-bs-backdrop="static"
+                            data-bs-keyboard="false"
+                            tabindex="-1"
+                            aria-labelledby="staticBackdropLabel{{ produit.id }}"
+                            aria-hidden="true"
+
+                    >
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5
+                                            class="modal-title text-red"
+                                            id="staticBackdropLabel{{ produit.id }}"
+                                    >
+                                        L'article a été ajouté à votre panier
+                                    </h5>
+
+                                </div>
+                                <!-- BODY FORM -->
+                                <div class="modal-body d-flex flex-column">
+                                    <p class="mb-1">
+                                        {{ produit.nom }}
+                                    </p>
+                                    <div class="d-flex align-items-center">
+                                        <p class="mb-2">1 X {{ produit.prixHt }}€</p>
+                                        <p class="ms-4 mb-2 text-red fs-5 fw-bold">
+                                            {{ produit.prixHt }} €
                                         </p>
-                                        <div class="d-flex align-items-center">
-                                            <p class="mb-2">1 X {{ produit.prixHt }}€</p>
-                                            <p class="ms-4 mb-2 text-red fs-5 fw-bold">
-                                                {{ produit.prixHt }} €
-                                            </p>
+                                    </div>
+                                    <div>
+                                        <div class="d-flex align-items-center my-2">
+                                            <img
+                                                    src="images/pick-up-store.svg"
+                                                    alt="retrait en magasin"
+                                            />
+                                            <h6 class="fw-light my-0 ms-2">
+                                                Retirer en magasin - gratuit
+                                            </h6>
                                         </div>
-                                        <div>
-                                            <div class="d-flex align-items-center my-2">
-                                                <img
-                                                        src="images/pick-up-store.svg"
-                                                        alt="retrait en magasin"
-                                                />
-                                                <h6 class="fw-light my-0 ms-2">
-                                                    Retirer en magasin - gratuit
-                                                </h6>
-                                            </div>
-                                            <div class="d-flex align-items-center my-2">
-                                                <img
-                                                        src="images/home.svg"
-                                                        alt="retrait en magasin"
-                                                />
-                                                <h6 class="fw-light my-0 ms-2">
-                                                    Livraison - Offerte
-                                                </h6>
-                                            </div>
+                                        <div class="d-flex align-items-center my-2">
+                                            <img
+                                                    src="images/home.svg"
+                                                    alt="retrait en magasin"
+                                            />
+                                            <h6 class="fw-light my-0 ms-2">
+                                                Livraison - Offerte
+                                            </h6>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <div class="modal-footer my-3">
-                                        <!-- renvoyer boutique -->
-                                        <a
-                                                href="{{ path('panier_add_stay', {'id' : produit.id, 'qty' : quantity}) }}"
-                                                class="btn btn-secondary"
+                                <div class="modal-footer my-3">
+                                    <!-- renvoyer boutique -->
+                                    <a
+                                            href="{{ path('panier_add_stay', {'id' : produit.id, 'qty' : quantity}) }}"
+                                            class="btn btn-secondary"
 
-                                        >
-                                            Poursuivre les achats
-                                        </a>
-                                        <!-- Envoyer panier -->
-                                        <a
-                                                href="{{ path('panier_add', {'id' : produit.id, 'qty' : quantity}) }}"
+                                    >
+                                        Poursuivre les achats
+                                    </a>
+                                    <!-- Envoyer panier -->
+                                    <a
+                                            href="{{ path('panier_add', {'id' : produit.id, 'qty' : quantity}) }}"
 
-                                                type="button"
-                                                class="btn btn-primary"
-                                        >
-                                            Accéder au panier
-                                        </a>
-                                    </div>
+                                            type="button"
+                                            class="btn btn-primary"
+                                    >
+                                        Accéder au panier
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
-            {% endfor %}
 
 
-        </div>
+            </div>
+        {% endfor %}
+
+
+    </div>#}
     </div>
-    </div>
+
 
 {% endblock %}

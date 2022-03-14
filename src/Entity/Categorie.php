@@ -51,6 +51,11 @@ class Categorie
      */
     private $bannerImage;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $index_image;
+
 
     public function __construct()
     {
@@ -153,6 +158,18 @@ class Categorie
     public function setBannerImage(?string $bannerImage): self
     {
         $this->bannerImage = $bannerImage;
+
+        return $this;
+    }
+
+    public function getIndexImage(): ?string
+    {
+        return $this->index_image;
+    }
+
+    public function setIndexImage(?string $index_image): self
+    {
+        $this->index_image = $index_image;
 
         return $this;
     }

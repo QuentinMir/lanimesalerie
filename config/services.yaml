@@ -7,6 +7,7 @@ parameters:
     images_souscategories: '%kernel.project_dir%/public/uploads/imagessouscat'
     images_categories: '%kernel.project_dir%/public/uploads/imagescat'
     images_produits: '%kernel.project_dir%/public/uploads/imagesproduit'
+    images_carousel: '%kernel.project_dir%/public/uploads/imagescarousel'
 
 services:
   # default configuration for services in *this* file

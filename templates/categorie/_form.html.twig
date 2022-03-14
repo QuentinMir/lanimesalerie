@@ -2,7 +2,7 @@
     {{ form_row(form.nom) }}
 
 {% if categorie.id is not null %}
-    <div>
+    <div class="mt-5">
         <p>Icône actuelle</p>
         <img class="rounded img-fluid" width="250" src="{{ asset('uploads/imagescat/'~ categorie.iconImage) }}">
     </div>
@@ -10,17 +10,26 @@
     <p>Choisissez un fichier seulement si vous souhaitez changer l'image</p>
     {{ form_row(form.iconImage, {'required': false}) }}
 
-    <div>
+    <div class="mt-5">
         <p>Bannière actuelle</p>
         <img class="rounded img-fluid" width="250" src="{{ asset('uploads/imagescat/'~ categorie.bannerImage) }}">
     </div>
 
     <p>Choisissez un fichier seulement si vous souhaitez changer l'image</p>
     {{ form_row(form.bannerImage, {'required': false}) }}
+
+    <div class="mt-5">
+        <p>Image accueil actuelle</p>
+        <img class="rounded img-fluid" width="250" src="{{ asset('uploads/imagescat/'~ categorie.indexImage) }}">
+    </div>
+
+    <p>Choisissez un fichier seulement si vous souhaitez changer l'image</p>
+    {{ form_row(form.indexImage, {'required': false}) }}
 {% else %}
 
     {{ form_row(form.iconImage, {'required': true}) }}
     {{ form_row(form.bannerImage, {'required': true}) }}
+    {{ form_row(form.indexImage, {'required': true}) }}
 
 {% endif %}
 <button class="btn mt-2">{{ button_label|default('Save') }}</button>

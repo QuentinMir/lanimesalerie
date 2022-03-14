@@ -19,32 +19,18 @@ class ProduitPanierRepository extends ServiceEntityRepository
         parent::__construct($registry, ProduitPanier::class);
     }
 
-    // /**
-    //  * @return ProduitPanier[] Returns an array of ProduitPanier objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /** Trier les produits des plus au moins vendus **/
+    public function getProduitsVentesDesc()
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $query = $this->createQueryBuilder('p')->leftJoin('p.produit', 'produit')
+            ->select('produit.nom, (COUNT(p.produit)*p.quantite) AS compte')
+            ->groupBy('p.produit')
+            ->orderBy('compte', 'DESC');
 
-    /*
-    public function findOneBySomeField($value): ?ProduitPanier
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
+
+        return $query->setMaxResults(12)
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getResult();
+
     }
-    */
 }

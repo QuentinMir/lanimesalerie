@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Adresse;
 use App\Entity\Avis;
+use App\Entity\Carousel;
 use App\Entity\Categorie;
 use App\Entity\Commande;
 use App\Entity\Marque;
@@ -16,6 +17,7 @@ use App\Form\HeaderSearchType;
 use App\Form\SearchType;
 use App\Form\TriAvisType;
 use App\Repository\AvisRepository;
+use App\Repository\ProduitPanierRepository;
 use App\Repository\ProduitRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -37,18 +39,24 @@ class DefaultController extends AbstractController
 
 
     #[Route('/', name: 'default')]
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(EntityManagerInterface $entityManager, ProduitPanierRepository $pr): Response
     {
 
 
-        $produits = $this->produitRepository->findAll();
+        // $produits = $this->produitRepository->findAll();
         $categories = $entityManager->getRepository(Categorie::class)->findAll();
         $quantity = 1;
+        $carouselItems = $entityManager->getRepository(Carousel::class)->findAll();
+        $produits = $pr->getProduitsVentesDesc();
+
+        /** For loop dans l'index pour récupérer les produits et c'est gg **/
 
         return $this->render('default/index.html.twig', [
             'produits' => $produits,
             'categories' => $categories,
-            'quantity' => $quantity
+            'quantity' => $quantity,
+            'carouselItems' => $carouselItems,
+
         ]);
     }
 
@@ -284,21 +292,10 @@ class DefaultController extends AbstractController
     {
         $user = $sc->getUser();
         $commandes = $em->getRepository(Commande::class)->findBy(['user' => $user]);
-        //    $allPaniers = $em->getRepository(ProduitPanier::class)->findAll();
 
-        // récupération des panniers en lien avec les commandes de ce user
-        /*$paniers = [];
-        foreach ($commandes as $commande) {
-            foreach ($allPaniers as $singlePanier) {
-                if ($commande == $singlePanier->getCommande()) {
-                    $paniers[] = $singlePanier;
-                }
-            }
-        }*/
 
         return $this->render('default/commande.html.twig', [
             'commandes' => $commandes,
-            // 'paniers' => $paniers,
         ]);
     }
 }

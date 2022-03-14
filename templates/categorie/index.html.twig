@@ -23,6 +23,7 @@
             <th>Nom</th>
             <th>Icône</th>
             <th>Bannière</th>
+            <th>index</th>
             <th>actions</th>
         </tr>
         </thead>
@@ -36,6 +37,9 @@
                 </td>
                 <td><img src="{{ asset('uploads/imagescat/'~ categorie.bannerImage) }}"
                          alt="Bannière {{ categorie.nom }}" width="200px" height="auto">
+                </td>
+                <td><img src="{{ asset('uploads/imagescat/'~ categorie.indexImage) }}"
+                         alt="Index {{ categorie.nom }}" width="200px" height="auto">
                 </td>
                 <td>
                     <a class="btn btn-outline-dark" href="{{ path('categorie_show', {'id': categorie.id}) }}">Voir</a>

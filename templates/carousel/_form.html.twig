@@ -1,0 +1,21 @@
+{{ form_start(form) }}
+    {{ form_row(form.text) }}
+
+{% if carousel.id is not null %}
+    <div>
+        <p>Image actuelle</p>
+        <img class="rounded img-fluid" width="250" src="{{ asset('uploads/imagescarousel/'~ carousel.image) }}">
+    </div>
+
+    <p>Choisissez un fichier seulement si vous souhaitez changer l'image</p>
+    {{ form_row(form.image, {'required': false}) }}
+{% else %}
+
+    {{ form_row(form.image, {'required': true}) }}
+
+{% endif %}
+{{ form_row(form.bouton) }}
+    {{ form_row(form.navigation) }}
+    {{ form_row(form.lien) }}
+<button class="btn btn-outline-success mt-2">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

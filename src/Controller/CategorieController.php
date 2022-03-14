@@ -39,6 +39,8 @@ class CategorieController extends AbstractController
 
             $this->uploadBanner($form, $slugger, $categorie);
 
+            $this->uploadIndex($form, $slugger, $categorie);
+
 
             $entityManager->persist($categorie);
             $entityManager->flush();
@@ -71,6 +73,8 @@ class CategorieController extends AbstractController
             $this->uploadIcon($form, $slugger, $categorie);
 
             $this->uploadBanner($form, $slugger, $categorie);
+
+            $this->uploadIndex($form, $slugger, $categorie);
 
             $entityManager->flush();
 
@@ -139,6 +143,30 @@ class CategorieController extends AbstractController
             );
 
             $categorie->setBannerImage($newFilenameBanner);
+        }
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormInterface $form
+     * @param SluggerInterface $slugger
+     * @param Categorie $categorie
+     * @return void
+     */
+    public function uploadIndex(\Symfony\Component\Form\FormInterface $form, SluggerInterface $slugger, Categorie $categorie): void
+    {
+        $index = $form->get('indexImage')->getData();
+        if ($index) { // Génération d'un nouveau nom sécurisé et unique
+            $originalFilenameIndex = pathinfo($index->getClientOriginalName(), PATHINFO_FILENAME);
+            $safeFilenameIndex = $slugger->slug($originalFilenameIndex);
+            $newFilenameIndex = $safeFilenameIndex . '-' . uniqid() . '.' . $index->guessExtension();
+
+
+            $index->move(
+                $this->getParameter('images_categories'),
+                $newFilenameIndex
+            );
+
+            $categorie->setIndexImage($newFilenameIndex);
         }
     }
 }

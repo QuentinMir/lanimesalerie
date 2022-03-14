@@ -47,6 +47,22 @@ class CategorieType extends AbstractType
                         'mimeTypesMessage' => 'Veuillez ajouter un fichier de type png ou jpeg ou jpg'
                     ])
                 ]
+            ])
+            ->add('indexImage', FileType::class, [
+                'label' => "Ajouter une image pour l'accueil",
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'maxSizeMessage' => 'Le fichier est trop lourd',
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpeg'
+                        ],
+                        'mimeTypesMessage' => 'Veuillez ajouter un fichier de type png ou jpeg ou jpg'
+                    ])
+                ]
             ]);
     }
 

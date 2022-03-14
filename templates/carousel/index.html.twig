@@ -1,0 +1,43 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Carousel{% endblock %}
+
+{% block body %}
+    <h1>Carousel index</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Image</th>
+            <th>Texte</th>
+            <th>Bouton</th>
+            <th>Navigation</th>
+            <th>Lien</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for carousel in carousels %}
+            <tr>
+                <td>{{ carousel.id }}</td>
+                <td><img width="250" src="{{ asset('uploads/imagescarousel/'~ carousel.image) }}" alt=""></td>
+                <td>{{ carousel.text }}</td>
+                <td>{{ carousel.bouton }}</td>
+                <td>{{ carousel.navigation }}</td>
+                <td>{{ carousel.lien }}</td>
+                <td>
+                    <a href="{{ path('carousel_show', {'id': carousel.id}) }}">show</a>
+                    <a href="{{ path('carousel_edit', {'id': carousel.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('carousel_new') }}">Create new</a>
+{% endblock %}
