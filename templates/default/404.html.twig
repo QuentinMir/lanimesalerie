@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} - Conditions générales de vente{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="ps-3 pt-5 pb-2 text-blue">Oups...</h1>
+        <h4 class="ps-3">La page que vous cherchez semble introuvable.</h4>
+        <h6 class="ps-3">¯\_(ツ)_/¯</h6>
+        <h6 class="ps-3 pt-3 border-none">Code d'erreur 404</h6>
+        <a href="{{ path('default') }}" class="ms-3 mybutton-404 mt-4">
+            Retour à la page d'accueil</a
+        >
+    </div>
+{% endblock %}

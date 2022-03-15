@@ -253,6 +253,21 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item {% if app.request.get('_route') == 'commande_index' %}active{% endif %}">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#commande" aria-expanded="false"
+                       aria-controls="commande">
+                        <i class="fas fa-box  fs-5 me-2"></i>
+                        <span class="menu-title">Commandes</span>
+                        <i class="fa-solid fa-chevron-right menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="commande">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item {% if app.request.get('_route') == 'admin_commande' %}active{% endif %}">
+                                <a class="nav-link" href="{{ path('admin_commande') }}">Commandes</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <li class="nav-item {% if app.request.get('_route') == 'carousel_index' %}active{% endif %}">
                     <a class="nav-link" data-bs-toggle="collapse" href="#carousel" aria-expanded="false"
                        aria-controls="carousel">

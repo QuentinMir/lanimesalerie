@@ -26,11 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
             </label>`
     }
 
-    block.classList.add('rating', 'text-start');
-    block.innerHTML = choices
     document.querySelector('#tri_avis_ordre').classList.remove('form-select');
     triLabel.classList.remove('form-label');
     triLabel.classList.add('fw-bold');
+    block.classList.add('rating', 'text-start');
+    block.innerHTML = choices
 
 });
 

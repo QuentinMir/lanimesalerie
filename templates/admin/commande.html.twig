@@ -1,0 +1,56 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %} {{ parent() }} Commandes{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/admin/dataTable.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script rel=script" src="{{ asset('js/admin/dataTable.js') }}"></script>
+    <script rel=script" src="{{ asset('js/admin/initDataTable.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4">Commandes</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Produit(s)</th>
+            <th scope="col">Utilisateur</th>
+            <th scope="col">État</th>
+            <th scope="col">Paiement</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <th>{{ commande.id }}</th>
+                <td>{{ commande.date | date("d/m/Y") }}</td>
+                <td>
+                    <div class="row">
+                        {% for panier in commande.paniers %}
+                            <div class="col">
+                                <p class="my-0">Produit : {{ panier.produit.nom }}</p>
+                                <p class="my-0">Prix Unitaire HT : {{ panier.produit.prixHt }} €</p>
+                                <p class="my-0">Quantité : {{ panier.quantite }}</p>
+                                <p class="my-0">Prix total TTC
+                                    : {{ (panier.quantite*panier.produit.prixHt*1.2) | round(2, 'floor') }} €</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </td>
+                <td>{{ commande.user.nom }} {{ commande.user.prenom }}</td>
+                <td>{{ commande.etat }}</td>
+                <td>{{ commande.paiement }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

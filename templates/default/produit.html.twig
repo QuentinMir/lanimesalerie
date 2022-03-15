@@ -1,7 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DefaultController!{% endblock %}
+{% block title %}{{ parent() }} boutique {% endblock %}
 
+ {% block javascripts %}
+     {{ parent() }}
+     <script rel=script" src="{{ asset('js/product.js') }}"></script>
+ {% endblock %}
 {% block body %}
 
     <main>
@@ -15,10 +19,10 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ path('default') }}">Accueil</a></li>
                 <li class="breadcrumb-item">
-                    <a href="sous-categories.html">{{ produit.idCategorie.nom }}</a>
+                    <a href="{{ path('categorie', {'categorie' : produit.idCategorie.id}) }}">{{ produit.idCategorie.nom }}</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="boutique.html">{{ produit.idSousCategorie.nom }}</a>
+                    <a href="{{ path('boutiqueSouscat', {'categorie': produit.idCategorie.id, 'souscategorie': produit.idSousCategorie.id, 'pageCourante' : 1}) }}">{{ produit.idSousCategorie.nom }}</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                     {{ produit.idMarque.nom }} {{ produit.nom }}
@@ -305,6 +309,7 @@
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-wrapper">
                         <!-- Les cards -->
+                        {{ dump(produits) }}
                         <div class="swiper-slide d-flex justify-content-center">
                             <div class="card">
                                 <a href="">
@@ -331,330 +336,6 @@
                             </div>
                         </div>
 
-                        <div class="swiper-slide d-flex justify-content-center">
-                            <div class="card">
-                                <a href="">
-                                    <figure>
-                                        <img
-                                                src="images/img-produit.jpg"
-                                                class="img-produit"
-                                                alt="nom produit"
-                                                title="nom produit"
-                                                width="150"
-                                                height="180"
-                                        />
-                                    </figure>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ultima</h5>
-                                        <p>Ultima Medium Maxi Croquettes au poulet 7,5 kg</p>
-                                        <h5 class="card-price">11,99€</h5>
-                                    </div>
-                                </a>
-                                <button class="mybutton-card mx-auto mb-3">
-                                    Ajouter au panier
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide d-flex justify-content-center">
-                            <div class="card">
-                                <a href="">
-                                    <figure>
-                                        <img
-                                                src="images/img-produit.jpg"
-                                                class="img-produit"
-                                                alt="nom produit"
-                                                title="nom produit"
-                                                width="150"
-                                                height="180"
-                                        />
-                                    </figure>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ultima</h5>
-                                        <p>Ultima Medium Maxi Croquettes au poulet 7,5 kg</p>
-                                        <h5 class="card-price">11,99€</h5>
-                                    </div>
-                                </a>
-                                <button class="mybutton-card mx-auto mb-3">
-                                    Ajouter au panier
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide d-flex justify-content-center">
-                            <div class="card">
-                                <a href="">
-                                    <figure>
-                                        <img
-                                                src="images/img-produit.jpg"
-                                                class="img-produit"
-                                                alt="nom produit"
-                                                title="nom produit"
-                                                width="150"
-                                                height="180"
-                                        />
-                                    </figure>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ultima</h5>
-                                        <p>Ultima Medium Maxi Croquettes au poulet 7,5 kg</p>
-                                        <h5 class="card-price">11,99€</h5>
-                                    </div>
-                                </a>
-                                <button class="mybutton-card mx-auto mb-3">
-                                    Ajouter au panier
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide d-flex justify-content-center">
-                            <div class="card">
-                                <a href="">
-                                    <figure>
-                                        <img
-                                                src="images/img-produit.jpg"
-                                                class="img-produit"
-                                                alt="nom produit"
-                                                title="nom produit"
-                                                width="150"
-                                                height="180"
-                                        />
-                                    </figure>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ultima</h5>
-                                        <p>Ultima Medium Maxi Croquettes au poulet 7,5 kg</p>
-                                        <h5 class="card-price">11,99€</h5>
-                                    </div>
-                                </a>
-                                <button class="mybutton-card mx-auto mb-3">
-                                    Ajouter au panier
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide d-flex justify-content-center">
-                            <div class="card">
-                                <a href="">
-                                    <figure>
-                                        <img
-                                                src="images/img-produit.jpg"
-                                                class="img-produit"
-                                                alt="nom produit"
-                                                title="nom produit"
-                                                width="150"
-                                                height="180"
-                                        />
-                                    </figure>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ultima</h5>
-                                        <p>Ultima Medium Maxi Croquettes au poulet 7,5 kg</p>
-                                        <h5 class="card-price">11,99€</h5>
-                                    </div>
-                                </a>
-                                <button class="mybutton-card mx-auto mb-3">
-                                    Ajouter au panier
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide d-flex justify-content-center">
-                            <div class="card">
-                                <a href="">
-                                    <figure>
-                                        <img
-                                                src="images/img-produit.jpg"
-                                                class="img-produit"
-                                                alt="nom produit"
-                                                title="nom produit"
-                                                width="150"
-                                                height="180"
-                                        />
-                                    </figure>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ultima</h5>
-                                        <p>Ultima Medium Maxi Croquettes au poulet 7,5 kg</p>
-                                        <h5 class="card-price">11,99€</h5>
-                                    </div>
-                                </a>
-                                <button class="mybutton-card mx-auto mb-3">
-                                    Ajouter au panier
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide d-flex justify-content-center">
-                            <div class="card">
-                                <a href="">
-                                    <figure>
-                                        <img
-                                                src="images/img-produit.jpg"
-                                                class="img-produit"
-                                                alt="nom produit"
-                                                title="nom produit"
-                                                width="150"
-                                                height="180"
-                                        />
-                                    </figure>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ultima</h5>
-                                        <p>Ultima Medium Maxi Croquettes au poulet 7,5 kg</p>
-                                        <h5 class="card-price">11,99€</h5>
-                                    </div>
-                                </a>
-                                <button class="mybutton-card mx-auto mb-3">
-                                    Ajouter au panier
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide d-flex justify-content-center">
-                            <div class="card">
-                                <a href="">
-                                    <figure>
-                                        <img
-                                                src="images/img-produit.jpg"
-                                                class="img-produit"
-                                                alt="nom produit"
-                                                title="nom produit"
-                                                width="150"
-                                                height="180"
-                                        />
-                                    </figure>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ultima</h5>
-                                        <p>Ultima Medium Maxi Croquettes au poulet 7,5 kg</p>
-                                        <h5 class="card-price">11,99€</h5>
-                                    </div>
-                                </a>
-                                <button class="mybutton-card mx-auto mb-3">
-                                    Ajouter au panier
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide d-flex justify-content-center">
-                            <div class="card">
-                                <a href="">
-                                    <figure>
-                                        <img
-                                                src="images/img-produit.jpg"
-                                                class="img-produit"
-                                                alt="nom produit"
-                                                title="nom produit"
-                                                width="150"
-                                                height="180"
-                                        />
-                                    </figure>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ultima</h5>
-                                        <p>Ultima Medium Maxi Croquettes au poulet 7,5 kg</p>
-                                        <h5 class="card-price">11,99€</h5>
-                                    </div>
-                                </a>
-                                <button class="mybutton-card mx-auto mb-3">
-                                    Ajouter au panier
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide d-flex justify-content-center">
-                            <div class="card">
-                                <a href="">
-                                    <figure>
-                                        <img
-                                                src="images/img-produit.jpg"
-                                                class="img-produit"
-                                                alt="nom produit"
-                                                title="nom produit"
-                                                width="150"
-                                                height="180"
-                                        />
-                                    </figure>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ultima</h5>
-                                        <p>Ultima Medium Maxi Croquettes au poulet 7,5 kg</p>
-                                        <h5 class="card-price">11,99€</h5>
-                                    </div>
-                                </a>
-                                <button class="mybutton-card mx-auto mb-3">
-                                    Ajouter au panier
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide d-flex justify-content-center">
-                            <div class="card">
-                                <a href="">
-                                    <figure>
-                                        <img
-                                                src="images/img-produit.jpg"
-                                                class="img-produit"
-                                                alt="nom produit"
-                                                title="nom produit"
-                                                width="150"
-                                                height="180"
-                                        />
-                                    </figure>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ultima</h5>
-                                        <p>Ultima Medium Maxi Croquettes au poulet 7,5 kg</p>
-                                        <h5 class="card-price">11,99€</h5>
-                                    </div>
-                                </a>
-                                <button class="mybutton-card mx-auto mb-3">
-                                    Ajouter au panier
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide d-flex justify-content-center">
-                            <div class="card">
-                                <a href="">
-                                    <figure>
-                                        <img
-                                                src="images/img-produit.jpg"
-                                                class="img-produit"
-                                                alt="nom produit"
-                                                title="nom produit"
-                                                width="150"
-                                                height="180"
-                                        />
-                                    </figure>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ultima</h5>
-                                        <p>Ultima Medium Maxi Croquettes au poulet 7,5 kg</p>
-                                        <h5 class="card-price">11,99€</h5>
-                                    </div>
-                                </a>
-                                <button class="mybutton-card mx-auto mb-3">
-                                    Ajouter au panier
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide d-flex justify-content-center">
-                            <div class="card">
-                                <a href="">
-                                    <figure>
-                                        <img
-                                                src="images/img-produit.jpg"
-                                                class="img-produit"
-                                                alt="nom produit"
-                                                title="nom produit"
-                                                width="150"
-                                                height="180"
-                                        />
-                                    </figure>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ultima</h5>
-                                        <p>Ultima Medium Maxi Croquettes au poulet 7,5 kg</p>
-                                        <h5 class="card-price">11,99€</h5>
-                                    </div>
-                                </a>
-                                <button class="mybutton-card mx-auto mb-3">
-                                    Ajouter au panier
-                                </button>
-                            </div>
-                        </div>
 
                     </div>
                 </div>
@@ -789,7 +470,6 @@
                         <div class="col-6">
                             <p class="my-0">{{ produitAvis | length }} avis</p>
                         </div>
-                        {# <div class=""></div> #}
 
                         {{ form_start(formTriAvis, {'attr': {'class': 'col-6 text-end'}} ) }}
                         <p class="my-0">
@@ -797,7 +477,6 @@
                             {{ form_widget(formTriAvis.ordre) }}
                         </p>
                         {{ form_end(formTriAvis) }}
-                        {# <div class="d-flex"></div> #}
 
 
                     </div>
@@ -853,6 +532,7 @@
                             <hr/>
                         {% endfor %}
                     {% else %}
+                        <div class="col-2"></div>
                         <div class="col-12 text-center">
                             <h5>Aucun avis n'a été posté pour le moment...</h5>
                         </div>
@@ -899,11 +579,8 @@
         </section>
 
         <!-- section réassurance -->
+
         {% include 'parts/reassuranceClient.html.twig' %}
     </main>
 
-    {% block javascripts %}
-        {{ parent() }}
-        <script rel=script" src="{{ asset('js/product.js') }}"></script>
-    {% endblock %}
 {% endblock %}

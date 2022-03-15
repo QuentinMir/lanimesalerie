@@ -1,18 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ parent()}} | Compte {% endblock %}
+{% block title %}{{ parent() }} | Compte {% endblock %}
 
 {% block body %}
-    <div class="container my-4">
-        <h1 class="text-center">
+    <div style=" background: url({{ asset('img/compte.jpg') }}) center center no-repeat;
+            background-size: cover;
+            width: auto;
+            min-height: 244px;" class="bg-compte d-flex">
+        <h2 class="container align-self-center fw-normal fs-1">
             {% if app.request.attributes.get('_route') == "app_register" %}
-                S'enregistrer
+                Créer mon <br>
+                compte
             {% else %}
-                Modifier son compte
+                Modifier mon <br>
+                compte
             {% endif %}
-        </h1>
-
-
+        </h2>
+    </div>
+    <div class="container my-4">
         <div class="col-lg-6 col-10 mx-auto">
             {% if app.request.attributes.get('_route') == "user_edit" %}
                 <a class="btn btn-outline-dark my-4" href="{{ path('compte') }}">Retour</a>

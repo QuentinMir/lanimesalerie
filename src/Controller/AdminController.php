@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Commande;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +17,17 @@ class AdminController extends AbstractController
     {
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
+        ]);
+    }
+
+    #[Route('/commandes', name: 'admin_commande')]
+    public function indexCommandes(EntityManagerInterface $em): Response
+    {
+
+        $commandes = $em->getRepository(Commande::class)->findAll();
+
+        return $this->render('admin/commande.html.twig', [
+            'commandes' => $commandes,
         ]);
     }
 }

@@ -20,21 +20,25 @@ class SearchType extends AbstractType
         $builder
             ->add('searchBar', TextType::class, [
                 'required' => false,
+                'label' => 'Barre de recherche',
                 'attr' => ['class' => 'form-control']
             ])
             ->add('marque', EntityType::class, [
                 'required' => false,
+                'label' => 'Marque',
                 'class' => Marque::class,
                 'attr' => ['class' => 'form-control']
             ])
             ->add('prixMin', NumberType::class, [
 
                 'attr' => ['class' => 'form-control'],
+                'label' => 'Prix minimum',
                 'required' => false
             ])
             ->add('prixMax', NumberType::class, [
 
                 'attr' => ['class' => 'form-control'],
+                'label' => 'Prix maximum',
                 'required' => false
             ])
             ->add('ordre', ChoiceType::class, [
@@ -46,10 +50,11 @@ class SearchType extends AbstractType
                 'multiple' => false,
                 'required' => false,
                 'expanded' => false,
+                'label' => 'Trier par :',
                 'attr' => ['class' => 'form-control']
             ])
-            ->add('save', SubmitType::class, [
-                'attr' => ['class' => 'myButton mt-3']
+            ->add('Chercher', SubmitType::class, [
+                'attr' => ['class' => 'myButton']
             ]);
     }
 

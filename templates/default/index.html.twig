@@ -5,12 +5,8 @@
 {% block body %}
 
     <h4>todo :
-        <br>Faire entité carousel
-        <br>Faire la homepage
         <br>Faire les produits de la même catégorie pour page single produit
         <br>Appliquer les bons bg sur les pages
-        <br>Mettre les images
-        <br>mettre les inline css bg dans les bandeaux
         <br>Page 3.0
         <br> Merci monsieur</h4>
 
@@ -88,32 +84,34 @@
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-wrapper">
 
-                        <!-- Les cards -->
-                        <div class="swiper-slide d-flex justify-content-center">
-                            <div class="card">
-                                <a href="product.html">
-                                    <figure>
-                                        <img
-                                                src="images/img-produit.jpg"
-                                                class="img-produit"
-                                                alt="nom produit"
-                                                title="nom produit"
-                                                width="150"
-                                                height="180"
-                                        />
-                                    </figure>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ultima</h5>
-                                        <p>Ultima Medium Maxi Croquettes au poulet 7,5 kg</p>
-                                        <h5 class="card-price">11,99€</h5>
-                                    </div>
-                                </a>
+                        {% for produit in produits %}
+                            <div class="swiper-slide d-flex justify-content-center">
+                                <div class="card">
+                                    <a href="{{ path('singleProduct', {'id': produit.id}) }}">
+                                        <figure>
+                                            <img
+                                                    src="{{ produit.images | first }}"
+                                                    class="img-produit"
+                                                    alt="{{ produit.nom }}"
+                                                    title="{{ produit.nom }}"
+                                                    width="150"
+                                                    height="180"
+                                            />
+                                        </figure>
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ produit.idMarque.nom }}</h5>
+                                            <p>{{ produit.nom }}</p>
+                                            <h5 class="card-price">{{ produit.prixHt }} €</h5>
+                                        </div>
+                                    </a>
 
-                                <button class="mybutton-card mx-auto mb-3">
-                                    Ajouter au panier
-                                </button>
+                                    <a href="{{ path('panier_add_stay', {'id': produit.id, 'qty' : 1}) }}"
+                                       class="mybutton-card mx-auto mb-3 panier">
+                                        Ajouter au panier
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        {% endfor %}
 
 
                     </div>
@@ -129,60 +127,24 @@
                     <!-- align 12 colonnes -->
                     <!-- row 1 -->
 
-                    <div class="col-lg-4 col-sm-6 text-center mb-4">
-                        <!-- ajouter le border radius -->
-                        <a href="sous-categories.html">
-                            <div class="cat-chien cat-hover">
-                                <h3 class="categorie-h3">Chiens</h3>
-                            </div>
-                        </a>
-                    </div>
+                    {% for categorie in categories %}
+                        <div class="col-lg-4 col-sm-6 text-center mb-4">
+                            <!-- ajouter le border radius -->
+                            <a href="{{ path('categorie', {'categorie' : categorie.id}) }}">
+                                <div class="cat-hover"
+                                     style=" background-image: url({{ asset('uploads/imagescat/'~categorie.indexImage) }});
+                                             min-height: 238px;
+                                             background-size: cover;
+                                             background-repeat: no-repeat;
+                                             background-position: center;
+                                             border-radius: 20px;">
+                                    <h3 class="categorie-h3">{{ categorie.nom }}</h3>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
 
-                    <div class="col-lg-4 col-sm-6 text-center mb-4">
-                        <!-- ajouter le border radius -->
-                        <a href="sous-categories.html">
-                            <div class="cat-chat cat-hover">
-                                <h3 class="categorie-h3">Chats</h3>
-                            </div>
-                        </a>
-                    </div>
 
-                    <div class="col-lg-4 col-sm-6 text-center mb-4">
-                        <!-- ajouter le border radius -->
-                        <a href="sous-categories.html">
-                            <div class="cat-rongeur cat-hover">
-                                <h3 class="categorie-h3">Rongeurs</h3>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- row 2 -->
-                    <div class="col-lg-4 col-sm-6 text-center mb-4">
-                        <!-- ajouter le border radius -->
-                        <a href="sous-categories.html">
-                            <div class="cat-oiseaux cat-hover">
-                                <h3 class="categorie-h3">Oiseaux</h3>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-4 col-sm-6 text-center mb-4">
-                        <!-- ajouter le border radius -->
-                        <a href="sous-categories.html">
-                            <div class="cat-aqua cat-hover">
-                                <h3 class="categorie-h3">Aquatique</h3>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-4 col-sm-6 text-center mb-4">
-                        <!-- ajouter le border radius -->
-                        <a href="sous-categories.html">
-                            <div class="cat-terra cat-hover">
-                                <h3 class="categorie-h3">Terrarium</h3>
-                            </div>
-                        </a>
-                    </div>
                 </div>
             </div>
         </section>
@@ -213,7 +175,8 @@
                     <!-- col image -->
                     <div class="col-lg-6">
                         <img
-                                src="images/Cool-dog.png"
+
+                                src="{{ asset('img/Cool-dog.png') }}"
                                 alt="chien cool"
                                 class="qsn-chien"
                         />
@@ -233,7 +196,7 @@
                     <!-- align 12 colonnes -->
                     <div class="col-lg-4 col-sm-12 text-center mb-3">
                         <img
-                                src="images/face-2-resize.jpg"
+                                src="{{ asset('img/face-2-resize.jpg') }}"
                                 width="120"
                                 height="120"
                                 alt="avis"
@@ -251,7 +214,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-12 text-center mb-3">
                         <img
-                                src="images/face-1-resize.jpg"
+                                src="{{ asset('img/face-1-resize.jpg') }}"
                                 width="120"
                                 height="120"
                                 alt="avis"
@@ -269,7 +232,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-12 text-center mb-3">
                         <img
-                                src="images/face-3-resize.jpg"
+                                src="{{ asset('img/face-3-resize.jpg') }}"
                                 width="120"
                                 height="120"
                                 alt="avis"
@@ -295,9 +258,13 @@
                 <div class="row">
                     <!-- left -->
                     <div class="col-lg-5 col-sm-12 text-center">
-                        <a href="FAQ.html">
+                        <a href="{{ path('faq_livraison') }}">
                             <div
-                                    class="d-flex flex-column justify-content-between mb-4 bg-faq"
+                                    class="d-flex flex-column justify-content-between mb-4"
+                                    style="background: url({{ asset('img/dog-faq.jpg') }}) center no-repeat;
+                                            background-size: auto;
+                                            min-height: 451px;
+                                            border-radius: 20px;"
                             >
                                 <h2 class="py-4">Vous avez une question ?</h2>
                                 <h4 class="text-red py-4">Faites un tour sur la FAQ</h4>
@@ -311,10 +278,10 @@
                         <div class="row">
                             <!-- 4 box FAQ -->
                             <div class="col-lg-6 col-6 text-center mb-4">
-                                <a href="">
+                                <a href="{{ path('faq_livraison') }}">
                                     <div class="faq-box">
                                         <img
-                                                src="images/delivery-truck.svg"
+                                                src="{{ asset('img/delivery-truck.svg') }}"
                                                 alt="Camion de livraison"
                                                 class="pt-5 pb-4"
                                         />
@@ -323,10 +290,10 @@
                                 </a>
                             </div>
                             <div class="col-lg-6 col-6 text-center mb-4">
-                                <a href="">
+                                <a href="{{ path('faq_retour') }}">
                                     <div class="faq-box">
                                         <img
-                                                src="images/returning-box.svg"
+                                                src="{{ asset('img/returning-box.svg') }}"
                                                 alt="Retour produit"
                                                 class="pt-5 pb-4 svg"
                                         />
@@ -335,10 +302,10 @@
                                 </a>
                             </div>
                             <div class="col-lg-6 col-6 text-center mb-4">
-                                <a href="">
+                                <a href="{{ path('faq_paiement') }}">
                                     <div class="faq-box">
                                         <img
-                                                src="images/credit-card.svg"
+                                                src="{{ asset('img/credit-card.svg') }}"
                                                 alt="Paiement"
                                                 class="pt-5 pb-4 svg"
                                         />
@@ -347,10 +314,10 @@
                                 </a>
                             </div>
                             <div class="col-lg-6 col-6 text-center">
-                                <a href="">
+                                <a href="{{ path('faq_commande') }}">
                                     <div class="faq-box">
                                         <img
-                                                src="images/boite-carton-1.svg"
+                                                src="{{ asset('img/boite-carton-1.svg') }}"
                                                 alt="carton commande"
                                                 class="pt-5 pb-4 svg"
                                         />
@@ -371,119 +338,5 @@
         {% include 'parts/reassuranceClient.html.twig' %}
 
     </main>
-    {{ dump(produits) }}
-   {# <div class="row">
-
-
-        {% for produit in produits %}
-
-
-            <div class="card mx-3" style="width: 18rem;">
-                <img src="{{ produit.images | first }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"> {{ produit.nom }} </h5>
-                    <p class="card-text">{{ produit.description | u.truncate(100, '...') }}</p>
-                    <a href="{{ path('singleProduct', {'id': produit.id}) }}" class="btn btn-primary">En
-                        savoir
-                        plus</a>
-
-
-                    <a href="{{ path('panier_add', {'id' : produit.id, 'qty' : quantity}) }}"
-                       class="btn mybutton my-0 panier"
-                       data-bs-toggle="modal"
-                       data-bs-target="#modal{{ produit.id }}"
-                       data-id="{{ produit.id }}"
-
-
-                    >
-                        Ajouter au panier
-                    </a>
-
-                    <div
-                            class="modal fade"
-                            id="modal{{ produit.id }}"
-                            data-bs-backdrop="static"
-                            data-bs-keyboard="false"
-                            tabindex="-1"
-                            aria-labelledby="staticBackdropLabel{{ produit.id }}"
-                            aria-hidden="true"
-
-                    >
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5
-                                            class="modal-title text-red"
-                                            id="staticBackdropLabel{{ produit.id }}"
-                                    >
-                                        L'article a été ajouté à votre panier
-                                    </h5>
-
-                                </div>
-                                <!-- BODY FORM -->
-                                <div class="modal-body d-flex flex-column">
-                                    <p class="mb-1">
-                                        {{ produit.nom }}
-                                    </p>
-                                    <div class="d-flex align-items-center">
-                                        <p class="mb-2">1 X {{ produit.prixHt }}€</p>
-                                        <p class="ms-4 mb-2 text-red fs-5 fw-bold">
-                                            {{ produit.prixHt }} €
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <div class="d-flex align-items-center my-2">
-                                            <img
-                                                    src="images/pick-up-store.svg"
-                                                    alt="retrait en magasin"
-                                            />
-                                            <h6 class="fw-light my-0 ms-2">
-                                                Retirer en magasin - gratuit
-                                            </h6>
-                                        </div>
-                                        <div class="d-flex align-items-center my-2">
-                                            <img
-                                                    src="images/home.svg"
-                                                    alt="retrait en magasin"
-                                            />
-                                            <h6 class="fw-light my-0 ms-2">
-                                                Livraison - Offerte
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="modal-footer my-3">
-                                    <!-- renvoyer boutique -->
-                                    <a
-                                            href="{{ path('panier_add_stay', {'id' : produit.id, 'qty' : quantity}) }}"
-                                            class="btn btn-secondary"
-
-                                    >
-                                        Poursuivre les achats
-                                    </a>
-                                    <!-- Envoyer panier -->
-                                    <a
-                                            href="{{ path('panier_add', {'id' : produit.id, 'qty' : quantity}) }}"
-
-                                            type="button"
-                                            class="btn btn-primary"
-                                    >
-                                        Accéder au panier
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        {% endfor %}
-
-
-    </div>#}
-    </div>
-
 
 {% endblock %}

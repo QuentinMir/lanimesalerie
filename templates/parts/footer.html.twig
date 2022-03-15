@@ -4,11 +4,12 @@
         <div class="row">
             <!-- logo -->
             <div class="col-lg-1 col-sm-1 text-center">
-                <a href="index.html">
+                <a href="{{ path('default') }}">
                     <img
                             class="svg"
                             height="46"
-                            src="images/Patoune.svg"
+                            src="{{ asset('img/Patoune.svg') }}"
+
                             alt="logo"
                     />
                 </a>
@@ -50,17 +51,17 @@
                     <div class="col-lg-7">
                         <ul>
                             <li class="mb-2">
-                                <a href="FAQ.html" class="text-white">FAQ</a>
+                                <a href="{{ path('faq_livraison') }}" class="text-white">FAQ</a>
                             </li>
                             <li class="mb-2">
-                                <a href="FAQ.html" class="text-white">Livraison</a>
+                                <a href="{{ path('faq_livraison') }}" class="text-white">Livraison</a>
                             </li>
                             <li class="mb-2">
-                                <a href="FAQ.html" class="text-white">Paiement</a>
+                                <a href="{{ path('faq_paiement') }}" class="text-white">Paiement</a>
                             </li>
-                            <li class="mb-2"><a href="" class="text-white">Retour</a></li>
+                            <li class="mb-2"><a href="{{ path('faq_retour') }}" class="text-white">Retour</a></li>
                             <li class="mb-2">
-                                <a href="FAQ.html" class="text-white">Commande</a>
+                                <a href="{{ path('faq_commande') }}" class="text-white">Commande</a>
                             </li>
                         </ul>
                     </div>

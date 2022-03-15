@@ -43,13 +43,22 @@ class DefaultController extends AbstractController
     {
 
 
-        // $produits = $this->produitRepository->findAll();
+        $allProduits = $this->produitRepository->findAll();
         $categories = $entityManager->getRepository(Categorie::class)->findAll();
         $quantity = 1;
         $carouselItems = $entityManager->getRepository(Carousel::class)->findAll();
-        $produits = $pr->getProduitsVentesDesc();
 
-        /** For loop dans l'index pour récupérer les produits et c'est gg **/
+        /** récupération des 12 produits les plus vendus **/
+        $produitsOrdonnes = $pr->getProduitsVentesDesc();
+        $produits = [];
+
+        foreach ($produitsOrdonnes as $produitOrdonne) {
+            foreach ($allProduits as $produit) {
+                if ($produitOrdonne['id'] == $produit->getId()) {
+                    $produits[] = $produit;
+                }
+            }
+        }
 
         return $this->render('default/index.html.twig', [
             'produits' => $produits,
@@ -172,6 +181,10 @@ class DefaultController extends AbstractController
             $quantity = intval($request->get('quantite'));
         }
 
+        $categorie = $produit->getIdCategorie();
+        $produits = $em->getRepository(Produit::class)->findBy(['idCategorie' => $categorie]);
+
+        /** récupération des produits de même catégorie **/
 
         return $this->render('default/produit.html.twig', [
             'produit' => $produit,
@@ -188,6 +201,7 @@ class DefaultController extends AbstractController
             'star4' => $star4,
             'star5' => $star5,
             'quantity' => $quantity,
+            'produits' => $produits,
         ]);
     }
 
@@ -234,6 +248,13 @@ class DefaultController extends AbstractController
     {
 
         return $this->render('contact/contact.html.twig');
+    }
+
+    #[Route('/contact/confirmation', name: 'contact-confirmation')]
+    public function displayContactConfirmationPage(): Response
+    {
+
+        return $this->render('contact/contact2.html.twig');
     }
 
     #[IsGranted('ROLE_USER')]

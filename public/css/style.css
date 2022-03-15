@@ -132,12 +132,6 @@ li a.text-red:hover {
     background-size: auto;
 }
 
-.bg-faq {
-    background: url(images/dog-faq.jpg) center no-repeat;
-    background-size: auto;
-    min-height: 451px;
-    border-radius: 20px;
-}
 
 .bg-marques {
     background-color: #fcfbf6;
@@ -151,31 +145,6 @@ li a.text-red:hover {
     background-image: linear-gradient(#ffffff, #aed9fa);
 }
 
-.bg-compte {
-    background: url(images/compte.jpg) center center no-repeat;
-    background-size: cover;
-    width: auto;
-    min-height: 244px;
-}
-
-.bg-synthese {
-    position: relative;
-    background-image: url(images/bg-synthese.jpg);
-    background-size: cover;
-    background-position: center center;
-    width: auto;
-    min-height: 600px;
-    z-index: -2;
-}
-
-.bg-contact {
-    background-image: url(images/bgcontact.jpg);
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
-    min-width: auto;
-    min-height: 630px;
-}
 
 .bg-404 {
     background-image: url(images/404.jpg);
@@ -185,6 +154,7 @@ li a.text-red:hover {
     min-width: auto;
     min-height: 600px;
 }
+
 
 .bg-blanc {
     background-color: rgba(255, 255, 255, 0.8);
@@ -656,59 +626,6 @@ em {
     font-weight: 600;
 }
 
-.cat-chien {
-    background-image: url(images/iench.jpg);
-    min-height: 238px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 20px;
-}
-
-.cat-chat {
-    background-image: url(images/chat.jpg);
-    min-height: 238px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 20px;
-}
-
-.cat-rongeur {
-    background-image: url(images/hamster.jpg);
-    min-height: 238px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 20px;
-}
-
-.cat-oiseaux {
-    background-image: url(images/perroquet.jpg);
-    min-height: 238px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 20px;
-}
-
-.cat-aqua {
-    background-image: url(images/poisson.jpg);
-    min-height: 238px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 20px;
-}
-
-.cat-terra {
-    background-image: url(images/lezard.jpg);
-    min-height: 238px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 20px;
-}
 
 .cat-hover {
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.16);
@@ -809,7 +726,7 @@ footer a {
 /* ############################# */
 /* #############SOUS CAT############## */
 
-h2.bg-souscat {
+.h2-souscat {
     color: #fff;
     font-weight: 400;
 }
@@ -958,7 +875,7 @@ h2.bg-souscat {
 
 .accordion-button:not(.collapsed) {
     color: #ffffff;
-    background-color: #00003f !important;
+    background-color: #00003f;
 }
 
 /* couleur chevron accordéon */

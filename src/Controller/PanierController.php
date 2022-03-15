@@ -178,7 +178,7 @@ class PanierController extends AbstractController
 
         // si connecté est envoyé vers le choix du moyen de paiement
         if ($sc->getUser() != null) {
-            return $this->redirectToRoute('panier_paiement');
+            return $this->redirectToRoute('panier_compte');
         }
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -292,7 +292,6 @@ class PanierController extends AbstractController
             'nbArticles' => $nbArticles,
         ]);
     }
-
 
 
 }

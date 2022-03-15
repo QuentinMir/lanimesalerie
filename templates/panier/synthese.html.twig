@@ -4,7 +4,13 @@
 
 {% block body %}
     <main class="shadow-light">
-        <div class="bg-synthese">
+        <div style="position: relative;
+                background-image: url({{ asset('img/bg-synthese.jpg') }});
+                background-size: cover;
+                background-position: center center;
+                width: auto;
+                min-height: 600px;
+                z-index: -2;">
             <!-- file d'ariane du paiement -->
             <div class="line-paie"></div>
             <div class="container d-flex justify-content-evenly my-4">

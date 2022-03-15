@@ -23,7 +23,7 @@ class ProduitPanierRepository extends ServiceEntityRepository
     public function getProduitsVentesDesc()
     {
         $query = $this->createQueryBuilder('p')->leftJoin('p.produit', 'produit')
-            ->select('produit.nom, (COUNT(p.produit)*p.quantite) AS compte')
+            ->select('produit.id, (COUNT(p.produit)*p.quantite) AS compte')
             ->groupBy('p.produit')
             ->orderBy('compte', 'DESC');
 

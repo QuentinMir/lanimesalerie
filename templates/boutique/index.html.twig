@@ -41,18 +41,30 @@
 
 
         <!-- header page -->
-        <div id="ancre-boutique" class="bg-souscat d-flex">
+        <div id="ancre-boutique" class="d-flex" style="
+                background:
+        {% if app.request.attributes.get('_route') == "boutique" %}
+                url({{ asset('img/dog-sous-categorie.jpg') }})
+        {% else %}
+                url({{ asset('uploads/imagescat/'~categorie.bannerImage) }})
+        {% endif %}
+
+                center center no-repeat;
+                background-size: cover;
+                width: auto;
+                min-height: 244px;
+                }">
             {% if app.request.attributes.get('_route') == "boutique" %}
-                <h2 class="container align-self-center">
+                <h2 class="container align-self-center h2-souscat">
                     Boutique
                 </h2>
             {% elseif app.request.attributes.get('_route') == "boutiqueCat" %}
-                <h2 class="container align-self-center">
+                <h2 class="container align-self-center h2-souscat">
                     Tout pour <br/>
                     {{ categorie.nom }}
                 </h2>
             {% else %}
-                <h2 class="container align-self-center">
+                <h2 class="container align-self-center h2-souscat">
                     {{ souscategorie.nom }} pour <br/>
                     {{ categorie.nom }}
                 </h2>
@@ -72,7 +84,7 @@
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="flush-heading{{ loop.index }}">
                                             <button
-                                                    class="accordion-button collapsed"
+                                                    class="accordion-commande accordion-button collapsed"
                                                     type="button"
                                                     data-bs-toggle="collapse"
                                                     data-bs-target="#flush-collapse{{ loop.index }}"
@@ -149,188 +161,77 @@
                         <div class="row">
                             <!-- row 1 -->
                             <!-- nav filtres -->
-                            <div class="col-lg-9 col-6 mb-3">
-                                <nav class="navbar navbar-expand-lg navbar-light py-0">
-                                    <div class="container-fluid px-0">
-                                        <button
-                                                class="navbar-toggler"
-                                                type="button"
-                                                data-bs-toggle="collapse"
-                                                data-bs-target="#navbarFiltreProduit"
-                                                aria-controls="navbarFiltreProduit"
-                                                aria-expanded="false"
-                                                aria-label="Toggle navigation"
-                                        >
-                                            <span>Filtrer</span>
-                                            <span class="navbar-toggler-icon"></span>
-                                        </button>
-
-                                        <div
-                                                class="collapse navbar-collapse"
-                                                id="navbarFiltreProduit"
-                                        >
-                                            <ul class="navbar-nav filtres me-4 mb-2 mb-lg-0">
-                                                <li
-                                                        class="
-                              nav-item
-                              dropdown
-                              bg-light
-                              border border-2
-                              rounded
-                              me-3
-                            "
-                                                >
-                                                    <a
-                                                            class="nav-link dropdown-toggle ms-2"
-                                                            href="#"
-                                                            id="navbarDropdown"
-                                                            role="button"
-                                                            data-bs-toggle="dropdown"
-                                                            aria-expanded="false"
-                                                    >
-                                                        Marques
-                                                    </a>
-                                                    <ul
-                                                            class="dropdown-menu"
-                                                            aria-labelledby="navbarDropdown"
-                                                    >
-                                                        <li>
-                                                            <a class="dropdown-item" href="#">Marque 1</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="#">Marque 2</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="#">Marque 3</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="#">Marque 4</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="#">Marque 5</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="#">Marque 6</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-
-                                                <li
-                                                        class="
-                              nav-item
-                              dropdown
-                              bg-light
-                              border border-2
-                              rounded
-                              me-3
-                            "
-                                                >
-                                                    <a
-                                                            class="nav-link dropdown-toggle ms-2"
-                                                            href="#"
-                                                            id="navbarDropdown4"
-                                                            role="button"
-                                                            data-bs-toggle="dropdown"
-                                                            aria-expanded="false"
-                                                    >
-                                                        Prix
-                                                    </a>
-                                                    <ul
-                                                            class="dropdown-menu"
-                                                            aria-labelledby="navbarDropdown4"
-                                                    >
-                                                        <li>
-                                                            <a class="dropdown-item" href="#"
-                                                            >1€ - 29,99€</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="#"
-                                                            >30€ - 59,99€</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="#"
-                                                            >60€ - 99,99€</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="#"
-                                                            >100€ - 199,99€</a
-                                                            >
-                                                        </li>
-                                                    </ul>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </nav>
+                            <div class="col-4 ms-4">
+                                {{ form_start(form, {'attr': {'class': 'moteurRecherche'}}) }}
+                                {% if filtres is not empty and filtres.searchBar is not null %}
+                                    {{ form_row(form.searchBar, { 'value': filtres.searchBar }) }}
+                                {% else %}
+                                    {{ form_row(form.searchBar) }}
+                                {% endif %}
                             </div>
 
-                            {{ dump(filtres) }}
-                            {{ dump(app.session.get('rechercheNav')) }}
-                            {{ form_start(form, {'attr': {'class': 'moteurRecherche'}}) }}
+                            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                                <div class="container-fluid">
+                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#navbarNav" aria-controls="navbarNav"
+                                            aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span>Filtrer</span>
+                                    </button>
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav w-100 justify-content-between">
+                                            <li class="nav-item">
+                                                {% if filtres is not empty and filtres.marque is not null %}
+                                                    {{ form_row(form.marque, { 'value': filtres.marque.idMarque }) }}
+                                                {% else %}
+                                                    {{ form_row(form.marque) }}
+                                                {% endif %}
+                                            </li>
+                                            <li class="nav-item">
+                                                {% if filtres is not empty and filtres.prixMin is not null %}
+                                                    {{ form_row(form.prixMin, { 'value': filtres.prixMin }) }}
+                                                {% else %}
+                                                    {{ form_row(form.prixMin) }}
+                                                {% endif %}
+                                            </li>
+                                            <li class="nav-item">
+                                                {% if filtres is not empty and filtres.prixMax is not null %}
+                                                    {{ form_row(form.prixMax, { 'value': filtres.prixMax }) }}
+                                                {% else %}
+                                                    {{ form_row(form.prixMax) }}
+                                                {% endif %}
+                                            </li>
+                                            <li class="nav-item">
+                                                {% if filtres is not empty and filtres.ordre is not null %}
+                                                    {{ form_row(form.ordre, { 'value': filtres.ordre }) }}
+                                                {% else %}
+                                                    {{ form_row(form.ordre) }}
+                                                {% endif %}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
 
-                            {% if filtres is not empty and filtres.searchBar is not null %}
-                                {{ form_row(form.searchBar, { 'value': filtres.searchBar }) }}
-                            {% else %}
-                                {{ form_row(form.searchBar) }}
-                            {% endif %}
 
-                            {% if filtres is not empty and filtres.marque is not null %}
-                                {{ form_row(form.marque, { 'value': filtres.marque.idMarque }) }}
-                            {% else %}
-                                {{ form_row(form.marque) }}
-                            {% endif %}
+                            {# <nav class="navbar navbar-expand-lg navbar-light py-0">
+                                    <div class="container-fluid px-0">
 
-                            {% if filtres is not empty and filtres.prixMin is not null %}
-                                {{ form_row(form.prixMin, { 'value': filtres.prixMin }) }}
-                            {% else %}
-                                {{ form_row(form.prixMin) }}
-                            {% endif %}
+                                    </div>
+                                    <div class="container-fluid px-0">
 
-                            {% if filtres is not empty and filtres.prixMax is not null %}
-                                {{ form_row(form.prixMax, { 'value': filtres.prixMax }) }}
-                            {% else %}
-                                {{ form_row(form.prixMax) }}
-                            {% endif %}
+                                    </div>
+                                    <div class="container-fluid px-0">
 
-                            {% if filtres is not empty and filtres.ordre is not null %}
-                                {{ form_row(form.ordre, { 'value': filtres.ordre }) }}
-                            {% else %}
-                                {{ form_row(form.ordre) }}
-                            {% endif %}
+                                    </div>
+                                    <div class="container-fluid px-0">
+
+                                    </div>
+                                </nav> #}
+
 
                             {{ form_end(form) }}
 
-                            <!-- dropdown -->
-                            <div class="col-lg-3 col-6 mb-3">
-                                <div class="dropdown text-end">
-                                    <button
-                                            class="btn btn-trier dropdown-toggle"
-                                            type="button"
-                                            id="dropdownMenuButton1"
-                                            data-bs-toggle="dropdown"
-                                            aria-expanded="false"
-                                    >
-                                        Trier par
-                                    </button>
-                                    <ul
-                                            class="dropdown-menu"
-                                            aria-labelledby="dropdownMenuButton1"
-                                    >
-                                        <li>
-                                            <a class="dropdown-item" href="#">prix croissants</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#">Prix décroissant</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">Popularité</a></li>
-                                        <li><a class="dropdown-item" href="#">Nouveauté</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                             <!-- nb produits -->
                             <div class="col-12 mb-3">
                                 <p class="trait-pdt text-center my-0">{{ nbProduits }} produits</p>
