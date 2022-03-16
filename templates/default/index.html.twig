@@ -5,9 +5,8 @@
 {% block body %}
 
     <h4>todo :
-        <br>Faire les produits de la même catégorie pour page single produit
-        <br>Appliquer les bons bg sur les pages
-        <br>Page 3.0
+        <br>Faire des banners customs ainsi que des images pour le carousel #photoshopMaCouillasse
+        <br> Faire l'api toussa
         <br> Merci monsieur</h4>
 
     <main>
@@ -90,7 +89,7 @@
                                     <a href="{{ path('singleProduct', {'id': produit.id}) }}">
                                         <figure>
                                             <img
-                                                    src="{{ produit.images | first }}"
+                                                    src="{{ asset('uploads/imagesproduit/'~ produit.images | first) }}"
                                                     class="img-produit"
                                                     alt="{{ produit.nom }}"
                                                     title="{{ produit.nom }}"
@@ -331,8 +330,42 @@
             </div>
         </section>
 
-        <!-- Les marques     -->
-        {% include 'parts/marques.html.twig' %}
+        <!-- Section marques -->
+        <section class="pt-5 bg-marques">
+            <div class="container">
+                <h3>
+                    En choisissant les marques leaders de leur marché, nous faisons le
+                    pari de la qualité pour vos bêtes
+                </h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+                    erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+                    Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+                    sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+                    et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                    no sea takimata sanctus est Lorem ipsum dolor sit amet. <br/>
+
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+                    erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+                    Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+                    sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+                    et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                    no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                    voluptua. At vero eos
+                </p>
+            </div>
+
+            <!-- Les marques     -->
+            {% include 'parts/marques.html.twig' %}
+        </section>
 
         <!-- section réassurance -->
         {% include 'parts/reassuranceClient.html.twig' %}

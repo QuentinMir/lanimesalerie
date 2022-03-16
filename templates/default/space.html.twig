@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} {{ parent() }} - 3.0{% endblock %}
+
+    {% block bg %}bg-space-page{% endblock %}
+
+{% block body %}
+    <main>
+        <!-- Fil d'ariane -->
+        <nav
+                class="container my-2"
+                style="--bs-breadcrumb-divider: '>'"
+                aria-label="breadcrumb"
+        >
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ path('default') }}" class="text-white">Accueil</a>
+                </li>
+                <li class="breadcrumb-item active">L'animalerie 3.0</li>
+            </ol>
+        </nav>
+
+        <!-- header page -->
+        <div id="ancre-boutique" class="d-flex"
+             style=" background: url({{ asset('img/space.jpg') }}) center center no-repeat;
+                     background-size: cover;
+                     width: auto;
+                     min-height: 244px;">
+            <h2 class="container align-self-center fw-normal text-white fs-1">
+                L'animalerie <br/>
+                3.0
+            </h2>
+        </div>
+
+        <div class="container">
+            <h2 class="text-red text-center my-5">Ground control to major dog</h2>
+
+            <p class="text-white">
+                Votre animalerie préférée La Nîmes'alerie vous propose de participer à
+                un programme unique, issu d'un partenariat exceptionnel avec la Space
+                Force américaine. Afin d'inaugurer le déploiement de leur force
+                d'intervention spatiale et dans un effort de communication au grand
+                public en Europe, l'agence américaine propose d'envoyer votre chien
+                dans l'espace. Seulement un animal pourra être retenu, et s'il remplit
+                les conditions physiques imposée par le contrôle sécurité il rejoindra
+                la station orbitale de combat "Orion's Fortress" pour une durée d'une
+                10aine de jours, après quoi il sera renvoyé sur Terre. Votre chien
+                recevra à vie le grade de commandant d'honneur de la Space Force, et
+                vous serez récompensé par le gouvernement américain pour votre
+                participation à leur communication d'un pécule de
+                <span class="text-red fw-bold"> 420 000$</span>.
+            </p>
+            <p class="fw-bold text-white">
+                Décollage de Cape Canaveral le 01 mars 2023
+            </p>
+            <ul class="text-white">
+                <li>
+                    Le nombre doit être compris entre 0 et 100 000 (inclus), écris en
+                    chiffres
+                </li>
+                <li>Vous ne pouvez jouer qu'une seule fois par compte</li>
+                <li>
+                    La première personne à trouver le nombre gagnant tiré aléatoirement
+                    gagne et pourra rencontrer les officiers de la Space Force pour la
+                    suite de l'aventure
+                </li>
+                <li>Un seul chien pourra être envoyé dans l'espace</li>
+                <li>
+                    Vous serez immédiatement contactés par email en cas de victoire
+                </li>
+            </ul>
+
+            {% if finished == true %}
+                <h2 class="text-red text-center mt-5">Le nombre a déjà été trouvé, dommage...</h2>
+                <h5 class="text-red text-center mt-3 mb-5">Il s'agissait du numéro : {{ randomNumber }}</h5>
+            {% elseif app.user is null %}
+                <h2 class="text-red text-center mt-5">Vous n'êtes pas connecté</h2>
+                <h6 class="text-red text-center mt-3 mb-5">Créez un compte ou connectez vous pour tenter votre
+                    chance</h6>
+            {% elseif winner != false and winner == app.user %}
+                <h2 class="text-red text-center mt-5">Vous avez gagné !</h2>
+                <h6 class="text-red text-center mt-3 mb-5">Un email vous a été envoyé à l'adresse : {{ winner.email }}.
+                    <br>
+                    Félicitations !</h6>
+
+            {% elseif voted %}
+                <h2 class="text-red text-center my-5">Vous avez déjà joué</h2>
+            {% else %}
+                <h2 class="text-red text-center my-5">Entrez votre numéro fétiche</h2>
+
+                <form method="post" class="text-center">
+                    <input
+                            type="number"
+                            name="numero"
+                            class="nb-space my-1 border border-1 border-dark rounded ps-3 py-1"
+                            placeholder="Numéro"
+                            min="0"
+                            max="100000"
+                    />
+
+                    <!-- bouton -->
+                    <div>
+                        <input
+                                class="mybutton border-0 rounded py-1 px-4 my-2"
+                                type="submit"
+                                value="Envoyer"
+                        />
+                    </div>
+                </form>
+                <h6 class="text-end text-white mb-5">Bonne chance !</h6>
+            {% endif %}
+        </div>
+    </main>
+{% endblock %}

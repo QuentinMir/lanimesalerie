@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %} {{ parent() }} - Protection des données{% endblock %}
-
+    {% block bg %}bg-body-deg{% endblock %}
 {% block body %}
 
     <main>
@@ -134,7 +134,7 @@
                                     <a href="{{ path('singleProduct', {'id': produit.id}) }}">
                                         <figure>
                                             <img
-                                                    src="{{ produit.images | first }}"
+                                                    src="{{ asset('uploads/imagesproduit/'~ produit.images | first) }}"
                                                     class="img-produit"
                                                     alt="{{ produit.nom }}"
                                                     title="{{ produit.nom }}"
@@ -173,7 +173,7 @@
         </section>
 
         {# modal panier #}
-        <div
+        {# <div
                 class="modal fade"
                 id="modal"
                 data-bs-backdrop="static"
@@ -190,7 +190,7 @@
                                 class="modal-title text-red"
                                 id="staticBackdropLabel"
                         >
-                            L'article a été ajouté à votre panier
+                            Ajouter l'article à votre panier
                         </h5>
                         <button
                                 type="button"
@@ -255,7 +255,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> #}
 
         <!-- Les marques     -->
         {% include 'parts/marques.html.twig' %}

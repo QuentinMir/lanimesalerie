@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PanierController!{% endblock %}
-
+{% block title %}{{ parent() }} Panier {% endblock %}
+    {% block bg %}bg-body-deg{% endblock %}
 {% block body %}
-    <main class="bg-body-deg">
+    <main>
         <div class="container my-5">
             <div class="row">
                 <div class="col-lg-8 my-4">
@@ -13,7 +13,7 @@
                             <div class="col-12">
                                 <div class="d-flex align-items-center mb-3">
                                     <h2>Panier</h2>
-                                            <p class="my-0 ms-3">{{ nbArticles }} article(s)</p>
+                                    <p class="my-0 ms-3">{{ nbArticles }} article(s)</p>
                                 </div>
                             </div>
 

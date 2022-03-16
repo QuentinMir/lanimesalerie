@@ -64,9 +64,14 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        $referer = $request->headers->get('referer');
+        /** A MODIFIER POUR MISE SUR SERVEUR **/
+        if ($request->headers->get('referer') == 'http://localhost:8000/register') {
+            $redirect = $this->urlGenerator->generate('default');
+        } else {
+            $redirect = $request->headers->get('referer');
+        }
 
-        return new RedirectResponse($referer);
+        return new RedirectResponse($redirect);
 
     }
 

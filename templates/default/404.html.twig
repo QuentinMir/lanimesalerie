@@ -2,6 +2,12 @@
 
 {% block title %} {{ parent() }} - Conditions générales de vente{% endblock %}
 
+{% block style %}style="background-image: url({{ asset('img/404.jpg') }});
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-width: auto;
+    min-height: 600px;"{% endblock %}
 {% block body %}
     <div class="container">
         <h1 class="ps-3 pt-5 pb-2 text-blue">Oups...</h1>

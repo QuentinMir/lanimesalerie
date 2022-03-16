@@ -12,6 +12,7 @@ use App\Entity\Produit;
 use App\Entity\ProduitPanier;
 use App\Entity\Souscategorie;
 use App\Entity\Subsouscategorie;
+use App\Entity\Vote;
 use App\Form\AvisType;
 use App\Form\HeaderSearchType;
 use App\Form\SearchType;
@@ -73,12 +74,10 @@ class DefaultController extends AbstractController
     public function getOneProduct(Produit $produit, EntityManagerInterface $em, Request $request, SecurityController $sc, AvisRepository $ar): Response
     {
 
-
-        // récupérer les images
+        /** récupérer les images **/
         $images = $produit->getImages();
 
-
-        // récupérer la marque
+        /** récupérer la marque **/
         $marques = $em->getRepository(Marque::class)->findAll();
         foreach ($marques as $marque) {
 
@@ -181,10 +180,18 @@ class DefaultController extends AbstractController
             $quantity = intval($request->get('quantite'));
         }
 
+        /** récupération des produits de même catégorie **/
         $categorie = $produit->getIdCategorie();
         $produits = $em->getRepository(Produit::class)->findBy(['idCategorie' => $categorie]);
 
-        /** récupération des produits de même catégorie **/
+        /** on enlève le produit actuel des produits de même catégorie **/
+        if (in_array($produit, $produits)) {
+            $key = array_search($produit, $produits);
+            unset($produits[$key]);
+        }
+        /** on enlève le nombre de résultats a 14 **/
+        $produits = array_slice($produits, 0, 14);
+
 
         return $this->render('default/produit.html.twig', [
             'produit' => $produit,
@@ -317,6 +324,48 @@ class DefaultController extends AbstractController
 
         return $this->render('default/commande.html.twig', [
             'commandes' => $commandes,
+        ]);
+    }
+
+
+    #[Route('/animalerie-3.0', name: '3.0')]
+    public function spaceIndex(Request $request, SecurityController $sc, EntityManagerInterface $entityManager): Response
+    {
+        $user = $sc->getUser();
+        $randomNumber = 4;
+        $voted = false;
+        $winner = false;
+        $finished = false;
+        $numero = $request->get('numero');
+        $votes = $entityManager->getRepository(Vote::class)->findAll();
+
+        $vote = new Vote();
+        if (!is_null($user) && !is_null($numero)) {
+            $vote->setUser($user);
+            $vote->setNumero($numero);
+            $entityManager->persist($vote);
+            $entityManager->flush();
+            return $this->redirect($this->generateUrl('3.0'));
+        }
+
+        foreach ($votes as $singleVote) {
+            if ($singleVote->getNumero() == $randomNumber) {
+                $finished = true;
+            }
+            if ($singleVote->getUser() == $user) {
+                $voted = true;
+                if ($singleVote->getNumero() == $randomNumber) {
+                    $winner = $singleVote->getUser();
+                }
+            }
+        }
+
+
+        return $this->render('default/space.html.twig', [
+            'voted' => $voted,
+            'winner' => $winner,
+            'finished' => $finished,
+            'randomNumber' => $randomNumber,
         ]);
     }
 }

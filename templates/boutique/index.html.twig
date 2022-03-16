@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ parent() }} | Boutique {% endblock %}
-
+    {% block bg %}bg-body-deg{% endblock %}
 {% block body %}
 
     <main>
@@ -84,7 +84,8 @@
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="flush-heading{{ loop.index }}">
                                             <button
-                                                    class="accordion-commande accordion-button collapsed"
+                                                    id="accordion-red"
+                                                    class="accordion-button collapsed"
                                                     type="button"
                                                     data-bs-toggle="collapse"
                                                     data-bs-target="#flush-collapse{{ loop.index }}"
@@ -121,6 +122,7 @@
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="flush-heading{{ loop.index }}">
                                             <button
+                                                    id="accordion-red"
                                                     class="accordion-button collapsed"
                                                     type="button"
                                                     data-bs-toggle="collapse"
@@ -142,7 +144,9 @@
 
                                                     {% for subsouscategorie in subsouscategories %}
                                                     {% if subsouscategorie.souscategorie.id == souscategorie.id %}
-                                                    <li><a href="" class="text-red">{{ subsouscategorie.nom }}</a></li>
+                                                    <li>
+                                                        <a href="{{ path('boutiqueSubsouscat', {'categorie': categorie.id, 'souscategorie': souscategorie.id, 'subsouscategorie' : subsouscategorie.id, 'pageCourante' : 1}) }}"
+                                                           class="text-red">{{ subsouscategorie.nom }}</a></li>
                                                     <li>
                                                         {% endif %}
                                                         {% endfor %}
@@ -214,22 +218,6 @@
                             </nav>
 
 
-                            {# <nav class="navbar navbar-expand-lg navbar-light py-0">
-                                    <div class="container-fluid px-0">
-
-                                    </div>
-                                    <div class="container-fluid px-0">
-
-                                    </div>
-                                    <div class="container-fluid px-0">
-
-                                    </div>
-                                    <div class="container-fluid px-0">
-
-                                    </div>
-                                </nav> #}
-
-
                             {{ form_end(form) }}
 
                             <!-- nb produits -->
@@ -252,7 +240,7 @@
                                         <a href="{{ path('singleProduct', {'id': produit.id}) }}">
                                             <figure>
                                                 <img
-                                                        src="{{ produit.images | first }}"
+                                                        src="{{ asset('uploads/imagesproduit/'~produit.images | first) }}"
                                                         class="img-produit"
                                                         alt="{{ produit.nom }}"
                                                         title="{{ produit.nom }}"
@@ -301,7 +289,7 @@
                                                     class="modal-title text-red"
                                                     id="staticBackdropLabel"
                                             >
-                                                L'article a été ajouté à votre panier
+                                                Ajouter l'article à votre panier
                                             </h5>
                                             <button
                                                     type="button"

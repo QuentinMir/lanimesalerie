@@ -162,12 +162,6 @@ li a.text-red:hover {
     border-radius: 8px;
 }
 
-.bg-space {
-    background: url(images/space.jpg) center center no-repeat;
-    background-size: cover;
-    width: auto;
-    min-height: 244px;
-}
 
 .bg-space-page {
     background-image: linear-gradient(#090909, #00003f);
@@ -784,9 +778,15 @@ footer a {
 .page-item.active .page-link {
     color: #00003f;
     background-color: transparent;
-    border-color: #00003f;
     border: 2px solid #00003f;
     border-radius: 4px;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: transparent !important;
+    border-color: #dee2e6;
 }
 
 .page-link {
@@ -868,9 +868,8 @@ footer a {
     padding: 8px 0px;
 }
 
-.accordion-commande.accordion-button:not(.collapsed) {
-    color: #ffffff;
-    background-color: #be323d;
+#accordion-red:not(.collapsed) {
+    background-color: #be323d !important;
 }
 
 .accordion-button:not(.collapsed) {

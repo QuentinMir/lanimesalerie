@@ -63,13 +63,13 @@
                     <hr class="hr-border dropdown-divider"/>
                 </li>
                 <li>
-                    <a class="dropdown-item text-red" href="boutique.html"
+                    <a class="dropdown-item text-red" href="{{ path('boutique', {'pageCourante' : 1}) }}"
                     >Meilleures ventes</a
                     >
                 </li>
 
                 <li>
-                    <a class="dropdown-item text-red" href="boutique.html"
+                    <a class="dropdown-item text-red" href="{{ path('boutique', {'pageCourante' : 1}) }}"
                     >Offres spéciales</a>
                 </li>
             </ul>
@@ -80,7 +80,7 @@
         <a
                 class="nav-link py-1 d-flex active no-pe"
                 aria-current="page"
-                href="#"
+                href="{{ path('3.0') }}"
         >
             <div class="d-flex align-self-center">
                 <img src="{{ asset('uploads/imagescat/planets-6223defe462e1.svg') }}" width="22" alt="planète"/>

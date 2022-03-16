@@ -20,10 +20,13 @@
 
 
 </head>
-<body>
+
+
+<body {% block style %}{% endblock %} class="{% block bg %}base{% endblock %}">
+
+
 {{ render(controller('App\\Controller\\NavBarController::index')) }}
 
-{# {% include('parts/header.html.twig') %} #}
 
 {% block body %}{% endblock %}
 {% include('parts/footer.html.twig') %}
