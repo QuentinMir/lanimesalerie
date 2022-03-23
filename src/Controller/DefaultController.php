@@ -10,6 +10,7 @@ use App\Entity\Commande;
 use App\Entity\Marque;
 use App\Entity\Produit;
 use App\Entity\ProduitPanier;
+use App\Entity\RandomNumber;
 use App\Entity\Souscategorie;
 use App\Entity\Subsouscategorie;
 use App\Entity\Vote;
@@ -331,8 +332,20 @@ class DefaultController extends AbstractController
     #[Route('/animalerie-3.0', name: '3.0')]
     public function spaceIndex(Request $request, SecurityController $sc, EntityManagerInterface $entityManager): Response
     {
+
         $user = $sc->getUser();
-        $randomNumber = 4;
+        /** on récupère le nombre aléatoire. S'il n'exite pas on le crée une fois et une seule **/
+        $randomNumberEntity = $entityManager->getRepository(RandomNumber::class)->find(1);
+        if (is_null($randomNumberEntity)) {
+            $randomNumberEntity = new RandomNumber();
+            $randomNumberEntity->setNumber(rand(0, 100000));
+            $entityManager->persist($randomNumberEntity);
+            $entityManager->flush();
+
+        }
+
+        $randomNumber = $randomNumberEntity->getNumber();
+
         $voted = false;
         $winner = false;
         $finished = false;
@@ -366,6 +379,19 @@ class DefaultController extends AbstractController
             'winner' => $winner,
             'finished' => $finished,
             'randomNumber' => $randomNumber,
+        ]);
+    }
+
+    #[IsGranted('ROLE_USER')]
+    #[Route('/commande/{id}', name: 'facture', requirements: ['id' => '\d+'])]
+    public function displayFacture(EntityManagerInterface $em, SecurityController $sc, Commande $commande): Response
+    {
+        /*$user = $sc->getUser();
+        $commandes = $em->getRepository(Commande::class)->findBy(['user' => $user]);*/
+
+
+        return $this->render('default/facture.html.twig', [
+            'commande' => $commande,
         ]);
     }
 }

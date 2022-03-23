@@ -37,6 +37,8 @@
                                 {% endif %}
                             {% endfor %}
                             <h6 class="my-4">Prix total de la commande : {{ prixTotal }} €</h6>
+                            <a class="btn text-blue" href="{{ path('facture', {'id' : commande.id}) }}">Voir la
+                                facture</a>
                         </div>
                     </div>
                 </div>

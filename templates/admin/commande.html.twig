@@ -14,7 +14,8 @@
 {% endblock %}
 
 {% block body %}
-    <h1 class="mb-4">Commandes</h1>
+    <h1>Commandes</h1>
+    <h6 class="mt-2 mb-5">cliquez sur ne numéro de commande pour voir la facture</h6>
 
     <table class="table">
         <thead>
@@ -22,7 +23,8 @@
             <th scope="col">#</th>
             <th scope="col">Date</th>
             <th scope="col">Produit(s)</th>
-            <th scope="col">Utilisateur</th>
+            <th scope="col">Prix total HT</th>
+            <th scope="col">Client</th>
             <th scope="col">État</th>
             <th scope="col">Paiement</th>
 
@@ -30,11 +32,34 @@
         </thead>
         <tbody>
         {% for commande in commandes %}
+            {% set prixTotal = 0 %}
             <tr>
-                <th>{{ commande.id }}</th>
+                <th><a href="{{ path('facture', {'id' : commande.id}) }}">{{ commande.id }}</a></th>
                 <td>{{ commande.date | date("d/m/Y") }}</td>
                 <td>
-                    <div class="row">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prix u/ HT</th>
+                            <th scope="col">Quantité</th>
+                            <th scope="col">Montant HT</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for panier in commande.paniers %}
+                            {% set prixTotal = prixTotal + panier.quantite*panier.produit.prixHt %}
+                            <tr>
+
+                                <td>{{ panier.produit.nom }}</td>
+                                <td>{{ panier.produit.prixHt }} €</td>
+                                <td>{{ panier.quantite }}</td>
+                                <td>{{ (panier.quantite*panier.produit.prixHt) | round(2, 'floor') }} €</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {# <div class="row">
                         {% for panier in commande.paniers %}
                             <div class="col">
                                 <p class="my-0">Produit : {{ panier.produit.nom }}</p>
@@ -44,8 +69,9 @@
                                     : {{ (panier.quantite*panier.produit.prixHt*1.2) | round(2, 'floor') }} €</p>
                             </div>
                         {% endfor %}
-                    </div>
+                    </div> #}
                 </td>
+                <td>{{ prixTotal }} €</td>
                 <td>{{ commande.user.nom }} {{ commande.user.prenom }}</td>
                 <td>{{ commande.etat }}</td>
                 <td>{{ commande.paiement }}</td>
