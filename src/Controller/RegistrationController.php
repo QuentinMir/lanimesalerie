@@ -107,4 +107,21 @@ class RegistrationController extends AbstractController
 
     }
 
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('/{id}/admin/delete', name: 'admin_user_delete', methods: ['POST'])]
+    public function deleteUserFromAdmin(Request $request, User $user, EntityManagerInterface $entityManager): Response
+    {
+
+
+        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
+
+            $entityManager->remove($user);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('user_index');
+
+
+    }
+
 }

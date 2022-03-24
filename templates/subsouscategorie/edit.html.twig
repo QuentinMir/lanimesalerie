@@ -1,13 +1,17 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}Edit Subsouscategorie{% endblock %}
+{% block title %}Modifier Sub sous catégorie{% endblock %}
 
 {% block body %}
-    <h1>Edit Subsouscategorie</h1>
+    <h1>Modifier Sub sous catégorie</h1>
 
     {{ include('subsouscategorie/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('subsouscategorie_index') }}">back to list</a>
+    <div class="d-flex">
+        <div><a class="btn btn-outline-dark" href="{{ path('subsouscategorie_index') }}">Retour à la liste</a></div>
 
-    {{ include('subsouscategorie/_delete_form.html.twig') }}
+        <div>{{ include('subsouscategorie/_delete_form.html.twig') }}</div>
+
+    </div>
+
 {% endblock %}

@@ -1,14 +1,14 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}Subsouscategorie{% endblock %}
+{% block title %}Sub sous catégorie{% endblock %}
 
 {% block body %}
-    <h1>Subsouscategorie</h1>
+    <h1>Sub sous catégorie</h1>
 
-    <table class="table">
+    <table class="table mb-3">
         <tbody>
         <tr>
-            <th>IdSubSousCategorie</th>
+            <th>Id</th>
             <td>{{ subsouscategorie.id }}</td>
         </tr>
         <tr>
@@ -18,9 +18,10 @@
         </tbody>
     </table>
 
-    <a href="{{ path('subsouscategorie_index') }}">back to list</a>
+    <a class="btn btn-outline-dark" href="{{ path('subsouscategorie_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('subsouscategorie_edit', {'id': subsouscategorie.id}) }}">edit</a>
+    <a class="btn btn-outline-warning"
+       href="{{ path('subsouscategorie_edit', {'id': subsouscategorie.id}) }}">Modifier</a>
 
     {{ include('subsouscategorie/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}Souscategorie index{% endblock %}
+{% block title %}Sous catégories{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -14,12 +14,12 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Sous categories</h1>
+    <h1>Sous catégories</h1>
 
     <table class="table">
         <thead class="table-dark">
         <tr>
-            <th>IdSousCategorie</th>
+            <th>Id</th>
             <th>Nom</th>
             <th>Catégorie parent</th>
             <th>Image</th>
@@ -36,8 +36,9 @@
                          alt="{{ souscategorie.nom }}" width="200px">
                 </td>
                 <td>
-                    <a class="btn btn-outline-dark"  href="{{ path('souscategorie_show', {'id': souscategorie.id}) }}">Voir</a>
-                    <a class="btn btn-outline-primary" href="{{ path('souscategorie_edit', {'id': souscategorie.id}) }}">Modifier</a>
+                    <a class="btn btn-outline-dark" href="{{ path('souscategorie_show', {'id': souscategorie.id}) }}">Voir</a>
+                    <a class="btn btn-outline-primary"
+                       href="{{ path('souscategorie_edit', {'id': souscategorie.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}

@@ -1,11 +1,11 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}New Souscategorie{% endblock %}
+{% block title %}Nouvelle Sous catégorie{% endblock %}
 
 {% block body %}
-    <h1>Create new Souscategorie</h1>
+    <h1>Nouvelle Sous catégorie</h1>
 
     {{ include('souscategorie/_form.html.twig') }}
 
-    <a href="{{ path('souscategorie_index') }}">Retour à la liste</a>
+    <a class="btn btn-outline-dark" href="{{ path('souscategorie_index') }}">Retour à la liste</a>
 {% endblock %}
