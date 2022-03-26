@@ -56,12 +56,13 @@ class CarouselController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'carousel_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Carousel $carousel, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Carousel $carousel, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(CarouselType::class, $carousel);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->uploadImage($form, $slugger, $carousel);
             $entityManager->flush();
 
             return $this->redirectToRoute('carousel_index', [], Response::HTTP_SEE_OTHER);
@@ -104,7 +105,7 @@ class CarouselController extends AbstractController
                 $this->getParameter('images_carousel'),
                 $newFilename
             );
-            
+
             $carousel->setImage($newFilename);
         }
     }

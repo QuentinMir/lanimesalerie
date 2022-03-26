@@ -7,6 +7,7 @@ use App\Entity\Souscategorie;
 use App\Entity\Subsouscategorie;
 use App\Form\HeaderSearchType;
 use App\Form\SearchType;
+use App\Repository\ProduitPanierRepository;
 use App\Repository\ProduitRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

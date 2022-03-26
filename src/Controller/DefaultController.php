@@ -67,7 +67,6 @@ class DefaultController extends AbstractController
             'categories' => $categories,
             'quantity' => $quantity,
             'carouselItems' => $carouselItems,
-
         ]);
     }
 

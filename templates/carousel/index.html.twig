@@ -3,7 +3,7 @@
 {% block title %}Carousel{% endblock %}
 
 {% block body %}
-    <h1>Carousel index</h1>
+    <h1>Carousel</h1>
 
     <table class="table">
         <thead>
@@ -27,8 +27,9 @@
                 <td>{{ carousel.navigation }}</td>
                 <td>{{ carousel.lien }}</td>
                 <td>
-                    <a href="{{ path('carousel_show', {'id': carousel.id}) }}">show</a>
-                    <a href="{{ path('carousel_edit', {'id': carousel.id}) }}">edit</a>
+                    <a class="btn btn-outline-primary" href="{{ path('carousel_show', {'id': carousel.id}) }}">Voir</a>
+                    <a class="btn btn-outline-warning"
+                       href="{{ path('carousel_edit', {'id': carousel.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +40,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('carousel_new') }}">Create new</a>
+    <a href="{{ path('carousel_new') }}">Créer</a>
 {% endblock %}
