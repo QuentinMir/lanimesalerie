@@ -25,18 +25,18 @@
                                 {% set prixTotal = prixTotal + panier.quantite*panier.produit.prixHt %}
                                 <div class="row">
                                     <h6 class="col">{{ panier.produit.nom }}</h6>
-                                    <p class="col">Prix unitaire : {{ panier.produit.prixHt }} €</p>
+                                    <p class="col">Prix unitaire : {{ (panier.produit.prixHt*1.2) | round(2)  }} €</p>
                                     <p class="col">Marque : {{ panier.produit.idMarque }}</p>
                                     <p class="col">Quantité : {{ panier.quantite }}</p>
                                     <p class="col">Prix total
-                                        : {{ (panier.quantite*panier.produit.prixHt) | round(2, 'floor') }}
+                                        : {{ (panier.quantite*panier.produit.prixHt*1.2) | round(2, 'floor') }}
                                         €</p>
                                 </div>
                                 {% if loop.index != (commande.paniers | length) %}
                                     <hr>
                                 {% endif %}
                             {% endfor %}
-                            <h6 class="my-4">Prix total de la commande : {{ prixTotal }} €</h6>
+                            <h6 class="my-4">Prix total de la commande : {{ (prixTotal*1.2) | round(2, 'floor') }} €</h6>
                             <a class="btn text-blue" href="{{ path('facture', {'id' : commande.id}) }}">Voir la
                                 facture</a>
                         </div>

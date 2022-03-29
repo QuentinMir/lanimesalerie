@@ -41,20 +41,20 @@
                                 <div class="w-100 border border-1 rounded border-secondary py-1 px-4 mb-2">
                                     <input type="radio" id="paypal" name="paiement" value="paypal" checked/>
                                     <label class="me-3 ms-1 fw-bold" for="paypal"> Paypal </label>
-                                    <img src="images/paypal2.svg" width="60" alt="Paypal"/>
+                                    <img src="{{ asset('img/paypal2.svg') }}" width="60" alt="Paypal"/>
                                 </div>
 
                                 <div
                                         class=" w-100 border border-1 rounded border-secondary py-1 px-4 mb-2">
                                     <input type="radio" id="mc" name="paiement" value="mastercard"/>
                                     <label class="me-3 ms-1 fw-bold text" for="mastercard">Mastercard</label>
-                                    <img src="images/mastercard.svg" width="40" alt="mastercard"/>
+                                    <img src="{{ asset('img/mastercard.svg') }}" width="40" alt="mastercard"/>
                                 </div>
 
                                 <div class="w-100 border border-1 rounded border-secondary py-1 px-4 mb-2">
                                     <input type="radio" id="visa" name="paiement" value="visa"/>
                                     <label class="me-3 ms-1 fw-bold" for="visa">Visa</label>
-                                    <img src="images/visa.svg" width="40" alt="mastercard"/>
+                                    <img src="{{ asset('img/visa.svg') }}" width="40" alt="mastercard"/>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                                 <h2 class="mb-3 ms-3">Montant total</h2>
                                 <div class="d-flex align-items-center justify-content-between px-3 mt-3 mb-0">
                                     <p class="fw-bold mb-0">Montant total</p>
-                                    <p class="fw-bold fs-5 mb-0">{{ (prixTotal*1.2) | round(2, 'floor') }} €</p>
+                                    <p class="fw-bold fs-5 mb-0">{{ (prixTotal*1.2) | round(2) }} €</p>
                                 </div>
                                 <p class="ps-3 my-0 fw-light tva">TVA incluse</p>
 
@@ -90,20 +90,36 @@
                                         <div class="col-3 my-3">
                                             <figure>
                                                 <img
-                                                        src="images/img-produit-sm.jpg"
+                                                        {% set break = false %}
+                                                        {% for image in images %}
+                                                            {% if not break %}
+
+                                                                {% if produitPanier.produit.id == image.IdProduit.id %}
+                                                                    {% set break = true %}
+                                                                    {% set lien = image.lien %}
+                                                                    src="{{ asset('uploads/imagesproduit/'~ lien) }}"
+                                                                {% endif %}
+                                                            {% endif %}
+                                                        {% endfor %}
                                                         class="img-fluid border p-2 shadow-box"
-                                                        alt="produit quali"
+                                                        alt="{{ produitPanier.produit.nom }}"
                                                 />
                                             </figure>
                                         </div>
 
                                         <div class="col-lg-6 col-5 my-3">
                                             <div>
-                                                <h5>marque : {{ produitPanier.produit.idMarque.idMarque }}</h5>
+                                                <h5>
+                                                    {% for marque in marques %}
+                                                        {% if produitPanier.produit.IdMarque.IdMarque == marque.IdMarque %}
+                                                            {{ marque.nom }}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </h5>
                                                 <div class="d-flex justify-content-start">
                                                     <p>{{ produitPanier.produit.nom }} </p>
                                                     <p class="mx-3">-</p>
-                                                    <p>{{ produitPanier.produit.prixHt }} €</p>
+                                                    <p>{{ (produitPanier.produit.prixHt*1.2) | round(2) }} €</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -113,7 +129,7 @@
                                                 Quantité : {{ produitPanier.quantite }}
 
                                             </p>
-                                            <h5 class="text-red me-lg-2 mt-3">{{ produitPanier.produit.prixHt *  produitPanier.quantite }}
+                                            <h5 class="text-red me-lg-2 mt-3">{{ (produitPanier.produit.prixHt *  produitPanier.quantite * 1.2) | round(2) }}
                                                 €</h5>
                                         </div>
                                     </div>

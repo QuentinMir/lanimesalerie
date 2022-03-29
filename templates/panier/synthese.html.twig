@@ -67,7 +67,17 @@
                                 <div class="col-3 my-3">
                                     <figure>
                                         <img
-                                                src="images/img-produit-sm.jpg"
+                                                {% set break = false %}
+                                                {% for image in images %}
+                                                    {% if not break %}
+
+                                                        {% if produitPanier.produit.id == image.IdProduit.id %}
+                                                            {% set break = true %}
+                                                            {% set lien = image.lien %}
+                                                            src="{{ asset('uploads/imagesproduit/'~ lien) }}"
+                                                        {% endif %}
+                                                    {% endif %}
+                                                {% endfor %}
                                                 class="img-fluid border p-2 shadow-box"
                                                 alt="produit quali"
                                         />
@@ -76,11 +86,17 @@
 
                                 <div class="col-lg-6 col-5 my-3">
                                     <div>
-                                        <h5>marque : {{ produitPanier.produit.idMarque.idMarque }}</h5>
+                                        <h5>
+                                            {% for marque in marques %}
+                                                {% if produitPanier.produit.IdMarque.IdMarque == marque.IdMarque %}
+                                                    {{ marque.nom }}
+                                                {% endif %}
+                                            {% endfor %}
+                                        </h5>
                                         <div class="d-flex justify-content-start">
                                             <p>{{ produitPanier.produit.nom }} </p>
                                             <p class="mx-3">-</p>
-                                            <p>{{ produitPanier.produit.prixHt }} €</p>
+                                            <p>{{ (produitPanier.produit.prixHt * 1.2) | round(2) }} €</p>
                                         </div>
                                     </div>
                                 </div>
@@ -90,7 +106,7 @@
                                         Quantité : {{ produitPanier.quantite }}
 
                                     </p>
-                                    <h5 class="text-red me-lg-2 mt-3">{{ produitPanier.produit.prixHt *  produitPanier.quantite }}
+                                    <h5 class="text-red me-lg-2 mt-3">{{ (produitPanier.produit.prixHt *  produitPanier.quantite*1.2) | round(2) }}
                                         €</h5>
                                 </div>
 

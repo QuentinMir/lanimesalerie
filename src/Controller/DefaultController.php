@@ -191,9 +191,8 @@ class DefaultController extends AbstractController
             $key = array_search($produit, $produits);
             unset($produits[$key]);
         }
-        /** on enlève le nombre de résultats a 14 **/
+        /** on limite le nombre de résultats a 14 **/
         $produits = array_slice($produits, 0, 14);
-
 
         return $this->render('default/produit.html.twig', [
             'produit' => $produit,

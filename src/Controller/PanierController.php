@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Adresse;
 use App\Entity\Commande;
+use App\Entity\Image;
+use App\Entity\Marque;
 use App\Entity\Produit;
 use App\Entity\ProduitPanier;
 use Doctrine\ORM\EntityManagerInterface;
@@ -18,8 +20,12 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class PanierController extends AbstractController
 {
     #[Route('/', name: 'display')]
-    public function displayPanier(Request $request, SecurityController $sc): Response
+    public function displayPanier(Request $request, SecurityController $sc, EntityManagerInterface $entityManager): Response
     {
+
+        $images = $entityManager->getRepository(Image::class)->findAll();
+        $marques = $entityManager->getRepository(Marque::class)->findAll();
+
         $panier = [];
         if (!is_null($request->getSession()->get('panier'))) {
             $panier = $request->getSession()->get('panier');
@@ -52,6 +58,8 @@ class PanierController extends AbstractController
             'panier' => $panier,
             'prixTotal' => $prixTotal,
             'nbArticles' => $nbArticles,
+            'marques' => $marques,
+            'images' => $images,
         ]);
     }
 
@@ -193,6 +201,10 @@ class PanierController extends AbstractController
     #[Route('/paiement', name: 'paiement')]
     public function paiementPanier(Request $request, SecurityController $sc, EntityManagerInterface $entityManager): Response
     {
+
+        $images = $entityManager->getRepository(Image::class)->findAll();
+        $marques = $entityManager->getRepository(Marque::class)->findAll();
+
         $panier = [];
         $session = $request->getSession();
         if (is_null($session->get('panier'))) {
@@ -242,6 +254,8 @@ class PanierController extends AbstractController
                 'panier' => $panier,
                 'prixTotal' => $prixTotal,
                 'nbArticles' => $nbArticles,
+                'images' => $images,
+                'marques' => $marques,
             ]);
 
 
@@ -252,6 +266,8 @@ class PanierController extends AbstractController
             'panier' => $panier,
             'prixTotal' => $prixTotal,
             'nbArticles' => $nbArticles,
+            'images' => $images,
+            'marques' => $marques,
         ]);
     }
 

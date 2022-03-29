@@ -22,20 +22,37 @@
                                     <div class="col-3 my-3">
                                         <figure>
                                             <img
-                                                    src="images/img-produit-sm.jpg"
+                                                    {% set break = false %}
+                                                    {% for image in images %}
+                                                        {% if not break %}
+
+                                                            {% if produitPanier.produit.id == image.IdProduit.id %}
+                                                                {% set break = true %}
+                                                                {% set lien = image.lien %}
+                                                                src="{{ asset('uploads/imagesproduit/'~ lien) }}"
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                    {# src="{{ asset('uploads/imagesproduit/'~ lien) }}" #}
                                                     class="img-fluid border p-2 shadow-box"
-                                                    alt="produit quali"
+                                                    alt="{{ produitPanier.produit.nom }}"
                                             />
                                         </figure>
                                     </div>
 
                                     <div class="col-lg-6 col-5 my-3">
                                         <div>
-                                            <h5>marque : {{ produitPanier.produit.idMarque.idMarque }}</h5>
+                                            <h5>
+                                                {% for marque in marques %}
+                                                    {% if produitPanier.produit.IdMarque.IdMarque == marque.IdMarque %}
+                                                        {{ marque.nom }}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </h5>
                                             <div class="d-flex justify-content-start">
                                                 <p>{{ produitPanier.produit.nom }} </p>
                                                 <p class="mx-3">-</p>
-                                                <p>{{ produitPanier.produit.prixHt }} €</p>
+                                                <p>{{ (produitPanier.produit.prixHt*1.2 )| round(2) }} €</p>
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="d-flex align-items-center">
@@ -57,7 +74,7 @@
                                             Quantité : {{ produitPanier.quantite }}
 
                                         </p>
-                                        <h5 class="text-red me-lg-2 mt-3">{{ produitPanier.produit.prixHt *  produitPanier.quantite }}
+                                        <h5 class="text-red me-lg-2 mt-3">{{ (produitPanier.produit.prixHt * 1.2 *  produitPanier.quantite) | round(2) }}
                                             €</h5>
                                     </div>
 
@@ -70,19 +87,9 @@
                     </div>
                 </div>
                 <div class="col-lg-4 my-4">
-                    <div class="bg-white px-5 py-4 shadow-box rounded">
+                    <div class="bg-white px-5 py-5 shadow-box rounded">
                         <h2 class="mb-3 ms-3">Montant total</h2>
 
-                        <div class="border p-3 rounded">
-                            <input type="radio" id="magasin" name="transport" value="magasin"/>
-                            <label for="magasin">Retirer en magasin</label>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <input type="radio" id="Livraison" name="transport" value="livraison"/>
-                                    <label for="Livraison">Livraison</label>
-                                </div>
-                            </div>
-                        </div>
 
                         <div
                                 class="
@@ -96,7 +103,7 @@
                         >
 
                             <p class="fw-bold mb-0">Montant total</p>
-                            <p class="fw-bold fs-5 mb-0">{{ (prixTotal*1.2) | round(2, 'floor') }} €</p>
+                            <p class="fw-bold fs-5 mb-0">{{ (prixTotal*1.2) | round(2) }} €</p>
                         </div>
                         <p class="ps-3 my-0 fw-light tva">TVA incluse</p>
 

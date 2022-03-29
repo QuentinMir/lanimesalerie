@@ -208,7 +208,7 @@
                                                 <div>
                                                     <div class="d-flex align-items-center my-2">
                                                         <img
-                                                                src="images/pick-up-store.svg"
+                                                                src="{{ asset('img/pick-up-store.svg') }}"
                                                                 alt="retrait en magasin"
                                                         />
                                                         <h6 class="fw-light my-0 ms-2">
@@ -217,7 +217,7 @@
                                                     </div>
                                                     <div class="d-flex align-items-center my-2">
                                                         <img
-                                                                src="images/home.svg"
+                                                                src="{{ asset('img/home.svg') }}"
                                                                 alt="retrait en magasin"
                                                         />
                                                         <h6 class="fw-light my-0 ms-2">
@@ -309,128 +309,34 @@
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-wrapper">
                         <!-- Les cards -->
-                        {% for produit in produits %}
-
-                        {% endfor %}
+                        {% for singleProduit in produits %}
                         <div class="swiper-slide d-flex justify-content-center">
                             <div class="card">
-                                <a href="{{ path('singleProduct', {'id': produit.id}) }}">
+                                <a href="{{ path('singleProduct', {'id': singleProduit.id}) }}">
                                     <figure>
                                         <img
-                                                src="{{ asset('uploads/imagesproduit/'~ produit.images | first) }}"
+                                                src="{{ asset('uploads/imagesproduit/'~ singleProduit.images | first) }}"
                                                 class="img-produit"
-                                                alt="{{ produit.nom }}"
-                                                title="{{ produit.nom }}"
+                                                alt="{{ singleProduit.nom }}"
+                                                title="{{ singleProduit.nom }}"
                                                 width="150"
                                                 height="180"
                                         />
                                     </figure>
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ produit.idMarque.nom }}</h5>
-                                        <p>{{ produit.nom }}</p>
-                                        <h5 class="card-price">{{ produit.prixHt }} €</h5>
+                                        <h5 class="card-title">{{ singleProduit.idMarque.nom }}</h5>
+                                        <p>{{ singleProduit.nom }}</p>
+                                        <h5 class="card-price">{{ (singleProduit.prixHt*1.2 )| round(2) }} €</h5>
                                     </div>
                                 </a>
 
-                                <a href="#"
-                                   class="mybutton-card mx-auto mb-3 panier"
-                                   data-bs-toggle="modal"
-                                   data-bs-target="#modal"
-                                   data-id="{{ produit.id }}"
-                                   data-nom="{{ produit.nom }}"
-                                   data-prix="{{ produit.prixHt }}"
-
-
-                                >
+                                <a href="{{ path('panier_add_stay', {'id': singleProduit.id, 'qty' : 1}) }}"
+                                   class="mybutton-card mx-auto mb-3 panier">
                                     Ajouter au panier
                                 </a>
                             </div>
                         </div>
-                        {# modal panier #}
-                        <div
-                                class="modal fade"
-                                id="modal"
-                                data-bs-backdrop="static"
-                                data-bs-keyboard="false"
-                                tabindex="-1"
-                                aria-labelledby="staticBackdropLabel"
-                                aria-hidden="true"
-
-                        >
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5
-                                                class="modal-title text-red"
-                                                id="staticBackdropLabel"
-                                        >
-                                            Ajouter l'article à votre panier
-                                        </h5>
-                                        <button
-                                                type="button"
-                                                class="btn-close"
-                                                data-bs-dismiss="modal"
-                                                aria-label="Close"
-                                        ></button>
-                                    </div>
-                                    <!-- BODY FORM -->
-                                    <div class="modal-body d-flex flex-column">
-                                        <p class="mb-1 fs-5"
-                                           id="nomArticle"
-                                        >
-
-                                        </p>
-                                        <div class="d-flex align-items-center">
-
-                                            <p class="ms-4 mb-2 text-red fs-5 fw-bold" id="prixArticle">
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <div class="d-flex align-items-center my-2">
-                                                <img
-                                                        src="images/pick-up-store.svg"
-                                                        alt="retrait en magasin"
-                                                />
-                                                <h6 class="fw-light my-0 ms-2">
-                                                    Retirer en magasin - gratuit
-                                                </h6>
-                                            </div>
-                                            <div class="d-flex align-items-center my-2">
-                                                <img
-                                                        src="images/home.svg"
-                                                        alt="retrait en magasin"
-                                                />
-                                                <h6 class="fw-light my-0 ms-2">
-                                                    Livraison - Offerte
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="modal-footer my-3">
-                                        <!-- rester page -->
-                                        <a
-                                                href="#"
-                                                class="btn btn-secondary"
-                                                id="addPanierStay"
-
-                                        >
-                                            Poursuivre les achats
-                                        </a>
-                                        <!-- Envoyer panier -->
-                                        <a
-                                                href="#"
-                                                type="button"
-                                                class="btn btn-primary"
-                                                id="addPanier"
-                                        >
-                                            Accéder au panier
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        {% endfor %}
                     </div>
                 </div>
             </div>

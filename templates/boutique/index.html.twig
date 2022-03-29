@@ -251,7 +251,7 @@
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ produit.idMarque.nom }}</h5>
                                                 <p>{{ produit.nom }}</p>
-                                                <h5 class="card-price">{{ produit.prixHt }} €</h5>
+                                                <h5 class="card-price">{{ (produit.prixHt*1.2 )| round(2) }} €</h5>
                                             </div>
                                         </a>
                                         <a href="#"
@@ -313,7 +313,7 @@
                                             <div>
                                                 <div class="d-flex align-items-center my-2">
                                                     <img
-                                                            src="images/pick-up-store.svg"
+                                                            src="{{ asset('img/pick-up-store.svg') }}"
                                                             alt="retrait en magasin"
                                                     />
                                                     <h6 class="fw-light my-0 ms-2">
@@ -322,7 +322,7 @@
                                                 </div>
                                                 <div class="d-flex align-items-center my-2">
                                                     <img
-                                                            src="images/home.svg"
+                                                            src="{{ asset('img/home.svg') }}"
                                                             alt="retrait en magasin"
                                                     />
                                                     <h6 class="fw-light my-0 ms-2">

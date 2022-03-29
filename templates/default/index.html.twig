@@ -4,15 +4,6 @@
 
 {% block body %}
 
-    <h4>todo :
-        <br> Faire l'api toussa
-        <br> Retirer tri par popularité filtre boutique
-        <br> Ajouter Icones dans le paiement tunnel d'achat
-        <br> Ajouter Icones dans le pop up ajouter au panier
-        <br> Retirer pop up de la page produit dans le slider
-        <br> Retirer le produit actuel dans la liste des produits qui peuvent intéresser
-        <br> Dashboard enlever taux de conversion des commandes
-        <br> Merci monsieur</h4>
 
     <main>
         <!-- Carousel hero box -->
@@ -105,7 +96,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ produit.idMarque.nom }}</h5>
                                             <p>{{ produit.nom }}</p>
-                                            <h5 class="card-price">{{ produit.prixHt }} €</h5>
+                                            <h5 class="card-price">{{ (produit.prixHt*1.2 )| round(2) }} €</h5>
                                         </div>
                                     </a>
 

@@ -17,31 +17,34 @@ security:
             entity:
                 class: App\Entity\Admin
                 property: username
-               # id: App\Security\UserProvider
+        all_providers:
+            chain:
+                providers: [api_user_provider, app_user_provider]
 
 
     firewalls:
         api:
             stateless: true
-            provider: api_user_provider
+            provider: all_providers
+            pattern: ^/api/
             json_login:
-                check_path: /authentication_token
+                check_path: /api/authentication_token
                 username_path: username
                 password_path: password
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
             jwt: ~
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
         main:
             lazy: true
-            provider: app_user_provider
+            provider: all_providers
             custom_authenticator: App\Security\AppAuthenticator
             logout:
                 path: app_logout
                 # where to redirect after logout
                 target: default
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
@@ -53,7 +56,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/api/docs, roles: PUBLIC_ACCESS }
-        - { path: ^/authentication_token, roles: PUBLIC_ACCESS }
+        - { path: ^/api/authentication_token, roles: PUBLIC_ACCESS }
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
 when@test:
     security:
