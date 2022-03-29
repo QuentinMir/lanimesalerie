@@ -55,6 +55,8 @@ class DefaultController extends AbstractController
         $produits = [];
 
         foreach ($produitsOrdonnes as $produitOrdonne) {
+
+            /** Comparaison des produits ordonnés aux produits et injection dans le tableau de l'objet Produit **/
             foreach ($allProduits as $produit) {
                 if ($produitOrdonne['id'] == $produit->getId()) {
                     $produits[] = $produit;
@@ -362,9 +364,11 @@ class DefaultController extends AbstractController
 
         foreach ($votes as $singleVote) {
             if ($singleVote->getNumero() == $randomNumber) {
+                /** Si quelqu'un trouve on arrête le jeu **/
                 $finished = true;
             }
             if ($singleVote->getUser() == $user) {
+                /** Si l'user a déjà voté il ne peut plus rejouer **/
                 $voted = true;
                 if ($singleVote->getNumero() == $randomNumber) {
                     $winner = $singleVote->getUser();

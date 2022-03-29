@@ -71,7 +71,7 @@
                 </li>
             </ul>
 
-            {% if finished == true %}
+            {% if finished == true and winner != app.user or app.user is null %}
                 <h2 class="text-red text-center mt-5">Le nombre a déjà été trouvé, dommage...</h2>
                 <h5 class="text-red text-center mt-3 mb-5">Il s'agissait du numéro : {{ randomNumber }}</h5>
             {% elseif app.user is null %}

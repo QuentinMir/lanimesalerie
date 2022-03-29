@@ -31,7 +31,7 @@ class Souscategorie
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Produit", mappedBy="idSousCategorie")
+     * @ORM\OneToMany(targetEntity="App\Entity\Produit", mappedBy="idSousCategorie", orphanRemoval=true)
      * @ORM\JoinColumn(nullable=false)
      */
     private $produits;

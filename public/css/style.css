@@ -1277,8 +1277,7 @@ h3 a.text-red:hover {
 }
 
 @media print {
-    /* Add your custom css rules here */
-    header, footer, #dl-button {
+    header, footer, #dl-button, img {
         display: none !important;
     }
 }

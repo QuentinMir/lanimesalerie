@@ -31,7 +31,7 @@ class Categorie
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Produit", mappedBy="idCategorie")
+     * @ORM\OneToMany(targetEntity="App\Entity\Produit", mappedBy="idCategorie", orphanRemoval=true)
      * @ORM\JoinColumn(nullable=false)
      */
     private $produits;

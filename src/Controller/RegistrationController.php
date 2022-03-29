@@ -65,20 +65,29 @@ class RegistrationController extends AbstractController
                     $adresseForm->get('user')->get('plainPassword')->getData()
                 )
             );
-            $user->setDateInscription(new \DateTime());
+
+            if ($request->headers->get('referer') != 'http://localhost:8000/' . $adresse->getUser()->getId() - 1 . '/edit') {
+                $user->setDateInscription(new \DateTime());
+            }
 
             $adresse->setUser($user);
 
             $entityManager->persist($user);
             $entityManager->persist($adresse);
             $entityManager->flush();
-            // do anything else you need here, like send an email
+
+
+            if ($request->headers->get('referer') == 'http://localhost:8000/' . $adresse->getUser()->getId() - 1 . '/edit') {
+                return $this->redirectToRoute('compte');
+            }
+
 
             return $userAuthenticator->authenticateUser(
                 $user,
                 $authenticator,
                 $request
             );
+
         }
 
         return $this->render('registration/register.html.twig', [
