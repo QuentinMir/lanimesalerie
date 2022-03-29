@@ -61,9 +61,6 @@ class BoutiqueController extends AbstractController
                 case 2:
                     $produits = $pr->search($filters, $pageCourante, $nbResultats, 'DESC')[1];
                     break;
-                /*case 3:
-                    $produits = $pr->populariteDecroissante($filters, $pageCourante, $nbResultats);
-                    break;*/
             }
         } // end if
 
@@ -85,9 +82,6 @@ class BoutiqueController extends AbstractController
                     case 2:
                         $produits = $pr->search($filters, $pageCourante, $nbResultats, 'DESC')[1];
                         break;
-                    /*case 3:
-                        $produits = $pr->populariteDecroissante($filters, $pageCourante, $nbResultats);
-                        break;*/
                 }
             } // end if
 

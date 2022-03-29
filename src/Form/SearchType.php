@@ -45,7 +45,6 @@ class SearchType extends AbstractType
                 'choices' => [
                     'Prix croissant' => 1,
                     'Prix décroissant' => 2,
-                    'Popularité' => 3
                 ],
                 'multiple' => false,
                 'required' => false,
@@ -54,7 +53,7 @@ class SearchType extends AbstractType
                 'attr' => ['class' => 'form-control']
             ])
             ->add('Chercher', SubmitType::class, [
-                'attr' => ['class' => 'myButton']
+                'attr' => ['class' => 'btn btn-outline-dark']
             ]);
     }
 

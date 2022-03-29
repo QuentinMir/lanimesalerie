@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Produit;
 use App\Entity\Souscategorie;
+use App\Entity\Subsouscategorie;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -27,7 +28,10 @@ class ProduitType extends AbstractType
                     return $souscategorie->getNom() . ' - ' . $souscategorie->getCategorie();
                 },
             ])
-            ->add('idSubSousCategorie')
+            ->add('idSubSousCategorie', EntityType::class, [
+                'class' => Subsouscategorie::class,
+                'required' => false
+            ])
             ->add('idMarque')
             ->add('images', CollectionType::class, [
                 'entry_type' => ImageType::class,
