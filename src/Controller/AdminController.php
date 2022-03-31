@@ -20,7 +20,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/commandes', name: 'admin_commande')]
+    #[Route('admin/commandes', name: 'admin_commande')]
     public function indexCommandes(EntityManagerInterface $em): Response
     {
 

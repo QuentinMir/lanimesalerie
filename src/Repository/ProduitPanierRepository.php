@@ -33,4 +33,20 @@ class ProduitPanierRepository extends ServiceEntityRepository
             ->getResult();
 
     }
+
+    public function getAllProduitsVentesDesc()
+    {
+        $query = $this->createQueryBuilder('p')->leftJoin('p.produit', 'produit')
+            ->select('produit.id, (COUNT(p.produit)*p.quantite) AS compte')
+            ->groupBy('produit.id')
+            ->orderBy('compte', 'DESC');
+
+
+        return $query
+            ->getQuery()
+            ->getResult();
+
+    }
+
+
 }

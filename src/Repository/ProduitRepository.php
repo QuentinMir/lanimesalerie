@@ -171,7 +171,4 @@ class ProduitRepository extends ServiceEntityRepository
         }
     }
 
-
-
-
 }
